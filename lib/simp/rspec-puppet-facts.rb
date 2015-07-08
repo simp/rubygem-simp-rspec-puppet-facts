@@ -1,6 +1,6 @@
 module Simp; end
 module Simp::RspecPuppetFacts
-  VERSION = '1.0.0'
+  VERSION = '1.0.1'
 
   # TODO: roll this into files
   def extra_os_facts

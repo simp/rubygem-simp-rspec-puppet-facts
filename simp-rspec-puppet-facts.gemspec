@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'coveralls',          '~> 0'
   s.add_development_dependency 'mocha',              '~> 1'
   s.add_runtime_dependency     'json',               '~> 1'
-  s.add_runtime_dependency     'facter',             '~> 2'
+  s.add_runtime_dependency     'facter',             '>= 1.5.0', '< 3.0'
 
   s.add_development_dependency 'pry',                '~> 0'
   s.add_development_dependency 'pry-doc',            '~> 0'
