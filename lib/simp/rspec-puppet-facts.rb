@@ -1,6 +1,6 @@
 module Simp; end
 module Simp::RspecPuppetFacts
-  VERSION = '1.0.1'
+  require File.expand_path('version', File.dirname(__FILE__))
 
   # TODO: roll this into files
   def extra_os_facts
@@ -39,12 +39,18 @@ module Simp::RspecPuppetFacts
   def on_supported_os( opts = {} )
     h = Simp::RspecPuppetFacts::Shim.on_supported_os( opts )
     h.each do | os, facts |
-       facts[:lsbmajdistrelease] = facts[:operatingsystemmajrelease]
-       extra_facts               = extra_os_facts.fetch( facts.fetch(:operatingsystem) ).fetch( facts.fetch(:operatingsystemmajrelease) ).fetch( facts.fetch(:architecture) )
+
+       # attempt to massage a major release version if missing (for facter 1.6)
+       rel = facts.fetch(:operatingsystemmajrelease,
+                         facts.fetch(:operatingsystemrelease).split('.').first)
+       facts[:lsbmajdistrelease] = rel
+       extra_facts               = extra_os_facts.fetch( facts.fetch( :operatingsystem )).fetch( rel ).fetch( facts.fetch(:architecture) )
        extra_opts_facts          = opts.fetch( :extra_facts, {} )
 
        facts.merge! extra_facts
        facts.merge! extra_opts_facts
+
+       facts
     end
 
     h
