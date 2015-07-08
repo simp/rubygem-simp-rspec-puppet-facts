@@ -7,15 +7,13 @@ describe 'Simp::RspecPuppetFacts' do
     context 'Without parameter' do
       subject { on_supported_os() }
 
-      context 'Without metadata.json' do
+      context 'Without a metadata.json file' do
         it { expect { subject }.to raise_error(StandardError, /Can't find metadata.json/) }
       end
 
-      context 'With a metadata.json' do
-
-        context 'With a broken metadata.json' do
-
-          context 'With missing operatingsystem_support section' do
+      context 'With a metadata.json file' do
+        context 'that is broken' do
+          context 'with missing operatingsystem_support section' do
             before :all do
               fixture = File.read('spec/fixtures/metadata.json_with_missing_operatingsystem_support')
               File.expects(:file?).with('metadata.json').returns true
@@ -26,7 +24,7 @@ describe 'Simp::RspecPuppetFacts' do
           end
         end
 
-        context 'With a valid metadata.json' do
+        context 'that is valid' do
           before :all do
             fixture = File.read('spec/fixtures/metadata.json')
             File.expects(:file?).with('metadata.json').returns true
@@ -48,13 +46,13 @@ describe 'Simp::RspecPuppetFacts' do
             ]
           end
           it 'should return SIMP-specific OS facts' do
-            expect(subject.map{ |os,data|  {os => 
-              data.select{ |x,v| x == :uid_min || x == :grub_version }}} 
+            expect(subject.map{ |os,data|  {os =>
+              data.select{ |x,v| x == :uid_min || x == :grub_version }}}
             ).to eq [
+              {"centos-6-x86_64"=>{:grub_version=>"0.97",       :uid_min=>"500"}},
+              {"centos-7-x86_64"=>{:grub_version=>"2.02~beta2", :uid_min=>"500"}},
               {"redhat-6-x86_64"=>{:grub_version=>"0.97",       :uid_min=>"500"}},
               {"redhat-7-x86_64"=>{:grub_version=>"2.02~beta2", :uid_min=>"500"}},
-              {"centos-6-x86_64"=>{:grub_version=>"0.97",       :uid_min=>"500"}},
-              {"centos-7-x86_64"=>{:grub_version=>"2.02~beta2", :uid_min=>"500"}}
             ]
           end
         end
@@ -87,14 +85,6 @@ describe 'Simp::RspecPuppetFacts' do
         expect(subject.keys.sort).to eq [
           'redhat-6-x86_64',
           'redhat-7-x86_64',
-        ]
-      end
-      it 'should return SIMP-specific OS facts' do
-        expect(subject.map{ |os,data|  {os => 
-          data.select{ |x,v| x == :uid_min || x == :grub_version }}} 
-        ).to eq [
-          {"redhat-6-x86_64"=>{:grub_version=>"0.97",       :uid_min=>"500"}},
-          {"redhat-7-x86_64"=>{:grub_version=>"2.02~beta2", :uid_min=>"500"}},
         ]
       end
     end

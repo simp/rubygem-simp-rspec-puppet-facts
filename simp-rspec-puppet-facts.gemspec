@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
-$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
-require 'simp/rspec-puppet-facts'
+require  File.expand_path('lib/simp/version.rb', File.dirname(__FILE__))
 
 Gem::Specification.new do |s|
   s.name        = 'simp-rspec-puppet-facts'
