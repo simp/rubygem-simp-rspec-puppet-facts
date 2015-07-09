@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad9bd40_ec13375a",
+        "filename": "spec/fixtures/metadata.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1005194
+      },
+      "writtenOn": "2015-07-09T13:35:22Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we populate this file with a generic non-real user?",
+      "range": {
+        "startLine": 4,
+        "startChar": 13,
+        "endLine": 4,
+        "endChar": 20
+      },
+      "revId": "e3c99e8aa53aa9ea23914af97bee8372b6709a0d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
