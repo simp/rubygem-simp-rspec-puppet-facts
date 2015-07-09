@@ -22,6 +22,30 @@
       "revId": "e3c99e8aa53aa9ea23914af97bee8372b6709a0d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ad9bd40_6ca2c7af",
+        "filename": "spec/fixtures/metadata.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1005143
+      },
+      "writtenOn": "2015-07-09T15:02:30Z",
+      "side": 1,
+      "message": "whoops, regression!  Good catch, thanks.",
+      "parentUuid": "9ad9bd40_ec13375a",
+      "range": {
+        "startLine": 4,
+        "startChar": 13,
+        "endLine": 4,
+        "endChar": 20
+      },
+      "revId": "e3c99e8aa53aa9ea23914af97bee8372b6709a0d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
