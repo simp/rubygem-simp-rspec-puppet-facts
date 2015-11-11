@@ -10,6 +10,8 @@ gem_sources.each { |gem_source| source gem_source }
 
 gemspec
 
+
+
 if puppetversion = ENV['PUPPET_VERSION']
   gem 'puppet', puppetversion, :require => false
 end

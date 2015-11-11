@@ -32,6 +32,7 @@ describe 'Simp::RspecPuppetFacts' do
           end
 
           it 'should return a hash' do
+            on_supported_os()
             expect( on_supported_os().class ).to eq Hash
           end
           it 'should have 4 elements' do
@@ -54,12 +55,13 @@ describe 'Simp::RspecPuppetFacts' do
               {"redhat-6-x86_64"=>{:grub_version=>"0.97",       :uid_min=>"500"}},
               {"redhat-7-x86_64"=>{:grub_version=>"2.02~beta2", :uid_min=>"500"}},
             ]
+
           end
         end
       end
     end
 
-    context 'When specifying supported_os' do
+    context 'When specifying supported_os=redhat-6-x86_64,redhat-7-x86_64' do
       subject {
         on_supported_os(
           {
@@ -74,6 +76,28 @@ describe 'Simp::RspecPuppetFacts' do
             ]
           }
         )
+      }
+      it 'should return a hash' do
+        expect(subject.class).to eq Hash
+      end
+      it 'should have 2 elements' do
+        expect(subject.size).to eq 2
+      end
+      it 'should return supported OS' do
+        expect(subject.keys.sort).to eq [
+          'redhat-6-x86_64',
+          'redhat-7-x86_64',
+        ]
+      end
+    end
+
+    context 'When specifying SIMP_FACTS_OS=redhat-6-x86_64,redhat-7-x86_64' do
+      subject {
+        x = ENV['SIMP_FACTS_OS']
+        ENV['SIMP_FACTS_OS']='redhat-6-x86_64,redhat-7-x86_64'
+        h = on_supported_os()
+        ENV['SIMP_FACTS_OS']=x
+        h
       }
       it 'should return a hash' do
         expect(subject.class).to eq Hash

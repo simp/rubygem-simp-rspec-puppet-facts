@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency     'facter',             '>= 1.5.0', '< 3.0'
 
   s.add_development_dependency 'pry',                '~> 0'
-  s.add_development_dependency 'pry-doc',            '~> 0'
+  #s.add_development_dependency 'pry-doc',            '~> 0'
+  s.add_development_dependency 'tins',               '< 1.7' # 1.7+ breaks ruby 1.9
 
   s.requirements << 'rspec-puppet-facts'
 end
