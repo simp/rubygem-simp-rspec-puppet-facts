@@ -2,7 +2,7 @@ require 'coveralls'
 Coveralls.wear!
 
 require 'rspec'
-require 'mocha/api'
+#require 'mocha/api'
 require 'simp/rspec-puppet-facts'
 include Simp::RspecPuppetFacts
 
