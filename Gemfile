@@ -12,9 +12,7 @@ gemspec
 
 
 
-if puppetversion = ENV['PUPPET_VERSION']
-  gem 'puppet', puppetversion, :require => false
-end
+gem 'puppet', puppetversion, :require => false
 
 if facterversion = ENV['FACTER_GEM_VERSION']
   gem 'facter', facterversion, :require => false

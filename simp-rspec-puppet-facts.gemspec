@@ -11,16 +11,16 @@ Gem::Specification.new do |s|
   s.description = 'shim that injects SIMP-related facts into rspec-puppet-facts'
   s.license     = 'Apache-2.0'
   s.authors     = [ 'Chris Tessmer', 'Mickaël Canévet']
-  s.files       = Dir['Rakefile', '{bin,lib,spec}/**/*', 'README*', 'LICENSE*'] & `git ls-files -z .`.split("\0")
-  s.test_files  = Dir['Rakefile', '{spec,test}/**/*'] & `git ls-files -z .`.split("\0")
+  s.files       = Dir['Rakefile', '{bin,lib,facts,spec}/**/*', 'README*', 'LICENSE*'] & `git ls-files -z .`.split("\0")
+  s.test_files  = Dir['Rakefile', '{spec,test,facts}/**/*'] & `git ls-files -z .`.split("\0")
 
   s.add_runtime_dependency     'rspec-puppet-facts', '~> 0'
   s.add_development_dependency 'rake',               '~> 10'
-  s.add_development_dependency 'rspec',              '~> 3'
+  s.add_development_dependency 'rspec',              '~> 3.2'
 
-  s.add_development_dependency 'mime-types',         '~> 2'
-  s.add_development_dependency 'coveralls',          '~> 0'
-  s.add_development_dependency 'mocha',              '~> 1'
+  #s.add_development_dependency 'mime-types',         '~> 2'
+  #s.add_development_dependency 'coveralls',          '~> 0'
+  #s.add_development_dependency 'mocha',              '~> 1'
   s.add_runtime_dependency     'json',               '~> 1'
   s.add_runtime_dependency     'facter',             '>= 1.5.0', '< 3.0'
 
