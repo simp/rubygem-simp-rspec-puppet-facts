@@ -12,51 +12,35 @@ describe 'Simp::RspecPuppetFacts' do
       end
 
       context 'With a metadata.json file' do
-        context 'that is broken' do
-          context 'with missing operatingsystem_support section' do
-            before :all do
-              fixture = File.read('spec/fixtures/metadata.json_with_missing_operatingsystem_support')
-              File.expects(:file?).with('metadata.json').returns true
-              File.expects(:read).with('metadata.json').returns fixture
-            end
-
-            it { expect { subject }.to raise_error(StandardError, /Unknown operatingsystem support/) }
-          end
+        before :all do
+          Dir.chdir( File.join(File.dirname(__FILE__),'fixtures'))
         end
 
-        context 'that is valid' do
-          before :all do
-            fixture = File.read('spec/fixtures/metadata.json')
-            File.expects(:file?).with('metadata.json').returns true
-            File.expects(:read).with('metadata.json').returns fixture
-          end
+        it 'should return a hash' do
+          on_supported_os()
+          expect( on_supported_os().class ).to eq Hash
+        end
+        it 'should have 4 elements' do
+          expect(subject.size).to eq 4
+        end
+        it 'should return supported OS' do
+          expect(subject.keys.sort).to eq [
+            'centos-6-x86_64',
+            'centos-7-x86_64',
+            'redhat-6-x86_64',
+            'redhat-7-x86_64',
+          ]
+        end
+        it 'should return SIMP-specific OS facts' do
+          expect(subject.map{ |os,data|  {os =>
+            data.select{ |x,v| x == :uid_min || x == :grub_version }}}
+          ).to eq [
+            {"centos-6-x86_64"=>{:uid_min=>"500",  :grub_version=>"0.97"      }},
+            {"centos-7-x86_64"=>{:uid_min=>"1000", :grub_version=>"2.02~beta2"}},
+            {"redhat-6-x86_64"=>{:uid_min=>"500",  :grub_version=>"0.97"      }},
+            {"redhat-7-x86_64"=>{:uid_min=>"1000", :grub_version=>"2.02~beta2"}},
+          ]
 
-          it 'should return a hash' do
-            on_supported_os()
-            expect( on_supported_os().class ).to eq Hash
-          end
-          it 'should have 4 elements' do
-            expect(subject.size).to eq 4
-          end
-          it 'should return supported OS' do
-            expect(subject.keys.sort).to eq [
-              'centos-6-x86_64',
-              'centos-7-x86_64',
-              'redhat-6-x86_64',
-              'redhat-7-x86_64',
-            ]
-          end
-          it 'should return SIMP-specific OS facts' do
-            expect(subject.map{ |os,data|  {os =>
-              data.select{ |x,v| x == :uid_min || x == :grub_version }}}
-            ).to eq [
-              {"centos-6-x86_64"=>{:grub_version=>"0.97",       :uid_min=>"500"}},
-              {"centos-7-x86_64"=>{:grub_version=>"2.02~beta2", :uid_min=>"500"}},
-              {"redhat-6-x86_64"=>{:grub_version=>"0.97",       :uid_min=>"500"}},
-              {"redhat-7-x86_64"=>{:grub_version=>"2.02~beta2", :uid_min=>"500"}},
-            ]
-
-          end
         end
       end
     end

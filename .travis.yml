@@ -2,22 +2,33 @@
 language: ruby
 sudo: false
 cache: bundler
+before_install: rm Gemfile.lock || true
 script:
   - bundle exec rake spec
+notifications:
+  email: false
 rvm:
-  - 1.9.3
   - 2.0.0
-  - 2.1.5
+  - 2.1.0
+  - 1.9.3
+  - 2.2.1
 env:
+  global:
+  matrix:
   #  - FACTER_GEM_VERSION="~> 1.6.0" # no operatingsystemmajrelease fact
+  - FACTER_GEM_VERSION="~> 2.4.0"
   - FACTER_GEM_VERSION="~> 1.7.0"
   - FACTER_GEM_VERSION="~> 2.0.0"
   - FACTER_GEM_VERSION="~> 2.1.0"
   - FACTER_GEM_VERSION="~> 2.2.0"
   - FACTER_GEM_VERSION="~> 2.3.0"
-  - FACTER_GEM_VERSION="~> 2.4.0"
-  - FACTER_GEM_VERSION="~> 2.0"
 matrix:
   fast_finish: true
-notifications:
-  email: false
+  allow_failures:
+    - rvm: 1.9.3
+    - rvm: 2.2.1
+    - env: FACTER_GEM_VERSION="~> 1.7.0"
+    - env: FACTER_GEM_VERSION="~> 2.0.0"
+    - env: FACTER_GEM_VERSION="~> 2.1.0"
+    - env: FACTER_GEM_VERSION="~> 2.2.0"
+    - env: FACTER_GEM_VERSION="~> 2.3.0"
