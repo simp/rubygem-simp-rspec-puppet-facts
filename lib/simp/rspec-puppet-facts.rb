@@ -1,52 +1,28 @@
+require 'json'
+
 module Simp; end
 module Simp::RspecPuppetFacts
   require File.expand_path('version', File.dirname(__FILE__))
-
-  # TODO: roll this into files
-  def extra_os_facts
-    {
-      'CentOS' => {
-         '6' => {
-         'x86_64' => {
-            :grub_version              => '0.97',
-            :uid_min                   => '500',
-          },
-         },
-         '7' => {
-         'x86_64' => {
-            :grub_version              => '2.02~beta2',
-            :uid_min                   => '500',
-          },
-         },
-      },
-      'RedHat' => {
-         '6' => {
-         'x86_64' => {
-            :grub_version              => '0.97',
-            :uid_min                   => '500',
-          },
-         },
-         '7' => {
-         'x86_64' => {
-            :grub_version              => '2.02~beta2',
-            :uid_min                   => '500',
-
-          },
-         },
-      },
-    }
-  end
-
-
 
   def on_supported_os( opts = {} )
     h = Simp::RspecPuppetFacts::Shim.on_supported_os( opts )
 
     h.each do | os, facts |
-      facts.merge! lsb_facts( facts )
-      facts.merge! selinux_facts
-      facts.merge! extra_facts(facts)
-      facts.merge! opts.fetch( :extra_facts, {} )
+      facter_version=Facter.version[0..2]
+      facts_file = File.expand_path("../../facts/#{facter_version}/#{os}.facts", File.dirname(__FILE__))
+      if File.file? facts_file
+        newer_facts_raw = File.open(
+          File.expand_path("../../facts/#{facter_version}/#{os}.facts", File.dirname(__FILE__))
+        ).read
+        newer_facts = symbolize_keys JSON.parse( newer_facts_raw )
+
+        newer_facts.keep_if{ |k,v| (newer_facts.keys-facts.keys).include? k }
+
+        facts.merge! lsb_facts( facts )
+        facts.merge! selinux_facts
+        facts.merge! newer_facts
+        facts.merge! opts.fetch( :extra_facts, {} )
+      end
 
       if ( ENV.key?('SIMP_FACTS_OS') &&
            !ENV['SIMP_FACTS_OS'].nil? &&
@@ -56,20 +32,11 @@ module Simp::RspecPuppetFacts
           h.delete(os)
         end
       end
-
     end
 
     h
   end
 
-
-
-  def extra_facts( facts )
-      _rel  = facts.fetch(:operatingsystemmajrelease).split('.').first
-      _os   = facts.fetch( :operatingsystem )
-      _arch = facts.fetch(:architecture)
-      _extra_facts  = extra_os_facts.fetch(_os).fetch(_rel).fetch(_arch)
-  end
 
   def lsb_facts( facts )
     lsb_facts = {}
@@ -90,18 +57,18 @@ module Simp::RspecPuppetFacts
       puts "====   options: SIMP_FACTS_selinux=no|enforcing|permissive|disabled" if ENV['VERBOSE']
       sefacts_enforcing = {
         :selinux              => true,
-        :selinux_current_mode => :enforcing,
-        :selinux_state        => :enforcing,
+        :selinux_current_mode => 'enforcing',
+        :selinux_state        => 'enforcing',
       }
       sefacts_permissive = {
         :selinux              => true,
-        :selinux_current_mode => :permissive,
-        :selinux_state        => :permssive,
+        :selinux_current_mode => 'permissive',
+        :selinux_state        => 'permssive',
       }
       sefacts_disabled = {
         :selinux              => false,
-        :selinux_current_mode => :disabled,
-        :selinux_state        => :disabled,
+        :selinux_current_mode => 'disabled',
+        :selinux_state        => 'disabled',
       }
       sefacts = sefacts_enforcing
       sefacts = sefacts_enforcing  if ENV['SIMP_FACTS_selinux'] =~ /enforcing/i
@@ -111,6 +78,20 @@ module Simp::RspecPuppetFacts
     sefacts
   end
 
+  def symbolize_keys(hash)
+    hash.inject({}){|result, (key, value)|
+      new_key = case key
+                when String then key.to_sym
+                else key
+                end
+      new_value = case value
+                  when Hash then symbolize_keys(value)
+                  else value
+                  end
+      result[new_key] = new_value
+      result
+    }
+  end
 
   class Shim
     require 'rspec-puppet-facts'
