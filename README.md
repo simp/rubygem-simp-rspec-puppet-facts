@@ -61,12 +61,15 @@ _[default: {}]_
 
 Override or add extra facts to each os/facts hash.  These facts cannot be altered by internal logic (such as `:selinux_mode`).
 
+
+
 ### `:selinux_mode`
 
 _[default: **`:enforcing`**]_
 
 Given an enforcement mode (`:enforcing`, `:permissive`, or `:disabled`), overrides the following facts:
   - `selinux`
+  - `selinux_enforced`
   - `selinux_current_mode`
   - `selinux_state`
   - `tmp_mount_*` _(only modifies existing `tmp_mount*` facts)_

@@ -46,7 +46,7 @@
     }
   },
   "system_uptime": {
-    "seconds": 92,
+    "seconds": 89,
     "hours": 0,
     "days": 0,
     "uptime": "0:01 hours"
@@ -60,17 +60,17 @@
   "network_lo": "127.0.0.0",
   "osfamily": "RedHat",
   "memorysize": "490.39 MB",
-  "memoryfree": "392.67 MB",
+  "memoryfree": "379.02 MB",
   "swapsize": "992.00 MB",
-  "swapfree": "991.86 MB",
+  "swapfree": "991.82 MB",
   "swapsize_mb": "992.00",
-  "swapfree_mb": "991.86",
+  "swapfree_mb": "991.82",
   "memorysize_mb": "490.39",
-  "memoryfree_mb": "392.67",
+  "memoryfree_mb": "379.02",
   "operatingsystemmajrelease": "6",
   "netmask": "255.255.255.0",
   "operatingsystemrelease": "6.6",
-  "uptime_seconds": 92,
+  "uptime_seconds": 89,
   "boardmanufacturer": "Oracle Corporation",
   "boardproductname": "VirtualBox",
   "boardserialnumber": "0",
@@ -80,7 +80,7 @@
   "manufacturer": "innotek GmbH",
   "productname": "VirtualBox",
   "serialnumber": "0",
-  "uuid": "744D861E-723F-4811-A97E-7DB0430088C6",
+  "uuid": "F8C11CF8-EB58-4157-A0E5-286D3CAD976E",
   "type": "Other",
   "processors": {
     "models": [
@@ -230,6 +230,7 @@
     }
   },
   "root_home": "/root",
+  "puppet_vardir": "/var/lib/puppet",
   "is_pe": false,
   "has_tpm": false,
   "gdm_version": "0.0.0"

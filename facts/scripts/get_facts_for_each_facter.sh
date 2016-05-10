@@ -1,19 +1,23 @@
 #!/bin/bash
 operatingsystemmajrelease=$1
-
 export PATH=/opt/puppetlabs/bin:$PATH
 export FACTERLIB=`ls -1d /vagrant/modules/*/lib/facter | tr '\n' ':'`
 
-yum install epel-release -y
 wget "https://yum.puppetlabs.com/puppetlabs-release-pc1-el-${operatingsystemmajrelease}.noarch.rpm" -O /tmp/puppetlabs-release-pc1.rpm
 rpm -ivh /tmp/puppetlabs-release-pc1.rpm
+
+# Because `yum install epel-release -y` doesn't work for RedHat:
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-${operatingsystemmajrelease}.noarch.rpm
+rpm -Uvh epel-release-latest-${operatingsystemmajrelease}*.rpm
+
 
 # Capture data for (c)facter 3.X
 for puppet_agent_version in 1.2.2 1.2.7; do
   yum install -y puppet-agent-${puppet_agent_version} rubygems git ruby-devel
-  output_file="/vagrant/$(facter --version | cut -c1-3)/$(facter operatingsystem | tr '[:upper:]' '[:lower:]')-$(facter operatingsystemmajrelease)-$(facter hardwaremodel).facts"
-  mkdir -p $(dirname ${output_file})
-  facter -j | tee ${output_file}
+  output_dir="/vagrant/$(facter --version | cut -c1-3)"
+  output_file="$(facter operatingsystem | tr '[:upper:]' '[:lower:]')-$(facter operatingsystemmajrelease)-$(facter hardwaremodel).facts"
+  mkdir -p $output_dir
+  puppet facts | tee "${output_dir}/${output_file}"
 done
 
 operatingsystem=$(facter operatingsystem | tr '[:upper:]' '[:lower:]')
@@ -25,11 +29,15 @@ gem install bundler --no-ri --no-rdoc --no-format-executable
 bundle install --path vendor/bundler
 
 # Capture data for ruby-based facters
-for version in 1.6.0 1.7.0 2.0.0 2.1.0 2.2.0 2.3.0 2.4.0; do
+for version in 1.7.0 2.0.0 2.1.0 2.2.0 2.3.0 2.4.0; do
   FACTER_GEM_VERSION="~> ${version}" bundle update
-  output_file="/vagrant/$(bundle exec facter --version | cut -c1-3)/${operatingsystem}-${operatingsystemmajrelease}-${hardwaremodel}.facts"
+  os_string="$(bundle exec facter --version | cut -c1-3)/${operatingsystem}-${operatingsystemmajrelease}-${hardwaremodel}"
+  echo
+  echo
+  echo ============== ${os_string} ================
+  echo
+  echo
+  output_file="/vagrant/${os_string}.facts"
   mkdir -p $(dirname $output_file)
-  echo $version | grep -q -E '^1\.' &&
-    FACTER_GEM_VERSION="~> ${version}" bundle exec facter -j | bundle exec ruby -e 'require "json"; jj JSON.parse gets' | tee $output_file ||
-    FACTER_GEM_VERSION="~> ${version}" bundle exec facter -j | tee $output_file
+  FACTER_GEM_VERSION="~> ${version}" bundle exec ruby /vagrant/scripts/get_facts.rb | tee $output_file
 done

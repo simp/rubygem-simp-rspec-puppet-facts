@@ -3,7 +3,7 @@
   "lib": "/vagrant/modules/apache/lib/facter:/vagrant/modules/foreman/lib/facter:/vagrant/modules/freeradius/lib/facter:/vagrant/modules/openldap/lib/facter:/vagrant/modules/pupmod/lib/facter:/vagrant/modules/simplib/lib/facter:/vagrant/modules/stdlib/lib/facter:/vagrant/modules/tpm/lib/facter:/vagrant/modules/xwindows/lib/facter:",
   "kernel": "Linux",
   "system_uptime": {
-    "seconds": 71,
+    "seconds": 80,
     "hours": 0,
     "days": 0,
     "uptime": "0:01 hours"
@@ -48,7 +48,7 @@
     "count": 1,
     "physicalcount": 1
   },
-  "uptime_seconds": 71,
+  "uptime_seconds": 80,
   "uptime": "0:01 hours",
   "ps": "ps -ef",
   "operatingsystemmajrelease": "7",
@@ -85,13 +85,13 @@
   "uptime_days": 0,
   "ipaddress": "10.0.2.15",
   "memorysize": "489.04 MB",
-  "memoryfree": "332.76 MB",
+  "memoryfree": "320.23 MB",
   "swapsize": "1024.00 MB",
   "swapfree": "1024.00 MB",
   "swapsize_mb": "1024.00",
   "swapfree_mb": "1024.00",
   "memorysize_mb": "489.04",
-  "memoryfree_mb": "332.76",
+  "memoryfree_mb": "320.23",
   "filesystems": "xfs",
   "hardwareisa": "x86_64",
   "uniqueid": "007f0100",
@@ -112,7 +112,7 @@
   "manufacturer": "innotek GmbH",
   "productname": "VirtualBox",
   "serialnumber": "0",
-  "uuid": "34D3157B-EE15-4BB7-80B4-1CAB1D14262F",
+  "uuid": "26AFABD5-44C8-4335-97E3-A81EAE065F48",
   "type": "Other",
   "processor0": "Intel(R) Core(TM) i7-5557U CPU @ 3.10GHz",
   "processorcount": 1,
@@ -231,6 +231,7 @@
     }
   },
   "root_home": "/root",
+  "puppet_vardir": "/var/lib/puppet",
   "is_pe": false,
   "has_tpm": false,
   "gdm_version": "0.0.0"

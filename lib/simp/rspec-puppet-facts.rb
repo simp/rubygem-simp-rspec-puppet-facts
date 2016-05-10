@@ -1,4 +1,5 @@
 require 'json'
+require 'puppet'
 
 module Simp; end
 module Simp::RspecPuppetFacts
@@ -22,6 +23,7 @@ module Simp::RspecPuppetFacts
 
         facts.merge! captured_facts
         facts.merge! opts.fetch( :extra_facts, {} )
+        facts.merge!({ :puppetversion => ::Puppet.version })
         facts.merge! lsb_facts( facts )
         facts.merge! selinux_facts( selinux_mode, facts )
         facts.merge! opts.fetch( :extra_facts_immutable, {} )
@@ -60,16 +62,19 @@ module Simp::RspecPuppetFacts
     sefacts = {}
     sefacts_enforcing = {
       :selinux              => true,
+      :selinux_enforced     => true,
       :selinux_current_mode => 'enforcing',
       :selinux_state        => 'enforcing',
     }
     sefacts_permissive = {
       :selinux              => true,
+      :selinux_enforced     => false,
       :selinux_current_mode => 'permissive',
       :selinux_state        => 'permssive',
     }
     sefacts_disabled = {
       :selinux              => false,
+      :selinux_enforced     => false,
       :selinux_current_mode => 'disabled',
       :selinux_state        => 'disabled',
     }

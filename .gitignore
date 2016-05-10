@@ -5,3 +5,4 @@ Gemfile.lock
 .bundle/
 coverage/
 facts/modules/
+vendor/
