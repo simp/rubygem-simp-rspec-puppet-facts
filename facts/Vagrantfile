@@ -10,25 +10,31 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "redhat-6-x86_64" do |host|
     host.vm.box = "anandbitra/redhat-6.5"
     host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "6"
+    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "redhat 6"
     host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
   end
   config.vm.define "redhat-7-x86_64" do |host|
     host.vm.box = "mrlesmithjr/rhel-7"
     host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "7"
+    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "redhat 7"
     host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
   end
   config.vm.define "centos-6-x86_64" do |host|
     host.vm.box = "puppetlabs/centos-6.6-64-nocm"
     host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "6"
+    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "centos 6"
     host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
   end
   config.vm.define "centos-7-x86_64" do |host|
     host.vm.box = "puppetlabs/centos-7.0-64-nocm"
     host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "7"
+    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "centos 7"
+    host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
+  end
+  config.vm.define "fedora-23-x86_64" do |host|
+    host.vm.box = "box-cutter/fedora23"
+    host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
+    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "fedora 23"
     host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
   end
 end

@@ -1,19 +1,31 @@
 #!/bin/bash
-operatingsystemmajrelease=$1
+operatingsystem=`echo "$1" | cut -f1 -d' '`
+operatingsystemmajrelease=`echo "$1" | cut -f2 -d' '`
+
 export PATH=/opt/puppetlabs/bin:$PATH
 export FACTERLIB=`ls -1d /vagrant/modules/*/lib/facter | tr '\n' ':'`
 
-wget "https://yum.puppetlabs.com/puppetlabs-release-pc1-el-${operatingsystemmajrelease}.noarch.rpm" -O /tmp/puppetlabs-release-pc1.rpm
-rpm -ivh /tmp/puppetlabs-release-pc1.rpm
+if ( "${operatingsystem}" == 'fedora' ) && ($operatingsystemmajrelease -gt 21); then
+  rpm_cmd='dnf'
+else
+  rpm_cmd='yum'
+fi
 
-# Because `yum install epel-release -y` doesn't work for RedHat:
-wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-${operatingsystemmajrelease}.noarch.rpm
-rpm -Uvh epel-release-latest-${operatingsystemmajrelease}*.rpm
+$rpm_cmd install -y --nogpgcheck "https://yum.puppetlabs.com/puppetlabs-release-pc1-${operatingsystem}-${operatingsystemmajrelease}.noarch.rpm"
 
+if ( "${operatingsystem}" != 'fedora' ); then
+  $rpm_cmd install -y --nogpgcheck https://dl.fedoraproject.org/pub/epel/epel-release-latest-${operatingsystemmajrelease}.noarch.rpm
+fi
+
+# Prereqs
+$rpm_cmd install -y facter rubygem-bundler git augeas-devel \
+  libicu-devel libxml2 libxmls-devel libxslt libxslt-devel \
+  gcc gcc-c++ ruby-devel
+
+$rpm_cmd install -y puppet-agent || $rpm_cmd install -y puppet
 
 # Capture data for (c)facter 3.X
 for puppet_agent_version in 1.2.2 1.2.7; do
-  yum install -y puppet-agent-${puppet_agent_version} rubygems git ruby-devel
   output_dir="/vagrant/$(facter --version | cut -c1-3)"
   output_file="$(facter operatingsystem | tr '[:upper:]' '[:lower:]')-$(facter operatingsystemmajrelease)-$(facter hardwaremodel).facts"
   mkdir -p $output_dir
