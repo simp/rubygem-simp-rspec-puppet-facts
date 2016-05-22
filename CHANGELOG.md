@@ -1,4 +1,8 @@
-## 2016-05-07 - Collect SIMP module facts from running systems
+## 2016-05-22 - Collect facts for Fedora 23 - 1.4.0
+- Updated `Vagrantfile` to handle both Fedora and EL
+- Updated the collection script to handle both Fedora and EL
+
+## 2016-05-07 - Collect SIMP module facts from running systems - 1.3.0
 - Adapted `Vagrantfile` from facterdb to collect facts from any modules left
   under `facts/modules`.
 - Added new options `:selinux_mode` and `:extra_facts_immutable`.
