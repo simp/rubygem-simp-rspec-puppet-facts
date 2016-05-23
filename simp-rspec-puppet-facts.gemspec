@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.files       = Dir['Rakefile', '{bin,lib,facts,spec}/**/*', 'README*', 'LICENSE*'] & `git ls-files -z .`.split("\0")
   s.test_files  = Dir['Rakefile', '{spec,test,facts}/**/*'] & `git ls-files -z .`.split("\0")
 
-  s.add_runtime_dependency     'rspec-puppet-facts', '~> 0'
+  s.add_runtime_dependency     'rspec-puppet-facts', '~> 1'
   s.add_development_dependency 'rake',               '~> 10'
   s.add_development_dependency 'rspec',              '~> 3.2'
 

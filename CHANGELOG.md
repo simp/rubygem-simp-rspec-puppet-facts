@@ -1,3 +1,7 @@
+## 2016-05-23 - Updated rspec-puppet-facts
+- Grabbed the latest rspec puppet facts which brings in facterdb
+  for Fedora 23 support.
+
 ## 2016-05-07 - Collect SIMP module facts from running systems
 - Adapted `Vagrantfile` from facterdb to collect facts from any modules left
   under `facts/modules`.
