@@ -40,8 +40,12 @@ $rpm_cmd install -y facter rubygem-bundler git augeas-devel \
 $rpm_cmd install -y puppet-agent || $rpm_cmd install -y puppet
 
 # Capture data for (c)facter 3.X
-for puppet_agent_version in 1.2.2 1.2.7; do
-  output_dir="/vagrant/$( facter --version | cut -c1-3 )"
+for puppet_agent_version in 1.2.2 1.2.7 1.5.3; do
+  facter_version=$( facter --version | cut -c1-3 )
+  output_dir="/vagrant/${facter_version}"
+  echo
+  echo "---------------- facter: '${facter_version}'  puppet agent version: '${puppet_agent_version}'"
+  echo
   output_file="$( facter operatingsystem | tr '[:upper:]' '[:lower:]' )-$( facter operatingsystemmajrelease )-$( facter hardwaremodel ).facts"
   mkdir -p $output_dir
   puppet facts | tee "${output_dir}/${output_file}"
@@ -61,7 +65,7 @@ for version in 1.7.0 2.0.0 2.1.0 2.2.0 2.3.0 2.4.0; do
   os_string="$(bundle exec facter --version | cut -c1-3)/${operatingsystem}-${operatingsystemmajrelease}-${hardwaremodel}"
   echo
   echo
-  echo ============== ${os_string} ================
+  echo  ============== ${os_string} ================
   echo
   echo
   output_file="/vagrant/${os_string}.facts"
