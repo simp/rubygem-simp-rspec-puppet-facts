@@ -2,6 +2,7 @@
   "name": "foo.example.com",
   "values": {
     "acpid_enabled": false,
+    "aio_agent_version": "1.6.0",
     "architecture": "x86_64",
     "auditd_version": "2.4.1",
     "augeas": {
@@ -145,7 +146,7 @@
       }
     },
     "domain": "example.com",
-    "facterversion": "3.0.2",
+    "facterversion": "3.4.0",
     "filesystems": "xfs",
     "fips_enabled": false,
     "fqdn": "foo.example.com",
@@ -162,6 +163,7 @@
     "identity": {
       "gid": 0,
       "group": "root",
+      "privileged": true,
       "uid": 0,
       "user": "root"
     },
@@ -177,7 +179,7 @@
     "ipaddress6_lo": "::1",
     "ipaddress_enp0s3": "10.0.2.15",
     "ipaddress_lo": "127.0.0.1",
-    "ipv6_enabled": false,
+    "ipv6_enabled": true,
     "is_pe": false,
     "is_virtual": true,
     "kernel": "Linux",
@@ -185,9 +187,9 @@
     "kernelrelease": "3.10.0-123.el7.x86_64",
     "kernelversion": "3.10.0",
     "load_averages": {
-      "15m": 0.04,
-      "1m": 0.46,
-      "5m": 0.11
+      "15m": 0.09,
+      "1m": 0.96,
+      "5m": 0.26
     },
     "macaddress": "08:00:27:be:2b:28",
     "macaddress_enp0s3": "08:00:27:be:2b:28",
@@ -203,24 +205,24 @@
         "used_bytes": 8192
       },
       "system": {
-        "available": "322.23 MiB",
-        "available_bytes": 337883136,
-        "capacity": "34.29%",
+        "available": "301.22 MiB",
+        "available_bytes": 315854848,
+        "capacity": "38.58%",
         "total": "490.41 MiB",
         "total_bytes": 514228224,
-        "used": "168.18 MiB",
-        "used_bytes": 176345088
+        "used": "189.18 MiB",
+        "used_bytes": 198373376
       }
     },
-    "memoryfree": "322.23 MiB",
-    "memoryfree_mb": 322.23046875,
+    "memoryfree": "301.22 MiB",
+    "memoryfree_mb": 301.22265625,
     "memorysize": "490.41 MiB",
     "memorysize_mb": 490.40625,
     "mountpoints": {
       "/": {
-        "available": "17.11 GiB",
-        "available_bytes": 18366988288,
-        "capacity": "7.37%",
+        "available": "17.06 GiB",
+        "available_bytes": 18321133568,
+        "capacity": "7.60%",
         "device": "/dev/mapper/centos-root",
         "filesystem": "xfs",
         "options": [
@@ -232,8 +234,8 @@
         ],
         "size": "18.47 GiB",
         "size_bytes": 19828572160,
-        "used": "1.36 GiB",
-        "used_bytes": 1461583872
+        "used": "1.40 GiB",
+        "used_bytes": 1507438592
       },
       "/boot": {
         "available": "393.11 MiB",
@@ -275,6 +277,20 @@
       "hostname": "foo",
       "interfaces": {
         "enp0s3": {
+          "bindings": [
+            {
+              "address": "10.0.2.15",
+              "netmask": "255.255.255.0",
+              "network": "10.0.2.0"
+            }
+          ],
+          "bindings6": [
+            {
+              "address": "fe80::a00:27ff:febe:2b28",
+              "netmask": "ffff:ffff:ffff:ffff::",
+              "network": "fe80::"
+            }
+          ],
           "dhcp": "10.0.2.2",
           "ip": "10.0.2.15",
           "ip6": "fe80::a00:27ff:febe:2b28",
@@ -286,6 +302,20 @@
           "network6": "fe80::"
         },
         "lo": {
+          "bindings": [
+            {
+              "address": "127.0.0.1",
+              "netmask": "255.0.0.0",
+              "network": "127.0.0.0"
+            }
+          ],
+          "bindings6": [
+            {
+              "address": "::1",
+              "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+              "network": "::1"
+            }
+          ],
           "ip": "127.0.0.1",
           "ip6": "::1",
           "mtu": 65536,
@@ -302,7 +332,8 @@
       "netmask": "255.255.255.0",
       "netmask6": "ffff:ffff:ffff:ffff::",
       "network": "10.0.2.0",
-      "network6": "fe80::"
+      "network6": "fe80::",
+      "primary": "enp0s3"
     },
     "openldap_arch": "i386",
     "openssh_version": "6.4",
@@ -328,14 +359,14 @@
       "/dev/mapper/centos-root": {
         "filesystem": "xfs",
         "mount": "/",
-        "size": "0 bytes",
-        "size_bytes": 0,
+        "size": "18.48 GiB",
+        "size_bytes": 19839057920,
         "uuid": "db651e5f-a2c2-4236-9570-6226f63e1fcd"
       },
       "/dev/mapper/centos-swap": {
         "filesystem": "swap",
-        "size": "0 bytes",
-        "size_bytes": 0,
+        "size": "1.03 GiB",
+        "size_bytes": 1107296256,
         "uuid": "ff4ec16c-28c0-4715-846d-11e7c9b4e53b"
       },
       "/dev/sda1": {
@@ -367,18 +398,18 @@
     "productname": "VirtualBox",
     "puppet_ruby_dir": "/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet",
     "puppet_vardir": "/opt/puppetlabs/puppet/cache",
-    "puppetversion": "4.2.1",
+    "puppetversion": "4.6.0",
     "radius_version": "unknown",
     "reboot_required": false,
     "root_home": "/root",
     "ruby": {
       "platform": "x86_64-linux",
       "sitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-      "version": "2.1.6"
+      "version": "2.1.9"
     },
     "rubyplatform": "x86_64-linux",
     "rubysitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-    "rubyversion": "2.1.6",
+    "rubyversion": "2.1.9",
     "runlevel": "3",
     "selinux": false,
     "serialnumber": "0",
@@ -410,7 +441,7 @@
     "system_uptime": {
       "days": 0,
       "hours": 0,
-      "seconds": 126,
+      "seconds": 156,
       "uptime": "0:02 hours"
     },
     "timezone": "UTC",
@@ -421,13 +452,13 @@
     "uptime": "0:02 hours",
     "uptime_days": 0,
     "uptime_hours": 0,
-    "uptime_seconds": 126,
+    "uptime_seconds": 156,
     "uuid": "CC00A467-3CB9-4C34-88E1-492C171D44E1",
     "virtual": "virtualbox",
     "clientcert": "foo.example.com",
-    "clientversion": "4.2.1",
+    "clientversion": "4.6.0",
     "clientnoop": false
   },
-  "timestamp": "2016-08-17T04:12:12.305906633+00:00",
-  "expiration": "2016-08-17T04:42:12.306175459+00:00"
+  "timestamp": "2016-08-17T04:12:41.701054539+00:00",
+  "expiration": "2016-08-17T04:42:41.701390990+00:00"
 }

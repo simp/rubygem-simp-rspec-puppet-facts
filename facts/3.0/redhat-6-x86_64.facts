@@ -3,6 +3,7 @@
   "values": {
     "acpid_enabled": true,
     "architecture": "x86_64",
+    "auditd_version": "2.2",
     "augeas": {
       "version": "1.4.0"
     },
@@ -44,7 +45,7 @@
         "model": "61",
         "model_name": "Intel(R) Core(TM) i7-5557U CPU @ 3.10GHz",
         "stepping": "4",
-        "cpu_MHz": "3092.884",
+        "cpu_MHz": "3178.028",
         "cache_size": "4096 KB",
         "fpu": "yes",
         "fpu_exception": "yes",
@@ -101,7 +102,7 @@
           "abm",
           "3dnowprefetch"
         ],
-        "bogomips": "6185.76",
+        "bogomips": "6356.05",
         "clflush_size": "64",
         "cache_alignment": "64",
         "address_sizes": "39 bits physical, 48 bits virtual",
@@ -146,7 +147,7 @@
       "product": {
         "name": "VirtualBox",
         "serial_number": "0",
-        "uuid": "9DF34A35-231F-4D73-B6CA-365C81EB20F1"
+        "uuid": "406E4031-0DAC-4CEA-907F-5BED3D7B53F5"
       }
     },
     "domain": "example.com",
@@ -155,13 +156,13 @@
     "fips_enabled": false,
     "fqdn": "foo.example.com",
     "fullrun": "false",
-    "gdm_version": "0.0.0",
     "gid": "root",
     "grub_version": "0.97",
     "hardwareisa": "x86_64",
     "hardwaremodel": "x86_64",
     "has_clustering": false,
     "has_tpm": false,
+    "haveged_startup_provider": "init",
     "hostname": "foo",
     "id": "root",
     "identity": {
@@ -190,9 +191,9 @@
     "kernelrelease": "2.6.32-431.el6.x86_64",
     "kernelversion": "2.6.32",
     "load_averages": {
-      "15m": 0.01,
-      "1m": 0.08,
-      "5m": 0.02
+      "15m": 0.02,
+      "1m": 0.26,
+      "5m": 0.06
     },
     "macaddress": "08:00:27:d5:6f:26",
     "macaddress_eth0": "08:00:27:d5:6f:26",
@@ -209,23 +210,23 @@
       },
       "system": {
         "available": "1.71 GiB",
-        "available_bytes": 1841311744,
-        "capacity": "6.47%",
+        "available_bytes": 1838292992,
+        "capacity": "6.62%",
         "total": "1.83 GiB",
         "total_bytes": 1968627712,
-        "used": "121.42 MiB",
-        "used_bytes": 127315968
+        "used": "124.30 MiB",
+        "used_bytes": 130334720
       }
     },
     "memoryfree": "1.71 GiB",
-    "memoryfree_mb": 1756.01171875,
+    "memoryfree_mb": 1753.1328125,
     "memorysize": "1.83 GiB",
     "memorysize_mb": 1877.4296875,
     "mountpoints": {
       "/": {
-        "available": "24.63 GiB",
-        "available_bytes": 26444517376,
-        "capacity": "5.61%",
+        "available": "24.58 GiB",
+        "available_bytes": 26397450240,
+        "capacity": "5.78%",
         "device": "/dev/mapper/vg_redhat65vagrant-lv_root",
         "filesystem": "ext4",
         "options": [
@@ -233,8 +234,8 @@
         ],
         "size": "26.09 GiB",
         "size_bytes": 28015718400,
-        "used": "1.46 GiB",
-        "used_bytes": 1571201024
+        "used": "1.51 GiB",
+        "used_bytes": 1618268160
       },
       "/boot": {
         "available": "451.54 MiB",
@@ -302,6 +303,7 @@
       "network6": "fe80::"
     },
     "openldap_arch": "i386",
+    "openssh_version": "5.3",
     "operatingsystem": "RedHat",
     "operatingsystemmajrelease": "6",
     "operatingsystemrelease": "6.5",
@@ -406,7 +408,7 @@
     "system_uptime": {
       "days": 0,
       "hours": 0,
-      "seconds": 41,
+      "seconds": 46,
       "uptime": "0:00 hours"
     },
     "timezone": "EDT",
@@ -417,13 +419,13 @@
     "uptime": "0:00 hours",
     "uptime_days": 0,
     "uptime_hours": 0,
-    "uptime_seconds": 41,
-    "uuid": "9DF34A35-231F-4D73-B6CA-365C81EB20F1",
+    "uptime_seconds": 46,
+    "uuid": "406E4031-0DAC-4CEA-907F-5BED3D7B53F5",
     "virtual": "virtualbox",
     "clientcert": "foo.example.com",
     "clientversion": "4.2.1",
     "clientnoop": false
   },
-  "timestamp": "2016-05-10T21:15:25.045746553-04:00",
-  "expiration": "2016-05-10T21:45:25.046118707-04:00"
+  "timestamp": "2016-08-17T00:05:34.678830782-04:00",
+  "expiration": "2016-08-17T00:35:34.679102822-04:00"
 }

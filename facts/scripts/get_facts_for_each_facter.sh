@@ -35,13 +35,19 @@ $rpm_cmd install -y --nogpgcheck "https://yum.puppetlabs.com/puppetlabs-release-
 # Prereqs
 $rpm_cmd install -y facter rubygem-bundler git augeas-devel \
   libicu-devel libxml2 libxml2-devel libxslt libxslt-devel \
-  gcc gcc-c++ ruby-devel
+  gcc gcc-c++ ruby-devel audit
 
-$rpm_cmd install -y puppet-agent || $rpm_cmd install -y puppet
+rpm -qi puppet > /dev/null &&  $rpm_cmd remove -y puppet
 
 # Capture data for (c)facter 3.X
-for puppet_agent_version in 1.2.2 1.2.7; do
-  output_dir="/vagrant/$( facter --version | cut -c1-3 )"
+for puppet_agent_version in 1.2.2 1.2.7 1.5.3 1.6.0; do
+  rpm -qi puppet-agent > /dev/null && $rpm_cmd remove -y puppet-agent
+  $rpm_cmd install -y puppet-agent-$puppet_agent_version
+  facter_version=$( facter --version | cut -c1-3 )
+  output_dir="/vagrant/${facter_version}"
+  echo
+  echo "---------------- facter: '${facter_version}'  puppet agent version: '${puppet_agent_version}'"
+  echo
   output_file="$( facter operatingsystem | tr '[:upper:]' '[:lower:]' )-$( facter operatingsystemmajrelease )-$( facter hardwaremodel ).facts"
   mkdir -p $output_dir
   puppet facts | tee "${output_dir}/${output_file}"
@@ -51,20 +57,24 @@ operatingsystem=$( facter operatingsystem | tr '[:upper:]' '[:lower:]' )
 operatingsystemmajrelease=$( facter operatingsystemmajrelease )
 hardwaremodel=$( facter hardwaremodel )
 
-PATH=/opt/puppetlabs/puppet/bin:$PATH
+rpm -qi puppet-agent > /dev/null && $rpm_cmd remove -y puppet-agent
+
+export PUPPET_VERSION="~> 3.7"
+
+#PATH=/opt/puppetlabs/puppet/bin:$PATH
 gem install bundler --no-ri --no-rdoc --no-format-executable
 bundle install --path vendor/bundler
 
 # Capture data for ruby-based facters
 for version in 1.7.0 2.0.0 2.1.0 2.2.0 2.3.0 2.4.0; do
-  FACTER_GEM_VERSION="~> ${version}" bundle update
-  os_string="$(bundle exec facter --version | cut -c1-3)/${operatingsystem}-${operatingsystemmajrelease}-${hardwaremodel}"
+  FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 3.7" bundle update
+  os_string="$(FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 3.7" bundle exec facter --version | cut -c1-3)/${operatingsystem}-${operatingsystemmajrelease}-${hardwaremodel}"
   echo
   echo
-  echo ============== ${os_string} ================
+  echo  ============== ${os_string} ================
   echo
   echo
   output_file="/vagrant/${os_string}.facts"
   mkdir -p $( dirname $output_file )
-  FACTER_GEM_VERSION="~> ${version}" bundle exec ruby /vagrant/scripts/get_facts.rb | tee $output_file
+  FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 3.7" bundle exec ruby /vagrant/scripts/get_facts.rb | tee $output_file
 done
