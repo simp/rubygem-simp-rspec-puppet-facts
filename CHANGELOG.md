@@ -1,3 +1,8 @@
+## 2016-07-13 - Add auditd_version fact and update - 1.4.1
+- Added auditd_version fact
+- Added Facter 3.4 facts
+- Updated facts
+
 ## 2016-05-22 - Collect facts for Fedora 23 - 1.4.0
 - Updated `Vagrantfile` to handle both Fedora and EL
 - Updated the collection script to handle both Fedora and EL

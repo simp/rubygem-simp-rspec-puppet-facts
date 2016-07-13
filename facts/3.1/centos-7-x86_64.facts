@@ -3,6 +3,7 @@
   "values": {
     "acpid_enabled": false,
     "architecture": "x86_64",
+    "auditd_version": "2.4.1",
     "augeas": {
       "version": "1.4.0"
     },
@@ -39,7 +40,7 @@
         "model_name": "Intel(R) Core(TM) i7-5557U CPU @ 3.10GHz",
         "stepping": "4",
         "microcode": "0x19",
-        "cpu_MHz": "3092.805",
+        "cpu_MHz": "3178.501",
         "cache_size": "4096 KB",
         "physical_id": "0",
         "siblings": "1",
@@ -101,7 +102,7 @@
           "3dnowprefetch",
           "rdseed"
         ],
-        "bogomips": "6185.61",
+        "bogomips": "6357.00",
         "clflush_size": "64",
         "cache_alignment": "64",
         "address_sizes": "39 bits physical, 48 bits virtual",
@@ -140,7 +141,7 @@
       "product": {
         "name": "VirtualBox",
         "serial_number": "0",
-        "uuid": "467C09E7-625C-4836-9E1C-4C2C173538A3"
+        "uuid": "CC00A467-3CB9-4C34-88E1-492C171D44E1"
       }
     },
     "domain": "example.com",
@@ -149,13 +150,13 @@
     "fips_enabled": false,
     "fqdn": "foo.example.com",
     "fullrun": "false",
-    "gdm_version": "0.0.0",
     "gid": "root",
     "grub_version": "2.02~beta2",
     "hardwareisa": "x86_64",
     "hardwaremodel": "x86_64",
     "has_clustering": false,
     "has_tpm": false,
+    "haveged_startup_provider": "systemd",
     "hostname": "foo",
     "id": "root",
     "identity": {
@@ -184,9 +185,9 @@
     "kernelrelease": "3.10.0-123.el7.x86_64",
     "kernelversion": "3.10.0",
     "load_averages": {
-      "15m": 0.02,
-      "1m": 0.29,
-      "5m": 0.06
+      "15m": 0.04,
+      "1m": 0.5,
+      "5m": 0.13
     },
     "macaddress": "08:00:27:be:2b:28",
     "macaddress_enp0s3": "08:00:27:be:2b:28",
@@ -194,32 +195,32 @@
     "memory": {
       "swap": {
         "available": "1.03 GiB",
-        "available_bytes": 1107292160,
-        "capacity": "0%",
+        "available_bytes": 1107283968,
+        "capacity": "0.00%",
         "total": "1.03 GiB",
         "total_bytes": 1107292160,
-        "used": "0 bytes",
-        "used_bytes": 0
+        "used": "8.00 KiB",
+        "used_bytes": 8192
       },
       "system": {
-        "available": "322.00 MiB",
-        "available_bytes": 337645568,
-        "capacity": "34.34%",
+        "available": "321.30 MiB",
+        "available_bytes": 336904192,
+        "capacity": "34.48%",
         "total": "490.41 MiB",
         "total_bytes": 514228224,
-        "used": "168.40 MiB",
-        "used_bytes": 176582656
+        "used": "169.11 MiB",
+        "used_bytes": 177324032
       }
     },
-    "memoryfree": "322.00 MiB",
-    "memoryfree_mb": 322.00390625,
+    "memoryfree": "321.30 MiB",
+    "memoryfree_mb": 321.296875,
     "memorysize": "490.41 MiB",
     "memorysize_mb": 490.40625,
     "mountpoints": {
       "/": {
-        "available": "17.18 GiB",
-        "available_bytes": 18447544320,
-        "capacity": "6.96%",
+        "available": "17.10 GiB",
+        "available_bytes": 18362482688,
+        "capacity": "7.39%",
         "device": "/dev/mapper/centos-root",
         "filesystem": "xfs",
         "options": [
@@ -231,8 +232,8 @@
         ],
         "size": "18.47 GiB",
         "size_bytes": 19828572160,
-        "used": "1.29 GiB",
-        "used_bytes": 1381027840
+        "used": "1.37 GiB",
+        "used_bytes": 1466089472
       },
       "/boot": {
         "available": "393.11 MiB",
@@ -333,6 +334,7 @@
       "primary": "enp0s3"
     },
     "openldap_arch": "i386",
+    "openssh_version": "6.4",
     "operatingsystem": "CentOS",
     "operatingsystemmajrelease": "7",
     "operatingsystemrelease": "7.0.1406",
@@ -431,30 +433,30 @@
     "sshfp_rsa": "SSHFP 1 1 f25e9ad2faddbe75263cfee4fa97dc965bc1d581\nSSHFP 1 2 0173e386031a134e4cbfb7f6971788761a5aa3d9e39dafcf163f003de2537199",
     "sshrsakey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDLMo35gwbuqQvRq1gy6L8vddeyMNBYr5WPVcftMKSJR1jmwzxcZ+h0AEb3KPfoMHkqe9Xy+3oN981qe5ZCE780HO884AaXzXry9zdWQjGysrI+zHQbqbpOkYAGsVbJiQ7VnH7lMVZo2jCbABj4OdsbeCOeP3oDXTNCTaWWdQChzqvYgNBvb0mg/na1l0naQ1nsJYD85O8ZRQ9U/JOADMaOjummfOb2z7MgskZ9abm5eFCCQl+wUUNXKqQx+uyVM4lyyoTHpW3M2IV0P9wxhWJF6eovwyREGuMgJCs6kbHCFty7HtAYbzziabgQav8pMe68aBqjshbpU6ll/+aXWhD1",
     "swapfree": "1.03 GiB",
-    "swapfree_mb": 1055.99609375,
+    "swapfree_mb": 1055.98828125,
     "swapsize": "1.03 GiB",
     "swapsize_mb": 1055.99609375,
     "system_uptime": {
       "days": 0,
       "hours": 0,
-      "seconds": 48,
-      "uptime": "0:00 hours"
+      "seconds": 135,
+      "uptime": "0:02 hours"
     },
     "timezone": "UTC",
     "tmp_mount_dev_shm": "rw,nosuid,nodev",
     "tmp_mount_fstype_dev_shm": "tmpfs",
     "tmp_mount_path_dev_shm": "tmpfs",
     "uid_min": "1000",
-    "uptime": "0:00 hours",
+    "uptime": "0:02 hours",
     "uptime_days": 0,
     "uptime_hours": 0,
-    "uptime_seconds": 48,
-    "uuid": "467C09E7-625C-4836-9E1C-4C2C173538A3",
+    "uptime_seconds": 135,
+    "uuid": "CC00A467-3CB9-4C34-88E1-492C171D44E1",
     "virtual": "virtualbox",
     "clientcert": "foo.example.com",
     "clientversion": "4.2.3",
     "clientnoop": false
   },
-  "timestamp": "2016-05-11T01:20:54.638826375+00:00",
-  "expiration": "2016-05-11T01:50:54.639196315+00:00"
+  "timestamp": "2016-08-17T04:12:20.379127833+00:00",
+  "expiration": "2016-08-17T04:42:20.379417160+00:00"
 }
