@@ -5,4 +5,5 @@ require 'facter'
 ENV['FACTERLIB'].split(':').each{|x| Facter.search x }
 
 Puppet.initialize_settings
-jj JSON.parse Facter.collection.to_h.to_json
+Facter.loadfacts
+jj JSON.parse Facter.collection.to_hash.to_json

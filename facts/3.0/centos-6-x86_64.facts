@@ -3,6 +3,7 @@
   "values": {
     "acpid_enabled": true,
     "architecture": "x86_64",
+    "auditd_version": "2.4.5",
     "augeas": {
       "version": "1.4.0"
     },
@@ -41,7 +42,7 @@
         "model_name": "Intel(R) Core(TM) i7-5557U CPU @ 3.10GHz",
         "stepping": "4",
         "microcode": "25",
-        "cpu_MHz": "3092.884",
+        "cpu_MHz": "3178.028",
         "cache_size": "4096 KB",
         "physical_id": "0",
         "siblings": "1",
@@ -105,7 +106,7 @@
           "3dnowprefetch",
           "rdseed"
         ],
-        "bogomips": "6185.76",
+        "bogomips": "6356.05",
         "clflush_size": "64",
         "cache_alignment": "64",
         "address_sizes": "39 bits physical, 48 bits virtual",
@@ -144,7 +145,7 @@
       "product": {
         "name": "VirtualBox",
         "serial_number": "0",
-        "uuid": "F8C11CF8-EB58-4157-A0E5-286D3CAD976E"
+        "uuid": "185168C2-CA7D-40AA-829A-B2FFE5B6AAC5"
       }
     },
     "domain": "example.com",
@@ -153,13 +154,13 @@
     "fips_enabled": false,
     "fqdn": "foo.example.com",
     "fullrun": "false",
-    "gdm_version": "0.0.0",
     "gid": "root",
     "grub_version": "0.97",
     "hardwareisa": "x86_64",
     "hardwaremodel": "x86_64",
     "has_clustering": false,
     "has_tpm": false,
+    "haveged_startup_provider": "init",
     "hostname": "foo",
     "id": "root",
     "identity": {
@@ -188,9 +189,9 @@
     "kernelrelease": "2.6.32-504.el6.x86_64",
     "kernelversion": "2.6.32",
     "load_averages": {
-      "15m": 0.01,
-      "1m": 0.15,
-      "5m": 0.03
+      "15m": 0.05,
+      "1m": 0.55,
+      "5m": 0.15
     },
     "macaddress": "08:00:27:98:ca:98",
     "macaddress_eth0": "08:00:27:98:ca:98",
@@ -206,24 +207,24 @@
         "used_bytes": 0
       },
       "system": {
-        "available": "385.35 MiB",
-        "available_bytes": 404066304,
-        "capacity": "21.42%",
+        "available": "383.07 MiB",
+        "available_bytes": 401678336,
+        "capacity": "21.88%",
         "total": "490.39 MiB",
         "total_bytes": 514211840,
-        "used": "105.04 MiB",
-        "used_bytes": 110145536
+        "used": "107.32 MiB",
+        "used_bytes": 112533504
       }
     },
-    "memoryfree": "385.35 MiB",
-    "memoryfree_mb": 385.34765625,
+    "memoryfree": "383.07 MiB",
+    "memoryfree_mb": 383.0703125,
     "memorysize": "490.39 MiB",
     "memorysize_mb": 490.390625,
     "mountpoints": {
       "/": {
-        "available": "16.92 GiB",
-        "available_bytes": 18172633088,
-        "capacity": "6.61%",
+        "available": "16.88 GiB",
+        "available_bytes": 18126110720,
+        "capacity": "6.85%",
         "device": "/dev/mapper/VolGroup-lv_root",
         "filesystem": "ext4",
         "options": [
@@ -231,8 +232,8 @@
         ],
         "size": "18.12 GiB",
         "size_bytes": 19459338240,
-        "used": "1.20 GiB",
-        "used_bytes": 1286705152
+        "used": "1.24 GiB",
+        "used_bytes": 1333227520
       },
       "/boot": {
         "available": "448.51 MiB",
@@ -300,6 +301,7 @@
       "network6": "fe80::"
     },
     "openldap_arch": "i386",
+    "openssh_version": "5.3",
     "operatingsystem": "CentOS",
     "operatingsystemmajrelease": "6",
     "operatingsystemrelease": "6.6",
@@ -404,24 +406,24 @@
     "system_uptime": {
       "days": 0,
       "hours": 0,
-      "seconds": 36,
-      "uptime": "0:00 hours"
+      "seconds": 68,
+      "uptime": "0:01 hours"
     },
     "timezone": "UTC",
     "tmp_mount_dev_shm": "rw,relatime",
     "tmp_mount_fstype_dev_shm": "tmpfs",
     "tmp_mount_path_dev_shm": "tmpfs",
     "uid_min": "500",
-    "uptime": "0:00 hours",
+    "uptime": "0:01 hours",
     "uptime_days": 0,
     "uptime_hours": 0,
-    "uptime_seconds": 36,
-    "uuid": "F8C11CF8-EB58-4157-A0E5-286D3CAD976E",
+    "uptime_seconds": 68,
+    "uuid": "185168C2-CA7D-40AA-829A-B2FFE5B6AAC5",
     "virtual": "virtualbox",
     "clientcert": "foo.example.com",
     "clientversion": "4.2.1",
     "clientnoop": false
   },
-  "timestamp": "2016-05-11T01:18:52.898014857+00:00",
-  "expiration": "2016-05-11T01:48:52.898550323+00:00"
+  "timestamp": "2016-08-17T04:08:13.572095011+00:00",
+  "expiration": "2016-08-17T04:38:13.572438141+00:00"
 }

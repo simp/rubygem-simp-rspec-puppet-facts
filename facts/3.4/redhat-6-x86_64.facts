@@ -2,6 +2,7 @@
   "name": "foo.example.com",
   "values": {
     "acpid_enabled": true,
+    "aio_agent_version": "1.6.0",
     "architecture": "x86_64",
     "auditd_version": "2.2",
     "augeas": {
@@ -151,7 +152,7 @@
       }
     },
     "domain": "example.com",
-    "facterversion": "3.1.1",
+    "facterversion": "3.4.0",
     "filesystems": "ext4,iso9660",
     "fips_enabled": false,
     "fqdn": "foo.example.com",
@@ -168,6 +169,7 @@
     "identity": {
       "gid": 0,
       "group": "root",
+      "privileged": true,
       "uid": 0,
       "user": "root"
     },
@@ -183,7 +185,7 @@
     "ipaddress6_lo": "::1",
     "ipaddress_eth0": "10.0.2.15",
     "ipaddress_lo": "127.0.0.1",
-    "ipv6_enabled": false,
+    "ipv6_enabled": true,
     "is_pe": false,
     "is_virtual": true,
     "kernel": "Linux",
@@ -191,9 +193,9 @@
     "kernelrelease": "2.6.32-431.el6.x86_64",
     "kernelversion": "2.6.32",
     "load_averages": {
-      "15m": 0.02,
-      "1m": 0.24,
-      "5m": 0.06
+      "15m": 0.04,
+      "1m": 0.5,
+      "5m": 0.13
     },
     "macaddress": "08:00:27:d5:6f:26",
     "macaddress_eth0": "08:00:27:d5:6f:26",
@@ -209,24 +211,24 @@
         "used_bytes": 0
       },
       "system": {
-        "available": "1.71 GiB",
-        "available_bytes": 1836347392,
-        "capacity": "6.72%",
+        "available": "1.69 GiB",
+        "available_bytes": 1813733376,
+        "capacity": "7.87%",
         "total": "1.83 GiB",
         "total_bytes": 1968627712,
-        "used": "126.15 MiB",
-        "used_bytes": 132280320
+        "used": "147.72 MiB",
+        "used_bytes": 154894336
       }
     },
-    "memoryfree": "1.71 GiB",
-    "memoryfree_mb": 1751.27734375,
+    "memoryfree": "1.69 GiB",
+    "memoryfree_mb": 1729.7109375,
     "memorysize": "1.83 GiB",
     "memorysize_mb": 1877.4296875,
     "mountpoints": {
       "/": {
-        "available": "24.58 GiB",
-        "available_bytes": 26393403392,
-        "capacity": "5.79%",
+        "available": "24.55 GiB",
+        "available_bytes": 26359181312,
+        "capacity": "5.91%",
         "device": "/dev/mapper/vg_redhat65vagrant-lv_root",
         "filesystem": "ext4",
         "options": [
@@ -234,8 +236,8 @@
         ],
         "size": "26.09 GiB",
         "size_bytes": 28015718400,
-        "used": "1.51 GiB",
-        "used_bytes": 1622315008
+        "used": "1.54 GiB",
+        "used_bytes": 1656537088
       },
       "/boot": {
         "available": "451.54 MiB",
@@ -394,18 +396,18 @@
     "productname": "VirtualBox",
     "puppet_ruby_dir": "/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet",
     "puppet_vardir": "/opt/puppetlabs/puppet/cache",
-    "puppetversion": "4.2.3",
+    "puppetversion": "4.6.0",
     "radius_version": "unknown",
     "reboot_required": false,
     "root_home": "/root",
     "ruby": {
       "platform": "x86_64-linux",
       "sitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-      "version": "2.1.7"
+      "version": "2.1.9"
     },
     "rubyplatform": "x86_64-linux",
     "rubysitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-    "rubyversion": "2.1.7",
+    "rubyversion": "2.1.9",
     "runlevel": "3",
     "selinux": false,
     "serialnumber": "0",
@@ -437,24 +439,24 @@
     "system_uptime": {
       "days": 0,
       "hours": 0,
-      "seconds": 54,
-      "uptime": "0:00 hours"
+      "seconds": 76,
+      "uptime": "0:01 hours"
     },
     "timezone": "EDT",
     "tmp_mount_dev_shm": "rw,relatime",
     "tmp_mount_fstype_dev_shm": "tmpfs",
     "tmp_mount_path_dev_shm": "tmpfs",
     "uid_min": "500",
-    "uptime": "0:00 hours",
+    "uptime": "0:01 hours",
     "uptime_days": 0,
     "uptime_hours": 0,
-    "uptime_seconds": 54,
+    "uptime_seconds": 76,
     "uuid": "406E4031-0DAC-4CEA-907F-5BED3D7B53F5",
     "virtual": "virtualbox",
     "clientcert": "foo.example.com",
-    "clientversion": "4.2.3",
+    "clientversion": "4.6.0",
     "clientnoop": false
   },
-  "timestamp": "2016-08-17T00:05:42.928628740-04:00",
-  "expiration": "2016-08-17T00:35:42.928920910-04:00"
+  "timestamp": "2016-08-17T00:06:04.751603740-04:00",
+  "expiration": "2016-08-17T00:36:04.751909729-04:00"
 }

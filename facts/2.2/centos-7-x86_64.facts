@@ -1,9 +1,9 @@
 {
   "gem_version": "~> 2.2.0",
-  "lib": "/vagrant/modules/apache/lib/facter:/vagrant/modules/foreman/lib/facter:/vagrant/modules/freeradius/lib/facter:/vagrant/modules/openldap/lib/facter:/vagrant/modules/pupmod/lib/facter:/vagrant/modules/simplib/lib/facter:/vagrant/modules/stdlib/lib/facter:/vagrant/modules/tpm/lib/facter:/vagrant/modules/xwindows/lib/facter:",
+  "lib": "/vagrant/modules/apache/lib/facter:/vagrant/modules/auditd/lib/facter:/vagrant/modules/elasticsearch/lib/facter:/vagrant/modules/foreman/lib/facter:/vagrant/modules/freeradius/lib/facter:/vagrant/modules/haveged/lib/facter:/vagrant/modules/openldap/lib/facter:/vagrant/modules/pupmod/lib/facter:/vagrant/modules/simplib/lib/facter:/vagrant/modules/ssh/lib/facter:/vagrant/modules/stdlib/lib/facter:/vagrant/modules/tpm/lib/facter:",
   "kernel": "Linux",
   "system_uptime": {
-    "seconds": 72,
+    "seconds": 111,
     "hours": 0,
     "days": 0,
     "uptime": "0:01 hours"
@@ -20,7 +20,7 @@
   "blockdevice_sda_vendor": "ATA",
   "blockdevice_sda_model": "VBOX HARDDISK",
   "blockdevices": "sda",
-  "path": "/home/vagrant/vendor/bundler/ruby/2.1.0/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
+  "path": "/home/vagrant/vendor/bundler/ruby/bin:/opt/puppetlabs/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
   "partitions": {
     "sda1": {
       "uuid": "39ce4ad1-4e9d-49a4-bce0-8a30b459490a",
@@ -33,9 +33,8 @@
       "filesystem": "LVM2_member"
     }
   },
-  "augeasversion": "1.4.0",
   "macaddress": "08:00:27:be:2b:28",
-  "rubyversion": "2.1.7",
+  "rubyversion": "2.0.0",
   "hostname": "foo",
   "operatingsystem": "CentOS",
   "timezone": "UTC",
@@ -47,7 +46,7 @@
     "count": 1,
     "physicalcount": 1
   },
-  "uptime_seconds": 72,
+  "uptime_seconds": 111,
   "uptime": "0:01 hours",
   "ps": "ps -ef",
   "operatingsystemmajrelease": "7",
@@ -78,19 +77,19 @@
   "architecture": "x86_64",
   "operatingsystemrelease": "7.0.1406",
   "osfamily": "RedHat",
-  "rubysitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
+  "rubysitedir": "/usr/local/share/ruby/site_ruby/",
   "network_enp0s3": "10.0.2.0",
   "network_lo": "127.0.0.0",
   "uptime_days": 0,
   "ipaddress": "10.0.2.15",
   "memorysize": "490.41 MB",
-  "memoryfree": "312.13 MB",
+  "memoryfree": "321.91 MB",
   "swapsize": "1.03 GB",
   "swapfree": "1.03 GB",
   "swapsize_mb": "1056.00",
   "swapfree_mb": "1055.99",
   "memorysize_mb": "490.41",
-  "memoryfree_mb": "312.13",
+  "memoryfree_mb": "321.91",
   "filesystems": "xfs",
   "hardwareisa": "x86_64",
   "uniqueid": "007f0100",
@@ -109,15 +108,17 @@
   "manufacturer": "innotek GmbH",
   "productname": "VirtualBox",
   "serialnumber": "0",
-  "uuid": "467C09E7-625C-4836-9E1C-4C2C173538A3",
+  "uuid": "B9B23060-244C-416E-8C57-0B161234CE92",
   "type": "Other",
   "processor0": "Intel(R) Core(TM) i7-5557U CPU @ 3.10GHz",
   "processorcount": "1",
   "kernelmajversion": "3.10",
   "domain": "example.com",
+  "auditd_version": "2.4.1",
   "radius_version": "unknown",
+  "haveged_startup_provider": "systemd",
   "openldap_arch": "i386",
-  "puppet_ruby_dir": "/home/vagrant/vendor/bundler/ruby/2.1.0/gems/puppet-3.8.7/lib/puppet",
+  "puppet_ruby_dir": "/home/vagrant/vendor/bundler/ruby/gems/puppet-3.8.7/lib/puppet",
   "reboot_required": false,
   "cmdline": {
     "BOOT_IMAGE": "/vmlinuz-3.10.0-123.el7.x86_64",
@@ -159,7 +160,7 @@
       "model_name": "Intel(R) Core(TM) i7-5557U CPU @ 3.10GHz",
       "stepping": "4",
       "microcode": "0x19",
-      "cpu_MHz": "3092.805",
+      "cpu_MHz": "3174.982",
       "cache_size": "4096 KB",
       "physical_id": "0",
       "siblings": "1",
@@ -221,16 +222,16 @@
         "3dnowprefetch",
         "rdseed"
       ],
-      "bogomips": "6185.61",
+      "bogomips": "6349.96",
       "clflush_size": "64",
       "cache_alignment": "64",
       "address_sizes": "39 bits physical, 48 bits virtual",
       "power_management": "power management"
     }
   },
+  "openssh_version": "6.4",
   "root_home": "/root",
   "puppet_vardir": "/var/lib/puppet",
   "is_pe": false,
-  "has_tpm": false,
-  "gdm_version": "0.0.0"
+  "has_tpm": false
 }

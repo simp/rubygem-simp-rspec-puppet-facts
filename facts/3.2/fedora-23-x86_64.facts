@@ -2,7 +2,9 @@
   "name": "foo.example.com",
   "values": {
     "acpid_enabled": false,
+    "aio_agent_version": "1.5.2",
     "architecture": "x86_64",
+    "auditd_version": "2.4.4",
     "augeas": {
       "version": "1.4.0"
     },
@@ -33,12 +35,11 @@
       "processor0": {
         "vendor_id": "GenuineIntel",
         "cpu_family": "6",
-        "model": "62",
-        "model_name": "Intel(R) Core(TM) i7-4930K CPU @ 3.40GHz",
-        "stepping": "4",
-        "microcode": "0x19",
-        "cpu_MHz": "3399.878",
-        "cache_size": "12288 KB",
+        "model": "69",
+        "model_name": "Intel(R) Core(TM) i7-4500U CPU @ 1.80GHz",
+        "stepping": "1",
+        "cpu_MHz": "2407.304",
+        "cache_size": "4096 KB",
         "physical_id": "0",
         "siblings": "1",
         "core_id": "0",
@@ -88,19 +89,21 @@
           "cx16",
           "sse4_1",
           "sse4_2",
+          "movbe",
           "popcnt",
           "aes",
           "xsave",
           "avx",
           "rdrand",
           "hypervisor",
-          "lahf_lm"
+          "lahf_lm",
+          "abm"
         ],
         "bugs": "bugs",
-        "bogomips": "6799.75",
+        "bogomips": "4814.60",
         "clflush_size": "64",
         "cache_alignment": "64",
-        "address_sizes": "46 bits physical, 48 bits virtual",
+        "address_sizes": "39 bits physical, 48 bits virtual",
         "power_management": "power management"
       }
     },
@@ -136,7 +139,7 @@
       "product": {
         "name": "VirtualBox",
         "serial_number": "0",
-        "uuid": "66D5A649-D81A-4E2A-BEC1-EF200D1E60A8"
+        "uuid": "1447C7C2-FF3D-439E-B423-13FFED4B46FA"
       }
     },
     "domain": "example.com",
@@ -145,13 +148,13 @@
     "fips_enabled": false,
     "fqdn": "foo.example.com",
     "fullrun": "false",
-    "gdm_version": "0.0.0",
     "gid": "root",
     "grub_version": "2.02~beta2",
     "hardwareisa": "x86_64",
     "hardwaremodel": "x86_64",
     "has_clustering": false,
     "has_tpm": false,
+    "haveged_startup_provider": "systemd",
     "hostname": "foo",
     "id": "root",
     "identity": {
@@ -180,42 +183,42 @@
     "kernelrelease": "4.2.3-300.fc23.x86_64",
     "kernelversion": "4.2.3",
     "load_averages": {
-      "15m": 0.06,
-      "1m": 0.21,
-      "5m": 0.07
+      "15m": 0.1,
+      "1m": 0.67,
+      "5m": 0.22
     },
     "macaddress": "08:00:27:3a:cd:a9",
     "macaddress_enp0s3": "08:00:27:3a:cd:a9",
     "manufacturer": "innotek GmbH",
     "memory": {
       "swap": {
-        "available": "1023.21 MiB",
-        "available_bytes": 1072910336,
-        "capacity": "0.08%",
+        "available": "1022.56 MiB",
+        "available_bytes": 1072234496,
+        "capacity": "0.14%",
         "total": "1.00 GiB",
         "total_bytes": 1073737728,
-        "used": "808.00 KiB",
-        "used_bytes": 827392
+        "used": "1.43 MiB",
+        "used_bytes": 1503232
       },
       "system": {
-        "available": "315.51 MiB",
-        "available_bytes": 330838016,
-        "capacity": "35.54%",
+        "available": "323.64 MiB",
+        "available_bytes": 339361792,
+        "capacity": "33.87%",
         "total": "489.43 MiB",
         "total_bytes": 513208320,
-        "used": "173.92 MiB",
-        "used_bytes": 182370304
+        "used": "165.79 MiB",
+        "used_bytes": 173846528
       }
     },
-    "memoryfree": "315.51 MiB",
-    "memoryfree_mb": 315.51171875,
+    "memoryfree": "323.64 MiB",
+    "memoryfree_mb": 323.640625,
     "memorysize": "489.43 MiB",
     "memorysize_mb": 489.43359375,
     "mountpoints": {
       "/": {
-        "available": "40.89 GiB",
-        "available_bytes": 43900874752,
-        "capacity": "2.61%",
+        "available": "40.60 GiB",
+        "available_bytes": 43590410240,
+        "capacity": "3.29%",
         "device": "/dev/mapper/fedora-root",
         "filesystem": "xfs",
         "options": [
@@ -227,8 +230,8 @@
         ],
         "size": "41.98 GiB",
         "size_bytes": 45075136512,
-        "used": "1.09 GiB",
-        "used_bytes": 1174261760
+        "used": "1.38 GiB",
+        "used_bytes": 1484726272
       },
       "/boot": {
         "available": "397.36 MiB",
@@ -400,22 +403,22 @@
         "uuid": "rqbx0s-SwAR-DkBU-a90G-Rlwc-DKE1-WQyt1x"
       }
     },
-    "path": "/opt/puppetlabs/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/sbin",
+    "path": "/opt/puppetlabs/bin:/usr/local/sbin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
     "physicalprocessorcount": 1,
-    "processor0": "Intel(R) Core(TM) i7-4930K CPU @ 3.40GHz",
+    "processor0": "Intel(R) Core(TM) i7-4500U CPU @ 1.80GHz",
     "processorcount": 1,
     "processors": {
       "count": 1,
       "isa": "x86_64",
       "models": [
-        "Intel(R) Core(TM) i7-4930K CPU @ 3.40GHz"
+        "Intel(R) Core(TM) i7-4500U CPU @ 1.80GHz"
       ],
       "physicalcount": 1
     },
     "productname": "VirtualBox",
     "puppet_ruby_dir": "/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet",
     "puppet_vardir": "/opt/puppetlabs/puppet/cache",
-    "puppetversion": "4.5.0",
+    "puppetversion": "4.5.2",
     "radius_version": "unknown",
     "reboot_required": false,
     "root_home": "/root",
@@ -460,15 +463,15 @@
     "sshfp_ed25519": "SSHFP 4 1 a26b3a388fd0370b740a4ab2a16d5498e88ee864\nSSHFP 4 2 c4c29071f196ee73c77d44f0be14310096d2112573fe0ad63bdf6cba56188a9e",
     "sshfp_rsa": "SSHFP 1 1 fbac4241e2d76fe20ae37f22bb8d57318ad94e40\nSSHFP 1 2 477b246d408c616e057c5a17bdfb58e30d200ccac73feff09409ec1cdb7bd465",
     "sshrsakey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQC7qli5kDIMmEY6kwAXrr2GHcJ2BYEo0PhZX3lVZeNtx2Zg7DUYFr7+yISXAZ/UGC0RtTj672j7/y6PGiv27RJc0UnyWwEvoPBABKlm3PYY+26OV9n9XDr5UD7V81p1I8YuWCL4PWZ0hJW6+chz+xyltDJPe9+yoSespvkhq/K/7GBRm4m2k50R4kvKoOrVcItzvQtQ8VwZqyF1x5i+QMvumCMI/k/xqTbCH5dVUf8fwHFIPedxjA5lYorGBaE8so4N/+H6S2aaxThVKj+KA7rxvDMkyvcsk6snJ+Vq7btJ5kUZU0lAVo53+Ojhj7BmtiOBfJBCUE3z0OQl0174Ggkh",
-    "swapfree": "1023.21 MiB",
-    "swapfree_mb": 1023.20703125,
+    "swapfree": "1022.56 MiB",
+    "swapfree_mb": 1022.5625,
     "swapsize": "1.00 GiB",
     "swapsize_mb": 1023.99609375,
     "system_uptime": {
       "days": 0,
       "hours": 0,
-      "seconds": 1066,
-      "uptime": "0:17 hours"
+      "seconds": 700,
+      "uptime": "0:11 hours"
     },
     "timezone": "UTC",
     "tmp_mount_dev_shm": "rw,nosuid,nodev",
@@ -478,16 +481,16 @@
     "tmp_mount_path_tmp": "tmpfs",
     "tmp_mount_tmp": "rw",
     "uid_min": "1000",
-    "uptime": "0:17 hours",
+    "uptime": "0:11 hours",
     "uptime_days": 0,
     "uptime_hours": 0,
-    "uptime_seconds": 1066,
-    "uuid": "66D5A649-D81A-4E2A-BEC1-EF200D1E60A8",
-    "virtual": "kvm",
+    "uptime_seconds": 700,
+    "uuid": "1447C7C2-FF3D-439E-B423-13FFED4B46FA",
+    "virtual": "virtualbox",
     "clientcert": "foo.example.com",
-    "clientversion": "4.5.0",
+    "clientversion": "4.5.2",
     "clientnoop": false
   },
-  "timestamp": "2016-05-22T21:43:08.506236415+00:00",
-  "expiration": "2016-05-22T22:13:08.506829982+00:00"
+  "timestamp": "2016-07-13T19:06:06.503772491+00:00",
+  "expiration": "2016-07-13T19:36:06.504211782+00:00"
 }
