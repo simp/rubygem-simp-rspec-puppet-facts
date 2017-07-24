@@ -40,7 +40,11 @@ $rpm_cmd install -y facter rubygem-bundler git augeas-devel \
 rpm -qi puppet > /dev/null &&  $rpm_cmd remove -y puppet
 
 # Capture data for (c)facter 3.X
-for puppet_agent_version in 1.2.2 1.2.7 1.5.3 1.6.0; do
+#                                           *LTS*           +2016.4
+# PE                        2015.2.0 2016.2 2016.4.3 2016.5 2017.2   -----
+# Puppet                    4.2.1    4.5.2  4.7.1    4.8.2  4.10.4   5.0.0
+# Facter                    3.0      3.1    3.4.2    3.5.1  3.6.5    3.7.0
+for puppet_agent_version in 1.2.2    1.5.3  1.7.2    1.8.3  1.10.4   5.0.0; do
   rpm -qi puppet-agent > /dev/null && $rpm_cmd remove -y puppet-agent
   $rpm_cmd install -y puppet-agent-$puppet_agent_version
   facter_version=$( facter --version | cut -c1-3 )
@@ -66,7 +70,7 @@ gem install bundler --no-ri --no-rdoc --no-format-executable
 bundle install --path vendor/bundler
 
 # Capture data for ruby-based facters
-for version in 1.7.0 2.0.0 2.1.0 2.2.0 2.3.0 2.4.0; do
+for version in 2.5.0 1.7.0 2.0.0 2.1.0 2.2.0 2.3.0 2.4.0; do
   FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 3.7" bundle update
   os_string="$(FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 3.7" bundle exec facter --version | cut -c1-3)/${operatingsystem}-${operatingsystemmajrelease}-${hardwaremodel}"
   echo

@@ -2,6 +2,7 @@
   "name": "foo.example.com",
   "values": {
     "acpid_enabled": true,
+    "aio_agent_version": "1.10.4",
     "architecture": "x86_64",
     "auditd_version": "2.4.5",
     "augeas": {
@@ -143,7 +144,7 @@
       }
     },
     "domain": "example.com",
-    "facterversion": "3.0.2",
+    "facterversion": "3.6.5",
     "filesystems": "ext4,iso9660",
     "fips_ciphers": [
       "ECDHE-RSA-AES256-GCM-SHA384",
@@ -221,6 +222,7 @@
     "identity": {
       "gid": 0,
       "group": "root",
+      "privileged": true,
       "uid": 0,
       "user": "root"
     },
@@ -245,14 +247,14 @@
     "kernelrelease": "2.6.32-504.8.1.el6.x86_64",
     "kernelversion": "2.6.32",
     "load_averages": {
-      "15m": 0.08,
-      "1m": 0.83,
-      "5m": 0.24
+      "15m": 0.15,
+      "1m": 0.89,
+      "5m": 0.4
     },
     "macaddress": "08:00:27:0f:d2:76",
     "macaddress_eth0": "08:00:27:0f:d2:76",
     "manufacturer": "innotek GmbH",
-    "mco_version": "2.8.2",
+    "mco_version": "2.10.5",
     "memory": {
       "swap": {
         "available": "992.00 MiB",
@@ -264,24 +266,24 @@
         "used_bytes": 0
       },
       "system": {
-        "available": "377.55 MiB",
-        "available_bytes": 395894784,
-        "capacity": "23.01%",
+        "available": "352.98 MiB",
+        "available_bytes": 370122752,
+        "capacity": "28.02%",
         "total": "490.39 MiB",
         "total_bytes": 514215936,
-        "used": "112.84 MiB",
-        "used_bytes": 118321152
+        "used": "137.42 MiB",
+        "used_bytes": 144093184
       }
     },
-    "memoryfree": "377.55 MiB",
-    "memoryfree_mb": 377.5546875,
+    "memoryfree": "352.98 MiB",
+    "memoryfree_mb": 352.9765625,
     "memorysize": "490.39 MiB",
     "memorysize_mb": 490.39453125,
     "mountpoints": {
       "/": {
-        "available": "16.83 GiB",
-        "available_bytes": 18068385792,
-        "capacity": "7.15%",
+        "available": "16.78 GiB",
+        "available_bytes": 18016198656,
+        "capacity": "7.42%",
         "device": "/dev/mapper/VolGroup-lv_root",
         "filesystem": "ext4",
         "options": [
@@ -289,8 +291,8 @@
         ],
         "size": "18.12 GiB",
         "size_bytes": 19459338240,
-        "used": "1.30 GiB",
-        "used_bytes": 1390952448
+        "used": "1.34 GiB",
+        "used_bytes": 1443139584
       },
       "/boot": {
         "available": "448.35 MiB",
@@ -305,6 +307,20 @@
         "size_bytes": 499355648,
         "used": "27.88 MiB",
         "used_bytes": 29230080
+      },
+      "/dev/shm": {
+        "available": "245.20 MiB",
+        "available_bytes": 257105920,
+        "capacity": "0%",
+        "device": "tmpfs",
+        "filesystem": "tmpfs",
+        "options": [
+          "rw"
+        ],
+        "size": "245.20 MiB",
+        "size_bytes": 257105920,
+        "used": "0 bytes",
+        "used_bytes": 0
       }
     },
     "mtu_eth0": 1500,
@@ -329,6 +345,20 @@
       "hostname": "foo",
       "interfaces": {
         "eth0": {
+          "bindings": [
+            {
+              "address": "10.0.2.15",
+              "netmask": "255.255.255.0",
+              "network": "10.0.2.0"
+            }
+          ],
+          "bindings6": [
+            {
+              "address": "fe80::a00:27ff:fe0f:d276",
+              "netmask": "ffff:ffff:ffff:ffff::",
+              "network": "fe80::"
+            }
+          ],
           "dhcp": "10.0.2.2",
           "ip": "10.0.2.15",
           "ip6": "fe80::a00:27ff:fe0f:d276",
@@ -340,6 +370,20 @@
           "network6": "fe80::"
         },
         "lo": {
+          "bindings": [
+            {
+              "address": "127.0.0.1",
+              "netmask": "255.0.0.0",
+              "network": "127.0.0.0"
+            }
+          ],
+          "bindings6": [
+            {
+              "address": "::1",
+              "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+              "network": "::1"
+            }
+          ],
           "ip": "127.0.0.1",
           "ip6": "::1",
           "mtu": 65536,
@@ -356,7 +400,8 @@
       "netmask": "255.255.255.0",
       "netmask6": "ffff:ffff:ffff:ffff::",
       "network": "10.0.2.0",
-      "network6": "fe80::"
+      "network6": "fe80::",
+      "primary": "eth0"
     },
     "openldap_arch": "i386",
     "openssh_version": "5.3",
@@ -383,14 +428,14 @@
       "/dev/mapper/VolGroup-lv_root": {
         "filesystem": "ext4",
         "mount": "/",
-        "size": "0 bytes",
-        "size_bytes": 0,
+        "size": "18.54 GiB",
+        "size_bytes": 19906166784,
         "uuid": "a29409f8-0b58-4271-a348-032caefec8b8"
       },
       "/dev/mapper/VolGroup-lv_swap": {
         "filesystem": "swap",
-        "size": "0 bytes",
-        "size_bytes": 0,
+        "size": "992.00 MiB",
+        "size_bytes": 1040187392,
         "uuid": "b30b464a-8ac9-492a-a1c5-2da75bb7488a"
       },
       "/dev/sda1": {
@@ -432,9 +477,12 @@
         "logdir": "/var/log/puppetlabs/puppet",
         "log_level": "notice",
         "disable_warnings": "[]",
+        "strict": "warning",
         "priority": "",
         "trace": "false",
         "profile": "false",
+        "static_catalogs": "true",
+        "strict_environment_mode": "false",
         "autoflush": "true",
         "syslogfacility": "daemon",
         "statedir": "/opt/puppetlabs/puppet/cache/state",
@@ -451,6 +499,7 @@
         "environment": "production",
         "environmentpath": "/etc/puppetlabs/code/environments",
         "always_cache_features": "false",
+        "always_retry_plugins": "true",
         "diff_args": "-u",
         "diff": "diff",
         "show_diff": "false",
@@ -460,7 +509,7 @@
         "node_terminus": "plain",
         "node_cache_terminus": "",
         "data_binding_terminus": "hiera",
-        "hiera_config": "/etc/puppetlabs/code/hiera.yaml",
+        "hiera_config": "/etc/puppetlabs/puppet/hiera.yaml",
         "binder_config": "",
         "catalog_terminus": "compiler",
         "catalog_cache_terminus": "",
@@ -474,14 +523,16 @@
         "http_debug": "false",
         "http_connect_timeout": "120",
         "http_read_timeout": "",
+        "http_user_agent": "Puppet/4.10.4 Ruby/2.1.9-p490 (x86_64-linux)",
         "filetimeout": "15",
         "environment_timeout": "0",
-        "environment_data_provider": "none",
+        "environment_data_provider": "",
         "prerun_command": "",
         "postrun_command": "",
         "freeze_main": "false",
         "trusted_server_facts": "false",
         "preview_outputdir": "/opt/puppetlabs/puppet/cache/preview",
+        "app_management": "false",
         "certname": "foo.example.com",
         "dns_alt_names": "",
         "csr_attributes": "/etc/puppetlabs/puppet/csr_attributes.yaml",
@@ -502,17 +553,19 @@
         "hostcrl": "/etc/puppetlabs/puppet/ssl/crl.pem",
         "certificate_revocation": "true",
         "digest_algorithm": "md5",
+        "supported_checksum_types": "[\"md5\", \"sha256\"]",
         "plugindest": "/opt/puppetlabs/puppet/cache/lib",
         "pluginsource": "puppet:///plugins",
         "pluginfactdest": "/opt/puppetlabs/puppet/cache/facts.d",
         "pluginfactsource": "puppet:///pluginfacts",
         "pluginsync": "true",
-        "pluginsignore": ".svn CVS .git",
+        "pluginsignore": ".svn CVS .git .hg",
         "factpath": "/opt/puppetlabs/puppet/cache/lib/facter:/opt/puppetlabs/puppet/cache/facts",
-        "external_nodes": "none"
+        "external_nodes": "none",
+        "rich_data": "false"
       },
       "module_tool": {
-        "module_repository": "https://forgeapi.puppetlabs.com",
+        "module_repository": "https://forgeapi.puppet.com",
         "module_working_dir": "/opt/puppetlabs/puppet/cache/puppet-module",
         "module_skeleton_dir": "/opt/puppetlabs/puppet/cache/puppet-module/skeleton",
         "forge_authorization": "",
@@ -533,7 +586,6 @@
         "autosign": "/etc/puppetlabs/puppet/autosign.conf",
         "allow_duplicate_certs": "false",
         "ca_ttl": "157680000",
-        "req_bits": "4096",
         "keylength": "4096",
         "cert_inventory": "/etc/puppetlabs/puppet/ssl/ca/inventory.txt"
       },
@@ -582,12 +634,14 @@
         "node_name_value": "foo.example.com",
         "node_name_fact": "",
         "statefile": "/opt/puppetlabs/puppet/cache/state/state.yaml",
+        "transactionstorefile": "/opt/puppetlabs/puppet/cache/state/transactionstore.yaml",
         "clientyamldir": "/opt/puppetlabs/puppet/cache/client_yaml",
         "client_datadir": "/opt/puppetlabs/puppet/cache/client_data",
         "classfile": "/opt/puppetlabs/puppet/cache/state/classes.txt",
         "resourcefile": "/opt/puppetlabs/puppet/cache/state/resources.txt",
         "puppetdlog": "/var/log/puppetlabs/puppet/puppetd.log",
         "server": "puppet",
+        "server_list": "[]",
         "use_srv_records": "false",
         "srv_domain": "example.com",
         "ignoreschedules": "false",
@@ -602,7 +656,6 @@
         "usecacheonfailure": "true",
         "use_cached_catalog": "false",
         "ignoremissingtypes": "false",
-        "ignorecache": "false",
         "splaylimit": "1800",
         "splay": "false",
         "clientbucketdir": "/opt/puppetlabs/puppet/cache/clientbucket",
@@ -622,6 +675,7 @@
       },
       "transaction": {
         "tags": "",
+        "skip_tags": "",
         "evaltrace": "false",
         "summarize": "false"
       },
@@ -650,18 +704,18 @@
       }
     },
     "puppet_vardir": "/opt/puppetlabs/puppet/cache",
-    "puppetversion": "4.2.1",
+    "puppetversion": "4.10.4",
     "radius_version": "unknown",
     "reboot_required": false,
     "root_home": "/root",
     "ruby": {
       "platform": "x86_64-linux",
       "sitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-      "version": "2.1.6"
+      "version": "2.1.9"
     },
     "rubyplatform": "x86_64-linux",
     "rubysitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-    "rubyversion": "2.1.6",
+    "rubyversion": "2.1.9",
     "runlevel": "3",
     "selinux": false,
     "serialnumber": "0",
@@ -694,24 +748,24 @@
     "system_uptime": {
       "days": 0,
       "hours": 0,
-      "seconds": 93,
-      "uptime": "0:01 hours"
+      "seconds": 184,
+      "uptime": "0:03 hours"
     },
     "timezone": "UTC",
     "tmp_mount_dev_shm": "rw,relatime",
     "tmp_mount_fstype_dev_shm": "tmpfs",
     "tmp_mount_path_dev_shm": "tmpfs",
     "uid_min": "500",
-    "uptime": "0:01 hours",
+    "uptime": "0:03 hours",
     "uptime_days": 0,
     "uptime_hours": 0,
-    "uptime_seconds": 93,
+    "uptime_seconds": 184,
     "uuid": "4EAD083F-AFEC-4C14-82E9-AC7998DAB235",
     "virtual": "virtualbox",
     "clientcert": "foo.example.com",
-    "clientversion": "4.2.1",
+    "clientversion": "4.10.4",
     "clientnoop": false
   },
-  "timestamp": "2017-07-24T21:41:28.016485663+00:00",
-  "expiration": "2017-07-24T22:11:28.017460086+00:00"
+  "timestamp": "2017-07-24T21:42:58.530911547+00:00",
+  "expiration": "2017-07-24T22:12:58.531941604+00:00"
 }
