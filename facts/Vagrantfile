@@ -3,10 +3,26 @@
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-
   config.vm.hostname = "foo.example.com"
+
+  unless Vagrant.has_plugin?('vagrant-vbguest')
+    fail 'ERROR: plugin `vagrant-vbguest` is missing.  Run `vagrant plugin install vagrant-vbguest`'
+  end
+
+  if Vagrant.has_plugin?('vagrant-registration')
+    config.registration.username = ENV['RHEL_SUB_USERNAME']
+    config.registration.password = ENV['RHEL_SUB_PASSWORD']
+    if ENV['RHEL_SUB_USERNAME'] && ENV['RHEL_SUB_PASSWORD']
+      ENV['RHEL'] = yes
+    end
+  end
+
+
+
+  # The centos/* machines won't support vboxsf
+  # config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ['.git/']
+  config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
 
   config.vm.define "centos-6-x86_64" do |host|
     host.vm.box = "centos/6"
@@ -22,23 +38,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
   end
 
-  config.vm.define "redhat-6-x86_64" do |host|
-    host.vm.box = "anandbitra/redhat-6.5"
-    host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'redhat 6'"
-    host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
-  end
+  if ENV['RHEL'] == 'yes'
+    config.vm.define "redhat-6-x86_64" do |host|
+      host.vm.box = "anandbitra/redhat-6.5"
+      host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
+      host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'redhat 6'"
+      host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
+    end
 
-  config.vm.define "redhat-7-x86_64" do |host|
-    host.vm.box = "mrlesmithjr/rhel-7"
-    host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'redhat 7'"
-    host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
-  end
-  config.vm.define "fedora-25-x86_64" do |host|
-    host.vm.box = "box-cutter/fedora25"
-    host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'fedora 23'"
-    host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
+    config.vm.define "redhat-7-x86_64" do |host|
+      host.vm.box = "mrlesmithjr/rhel-7"
+      host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
+      host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'redhat 7'"
+      host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
+    end
   end
 end
