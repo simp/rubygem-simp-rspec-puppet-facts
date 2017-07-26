@@ -6,36 +6,43 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "foo.example.com"
 
+
   unless Vagrant.has_plugin?('vagrant-vbguest')
     fail 'ERROR: plugin `vagrant-vbguest` is missing.  Run `vagrant plugin install vagrant-vbguest`'
   end
 
+
   if Vagrant.has_plugin?('vagrant-registration')
-    config.registration.username = ENV['RHEL_SUB_USERNAME']
-    config.registration.password = ENV['RHEL_SUB_PASSWORD']
     if ENV['RHEL_SUB_USERNAME'] && ENV['RHEL_SUB_PASSWORD']
-      ENV['RHEL'] = yes
+      ENV['RHEL'] = 'yes'
+      config.registration.username = ENV['RHEL_SUB_USERNAME']
+      config.registration.password = ENV['RHEL_SUB_PASSWORD']
+    elsif ENV['RHEL_SUB_ORG'] && ENV['RHEL_SUB_ACTIVATIONKEY']
+      ENV['RHEL'] = 'yes'
+      config.registration.org = ENV['RHEL_SUB_ORG']
+      config.registration.activationkey = ENV['RHEL_SUB_ACTIVATIONKEY']
     end
   end
-
 
 
   # The centos/* machines won't support vboxsf
   # config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ['.git/']
   config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
 
-  config.vm.define "centos-6-x86_64" do |host|
-    host.vm.box = "centos/6"
-    host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'centos 6'"
-    host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
-  end
+  unless ENV['CENTOS'] == 'no'
+    config.vm.define "centos-6-x86_64" do |host|
+      host.vm.box = "centos/6"
+      host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
+      host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'centos 6'"
+      host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
+    end
 
-  config.vm.define "centos-7-x86_64" do |host|
-    host.vm.box = "centos/7"
-    host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-    host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'centos 7'"
-    host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
+    config.vm.define "centos-7-x86_64" do |host|
+      host.vm.box = "centos/7"
+      host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
+      host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'centos 7'"
+      host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
+    end
   end
 
   if ENV['RHEL'] == 'yes'
