@@ -8,7 +8,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
   unless Vagrant.has_plugin?('vagrant-vbguest')
-    fail 'ERROR: plugin `vagrant-vbguest` is missing.  Run `vagrant plugin install vagrant-vbguest`'
+    msg = "ERROR: plugin `vagrant-vbguest` is missing.  To fix, run:" +
+          "\n\n\tvagrant plugin install vagrant-vbguest\n\n"
+    warn msg unless @_msg
+    @_msg = msg
+    exit 99
   end
 
 
