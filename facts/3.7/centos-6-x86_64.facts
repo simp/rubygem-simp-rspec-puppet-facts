@@ -2,14 +2,14 @@
   "name": "foo.example.com",
   "values": {
     "acpid_enabled": true,
-    "aio_agent_version": "1.8.3",
+    "aio_agent_version": "5.0.1",
     "architecture": "x86_64",
     "auditd_version": "2.4.5",
     "augeas": {
-      "version": "1.4.0"
+      "version": "1.8.0"
     },
     "augeasprovider_grub_version": 1,
-    "augeasversion": "1.4.0",
+    "augeasversion": "1.8.0",
     "bios_release_date": "12/01/2006",
     "bios_vendor": "innotek GmbH",
     "bios_version": "VirtualBox",
@@ -155,7 +155,7 @@
       }
     },
     "domain": "example.com",
-    "facterversion": "3.5.1",
+    "facterversion": "3.7.1",
     "filesystems": "ext4,iso9660",
     "fips_ciphers": [
       "ECDHE-RSA-AES256-GCM-SHA384",
@@ -258,14 +258,14 @@
     "kernelrelease": "2.6.32-696.el6.x86_64",
     "kernelversion": "2.6.32",
     "load_averages": {
-      "15m": 0.13,
-      "1m": 0.43,
-      "5m": 0.27
+      "15m": 0.14,
+      "1m": 0.26,
+      "5m": 0.25
     },
     "macaddress": "52:54:00:8a:28:ff",
     "macaddress_eth0": "52:54:00:8a:28:ff",
     "manufacturer": "innotek GmbH",
-    "mco_version": "2.9.1",
+    "mco_version": "2.11.1",
     "memory": {
       "swap": {
         "available": "1.50 GiB",
@@ -277,24 +277,24 @@
         "used_bytes": 188416
       },
       "system": {
-        "available": "317.25 MiB",
-        "available_bytes": 332660736,
-        "capacity": "35.28%",
+        "available": "334.70 MiB",
+        "available_bytes": 350953472,
+        "capacity": "31.72%",
         "total": "490.16 MiB",
         "total_bytes": 513970176,
-        "used": "172.91 MiB",
-        "used_bytes": 181309440
+        "used": "155.46 MiB",
+        "used_bytes": 163016704
       }
     },
-    "memoryfree": "317.25 MiB",
-    "memoryfree_mb": 317.25,
+    "memoryfree": "334.70 MiB",
+    "memoryfree_mb": 334.6953125,
     "memorysize": "490.16 MiB",
     "memorysize_mb": 490.16015625,
     "mountpoints": {
       "/": {
         "available": "36.15 GiB",
-        "available_bytes": 38813495296,
-        "capacity": "3.67%",
+        "available_bytes": 38815510528,
+        "capacity": "3.66%",
         "device": "/dev/mapper/VolGroup00-LogVol00",
         "filesystem": "ext4",
         "options": [
@@ -303,7 +303,7 @@
         "size": "37.52 GiB",
         "size_bytes": 40291975168,
         "used": "1.38 GiB",
-        "used_bytes": 1478479872
+        "used_bytes": 1476464640
       },
       "/boot": {
         "available": "207.02 MiB",
@@ -489,7 +489,6 @@
     "puppet_ruby_dir": "/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet",
     "puppet_settings": {
       "main": {
-        "cfacter": "false",
         "confdir": "/etc/puppetlabs/puppet",
         "codedir": "/etc/puppetlabs/code",
         "vardir": "/opt/puppetlabs/puppet/cache",
@@ -518,7 +517,6 @@
         "libdir": "/opt/puppetlabs/puppet/cache/lib",
         "environment": "production",
         "environmentpath": "/etc/puppetlabs/code/environments",
-        "always_cache_features": "false",
         "always_retry_plugins": "true",
         "diff_args": "-u",
         "diff": "diff",
@@ -543,15 +541,14 @@
         "http_debug": "false",
         "http_connect_timeout": "120",
         "http_read_timeout": "",
+        "http_user_agent": "Puppet/5.0.1 Ruby/2.4.1-p111 (x86_64-linux)",
         "filetimeout": "15",
         "environment_timeout": "0",
-        "environment_data_provider": "none",
+        "environment_data_provider": "",
         "prerun_command": "",
         "postrun_command": "",
         "freeze_main": "false",
-        "trusted_server_facts": "false",
         "preview_outputdir": "/opt/puppetlabs/puppet/cache/preview",
-        "app_management": "false",
         "certname": "foo.example.com",
         "dns_alt_names": "",
         "csr_attributes": "/etc/puppetlabs/puppet/csr_attributes.yaml",
@@ -578,7 +575,7 @@
         "pluginfactdest": "/opt/puppetlabs/puppet/cache/facts.d",
         "pluginfactsource": "puppet:///pluginfacts",
         "pluginsync": "true",
-        "pluginsignore": ".svn CVS .git",
+        "pluginsignore": ".svn CVS .git .hg",
         "factpath": "/opt/puppetlabs/puppet/cache/lib/facter:/opt/puppetlabs/puppet/cache/facts",
         "external_nodes": "none",
         "rich_data": "false"
@@ -669,7 +666,7 @@
         "runinterval": "1800",
         "ca_server": "puppet",
         "ca_port": "8140",
-        "preferred_serialization_format": "pson",
+        "preferred_serialization_format": "json",
         "agent_catalog_run_lockfile": "/opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock",
         "agent_disabled_lockfile": "/opt/puppetlabs/puppet/cache/state/agent_disabled.lock",
         "usecacheonfailure": "true",
@@ -687,10 +684,6 @@
         "graphdir": "/opt/puppetlabs/puppet/cache/state/graphs",
         "waitforcert": "120",
         "ordering": "manifest"
-      },
-      "inspect": {
-        "archive_files": "false",
-        "archive_file_server": "puppet"
       },
       "transaction": {
         "tags": "",
@@ -723,18 +716,18 @@
       }
     },
     "puppet_vardir": "/opt/puppetlabs/puppet/cache",
-    "puppetversion": "4.8.2",
+    "puppetversion": "5.0.1",
     "radius_version": "unknown",
     "reboot_required": false,
     "root_home": "/root",
     "ruby": {
       "platform": "x86_64-linux",
-      "sitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-      "version": "2.1.9"
+      "sitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.4.0",
+      "version": "2.4.1"
     },
     "rubyplatform": "x86_64-linux",
-    "rubysitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-    "rubyversion": "2.1.9",
+    "rubysitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.4.0",
+    "rubyversion": "2.4.1",
     "runlevel": "3",
     "selinux": true,
     "selinux_config_mode": "enforcing",
@@ -771,24 +764,24 @@
     "system_uptime": {
       "days": 0,
       "hours": 0,
-      "seconds": 580,
-      "uptime": "0:09 hours"
+      "seconds": 749,
+      "uptime": "0:12 hours"
     },
     "timezone": "UTC",
     "tmp_mount_dev_shm": "rw,seclabel,relatime",
     "tmp_mount_fstype_dev_shm": "tmpfs",
     "tmp_mount_path_dev_shm": "tmpfs",
     "uid_min": "500",
-    "uptime": "0:09 hours",
+    "uptime": "0:12 hours",
     "uptime_days": 0,
     "uptime_hours": 0,
-    "uptime_seconds": 580,
+    "uptime_seconds": 749,
     "uuid": "248CB529-23D4-4A94-9D6D-BD5013603A65",
     "virtual": "virtualbox",
     "clientcert": "foo.example.com",
-    "clientversion": "4.8.2",
+    "clientversion": "5.0.1",
     "clientnoop": false
   },
-  "timestamp": "2017-07-28T00:37:10.010659130+00:00",
-  "expiration": "2017-07-28T01:07:10.011293274+00:00"
+  "timestamp": "2017-07-28T00:39:59.553261110+00:00",
+  "expiration": "2017-07-28T01:09:59.554160119+00:00"
 }
