@@ -1,3 +1,18 @@
+## 2017-07-27 - Fix lots of things - 2.1.0
+- Added Facter 2.5 facts
+- `Vagrantfile` now uses official CentOS boxes from Atlus
+- Updated facts
+- `on_supported_os` is now smart enough to avoid facterdb crashes by only
+   asking for factsets that haven't been recorded for SIMP
+  data that has been recorded for SIMP (avoids facterdb crashes)
+- Added RHEL license support to `Vagrantfile`
+  - **NOTE:** RHEL7 will not collect facts without a license
+  - Updating RHEL boxes is now optional and off by defaulta
+- Added fix suggestions to important fail messages
+- Added Vagrant plugin check for `vagrant-vbguest`
+  - Fixes fact syncing on the `centos/6` and `centos/7` boxes
+
+
 ## 2016-07-13 - Add auditd_version fact and update - 1.4.1
 - Added auditd_version fact
 - Added Facter 3.4 facts
