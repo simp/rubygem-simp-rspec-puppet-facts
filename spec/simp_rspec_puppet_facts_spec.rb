@@ -9,7 +9,7 @@ describe 'Simp::RspecPuppetFacts' do
       subject { on_supported_os() }
 
       context 'Without a metadata.json file' do
-        it { expect { subject }.to raise_error(StandardError, /Can't find metadata.json/) }
+        it { expect { subject }.to raise_error(StandardError, /Can't find metadata\.json/) }
       end
 
       context 'With a metadata.json file' do
@@ -21,26 +21,29 @@ describe 'Simp::RspecPuppetFacts' do
           expect( on_supported_os().class ).to eq Hash
         end
         it 'should have 4 elements' do
-          expect(subject.size).to eq 4
+          expect(subject.size).to be >= 4
         end
         it 'should return supported OS' do
-          expect(subject.keys.sort).to eq [
-            'centos-6-x86_64',
-            'centos-7-x86_64',
-            'redhat-6-x86_64',
-            'redhat-7-x86_64',
-          ]
+          expect(subject.keys.sort).to include 'centos-6-x86_64'
+          expect(subject.keys.sort).to include 'centos-7-x86_64'
+          expect(subject.keys.sort).to include 'redhat-6-x86_64'
+          expect(subject.keys.sort).to include 'redhat-7-x86_64'
         end
         it 'should return SIMP-specific OS facts' do
-          expect(subject.map{ |os,data|  {os =>
+          grub_version_facts = subject.map{ |os,data|  {os =>
             data.select{ |x,v| x == :uid_min || x == :grub_version }}}
-          ).to eq [
-            {"centos-6-x86_64"=>{:uid_min=>"500",  :grub_version=>"0.97"      }},
-            {"centos-7-x86_64"=>{:uid_min=>"1000", :grub_version=>"2.02~beta2"}},
-            {"redhat-6-x86_64"=>{:uid_min=>"500",  :grub_version=>"0.97"      }},
-            {"redhat-7-x86_64"=>{:uid_min=>"1000", :grub_version=>"2.02~beta2"}},
-          ]
-
+          expect( grub_version_facts ).to include(
+            {"centos-6-x86_64"=>{:uid_min=>"500",  :grub_version=>"0.97"}}
+          )
+          expect( grub_version_facts ).to include(
+            {"centos-7-x86_64"=>{:uid_min=>"1000", :grub_version=>"2.02~beta2"}}
+          )
+          expect( grub_version_facts ).to include(
+            {"redhat-6-x86_64"=>{:uid_min=>"500",  :grub_version=>"0.97"}}
+          )
+          expect( grub_version_facts ).to include(
+            {"redhat-7-x86_64"=>{:uid_min=>"1000", :grub_version=>"2.02~beta2"}}
+          )
         end
       end
     end
@@ -106,7 +109,7 @@ describe 'Simp::RspecPuppetFacts' do
               {
                 "operatingsystem" => "Debian",
                 "operatingsystemrelease" => [
-                  "4",
+                  "X",
                 ],
               },
             ]
@@ -115,7 +118,7 @@ describe 'Simp::RspecPuppetFacts' do
       }
 
       it 'should output warning message' do
-        expect { subject }.to output(/Can't find facts for 'debian-4-x86_64'/).to_stderr
+        expect { subject }.to output(/Can't find facts for 'debian-X-x86_64'/).to_stderr
       end
     end
   end
