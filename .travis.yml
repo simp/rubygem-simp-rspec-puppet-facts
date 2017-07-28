@@ -11,24 +11,42 @@ rvm:
   - 2.0.0
   - 2.1.0
   - 1.9.3
-  - 2.2.1
+  - 2.2.3
+  - 2.4.0
 env:
-  global:
   matrix:
-  #  - FACTER_GEM_VERSION="~> 1.6.0" # no operatingsystemmajrelease fact
   - FACTER_GEM_VERSION="~> 2.4.0"
   - FACTER_GEM_VERSION="~> 1.7.0"
   - FACTER_GEM_VERSION="~> 2.0.0"
   - FACTER_GEM_VERSION="~> 2.1.0"
   - FACTER_GEM_VERSION="~> 2.2.0"
   - FACTER_GEM_VERSION="~> 2.3.0"
+  - FACTER_GEM_VERSION="~> 2.5.0"
+  - FACTER_GEM_VERSION="~> 3.0.0"
+  - FACTER_GEM_VERSION="~> 3.1.0"
+  - FACTER_GEM_VERSION="~> 3.2.0"
+  - FACTER_GEM_VERSION="~> 3.3.0"
+  - FACTER_GEM_VERSION="~> 3.4.0"
+  - FACTER_GEM_VERSION="~> 3.5.0"
+  - FACTER_GEM_VERSION="~> 3.6.0"
+  - FACTER_GEM_VERSION="~> 3.7.0"
 matrix:
   fast_finish: true
   allow_failures:
     - rvm: 1.9.3
-    - rvm: 2.2.1
+    - rvm: 2.2.3
+    - rvm: 2.4.0
     - env: FACTER_GEM_VERSION="~> 1.7.0"
     - env: FACTER_GEM_VERSION="~> 2.0.0"
     - env: FACTER_GEM_VERSION="~> 2.1.0"
     - env: FACTER_GEM_VERSION="~> 2.2.0"
     - env: FACTER_GEM_VERSION="~> 2.3.0"
+    - env: FACTER_GEM_VERSION="~> 2.5.0"
+    - env: FACTER_GEM_VERSION="~> 3.0.0"
+    - env: FACTER_GEM_VERSION="~> 3.1.0"
+    - env: FACTER_GEM_VERSION="~> 3.2.0"
+    - env: FACTER_GEM_VERSION="~> 3.3.0"
+    - env: FACTER_GEM_VERSION="~> 3.4.0"
+    - env: FACTER_GEM_VERSION="~> 3.5.0"
+    - env: FACTER_GEM_VERSION="~> 3.6.0"
+    - env: FACTER_GEM_VERSION="~> 3.7.0"
