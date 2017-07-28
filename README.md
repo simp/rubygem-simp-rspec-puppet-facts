@@ -3,8 +3,22 @@
 [![Build Status](https://img.shields.io/travis/simp/simp-rspec-puppet-facts/master.svg)](https://travis-ci.org/simp/simp-rspec-puppet-facts)
 [![Gem Version](https://img.shields.io/gem/v/simp-rspec-puppet-facts.svg)](https://rubygems.org/gems/simp-rspec-puppet-facts)
 
+Simplify your spec tests by looping on every supported Operating System and populating facts.
 
-Simplify (ahem: "SIMPlify") your unit tests by looping on every supported Operating System and populating facts.
+* [Motivation](#motivation)
+* [Usage](#usage)
+	* [Basic usage](#basic-usage)
+	* [Providing options](#providing-options)
+* [Options](#options)
+	* [`:extra_facts`](#extra_facts)
+	* [`:extra_facts_immutable`](#extra_facts_immutable)
+	* [`:selinux_mode`](#selinux_mode)
+		* [Example: Default SELinux mode (`:enforcing`)](#example-default-selinux-mode-enforcing)
+		* [Example: Setting facts to model when SELinux is `disabled`](#example-setting-facts-to-model-when-selinux-is-disabled)
+* [Environment Variables](#environment-variables)
+	* [`SIMP_FACTS_OS`](#simp_facts_os)
+	* [`SIMP_FACTS_lsb`](#simp_facts_lsb)
+* [How to capture new facts](#how-to-capture-new-facts)
 
 ## Motivation
 The `on_supported_os` method provided by rspec-puppet-facts provides facts captured from running Vagrant systems.  However, many SIMP tests require additional custom facts.
@@ -94,16 +108,20 @@ facts_hash.values_at(:selinux,:selinux_current_mode,:selinux_state,:tmp_mount_de
 ```
 
 ## Environment Variables
+
 ### `SIMP_FACTS_OS`
+
 Restricts test matrix to the OS strings provided in a comma-delimited list.
 - **Example:** `SIMP_FACTS_OS=redhat-6-x86_64,redhat-7-x86_64`
 
 
 ### `SIMP_FACTS_lsb`
+
 - `no`
 
 
 ## How to capture new facts
+
 - Place any modules containing facts you want to capture under `modules/`
 - Run `vagrant up`
 **NOTE:** This replaces any older fact data
