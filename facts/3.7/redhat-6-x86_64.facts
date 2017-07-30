@@ -2,14 +2,14 @@
   "name": "i-2017073017-f0058001.c.beaker-testing.internal",
   "values": {
     "acpid_enabled": true,
-    "aio_agent_version": "1.8.3",
+    "aio_agent_version": "5.0.1",
     "architecture": "x86_64",
     "auditd_version": "2.4.5",
     "augeas": {
-      "version": "1.4.0"
+      "version": "1.8.0"
     },
     "augeasprovider_grub_version": 1,
-    "augeasversion": "1.4.0",
+    "augeasversion": "1.8.0",
     "bios_release_date": "01/01/2011",
     "bios_vendor": "Google",
     "bios_version": "Google",
@@ -160,7 +160,7 @@
       }
     },
     "domain": "c.beaker-testing.internal",
-    "facterversion": "3.5.1",
+    "facterversion": "3.7.1",
     "filesystems": "ext4,iso9660",
     "fips_ciphers": [
       "ECDHE-RSA-AES256-GCM-SHA384",
@@ -351,34 +351,34 @@
     "kernelrelease": "2.6.32-696.6.3.el6.x86_64",
     "kernelversion": "2.6.32",
     "load_averages": {
-      "15m": 0.25,
-      "1m": 1.19,
-      "5m": 0.64
+      "15m": 0.3,
+      "1m": 1.14,
+      "5m": 0.71
     },
     "macaddress": "42:01:0a:8e:00:03",
     "macaddress_eth0": "42:01:0a:8e:00:03",
     "manufacturer": "Google",
-    "mco_version": "2.9.1",
+    "mco_version": "2.11.1",
     "memory": {
       "system": {
-        "available": "1.41 GiB",
-        "available_bytes": 1508675584,
-        "capacity": "15.38%",
+        "available": "1.42 GiB",
+        "available_bytes": 1525813248,
+        "capacity": "14.41%",
         "total": "1.66 GiB",
         "total_bytes": 1782779904,
-        "used": "261.41 MiB",
-        "used_bytes": 274104320
+        "used": "245.06 MiB",
+        "used_bytes": 256966656
       }
     },
-    "memoryfree": "1.41 GiB",
-    "memoryfree_mb": 1438.78515625,
+    "memoryfree": "1.42 GiB",
+    "memoryfree_mb": 1455.12890625,
     "memorysize": "1.66 GiB",
     "memorysize_mb": 1700.19140625,
     "mountpoints": {
       "/": {
-        "available": "7.67 GiB",
-        "available_bytes": 8240734208,
-        "capacity": "21.02%",
+        "available": "7.68 GiB",
+        "available_bytes": 8242647040,
+        "capacity": "21.00%",
         "device": "/dev/sda1",
         "filesystem": "ext4",
         "options": [
@@ -388,7 +388,7 @@
         "size": "9.72 GiB",
         "size_bytes": 10433650688,
         "used": "2.04 GiB",
-        "used_bytes": 2192916480
+        "used_bytes": 2191003648
       },
       "/dev/shm": {
         "available": "850.09 MiB",
@@ -521,7 +521,6 @@
     "puppet_ruby_dir": "/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet",
     "puppet_settings": {
       "main": {
-        "cfacter": "false",
         "confdir": "/etc/puppetlabs/puppet",
         "codedir": "/etc/puppetlabs/code",
         "vardir": "/opt/puppetlabs/puppet/cache",
@@ -550,7 +549,6 @@
         "libdir": "/opt/puppetlabs/puppet/cache/lib",
         "environment": "production",
         "environmentpath": "/etc/puppetlabs/code/environments",
-        "always_cache_features": "false",
         "always_retry_plugins": "true",
         "diff_args": "-u",
         "diff": "diff",
@@ -575,15 +573,14 @@
         "http_debug": "false",
         "http_connect_timeout": "120",
         "http_read_timeout": "",
+        "http_user_agent": "Puppet/5.0.1 Ruby/2.4.1-p111 (x86_64-linux)",
         "filetimeout": "15",
         "environment_timeout": "0",
-        "environment_data_provider": "none",
+        "environment_data_provider": "",
         "prerun_command": "",
         "postrun_command": "",
         "freeze_main": "false",
-        "trusted_server_facts": "false",
         "preview_outputdir": "/opt/puppetlabs/puppet/cache/preview",
-        "app_management": "false",
         "certname": "i-2017073017-f0058001.c.beaker-testing.internal",
         "dns_alt_names": "",
         "csr_attributes": "/etc/puppetlabs/puppet/csr_attributes.yaml",
@@ -610,7 +607,7 @@
         "pluginfactdest": "/opt/puppetlabs/puppet/cache/facts.d",
         "pluginfactsource": "puppet:///pluginfacts",
         "pluginsync": "true",
-        "pluginsignore": ".svn CVS .git",
+        "pluginsignore": ".svn CVS .git .hg",
         "factpath": "/opt/puppetlabs/puppet/cache/lib/facter:/opt/puppetlabs/puppet/cache/facts",
         "external_nodes": "none",
         "rich_data": "false"
@@ -701,7 +698,7 @@
         "runinterval": "1800",
         "ca_server": "puppet",
         "ca_port": "8140",
-        "preferred_serialization_format": "pson",
+        "preferred_serialization_format": "json",
         "agent_catalog_run_lockfile": "/opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock",
         "agent_disabled_lockfile": "/opt/puppetlabs/puppet/cache/state/agent_disabled.lock",
         "usecacheonfailure": "true",
@@ -719,10 +716,6 @@
         "graphdir": "/opt/puppetlabs/puppet/cache/state/graphs",
         "waitforcert": "120",
         "ordering": "manifest"
-      },
-      "inspect": {
-        "archive_files": "false",
-        "archive_file_server": "puppet"
       },
       "transaction": {
         "tags": "",
@@ -755,18 +748,18 @@
       }
     },
     "puppet_vardir": "/opt/puppetlabs/puppet/cache",
-    "puppetversion": "4.8.2",
+    "puppetversion": "5.0.1",
     "radius_version": "unknown",
     "reboot_required": false,
     "root_home": "/root",
     "ruby": {
       "platform": "x86_64-linux",
-      "sitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-      "version": "2.1.9"
+      "sitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.4.0",
+      "version": "2.4.1"
     },
     "rubyplatform": "x86_64-linux",
-    "rubysitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-    "rubyversion": "2.1.9",
+    "rubysitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.4.0",
+    "rubyversion": "2.4.1",
     "runlevel": "3",
     "selinux": true,
     "selinux_config_mode": "enforcing",
@@ -799,24 +792,24 @@
     "system_uptime": {
       "days": 0,
       "hours": 0,
-      "seconds": 309,
-      "uptime": "0:05 hours"
+      "seconds": 361,
+      "uptime": "0:06 hours"
     },
     "timezone": "UTC",
     "tmp_mount_dev_shm": "rw,seclabel,relatime",
     "tmp_mount_fstype_dev_shm": "tmpfs",
     "tmp_mount_path_dev_shm": "tmpfs",
     "uid_min": "500",
-    "uptime": "0:05 hours",
+    "uptime": "0:06 hours",
     "uptime_days": 0,
     "uptime_hours": 0,
-    "uptime_seconds": 309,
+    "uptime_seconds": 361,
     "uuid": "72DECFF7-553E-32A1-8268-1E545CE5911C",
     "virtual": "gce",
     "clientcert": "i-2017073017-f0058001.c.beaker-testing.internal",
-    "clientversion": "4.8.2",
+    "clientversion": "5.0.1",
     "clientnoop": false
   },
-  "timestamp": "2017-07-30T21:43:16.340365289+00:00",
-  "expiration": "2017-07-30T22:13:16.341326645+00:00"
+  "timestamp": "2017-07-30T21:44:08.560897471+00:00",
+  "expiration": "2017-07-30T22:14:08.561584515+00:00"
 }
