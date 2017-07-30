@@ -119,6 +119,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   if ENV['RHEL'] == 'yes'
     config.vm.define "redhat-6-x86_64" do |host|
+      os = 'redhat'
+      ver = '6'
+      if Vagrant.has_plugin?('vagrant-rsync-back')
+        config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", ".idea/"], args: ['--verbose', '--archive', '--delete', '-z', '--prune-empty-dirs', "--include='*/'",  "--include='#{os}-#{ver}-x86_64.facts'", "--exclude='*'"]
+      end
+
       config.vm.provider 'virtualbox' do |vb|
         vb.vm.box = "anandbitra/redhat-6.5"
       end
@@ -136,6 +142,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     config.vm.define "redhat-7-x86_64" do |host|
+      os = 'redhat'
+      ver = '7'
+      if Vagrant.has_plugin?('vagrant-rsync-back')
+        config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", ".idea/"], args: ['--verbose', '--archive', '--delete', '-z', '--prune-empty-dirs', "--include='*/'",  "--include='#{os}-#{ver}-x86_64.facts'", "--exclude='*'"]
+      end
+
       host.vm.provider 'virtualbox' do |vb,override|
         vb.vm.box = "mrlesmithjr/rhel-7"
       end
@@ -146,7 +158,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
       end
       host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-      host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'redhat 7'"
+      host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'#{os} #{ver}'"
       host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
     end
 
