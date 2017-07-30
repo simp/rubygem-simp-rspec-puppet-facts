@@ -137,7 +137,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
 
       host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-      host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'redhat 6'"
+      host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'#{os} #{ver}'"
       host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
     end
 
