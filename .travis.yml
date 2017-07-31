@@ -14,22 +14,16 @@ rvm:
   - 2.2.3
   - 2.4.0
 env:
+  # Note: Facter 3.x is CFacter, and not a gem
   matrix:
   - FACTER_GEM_VERSION="~> 2.5.0"
-  - FACTER_GEM_VERSION="~> 3.4.0" # Puppet 4.7 AIO
-  - FACTER_GEM_VERSION="~> 3.5.0" # Puppet 4.8 AIO
   - FACTER_GEM_VERSION="~> 1.7.0"
   - FACTER_GEM_VERSION="~> 2.0.0"
   - FACTER_GEM_VERSION="~> 2.1.0"
   - FACTER_GEM_VERSION="~> 2.2.0"
   - FACTER_GEM_VERSION="~> 2.3.0"
   - FACTER_GEM_VERSION="~> 2.4.0"
-  - FACTER_GEM_VERSION="~> 3.0.0"
-  - FACTER_GEM_VERSION="~> 3.1.0"
-  - FACTER_GEM_VERSION="~> 3.2.0"
-  - FACTER_GEM_VERSION="~> 3.3.0"
-  - FACTER_GEM_VERSION="~> 3.6.0"
-  - FACTER_GEM_VERSION="~> 3.7.0"
+
 matrix:
   fast_finish: true
   allow_failures:
@@ -42,9 +36,3 @@ matrix:
     - env: FACTER_GEM_VERSION="~> 2.2.0"
     - env: FACTER_GEM_VERSION="~> 2.3.0"
     - env: FACTER_GEM_VERSION="~> 2.4.0"
-    - env: FACTER_GEM_VERSION="~> 3.0.0"
-    - env: FACTER_GEM_VERSION="~> 3.1.0"
-    - env: FACTER_GEM_VERSION="~> 3.2.0"
-    - env: FACTER_GEM_VERSION="~> 3.3.0"
-    - env: FACTER_GEM_VERSION="~> 3.6.0"
-    - env: FACTER_GEM_VERSION="~> 3.7.0"
