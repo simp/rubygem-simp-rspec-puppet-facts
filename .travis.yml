@@ -8,11 +8,10 @@ script:
 notifications:
   email: false
 rvm:
-  - 2.0.0
-  - 2.1.0
-  - 1.9.3
-  - 2.2.3
+  - 2.1.9
   - 2.4.0
+  - 2.0.0
+  - 1.9.3  
 env:
   # Note: Facter 3.x is CFacter, and not a gem
   matrix:
@@ -28,7 +27,7 @@ matrix:
   fast_finish: true
   allow_failures:
     - rvm: 1.9.3
-    - rvm: 2.2.3
+    - rvm: 2.0.0
     - rvm: 2.4.0
     - env: FACTER_GEM_VERSION="~> 1.7.0"
     - env: FACTER_GEM_VERSION="~> 2.0.0"
@@ -36,3 +35,10 @@ matrix:
     - env: FACTER_GEM_VERSION="~> 2.2.0"
     - env: FACTER_GEM_VERSION="~> 2.3.0"
     - env: FACTER_GEM_VERSION="~> 2.4.0"
+  exclude:
+    - rvm: 2.0.0
+      env: FACTER_GEM_VERSION="~> 1.7.0"
+    - rvm: 2.1.9
+      env: FACTER_GEM_VERSION="~> 1.7.0"     
+    - rvm: 2.4.0  
+      env: FACTER_GEM_VERSION="~> 1.7.0"
