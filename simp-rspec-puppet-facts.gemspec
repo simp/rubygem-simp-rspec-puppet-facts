@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 require  File.expand_path('lib/simp/version.rb', File.dirname(__FILE__))
+require 'date'
 
 Gem::Specification.new do |s|
   s.name        = 'simp-rspec-puppet-facts'
