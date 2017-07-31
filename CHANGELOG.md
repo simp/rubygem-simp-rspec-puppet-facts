@@ -1,4 +1,4 @@
-## 2017-07-27 - Fix lots of things - 2.1.0
+## 2017-07-27 - Fix lots of things - 2.0.0
 - Added Facter 2.5 facts
 - Added CFacter facts for all supported PE and SIMP versions
 - `Vagrantfile` now uses official CentOS boxes from Atlus
