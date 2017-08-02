@@ -6,4 +6,12 @@ ENV.fetch('FACTERLIB').split(':').each{|x| Facter.search x }
 
 Puppet.initialize_settings
 Facter.loadfacts
-jj JSON.parse Facter.collection.to_hash.to_json
+
+data = Facter.collection.to_hash
+facter_major_ver = Facter.version.split('.').first
+if ['1','2'].include? facter_major_ver
+  facts = data
+elsif ['1','2'].include? facter_major_ver
+  facts = data['values']
+end
+jj JSON.parse facts.to_json
