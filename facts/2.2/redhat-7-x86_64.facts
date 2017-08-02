@@ -31,7 +31,7 @@
   },
   "macaddress": "42:01:0a:8e:00:04",
   "rubyversion": "2.0.0",
-  "hostname": "i-2017073017-8e067d9a",
+  "hostname": "foo",
   "operatingsystem": "RedHat",
   "timezone": "UTC",
   "facterversion": "2.2.0",
@@ -49,7 +49,7 @@
   "kernelversion": "3.10.0",
   "virtual": "gce",
   "is_virtual": "true",
-  "fqdn": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+  "fqdn": "foo.example.com",
   "selinux": "true",
   "selinux_enforced": "true",
   "selinux_policyversion": "28",
@@ -71,7 +71,7 @@
           "type": "PERSISTENT"
         }
       ],
-      "hostname": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+      "hostname": "foo.example.com",
       "id": 5780870762576736087,
       "image": null,
       "licenses": [
@@ -81,7 +81,7 @@
       ],
       "machineType": "g1-small",
       "maintenanceEvent": "NONE",
-      "name": "i-2017073017-8e067d9a",
+      "name": "foo",
       "networkInterfaces": [
         {
           "accessConfigs": [
@@ -93,7 +93,7 @@
           "forwardedIps": [
 
           ],
-          "ip": "10.142.0.4",
+          "ip": "10.0.2.15",
           "ipAliases": [
 
           ],
@@ -148,7 +148,7 @@
   },
   "netmask": "255.255.255.255",
   "interfaces": "eth0,lo",
-  "ipaddress_eth0": "10.142.0.4",
+  "ipaddress_eth0": "10.0.2.15",
   "macaddress_eth0": "42:01:0a:8e:00:04",
   "netmask_eth0": "255.255.255.255",
   "mtu_eth0": "1460",
@@ -169,10 +169,10 @@
   "operatingsystemrelease": "7.3",
   "osfamily": "RedHat",
   "rubysitedir": "/usr/local/share/ruby/site_ruby/",
-  "network_eth0": "10.142.0.4",
+  "network_eth0": "10.0.2.15",
   "network_lo": "127.0.0.0",
   "uptime_days": 0,
-  "ipaddress": "10.142.0.4",
+  "ipaddress": "10.0.2.15",
   "memorysize": "1.66 GB",
   "memoryfree": "1.35 GB",
   "swapsize": "0.00 MB",
@@ -206,7 +206,7 @@
   "processor0": "Intel(R) Xeon(R) CPU @ 2.30GHz",
   "processorcount": "1",
   "kernelmajversion": "3.10",
-  "domain": "c.beaker-testing.internal",
+  "domain": "example.com",
   "auditd_version": "2.6.5",
   "augeasprovider_grub_version": 2,
   "radius_version": "unknown",
@@ -313,7 +313,7 @@
       "power_management": "power management"
     }
   },
-  "defaultgateway": "10.142.0.1",
+  "defaultgateway": "10.0.2.15",
   "defaultgatewayiface": "eth0",
   "fips_ciphers": [
     "ECDHE-RSA-AES256-GCM-SHA384",
@@ -456,7 +456,7 @@
       "trusted_node_data": "false",
       "immutable_node_data": "false",
       "preview_outputdir": "/var/lib/puppet/preview",
-      "certname": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+      "certname": "foo.example.com",
       "certdnsnames": "",
       "dns_alt_names": "",
       "csr_attributes": "/etc/puppet/csr_attributes.yaml",
@@ -467,10 +467,10 @@
       "privatekeydir": "/etc/puppet/ssl/private_keys",
       "privatedir": "/etc/puppet/ssl/private",
       "passfile": "/etc/puppet/ssl/private/password",
-      "hostcsr": "/etc/puppet/ssl/csr_i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
-      "hostcert": "/etc/puppet/ssl/certs/i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
-      "hostprivkey": "/etc/puppet/ssl/private_keys/i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
-      "hostpubkey": "/etc/puppet/ssl/public_keys/i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
+      "hostcsr": "/etc/puppet/ssl/csr_foo.example.com.pem",
+      "hostcert": "/etc/puppet/ssl/certs/foo.example.com.pem",
+      "hostprivkey": "/etc/puppet/ssl/private_keys/foo.example.com.pem",
+      "hostpubkey": "/etc/puppet/ssl/public_keys/foo.example.com.pem",
       "localcacert": "/etc/puppet/ssl/certs/ca.pem",
       "ssl_client_ca_auth": "",
       "ssl_server_ca_auth": "",
@@ -495,7 +495,7 @@
       "module_groups": ""
     },
     "ca": {
-      "ca_name": "Puppet CA: i-2017073017-8e067d9a.c.beaker-testing.internal",
+      "ca_name": "Puppet CA: foo.example.com",
       "cadir": "/etc/puppet/ssl/ca",
       "cacert": "/etc/puppet/ssl/ca/ca_crt.pem",
       "cakey": "/etc/puppet/ssl/ca/ca_key.pem",
@@ -553,7 +553,7 @@
       "deviceconfig": "/etc/puppet/device.conf"
     },
     "agent": {
-      "node_name_value": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+      "node_name_value": "foo.example.com",
       "node_name_fact": "",
       "localconfig": "/var/lib/puppet/state/localconfig",
       "statefile": "/var/lib/puppet/state/state.yaml",
@@ -564,7 +564,7 @@
       "puppetdlog": "/var/lib/puppet/log/puppetd.log",
       "server": "puppet",
       "use_srv_records": "false",
-      "srv_domain": "c.beaker-testing.internal",
+      "srv_domain": "example.com",
       "ignoreschedules": "false",
       "default_schedules": "true",
       "puppetport": "8139",
@@ -608,10 +608,10 @@
     "tagmail": {
       "tagmap": "/etc/puppet/tagmail.conf",
       "sendmail": "/sbin/sendmail",
-      "reportfrom": "report@i-2017073017-8e067d9a.c.beaker-testing.internal",
+      "reportfrom": "report@foo.example.com",
       "smtpserver": "none",
       "smtpport": "25",
-      "smtphelo": "i-2017073017-8e067d9a.c.beaker-testing.internal"
+      "smtphelo": "foo.example.com"
     },
     "rails": {
       "dblocation": "/var/lib/puppet/state/clientconfigs.sqlite3",

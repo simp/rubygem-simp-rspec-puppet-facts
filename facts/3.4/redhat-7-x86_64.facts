@@ -1,5 +1,5 @@
 {
-  "name": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+  "name": "foo.example.com",
   "values": {
     "acpid_enabled": false,
     "aio_agent_version": "1.7.2",
@@ -119,7 +119,7 @@
         "power_management": "power management"
       }
     },
-    "defaultgateway": "10.142.0.1",
+    "defaultgateway": "10.0.2.15",
     "defaultgatewayiface": "eth0",
     "dhcp_servers": {
       "eth0": "169.254.169.254",
@@ -154,7 +154,7 @@
         "uuid": "C25DA2BB-182A-13CD-FFC4-27D94D2A2111"
       }
     },
-    "domain": "c.beaker-testing.internal",
+    "domain": "example.com",
     "facterversion": "3.4.2",
     "filesystems": "xfs",
     "fips_ciphers": [
@@ -220,7 +220,7 @@
       "KRB5-DES-CBC3-SHA"
     ],
     "fips_enabled": false,
-    "fqdn": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+    "fqdn": "foo.example.com",
     "fullrun": "false",
     "gce": {
       "instance": {
@@ -237,7 +237,7 @@
             "type": "PERSISTENT"
           }
         ],
-        "hostname": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+        "hostname": "foo.example.com",
         "id": 5780870762576736087,
         "image": "",
         "licenses": [
@@ -247,7 +247,7 @@
         ],
         "machineType": "g1-small",
         "maintenanceEvent": "NONE",
-        "name": "i-2017073017-8e067d9a",
+        "name": "foo",
         "networkInterfaces": [
           {
             "accessConfigs": [
@@ -259,7 +259,7 @@
             "forwardedIps": [
 
             ],
-            "ip": "10.142.0.4",
+            "ip": "10.0.2.15",
             "ipAliases": [
 
             ],
@@ -318,7 +318,7 @@
     "hardwaremodel": "x86_64",
     "has_tpm": false,
     "haveged_startup_provider": "systemd",
-    "hostname": "i-2017073017-8e067d9a",
+    "hostname": "foo",
     "id": "root",
     "identity": {
       "gid": 0,
@@ -333,9 +333,9 @@
       "sysv"
     ],
     "interfaces": "eth0,lo",
-    "ipaddress": "10.142.0.4",
+    "ipaddress": "10.0.2.15",
     "ipaddress6_lo": "::1",
-    "ipaddress_eth0": "10.142.0.4",
+    "ipaddress_eth0": "10.0.2.15",
     "ipaddress_lo": "127.0.0.1",
     "ipv6_enabled": false,
     "is_pe": false,
@@ -397,30 +397,30 @@
     "netmask6_lo": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
     "netmask_eth0": "255.255.255.255",
     "netmask_lo": "255.0.0.0",
-    "network": "10.142.0.4",
+    "network": "10.0.2.15",
     "network6_lo": "::1",
-    "network_eth0": "10.142.0.4",
+    "network_eth0": "10.0.2.15",
     "network_lo": "127.0.0.0",
     "networking": {
       "dhcp": "169.254.169.254",
-      "domain": "c.beaker-testing.internal",
-      "fqdn": "i-2017073017-8e067d9a.c.beaker-testing.internal",
-      "hostname": "i-2017073017-8e067d9a",
+      "domain": "example.com",
+      "fqdn": "foo.example.com",
+      "hostname": "foo",
       "interfaces": {
         "eth0": {
           "bindings": [
             {
-              "address": "10.142.0.4",
+              "address": "10.0.2.15",
               "netmask": "255.255.255.255",
-              "network": "10.142.0.4"
+              "network": "10.0.2.15"
             }
           ],
           "dhcp": "169.254.169.254",
-          "ip": "10.142.0.4",
+          "ip": "10.0.2.15",
           "mac": "42:01:0a:8e:00:04",
           "mtu": 1460,
           "netmask": "255.255.255.255",
-          "network": "10.142.0.4"
+          "network": "10.0.2.15"
         },
         "lo": {
           "bindings": [
@@ -446,11 +446,11 @@
           "network6": "::1"
         }
       },
-      "ip": "10.142.0.4",
+      "ip": "10.0.2.15",
       "mac": "42:01:0a:8e:00:04",
       "mtu": 1460,
       "netmask": "255.255.255.255",
-      "network": "10.142.0.4",
+      "network": "10.0.2.15",
       "primary": "eth0"
     },
     "openldap_arch": "i386",
@@ -568,7 +568,7 @@
         "trusted_server_facts": "false",
         "preview_outputdir": "/opt/puppetlabs/puppet/cache/preview",
         "app_management": "false",
-        "certname": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+        "certname": "foo.example.com",
         "dns_alt_names": "",
         "csr_attributes": "/etc/puppetlabs/puppet/csr_attributes.yaml",
         "certdir": "/etc/puppetlabs/puppet/ssl/certs",
@@ -578,10 +578,10 @@
         "privatekeydir": "/etc/puppetlabs/puppet/ssl/private_keys",
         "privatedir": "/etc/puppetlabs/puppet/ssl/private",
         "passfile": "/etc/puppetlabs/puppet/ssl/private/password",
-        "hostcsr": "/etc/puppetlabs/puppet/ssl/csr_i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
-        "hostcert": "/etc/puppetlabs/puppet/ssl/certs/i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
-        "hostprivkey": "/etc/puppetlabs/puppet/ssl/private_keys/i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
-        "hostpubkey": "/etc/puppetlabs/puppet/ssl/public_keys/i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
+        "hostcsr": "/etc/puppetlabs/puppet/ssl/csr_foo.example.com.pem",
+        "hostcert": "/etc/puppetlabs/puppet/ssl/certs/foo.example.com.pem",
+        "hostprivkey": "/etc/puppetlabs/puppet/ssl/private_keys/foo.example.com.pem",
+        "hostpubkey": "/etc/puppetlabs/puppet/ssl/public_keys/foo.example.com.pem",
         "localcacert": "/etc/puppetlabs/puppet/ssl/certs/ca.pem",
         "ssl_client_ca_auth": "",
         "ssl_server_ca_auth": "",
@@ -606,7 +606,7 @@
         "module_groups": ""
       },
       "ca": {
-        "ca_name": "Puppet CA: i-2017073017-8e067d9a.c.beaker-testing.internal",
+        "ca_name": "Puppet CA: foo.example.com",
         "cadir": "/etc/puppetlabs/puppet/ssl/ca",
         "cacert": "/etc/puppetlabs/puppet/ssl/ca/ca_crt.pem",
         "cakey": "/etc/puppetlabs/puppet/ssl/ca/ca_key.pem",
@@ -665,7 +665,7 @@
         "deviceconfig": "/etc/puppetlabs/puppet/device.conf"
       },
       "agent": {
-        "node_name_value": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+        "node_name_value": "foo.example.com",
         "node_name_fact": "",
         "statefile": "/opt/puppetlabs/puppet/cache/state/state.yaml",
         "transactionstorefile": "/opt/puppetlabs/puppet/cache/state/transactionstore.yaml",
@@ -677,7 +677,7 @@
         "server": "puppet",
         "server_list": "[]",
         "use_srv_records": "false",
-        "srv_domain": "c.beaker-testing.internal",
+        "srv_domain": "example.com",
         "ignoreschedules": "false",
         "default_schedules": "true",
         "noop": "false",
@@ -805,7 +805,7 @@
     "uptime_seconds": 237,
     "uuid": "C25DA2BB-182A-13CD-FFC4-27D94D2A2111",
     "virtual": "gce",
-    "clientcert": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+    "clientcert": "foo.example.com",
     "clientversion": "4.7.1",
     "clientnoop": false
   },

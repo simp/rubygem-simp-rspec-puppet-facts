@@ -24,7 +24,7 @@
   "has_tpm": false,
   "blockdevice_sda_size": 10737418240,
   "puppet_environmentpath": "",
-  "network_eth0": "10.142.0.3",
+  "network_eth0": "10.0.2.15",
   "gem_version": "~> 2.1.0",
   "boot_dir_uuid": "5c57426f-7fef-483e-b428-21052514ad6c",
   "virtual": "gce",
@@ -63,7 +63,7 @@
               "type": "ONE_TO_ONE_NAT"
             }
           ],
-          "ip": "10.142.0.3",
+          "ip": "10.0.2.15",
           "forwardedIps": [
 
           ],
@@ -72,7 +72,7 @@
           ]
         }
       ],
-      "name": "i-2017073017-f0058001",
+      "name": "foo",
       "serviceAccounts": {
         "default": {
           "aliases": [
@@ -112,7 +112,7 @@
         "vagrant"
       ],
       "maintenanceEvent": "NONE",
-      "hostname": "i-2017073017-f0058001.c.beaker-testing.internal",
+      "hostname": "foo.example.com",
       "description": ""
     },
     "project": {
@@ -132,7 +132,7 @@
   "uptime_days": 0,
   "macaddress": "42:01:0A:8E:00:03",
   "grub_version": "0.97",
-  "domain": "c.beaker-testing.internal",
+  "domain": "example.com",
   "uptime_hours": 0,
   "rubyversion": "1.8.7",
   "memorysize_mb": "1700.19",
@@ -146,12 +146,12 @@
   },
   "facterversion": "2.1.0",
   "runlevel": "3",
-  "hostname": "i-2017073017-f0058001",
+  "hostname": "foo",
   "hardwareisa": "x86_64",
   "uptime_seconds": 399,
   "selinux_enforced": "true",
   "puppet_ruby_dir": "/home/gce_vagrant/vendor/bundler/ruby/1.8/gems/puppet-3.8.7/lib/puppet",
-  "fqdn": "i-2017073017-f0058001.c.beaker-testing.internal",
+  "fqdn": "foo.example.com",
   "swapsize": "0.00 MB",
   "kernelrelease": "2.6.32-696.6.3.el6.x86_64",
   "netmask_lo": "255.0.0.0",
@@ -159,7 +159,7 @@
   "memorysize": "1.66 GB",
   "productname": "Google Compute Engine",
   "path": "/home/gce_vagrant/vendor/bundler/ruby/1.8/bin:/opt/puppetlabs/bin:/usr/local/sbin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
-  "ipaddress_eth0": "10.142.0.3",
+  "ipaddress_eth0": "10.0.2.15",
   "uid_min": "500",
   "auditd_version": "2.4.5",
   "macaddress_eth0": "42:01:0A:8E:00:03",
@@ -182,8 +182,8 @@
   "hardwaremodel": "x86_64",
   "acpid_enabled": true,
   "ipaddress_lo": "127.0.0.1",
-  "ipaddress": "10.142.0.3",
-  "defaultgateway": "10.142.0.1",
+  "ipaddress": "10.0.2.15",
+  "defaultgateway": "10.0.2.15",
   "openssh_version": "5.3",
   "mtu_lo": "65536",
   "manufacturer": "Google",
@@ -272,7 +272,7 @@
       "listen": "false",
       "inventory_port": "8140",
       "clientyamldir": "/var/lib/puppet/client_yaml",
-      "node_name_value": "i-2017073017-f0058001.c.beaker-testing.internal",
+      "node_name_value": "foo.example.com",
       "default_schedules": "true",
       "usecacheonfailure": "true",
       "client_datadir": "/var/lib/puppet/client_data",
@@ -281,7 +281,7 @@
       "server": "puppet",
       "puppetport": "8139",
       "resourcefile": "/var/lib/puppet/state/resources.txt",
-      "srv_domain": "c.beaker-testing.internal",
+      "srv_domain": "example.com",
       "lastrunreport": "/var/lib/puppet/state/last_run_report.yaml",
       "ignorecache": "false",
       "configtimeout": "120",
@@ -305,10 +305,10 @@
     "tagmail": {
       "sendmail": "/usr/sbin/sendmail",
       "smtpport": "25",
-      "smtphelo": "i-2017073017-f0058001.c.beaker-testing.internal",
+      "smtphelo": "foo.example.com",
       "smtpserver": "none",
       "tagmap": "/etc/puppet/tagmail.conf",
-      "reportfrom": "report@i-2017073017-f0058001.c.beaker-testing.internal"
+      "reportfrom": "report@foo.example.com"
     },
     "main": {
       "vardir": "/var/lib/puppet",
@@ -351,14 +351,14 @@
       "binder_config": "",
       "passfile": "/etc/puppet/ssl/private/password",
       "http_debug": "false",
-      "hostcert": "/etc/puppet/ssl/certs/i-2017073017-f0058001.c.beaker-testing.internal.pem",
+      "hostcert": "/etc/puppet/ssl/certs/foo.example.com.pem",
       "zlib": "true",
       "maximum_uid": "4294967290",
       "confdir": "/etc/puppet",
       "libdir": "/var/lib/puppet/lib",
       "pluginfactdest": "/var/lib/puppet/facts.d",
       "dns_alt_names": "",
-      "hostpubkey": "/etc/puppet/ssl/public_keys/i-2017073017-f0058001.c.beaker-testing.internal.pem",
+      "hostpubkey": "/etc/puppet/ssl/public_keys/foo.example.com.pem",
       "postrun_command": "",
       "plugindest": "/var/lib/puppet/lib",
       "color": "ansi",
@@ -367,7 +367,7 @@
       "onetime": "false",
       "node_terminus": "plain",
       "httplog": "/var/lib/puppet/log/http.log",
-      "certname": "i-2017073017-f0058001.c.beaker-testing.internal",
+      "certname": "foo.example.com",
       "http_keepalive_timeout": "4",
       "thin_storeconfigs": "false",
       "genconfig": "false",
@@ -386,7 +386,7 @@
       "ssl_server_ca_auth": "",
       "statedir": "/var/lib/puppet/state",
       "queue_source": "stomp://localhost:61613/",
-      "hostcsr": "/etc/puppet/ssl/csr_i-2017073017-f0058001.c.beaker-testing.internal.pem",
+      "hostcsr": "/etc/puppet/ssl/csr_foo.example.com.pem",
       "diff": "diff",
       "preview_outputdir": "/var/lib/puppet/preview",
       "privatekeydir": "/etc/puppet/ssl/private_keys",
@@ -397,7 +397,7 @@
       "environment": "production",
       "environmentpath": "",
       "facts_terminus": "facter",
-      "hostprivkey": "/etc/puppet/ssl/private_keys/i-2017073017-f0058001.c.beaker-testing.internal.pem",
+      "hostprivkey": "/etc/puppet/ssl/private_keys/foo.example.com.pem",
       "priority": "",
       "http_proxy_user": "none",
       "show_diff": "false",
@@ -426,7 +426,7 @@
     },
     "ca": {
       "capass": "/etc/puppet/ssl/ca/private/ca.pass",
-      "ca_name": "Puppet CA: i-2017073017-f0058001.c.beaker-testing.internal",
+      "ca_name": "Puppet CA: foo.example.com",
       "cacrl": "/etc/puppet/ssl/ca/ca_crl.pem",
       "autosign": "/etc/puppet/autosign.conf",
       "cadir": "/etc/puppet/ssl/ca",
