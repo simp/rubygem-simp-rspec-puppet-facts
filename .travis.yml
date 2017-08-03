@@ -15,7 +15,7 @@ rvm:
 env:
   # Note: Facter 3.x is CFacter, and not a gem
   matrix:
-  - FACTER_GEM_VERSION="~> 2.5.0"
+  - FACTER_GEM_VERSION="~> 2.5.0" GEM_PUBLISH=true
   - FACTER_GEM_VERSION="~> 1.7.0"
   - FACTER_GEM_VERSION="~> 2.0.0"
   - FACTER_GEM_VERSION="~> 2.1.0"
@@ -42,3 +42,24 @@ matrix:
       env: FACTER_GEM_VERSION="~> 1.7.0"     
     - rvm: 2.4.0  
       env: FACTER_GEM_VERSION="~> 1.7.0"
+before_deploy:
+  - "export GEM_VERSION=`ruby -r ./lib/simp/version.rb -e 'puts Simp::RspecPuppetFacts::VERSION'`"
+  - '[[ $TRAVIS_TAG =~ ^${GEM_VERSION}$ ]]'
+deploy:
+  - provider: rubygems
+    gemspec: simp-rspec-puppet-facts.gemspec
+    gem: simp-rspec-puppet-facts
+    api_key:
+      secure: "mVJFzcs9l4JCOGiq+pLpeBSYtKwEPDpp4UejV5QtamCCXmzdyAnL9BgLvzmGv7AcJF/KGhVYE+Rda1o7+Hfqo5Kmgr69yXMEE0yMyw6LQZQ4POeT1GgaBrU2oZddnfTSGo5/PDC3stsryxDRc32oUQIy8hfArZOJLuhqNEJJabqjJoR25KRUMAP3PR1JNOpTkEB1tgqlnTKwAaN1FRcTVFGlv0utD+Tdj3JSx8JuYwYiAAdfEv8Xq4xGkz/Mlj3e2TtgshZhbKYRcGX0t2u1o1QAttmdb/w9/SHPT6EAJ+6GZeefc7h/C9P/cApJDhZg3fYIzQyWJNhUeijFuAJiH93R+Qp7BGtWuomUY6uJoPkIK3phE3NFokUVabcg7DGPXkYlpa+IZ9KbN+Q6bDwytTBW2xxHDZoaXLH4H0cscALtUjEjLl4OjZNnHjsri2JbMOOsbj4T9QqHzyO+CHtviEUbUQI9I9AIzGykgfAs1x/BLv5Vn43u7VjmPPoJXkHMbmYza5u7OAN7qZxNVa4Vah+iEjZ8VtpvUbfEvqc2O8sbu/hoetEvA8wC/ncvbUeLps2/qUGmVAQZ2cV658sLLekwE9oCcIh7Ap3OfIjofTeyDqmok9T80RCZHcZ5ypOWE6P4o+voe1Oa2n86W3m1sMyTETxVFXBF+0NIe6+7scg="
+    on:
+      tags: true
+      rvm: 2.1.9
+      condition: '($SKIP_PUBLISH != true) && ($GEM_PUBLISH = true)'
+  - provider: releases
+    api_key:
+      secure: "yP0/CRW1La70mNzmOzsDcDKbcz5U9B8qXeGcQnQ6axBQoiIv5IDtstqCuf6YhBKKeoVjhv8ESy80JEQ72l0kjEK4Scsw2oV9vTN52MDRqlx8EhYPwlqFMS9R7GwPnqtayo7ojz4iPBr2bcUTknE8efj7UJOL0M2yAW5xbUlfZJMeZsC+GTnVFyfCpoDegDQiwMKdxqoj5cqwhXKvdHPgbuX8BJiNTgWHNT3XEULO6W4JzQW5WGjgv/SiXbZVdZHZ5kU7m05XrE2eKlGHDqfgqJn7zp28pDoBvFRROyhFJkH4FXizPboNZe9NUbIqNYwYuCobWtf9cma6ive97b7AFB06JAmFknqQx7ThgZwzi5ywB3jxboXntfN8TtVPYLJJuEvfOnzN/rz1zuSUnYi7icckSkBlPGupI5j/dc4NliY1AKzD3SXKWsPXXTo1wQ3e9Wyajn/GYxqgruijWbSAC0pzJnishHEriWJ1gxVHOiwOXSPsCtfnM1ri5FxTdH2iwvA5TqDYp9EZFgEeWytx/T0P4niENYVOfIbeFs6bqNfHzArhsxlTNCZGv3sQef5Z1WeE2ZEBBRaiFKqH8adpB4+Pd/ENMRfKc7wv+6NzLbFegkL+yQ2Ovusnzjus4wkK6g6DSzJev4NxNZHnHcr8vf2sPkiI/QbVulObOiY51G8="
+    on:
+      tags: true
+      rvm: 2.1.9
+      condition: '($SKIP_PUBLISH != true) && ($GEM_PUBLISH = true)'
+
