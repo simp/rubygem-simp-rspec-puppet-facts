@@ -59,8 +59,15 @@ for puppet_agent_version in 1.2.2    1.5.3  1.7.2    1.8.3  1.10.4   5.0.1 ; do
   echo "---------------- facter: '${facter_version}'  puppet agent version: '${puppet_agent_version}'"
   echo
   output_file="$( facter operatingsystem | tr '[:upper:]' '[:lower:]' )-$( facter operatingsystemmajrelease )-$( facter hardwaremodel ).facts"
+  raw_file="${output_dir}/${output_file}.raw"
   mkdir -p $output_dir
-  puppet facts | tee "${output_dir}/${output_file}"
+  puppet facts --render-as=json > "${raw_file}"
+  /opt/puppetlabs/puppet/bin/ruby -r json -e 'jj JSON.parse(File.read(ARGV[0]))["values"]' "${raw_file}" | tee "${output_dir}/${output_file}" && rm -f "${raw_file}"
+
+  /opt/puppetlabs/puppet/bin/facter gce --strict |&> /dev/null
+  if [ $? -eq 0 ]; then
+    /opt/puppetlabs/puppet/bin/ruby /vagrant/scripts/gce_scrub_data.rb "${output_dir}/${output_file}"
+  fi
 done
 
 operatingsystem=$( facter operatingsystem | tr '[:upper:]' '[:lower:]' )

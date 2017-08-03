@@ -127,7 +127,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "redhat-6-x86_64" do |host|
       os = 'redhat'
       ver = '6'
-#      host.vm.hostname = 'redhat-6-x86_64'
       if Vagrant.has_plugin?('vagrant-rsync-back')
         config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", ".idea/"], args: ['--verbose', '--archive', '--delete', '-z', '--prune-empty-dirs', "--include='*/'",  "--include='#{os}-#{ver}-x86_64.facts'", "--exclude='*'"]
       end
@@ -137,43 +136,39 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
 
       host.vm.provider 'google' do |google,override|
-        google.name = 'foo-redhat6-64'
         google.zone = ENV.fetch('GOOGLE_ZONE', DEFAULT_GOOGLE_ZONE)
         google.zone_config ENV.fetch('GOOGLE_ZONE', DEFAULT_GOOGLE_ZONE) do |zone|
           zone.image = 'rhel-6-v20170717'
         end
-
-#        override.vm.provision 'shell', inline: "/use/bin/hostname #{VM_FQDN}"
       end
 
-      host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
-      host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'#{os} #{ver}'"
-#      host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
-    end
-
-    config.vm.define "redhat-7-x86_64" do |host|
-      os = 'redhat'
-      ver = '7'
- #     host.vm.hostname = 'redhat-7-x86_64'
-      if Vagrant.has_plugin?('vagrant-rsync-back')
-        config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", ".idea/"], args: ['--verbose', '--archive', '--delete', '-z', '--prune-empty-dirs', "--include='*/'",  "--include='#{os}-#{ver}-x86_64.facts'", "--exclude='*'"]
-      end
-
-      host.vm.provider 'virtualbox' do |vb,override|
-        override.vm.box = "mrlesmithjr/rhel-7"
-      end
-      host.vm.provider 'google' do |google,override|
-        google.name = 'foo-redhat7-64'
-        google.zone = ENV.fetch('GOOGLE_ZONE', DEFAULT_GOOGLE_ZONE)
-        google.zone_config ENV.fetch('GOOGLE_ZONE', DEFAULT_GOOGLE_ZONE) do |zone|
-          zone.image = 'rhel-7-v20170719'
-        end
-#        override.vm.provision 'shell', inline: "/usr/bin/hostnamectl set-hostname #{VM_FQDN}"
-      end
       host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
       host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'#{os} #{ver}'"
       host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
     end
+
+     config.vm.define "redhat-7-x86_64" do |host|
+       os = 'redhat'
+       ver = '7'
+       # host.vm.hostname = 'redhat-7-x86_64'
+       if Vagrant.has_plugin?('vagrant-rsync-back')
+         config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/", ".idea/"], args: ['--verbose', '--archive', '--delete', '-z', '--prune-empty-dirs', "--include='*/'",  "--include='#{os}-#{ver}-x86_64.facts'", "--exclude='*'"]
+       end
+
+       host.vm.provider 'virtualbox' do |vb,override|
+         override.vm.box = "mrlesmithjr/rhel-7"
+       end
+       host.vm.provider 'google' do |google,override|
+         # google.name = 'foo'
+         google.zone = ENV.fetch('GOOGLE_ZONE', DEFAULT_GOOGLE_ZONE)
+         google.zone_config ENV.fetch('GOOGLE_ZONE', DEFAULT_GOOGLE_ZONE) do |zone|
+           zone.image = 'rhel-7-v20170719'
+         end
+       end
+       host.vm.provision "file", source: "Gemfile", destination: "Gemfile"
+       host.vm.provision "shell", path: "scripts/get_facts_for_each_facter.sh", args: "'#{os} #{ver}'"
+       host.vm.provision "shell", inline: "/sbin/shutdown -h now" unless ENV['SHUTDOWN'] == 'no'
+     end
 
   end
 end
