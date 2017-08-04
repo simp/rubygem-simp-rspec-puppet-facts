@@ -8,10 +8,10 @@
   "blockdevice_sda_model": "PersistentDisk",
   "blockdevices": "sda",
   "dhcp_servers": {
-    "system": "169.254.169.254",
-    "eth0": "169.254.169.254"
+    "system": "10.0.2.2",
+    "eth0": "10.0.2.2"
   },
-  "domain": "c.beaker-testing.internal",
+  "domain": "example.com",
   "virtual": "gce",
   "is_virtual": true,
   "hardwaremodel": "x86_64",
@@ -27,7 +27,7 @@
   },
   "facterversion": "2.3.0",
   "filesystems": "xfs",
-  "fqdn": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+  "fqdn": "foo.example.com",
   "gce": {
     "instance": {
       "attributes": {
@@ -43,8 +43,8 @@
           "type": "PERSISTENT"
         }
       ],
-      "hostname": "i-2017073017-8e067d9a.c.beaker-testing.internal",
-      "id": 5780870762576736087,
+      "hostname": "i-2017080319-172e9738.c.beaker-testing.internal",
+      "id": 8785617852644069240,
       "image": null,
       "licenses": [
         {
@@ -53,26 +53,8 @@
       ],
       "machineType": "g1-small",
       "maintenanceEvent": "NONE",
-      "name": "i-2017073017-8e067d9a",
-      "networkInterfaces": [
-        {
-          "accessConfigs": [
-            {
-              "externalIp": "35.196.33.143",
-              "type": "ONE_TO_ONE_NAT"
-            }
-          ],
-          "forwardedIps": [
-
-          ],
-          "ip": "10.142.0.4",
-          "ipAliases": [
-
-          ],
-          "mac": "42:01:0a:8e:00:04",
-          "network": "default"
-        }
-      ],
+      "name": "i-2017080319-172e9738",
+      "networkInterfaces": "10.0.2.15",
       "scheduling": {
         "automaticRestart": "TRUE",
         "onHostMaintenance": "MIGRATE",
@@ -120,21 +102,21 @@
   },
   "gid": "root",
   "hardwareisa": "x86_64",
-  "hostname": "i-2017073017-8e067d9a",
+  "hostname": "foo",
   "id": "root",
   "interfaces": "eth0,lo",
-  "ipaddress_eth0": "10.142.0.4",
-  "macaddress_eth0": "42:01:0a:8e:00:04",
-  "netmask_eth0": "255.255.255.255",
+  "ipaddress_eth0": "10.0.2.15",
+  "macaddress_eth0": "42:01:0a:8e:00:02",
+  "netmask_eth0": "255.255.255.0",
   "mtu_eth0": 1460,
   "ipaddress_lo": "127.0.0.1",
   "netmask_lo": "255.0.0.0",
   "mtu_lo": 65536,
-  "ipaddress": "10.142.0.4",
+  "ipaddress": "10.0.2.15",
   "kernelmajversion": "3.10",
   "kernelrelease": "3.10.0-514.26.2.el7.x86_64",
   "kernelversion": "3.10.0",
-  "macaddress": "42:01:0a:8e:00:04",
+  "macaddress": "42:01:0a:8e:00:02",
   "boardmanufacturer": "Google",
   "boardproductname": "Google Compute Engine",
   "boardserialnumber": "Not Specified",
@@ -143,19 +125,19 @@
   "bios_release_date": "01/01/2011",
   "manufacturer": "Google",
   "productname": "Google Compute Engine",
-  "serialnumber": "GoogleCloud-C25DA2BB182A13CDFFC427D94D2A2111",
-  "uuid": "C25DA2BB-182A-13CD-FFC4-27D94D2A2111",
+  "serialnumber": "GoogleCloud-A56C29CFE7D025A01DB2B9BD20258577",
+  "uuid": "A56C29CF-E7D0-25A0-1DB2-B9BD20258577",
   "type": "Other",
   "memorysize": "1.66 GB",
-  "memoryfree": "1.35 GB",
+  "memoryfree": "1.34 GB",
   "swapsize": "0.00 MB",
   "swapfree": "0.00 MB",
   "swapsize_mb": "0.00",
   "swapfree_mb": "0.00",
   "memorysize_mb": "1696.69",
-  "memoryfree_mb": "1380.36",
-  "netmask": "255.255.255.255",
-  "network_eth0": "10.142.0.4",
+  "memoryfree_mb": "1368.83",
+  "netmask": "255.255.255.0",
+  "network_eth0": "10.0.2.0",
   "network_lo": "127.0.0.0",
   "operatingsystemmajrelease": "7",
   "operatingsystemrelease": "7.3",
@@ -190,30 +172,30 @@
   "selinux_current_mode": "enforcing",
   "selinux_config_mode": "enforcing",
   "selinux_config_policy": "unknown",
-  "sshrsakey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDLGm+3V3mylrRvTZlyjqnVJ2cLek1sJSV2mNkVydCftFitTHcZsgnR3IPhPKpMSpyrHkobkSG7zUobkiQMk5XSEpQ62WFkMUpdY0AjalndwulL9d7WOCWAKvuQ5+dK/ydXLEce5G2dImwLx39IhypMrNsEFdjIv42LdMDGo2JAEgSOQ/UdLRX0WdboEMGR5Mmkt8FfXQIjuLMoixm3fEUIDvhQIRvw177YVpsGYbhbs2jbHyzGxVF5qN2QyTdUm4qWkUJdmxZT4Hn9WXlqr8OHwbzgCjqtcsLQuOXPhpgrX53F7RZYtgtjtCNBTtR4q42KP9A5yds/MWuGNPXnmamB",
-  "sshfp_rsa": "SSHFP 1 1 e926aa5dd4a3028bbd8b288cd4b9efe667079cd7\nSSHFP 1 2 c6563e185ac4add36bf4b20c337fd11eb5b75abe486816fa7d914c0a0810343a",
-  "sshecdsakey": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHIFyFRwlMFkMlP92OQ4NoVL/+ddHnuSyKDFLKD6QJq7VmxqUIEPUsSJLqbG0s0gZCdT7DRVZIprCrD/TjseohE=",
-  "sshfp_ecdsa": "SSHFP 3 1 5924e0fa9803abc557ecbb66355997981a10e13d\nSSHFP 3 2 fb862ddc8db788b2ab7188a6d3a9c9fbfa6f0f2b8d3f8538b26af781080609a3",
-  "sshed25519key": "AAAAC3NzaC1lZDI1NTE5AAAAIDDl39gPTypyBr9BBpawKvNq49cf2JoKdfaYlQCtDIdC",
-  "sshfp_ed25519": "SSHFP 4 1 51c230ace8cc7d4aca7e343bb93241244be46def\nSSHFP 4 2 53e14f712caf8d69af095265e4d2e38085694faa04c1bd3c908cc8e3fe652437",
+  "sshrsakey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDQ+0smqZu1k9Ba520GNIz2u8o6Kq8kRmVopfD0cWfCSnxH4zODXlvZ19VNBwRMn/kyDqzuZ9jRQ8RerbsA+HYaBxuCyBxWFQ6/2WyKfa6nijEwwhMeU2wsvlZlc3O09xUCAaoBMw7uHQ1/RLY8gv0+33+XX60IUlNQSAvp9OC9An+F3eNhzGjJBIPaERyhhkE4ibCkj8Q8MCo2rNb3beZZefAI3vJS7RxBWmN2LSvd9sg5rMtDTrXpj/RfDm+REQ4FmXv2ayLQ8mP6O/EAJTG2ZBQMe/wp6hIchmW/WrAcQ8OTDIcut68Lvow2coSqUdHGq9Fn4SQ63aVFh8HXRmWP",
+  "sshfp_rsa": "SSHFP 1 1 f51ba83fe4e606d497f0dcdcf71250efdeebb515\nSSHFP 1 2 625784b13da33b35b4695fb4fb92c8ba56cae4cacdf7e7688caf2d077dad06a0",
+  "sshecdsakey": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBN9pquUegdq7PnKCKS13MIhohk2XqKomFUup5bHkUb6ZtyrQFV91vITlXyOp7Hn3PotOMoPRShvn7Sx35JnJafU=",
+  "sshfp_ecdsa": "SSHFP 3 1 0a5ce539b94a39b9c58add1ea1672eeb52fd98f4\nSSHFP 3 2 b8043b4968981cf4f31d68516f74b81aa94888adb97e930c4eefd7de79c26144",
+  "sshed25519key": "AAAAC3NzaC1lZDI1NTE5AAAAIGluNitkgwIjZR2I9YSoCT+ZyD31GwAJRgIPB2SR9j1I",
+  "sshfp_ed25519": "SSHFP 4 1 9aab50e817e23e87e4b3963ebcd8cbd72ef47c0f\nSSHFP 4 2 cad4fceb1fe3a73ab39c1060492e04d0f738c83005e157cfb17990096d9986c0",
   "system_uptime": {
-    "seconds": 340,
+    "seconds": 282,
     "hours": 0,
     "days": 0,
-    "uptime": "0:05 hours"
+    "uptime": "0:04 hours"
   },
   "timezone": "UTC",
-  "uniqueid": "8e0a0400",
-  "uptime": "0:05 hours",
+  "uniqueid": "8e0a0200",
+  "uptime": "0:04 hours",
   "uptime_days": 0,
   "uptime_hours": 0,
-  "uptime_seconds": 340,
-  "auditd_version": "2.6.5",
+  "uptime_seconds": 282,
+  "auditd_version": "2.7.6",
   "augeasprovider_grub_version": 2,
   "radius_version": "unknown",
   "haveged_startup_provider": "systemd",
   "java_default_home": ".",
-  "mysql_server_id": 3203076,
+  "mysql_server_id": 3203074,
   "puppet_ruby_dir": "/home/gce_vagrant/vendor/bundler/ruby/gems/puppet-3.8.7/lib/puppet",
   "acpid_enabled": false,
   "boot_dir_uuid": "ba747b8e-efdb-4a17-bd5b-b80ef667b244",
@@ -232,7 +214,7 @@
       "model_name": "Intel(R) Xeon(R) CPU @ 2.30GHz",
       "stepping": "0",
       "microcode": "0x1",
-      "cpu_MHz": "2300.000",
+      "cpu_MHz": "2299.998",
       "cache_size": "46080 KB",
       "physical_id": "0",
       "siblings": "1",
@@ -307,14 +289,14 @@
         "erms",
         "xsaveopt"
       ],
-      "bogomips": "4600.00",
+      "bogomips": "4599.99",
       "clflush_size": "64",
       "cache_alignment": "64",
       "address_sizes": "46 bits physical, 48 bits virtual",
       "power_management": "power management"
     }
   },
-  "defaultgateway": "10.142.0.1",
+  "defaultgateway": "10.0.2.2",
   "defaultgatewayiface": "eth0",
   "fips_ciphers": [
     "ECDHE-RSA-AES256-GCM-SHA384",
@@ -395,7 +377,7 @@
       "cfacter": "false",
       "confdir": "/etc/puppet",
       "vardir": "/var/lib/puppet",
-      "name": "#<Puppet::Util::UnixRunMode:0x00000001147a20>",
+      "name": "#<Puppet::Util::UnixRunMode:0x000000013df6e8>",
       "logdir": "/var/lib/puppet/log",
       "log_level": "notice",
       "disable_warnings": "[]",
@@ -457,7 +439,7 @@
       "trusted_node_data": "false",
       "immutable_node_data": "false",
       "preview_outputdir": "/var/lib/puppet/preview",
-      "certname": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+      "certname": "foo.example.com",
       "certdnsnames": "",
       "dns_alt_names": "",
       "csr_attributes": "/etc/puppet/csr_attributes.yaml",
@@ -468,10 +450,10 @@
       "privatekeydir": "/etc/puppet/ssl/private_keys",
       "privatedir": "/etc/puppet/ssl/private",
       "passfile": "/etc/puppet/ssl/private/password",
-      "hostcsr": "/etc/puppet/ssl/csr_i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
-      "hostcert": "/etc/puppet/ssl/certs/i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
-      "hostprivkey": "/etc/puppet/ssl/private_keys/i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
-      "hostpubkey": "/etc/puppet/ssl/public_keys/i-2017073017-8e067d9a.c.beaker-testing.internal.pem",
+      "hostcsr": "/etc/puppetlabs/puppet/ssl/csr_foo.example.com.pem",
+      "hostcert": "/etc/puppetlabs/puppet/ssl/certs/foo.example.com.pem",
+      "hostprivkey": "/etc/puppetlabs/puppet/ssl/private_keys/foo.example.com.pem",
+      "hostpubkey": "/etc/puppetlabs/puppet/ssl/public_keys/foo.example.com.pem",
       "localcacert": "/etc/puppet/ssl/certs/ca.pem",
       "ssl_client_ca_auth": "",
       "ssl_server_ca_auth": "",
@@ -496,7 +478,7 @@
       "module_groups": ""
     },
     "ca": {
-      "ca_name": "Puppet CA: i-2017073017-8e067d9a.c.beaker-testing.internal",
+      "ca_name": "Puppet CA: foo.example.com",
       "cadir": "/etc/puppet/ssl/ca",
       "cacert": "/etc/puppet/ssl/ca/ca_crt.pem",
       "cakey": "/etc/puppet/ssl/ca/ca_key.pem",
@@ -554,7 +536,7 @@
       "deviceconfig": "/etc/puppet/device.conf"
     },
     "agent": {
-      "node_name_value": "i-2017073017-8e067d9a.c.beaker-testing.internal",
+      "node_name_value": "foo.example.com",
       "node_name_fact": "",
       "localconfig": "/var/lib/puppet/state/localconfig",
       "statefile": "/var/lib/puppet/state/state.yaml",
@@ -565,7 +547,7 @@
       "puppetdlog": "/var/lib/puppet/log/puppetd.log",
       "server": "puppet",
       "use_srv_records": "false",
-      "srv_domain": "c.beaker-testing.internal",
+      "srv_domain": "example.com",
       "ignoreschedules": "false",
       "default_schedules": "true",
       "puppetport": "8139",
@@ -609,10 +591,10 @@
     "tagmail": {
       "tagmap": "/etc/puppet/tagmail.conf",
       "sendmail": "/sbin/sendmail",
-      "reportfrom": "report@i-2017073017-8e067d9a.c.beaker-testing.internal",
+      "reportfrom": "foo.example.com",
       "smtpserver": "none",
       "smtpport": "25",
-      "smtphelo": "i-2017073017-8e067d9a.c.beaker-testing.internal"
+      "smtphelo": "foo.example.com"
     },
     "rails": {
       "dblocation": "/var/lib/puppet/state/clientconfigs.sqlite3",

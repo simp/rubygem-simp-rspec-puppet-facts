@@ -1,3 +1,23 @@
+## 2017-08-02 - Fix and normalize factsets - 2.0.1
+The GCE-derived RHEL facts broke some spec tests due to changes in the
+fqdns & IP addresses, which had been standardized as foo.example.com /
+10.0.2.15. Additionally, the data structure from all CFacter (3.x) facts
+was in an unusable format, and the data for some unsupported operating
+systems and facter versions had gone stale.
+
+To correct these issues, this patch:
+  - Normalizes all data to include standard facterdb values
+  - Corrects the data structure in facter 3.x factsets
+  - Removes unsupported OSes (fedora) and Facter versions (3.1, 3.2)
+  - Adds spec tests to check all factsets for structure and normalization
+
+NOTE: It isn't possible to permanently set the fqdn or hostname of a GCE
+VM(†), and temporarily changing them didn't affect all the facts. So
+for the time being, the data structures are scrubbed back into place
+using the gce_scrub_data.rb script.
+
+† Ref: https://stackoverflow.com/questions/25313049/configuring-fqdn-for-gce-instance-on-startup
+
 ## 2017-07-27 - Fix lots of things - 2.0.0
 - Added Facter 2.5 facts
 - Added CFacter facts for all supported PE and SIMP versions
