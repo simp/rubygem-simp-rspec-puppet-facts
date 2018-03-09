@@ -1,0 +1,279 @@
+---
+architecture: x86_64
+augeas:
+  version: 1.4.0
+augeasversion: 1.4.0
+bios_release_date: 12/01/2006
+bios_vendor: innotek GmbH
+bios_version: VirtualBox
+blockdevice_sda_model: VBOX HARDDISK
+blockdevice_sda_size: 21474836480
+blockdevice_sda_vendor: ATA
+blockdevices: sda
+boardmanufacturer: Oracle Corporation
+boardproductname: VirtualBox
+boardserialnumber: '0'
+chassistype: Other
+dhcp_servers:
+  eth0: 10.0.2.2
+  system: 10.0.2.2
+disks:
+  sda:
+    model: VBOX HARDDISK
+    size: 20.00 GiB
+    size_bytes: 21474836480
+    vendor: ATA
+dmi:
+  bios:
+    release_date: 12/01/2006
+    vendor: innotek GmbH
+    version: VirtualBox
+  board:
+    manufacturer: Oracle Corporation
+    product: VirtualBox
+    serial_number: '0'
+  chassis:
+    type: Other
+  manufacturer: innotek GmbH
+  product:
+    name: VirtualBox
+    serial_number: '0'
+    uuid: 516747E0-D5C4-4338-9122-5DCE2274B337
+domain: example.com
+facterversion: 3.0.2
+filesystems: ext4,iso9660
+fqdn: foo.example.com
+gid: root
+hardwareisa: x86_64
+hardwaremodel: x86_64
+hostname: foo
+id: root
+identity:
+  gid: 0
+  group: root
+  uid: 0
+  user: root
+interfaces: eth0,lo
+ipaddress: 10.0.2.15
+ipaddress6: fe80::a00:27ff:fee3:3cfc
+ipaddress6_eth0: fe80::a00:27ff:fee3:3cfc
+ipaddress6_lo: "::1"
+ipaddress_eth0: 10.0.2.15
+ipaddress_lo: 127.0.0.1
+is_virtual: true
+kernel: Linux
+kernelmajversion: '2.6'
+kernelrelease: 2.6.32-573.el6.x86_64
+kernelversion: 2.6.32
+load_averages:
+  15m: 0.11
+  1m: 0.89
+  5m: 0.32
+lsbdistcodename: n/a
+lsbdistdescription: Oracle Linux Server release 6.7
+lsbdistid: OracleServer
+lsbdistrelease: '6.7'
+lsbmajdistrelease: '6'
+lsbminordistrelease: '7'
+lsbrelease: ":base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch"
+macaddress: 08:00:27:e3:3c:fc
+macaddress_eth0: 08:00:27:e3:3c:fc
+manufacturer: innotek GmbH
+memory:
+  swap:
+    available: 1.97 GiB
+    available_bytes: 2113789952
+    capacity: 0.01%
+    total: 1.97 GiB
+    total_bytes: 2113925120
+    used: 132.00 KiB
+    used_bytes: 135168
+  system:
+    available: 868.35 MiB
+    available_bytes: 910532608
+    capacity: 12.84%
+    total: 996.27 MiB
+    total_bytes: 1044660224
+    used: 127.91 MiB
+    used_bytes: 134127616
+memoryfree: 868.35 MiB
+memoryfree_mb: 868.3515625
+memorysize: 996.27 MiB
+memorysize_mb: 996.265625
+mountpoints:
+  "/":
+    available: 14.28 GiB
+    available_bytes: 15331246080
+    capacity: 16.69%
+    device: "/dev/mapper/VolGroup-lv_root"
+    filesystem: ext4
+    options:
+    - rw
+    size: 17.14 GiB
+    size_bytes: 18402373632
+    used: 2.86 GiB
+    used_bytes: 3071127552
+  "/boot":
+    available: 407.15 MiB
+    available_bytes: 426927104
+    capacity: 14.50%
+    device: "/dev/sda1"
+    filesystem: ext4
+    options:
+    - rw
+    size: 476.22 MiB
+    size_bytes: 499355648
+    used: 69.07 MiB
+    used_bytes: 72428544
+mtu_eth0: 1500
+mtu_lo: 65536
+netmask: 255.255.255.0
+netmask6: 'ffff:ffff:ffff:ffff::'
+netmask6_eth0: 'ffff:ffff:ffff:ffff::'
+netmask6_lo: ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+netmask_eth0: 255.255.255.0
+netmask_lo: 255.0.0.0
+network: 10.0.2.0
+network6: 'fe80::'
+network6_eth0: 'fe80::'
+network6_lo: "::1"
+network_eth0: 10.0.2.0
+network_lo: 127.0.0.0
+networking:
+  dhcp: 10.0.2.2
+  domain: example.com
+  fqdn: foo.example.com
+  hostname: foo
+  interfaces:
+    eth0:
+      dhcp: 10.0.2.2
+      ip: 10.0.2.15
+      ip6: fe80::a00:27ff:fee3:3cfc
+      mac: 08:00:27:e3:3c:fc
+      mtu: 1500
+      netmask: 255.255.255.0
+      netmask6: 'ffff:ffff:ffff:ffff::'
+      network: 10.0.2.0
+      network6: 'fe80::'
+    lo:
+      ip: 127.0.0.1
+      ip6: "::1"
+      mtu: 65536
+      netmask: 255.0.0.0
+      netmask6: ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+      network: 127.0.0.0
+      network6: "::1"
+  ip: 10.0.2.15
+  ip6: fe80::a00:27ff:fee3:3cfc
+  mac: 08:00:27:e3:3c:fc
+  mtu: 1500
+  netmask: 255.255.255.0
+  netmask6: 'ffff:ffff:ffff:ffff::'
+  network: 10.0.2.0
+  network6: 'fe80::'
+operatingsystem: OracleLinux
+operatingsystemmajrelease: '6'
+operatingsystemrelease: '6.7'
+os:
+  architecture: x86_64
+  distro:
+    codename: n/a
+    description: Oracle Linux Server release 6.7
+    id: OracleServer
+    release:
+      full: '6.7'
+      major: '6'
+      minor: '7'
+    specification: ":base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch"
+  family: RedHat
+  hardware: x86_64
+  name: OracleLinux
+  release:
+    full: '6.7'
+    major: '6'
+    minor: '7'
+  selinux:
+    enabled: false
+osfamily: RedHat
+partitions:
+  "/dev/mapper/VolGroup-lv_root":
+    filesystem: ext4
+    mount: "/"
+    size: 0 bytes
+    size_bytes: 0
+    uuid: 40bfe529-ec5c-4fa8-8ab9-85e1f7535827
+  "/dev/mapper/VolGroup-lv_swap":
+    filesystem: swap
+    size: 0 bytes
+    size_bytes: 0
+    uuid: 07659ddc-e691-4b1f-a3f3-7e8b016786d3
+  "/dev/sda1":
+    filesystem: ext4
+    mount: "/boot"
+    size: 500.00 MiB
+    size_bytes: 524288000
+    uuid: 77a3b474-6723-4dce-9dde-47b43fdc3ad7
+  "/dev/sda2":
+    filesystem: LVM2_member
+    size: 19.51 GiB
+    size_bytes: 20949499904
+    uuid: 2DcHsY-79Sh-DH2k-2rZ2-2G8M-aTSb-yT58U5
+path: "/opt/puppetlabs/bin:/usr/local/rvm/gems/ruby-2.1.9/bin:/usr/local/rvm/gems/ruby-2.1.9@global/bin:/usr/local/rvm/rubies/ruby-2.1.9/bin:/usr/local/sbin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/rvm/bin:/root/bin"
+physicalprocessorcount: 1
+processor0: Intel(R) Core(TM) i7-4930K CPU @ 3.40GHz
+processorcount: 1
+processors:
+  count: 1
+  isa: x86_64
+  models:
+  - Intel(R) Core(TM) i7-4930K CPU @ 3.40GHz
+  physicalcount: 1
+productname: VirtualBox
+puppetversion: 4.2.1
+ruby:
+  platform: x86_64-linux
+  sitedir: "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0"
+  version: 2.1.6
+rubyplatform: x86_64-linux
+rubysitedir: "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0"
+rubyversion: 2.1.6
+selinux: false
+serialnumber: '0'
+ssh:
+  dsa:
+    fingerprints:
+      sha1: SSHFP 2 1 110457e60c95bc615fb51b437ee7fa94e06be6bb
+      sha256: SSHFP 2 2 545732a4aa7ccaf0a81962b1791d7fc47bb6b115404f4eed70247627d689e167
+    key: AAAAB3NzaC1kc3MAAACBANLsCPZHU8M14CQxur4yxKUfTsdBnmEHzUETE4b+5tmMXUgFXvqYM9S0+gBGEVZ2okKV5a1jDJGFohev8Y+yObUBo8162B2mEsLn6TrFrcErcjTu24J8ushvNERp0CAp1/rzRgun4mD0/9U8pHsbTzshjo5ldfAzcSzAQOml8k9TAAAAFQDXy0l1jYj21yV3dnIacNmg4kjXlQAAAIBQVg9zKm4Zxl9kJIxCAaAK3QxZphQ3LSlUkzWv/pyO5xyIwthEmhW8XKQsck70mYCdmSvAJomSCxwVb2Ieq9jQY+sF2/T8hdidvOjljSk4rkUmg5B9+dQDJhet8D3X1Oi0ZBMlU9WScWYnfQf7UCO/zwR1S03bjwUVmGFbbJ2EmwAAAIEAjJZuJglesCEVDEgWR2JDURc4Jiw0na+1rn/v7CRK+ODtHIGblNtgKmWhfXQiEYtBUc+8+pkcgFRrmqiR5RTyFyw7lDyuoEjWji3nSqlwGD5mwFjhaZKQCfzajRpnwPE7CpDgTx4NJwo5SP5pfG3c23Sr55/ZGWmWC4n7EZLG+2Q=
+  rsa:
+    fingerprints:
+      sha1: SSHFP 1 1 b10d9fb394e35e3e9c3af8fd1cbc50d1cef6cbee
+      sha256: SSHFP 1 2 b73c431615115d3ee1cc5f04f5d05c81d4a2e2992faa49afce1d4e4385d34bf6
+    key: AAAAB3NzaC1yc2EAAAABIwAAAQEA5Eh5oFvVisqTdmC+ZaSOgCUSSwPz7Yf4WdYKbUeCRtwQkRxFRoEV/CXmvNvdzzb4VzEp8PqndwFANCzfbACdYqrix9A8PRUQ873Lh6pG7l89DZ1R6iakbE4uywjedzkvh4/IAuJGQCkdAcifj2iBk4TWwTxH5rbhQic+5Agk+2h+pMbju0YIfglSeH+sXPJoCfHoftJX4taQraHiDi9p110TjM4aAMwBnOmF9jDepz2D867QhVeN58FVSW9oKE58q3xP457UOJBgWxmKQezkEgRkOyZWMZi8ZbN6QPKpTRkFUDassqZUSL/JZkyqQdRDmFFr5wacWzBTJ9AwJX5wWw==
+sshdsakey: AAAAB3NzaC1kc3MAAACBANLsCPZHU8M14CQxur4yxKUfTsdBnmEHzUETE4b+5tmMXUgFXvqYM9S0+gBGEVZ2okKV5a1jDJGFohev8Y+yObUBo8162B2mEsLn6TrFrcErcjTu24J8ushvNERp0CAp1/rzRgun4mD0/9U8pHsbTzshjo5ldfAzcSzAQOml8k9TAAAAFQDXy0l1jYj21yV3dnIacNmg4kjXlQAAAIBQVg9zKm4Zxl9kJIxCAaAK3QxZphQ3LSlUkzWv/pyO5xyIwthEmhW8XKQsck70mYCdmSvAJomSCxwVb2Ieq9jQY+sF2/T8hdidvOjljSk4rkUmg5B9+dQDJhet8D3X1Oi0ZBMlU9WScWYnfQf7UCO/zwR1S03bjwUVmGFbbJ2EmwAAAIEAjJZuJglesCEVDEgWR2JDURc4Jiw0na+1rn/v7CRK+ODtHIGblNtgKmWhfXQiEYtBUc+8+pkcgFRrmqiR5RTyFyw7lDyuoEjWji3nSqlwGD5mwFjhaZKQCfzajRpnwPE7CpDgTx4NJwo5SP5pfG3c23Sr55/ZGWmWC4n7EZLG+2Q=
+sshfp_dsa: |-
+  SSHFP 2 1 110457e60c95bc615fb51b437ee7fa94e06be6bb
+  SSHFP 2 2 545732a4aa7ccaf0a81962b1791d7fc47bb6b115404f4eed70247627d689e167
+sshfp_rsa: |-
+  SSHFP 1 1 b10d9fb394e35e3e9c3af8fd1cbc50d1cef6cbee
+  SSHFP 1 2 b73c431615115d3ee1cc5f04f5d05c81d4a2e2992faa49afce1d4e4385d34bf6
+sshrsakey: AAAAB3NzaC1yc2EAAAABIwAAAQEA5Eh5oFvVisqTdmC+ZaSOgCUSSwPz7Yf4WdYKbUeCRtwQkRxFRoEV/CXmvNvdzzb4VzEp8PqndwFANCzfbACdYqrix9A8PRUQ873Lh6pG7l89DZ1R6iakbE4uywjedzkvh4/IAuJGQCkdAcifj2iBk4TWwTxH5rbhQic+5Agk+2h+pMbju0YIfglSeH+sXPJoCfHoftJX4taQraHiDi9p110TjM4aAMwBnOmF9jDepz2D867QhVeN58FVSW9oKE58q3xP457UOJBgWxmKQezkEgRkOyZWMZi8ZbN6QPKpTRkFUDassqZUSL/JZkyqQdRDmFFr5wacWzBTJ9AwJX5wWw==
+swapfree: 1.97 GiB
+swapfree_mb: 2015.8671875
+swapsize: 1.97 GiB
+swapsize_mb: 2015.99609375
+system_uptime:
+  days: 0
+  hours: 0
+  seconds: 144
+  uptime: 0:02 hours
+timezone: UTC
+uptime: 0:02 hours
+uptime_days: 0
+uptime_hours: 0
+uptime_seconds: 144
+uuid: 516747E0-D5C4-4338-9122-5DCE2274B337
+virtual: virtualbox
+clientcert: foo.example.com
+clientversion: 4.2.1
+clientnoop: false

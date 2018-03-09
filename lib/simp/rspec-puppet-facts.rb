@@ -1,12 +1,11 @@
-require 'json'
-require 'puppet'
-
 module Simp; end
 module Simp::RspecPuppetFacts
+  require 'json'
+  require 'puppet'
+
   require File.expand_path('version', File.dirname(__FILE__))
 
   SELINUX_MODES = [:enforcing, :disabled, :permissive]
-
 
   def supported_os_strings( opts )
     supported_os = opts.fetch(:supported_os, RspecPuppetFacts.meta_supported_os)
@@ -27,7 +26,7 @@ module Simp::RspecPuppetFacts
   def filter_opts( opts, simp_h, filter_type = :reject )
     rfh_hw = opts.fetch(:hardwaremodels, ['x86_64'])
     rfh_os = opts.fetch(:supported_os, RspecPuppetFacts.meta_supported_os).dup
-		_os = rfh_os.send(filter_type) do |os|
+    _os = rfh_os.send(filter_type) do |os|
       _name = os['operatingsystem']
       _rels = os['operatingsystemrelease'].send(filter_type) do |rel|
         _hw = rfh_hw.send(filter_type) do |hw|
@@ -47,7 +46,7 @@ module Simp::RspecPuppetFacts
     opts[:simp_fact_dir_path] ||= File.expand_path("../../facts/",
                                                    File.dirname(__FILE__))
 
-		simp_h         = load_facts(opts[:simp_fact_dir_path])
+    simp_h         = load_facts(opts[:simp_fact_dir_path])
     strings        = supported_os_strings(opts)
     masked_opts    = filter_opts(opts, simp_h, :reject)
     selected_opts  = filter_opts(opts, simp_h, :select)
