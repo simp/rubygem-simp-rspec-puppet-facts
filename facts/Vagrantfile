@@ -1,7 +1,3 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = '2'
 
@@ -14,6 +10,31 @@ GOOGLE_PROJECT_ID = ENV.fetch('GOOGLE_CLOUD_PROJECT_ID', nil)
 
 unless GOOGLE_PROJECT_ID
   $stderr.puts("Warning: GOOGLE_CLOUD_PROJECT_ID not set, will not use GCE")
+end
+
+VALID_OS_TYPES = [
+  'CENTOS',
+  'OEL',
+  'RHEL'
+]
+
+found_os = false
+
+VALID_OS_TYPES.each do |os|
+  if ENV.fetch(os, nil)
+    found_os = true
+    break
+  end
+end
+
+unless found_os
+  $stderr.puts("Error: You must set one of ['#{VALID_OS_TYPES.join(', ')}'] as an environment variable to 'yes'")
+  exit 1
+end
+
+if Dir.glob('modules/*').empty?
+  $stderr.puts('No modules found in the "modules" directory. Hit ^C to exit or Enter to proceed.')
+  $stdin.gets
 end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -94,7 +115,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: ['.git/']
   config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
 
-  unless ENV['CENTOS'] == 'no'
+  if ENV['CENTOS'] == 'yes'
     config.vm.define "centos-6-x86_64" do |host|
       host.vm.provider 'virtualbox' do |vb,override|
         override.vm.box = "centos/6"
@@ -107,7 +128,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           google.zone_config ENV.fetch('GOOGLE_ZONE', DEFAULT_GOOGLE_ZONE) do |zone|
             zone.image = 'centos-6-v20170717'
           end
-#        override.vm.provision 'shell', inline: "/use/bin/hostname #{VM_FQDN}"
         end
       end
 
@@ -128,7 +148,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           google.zone_config ENV.fetch('GOOGLE_ZONE', DEFAULT_GOOGLE_ZONE) do |zone|
             zone.image = 'centos-7-v20170719'
           end
-#       override.vm.provision 'shell', inline: "/usr/bin/hostnamectl set-hostname #{VM_FQDN}"
         end
       end
 
@@ -212,3 +231,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      end
   end
 end
+
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
