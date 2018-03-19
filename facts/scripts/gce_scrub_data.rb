@@ -1,7 +1,5 @@
 require 'yaml'
 require 'json'
-require 'deep_merge'
-
 
 # A cowardly Heap merge that only overwrites keys that already exist
 def creep_merge( j, o )
