@@ -3,7 +3,7 @@ require 'json'
 require 'deep_merge'
 
 
-# A cowardly Heah merge that only overwrites keys that already exist
+# A cowardly Heap merge that only overwrites keys that already exist
 def creep_merge( j, o )
   result = nil
   if o.is_a? Hash

@@ -27,7 +27,7 @@ using the gce_scrub_data.rb script.
 - Added Facter 2.5 facts
 - Added CFacter facts for all supported PE and SIMP versions
 - `Vagrantfile` now uses official CentOS boxes from Atlus
-- Updated scripts to collect facts for all 
+- Updated scripts to collect facts for all
 - `on_supported_os` is now smart enough to avoid facterdb crashes by only
    asking for factsets that haven't been recorded for SIMP
   data that has been recorded for SIMP (avoids facterdb crashes)
