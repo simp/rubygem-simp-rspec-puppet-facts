@@ -1,9 +1,7 @@
 require 'yaml'
 require 'json'
-require 'deep_merge'
 
-
-# A cowardly Heah merge that only overwrites keys that already exist
+# A cowardly Heap merge that only overwrites keys that already exist
 def creep_merge( j, o )
   result = nil
   if o.is_a? Hash
@@ -12,7 +10,10 @@ def creep_merge( j, o )
       if j.is_a?(Hash)
         unless  j.key?(k)
           warn "!!!!!!!!!  WARNING NO key '#{k}'"
-          require 'pry'; binding.pry if ENV['PRY'] == 'yes'
+          if ENV['PRY'] == 'yes'
+            require 'pry'
+            binding.pry
+          end
         else
           j[k] = creep_merge(j[k], o[k])
         end

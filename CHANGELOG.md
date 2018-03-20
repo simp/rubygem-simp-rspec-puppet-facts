@@ -1,3 +1,8 @@
+## 2018-03-08 - Add OracleLinux 6 and 7 factssets - 2.1.0
+- Added factsets for OracleLinux 6 and 7
+- Updated the fact collection Vagrantfile and scripts to handle non-GCE
+  environments properly
+
 ## 2017-08-02 - Fix and normalize factsets - 2.0.1
 The GCE-derived RHEL facts broke some spec tests due to changes in the
 fqdns & IP addresses, which had been standardized as foo.example.com /
@@ -22,7 +27,7 @@ using the gce_scrub_data.rb script.
 - Added Facter 2.5 facts
 - Added CFacter facts for all supported PE and SIMP versions
 - `Vagrantfile` now uses official CentOS boxes from Atlus
-- Updated scripts to collect facts for all 
+- Updated scripts to collect facts for all
 - `on_supported_os` is now smart enough to avoid facterdb crashes by only
    asking for factsets that haven't been recorded for SIMP
   data that has been recorded for SIMP (avoids facterdb crashes)

@@ -34,6 +34,8 @@ else
   plabs_ver=$operatingsystem
 fi
 
+$rpm_cmd remove -y puppet* ||:
+
 $rpm_cmd install -y --nogpgcheck "https://yum.puppetlabs.com/puppetlabs-release-pc1-${plabs_ver}-${operatingsystemmajrelease}.noarch.rpm"
 $rpm_cmd install -y --nogpgcheck "https://yum.puppetlabs.com/puppetlabs-release-pc1-${plabs_ver}-${operatingsystemmajrelease}.noarch.rpm"
 $rpm_cmd install -y https://yum.puppetlabs.com/puppet5/puppet5-release-${plabs_ver}-${operatingsystemmajrelease}.noarch.rpm
@@ -41,9 +43,13 @@ $rpm_cmd install -y https://yum.puppetlabs.com/puppet5/puppet5-release-${plabs_v
 # Prereqs
 $rpm_cmd install -y facter rubygem-bundler git augeas-devel \
   libicu-devel libxml2 libxml2-devel libxslt libxslt-devel \
-  gcc gcc-c++ ruby-devel audit bind-utils net-tools
+  gcc gcc-c++ ruby-devel audit bind-utils net-tools rubygem-json
 
-rpm -qi puppet > /dev/null &&  $rpm_cmd remove -y puppet
+# Work around libcurl issues
+$rpm_cmd update -y libcurl openssl nss
+
+to_scrub='.to_scrub'
+echo '' > $to_scrub
 
 # Capture data for (c)facter 3.X
 #                                           *LTS*           +2016.4
@@ -66,7 +72,7 @@ for puppet_agent_version in 1.2.2    1.5.3  1.7.2    1.8.3  1.10.4   5.0.1 ; do
 
   /opt/puppetlabs/puppet/bin/facter gce --strict |&> /dev/null
   if [ $? -eq 0 ]; then
-    /opt/puppetlabs/puppet/bin/ruby /vagrant/scripts/gce_scrub_data.rb "${output_dir}/${output_file}"
+    echo "${output_dir}/${output_file}" >> $to_scrub
   fi
 done
 
@@ -74,11 +80,17 @@ operatingsystem=$( facter operatingsystem | tr '[:upper:]' '[:lower:]' )
 operatingsystemmajrelease=$( facter operatingsystemmajrelease )
 hardwaremodel=$( facter hardwaremodel )
 
-rpm -qi puppet-agent > /dev/null && $rpm_cmd remove -y puppet-agent
+$rpm_cmd remove -y puppet-agent ||:
 
 export PUPPET_VERSION="~> 3.7"
 
-#PATH=/opt/puppetlabs/puppet/bin:$PATH
+# RVM Install for isolation
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+\curl -sSL https://get.rvm.io | bash -s stable
+source /usr/local/rvm/scripts/rvm
+rvm install 2.1.9
+rvm use 2.1.9 --default
+
 gem install bundler --no-ri --no-rdoc --no-format-executable
 bundle install --path vendor/bundler
 
@@ -94,4 +106,10 @@ for version in 1.7.0 2.0.0 2.1.0 2.2.0 2.3.0 2.4.0 2.5.0 ; do
   output_file="/vagrant/${os_string}.facts"
   mkdir -p $( dirname $output_file )
   FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 3.7" bundle exec ruby /vagrant/scripts/get_facts.rb | tee $output_file
+done
+
+for file in `cat $to_scrub`; do
+  if [ -f $file ]; then
+    bundle exec ruby /vagrant/scripts/gce_scrub_data.rb $file
+  fi
 done
