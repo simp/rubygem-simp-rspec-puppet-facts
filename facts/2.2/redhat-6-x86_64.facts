@@ -4,6 +4,10 @@
   "ipv6_enabled": false,
   "processor0": "Intel(R) Xeon(R) CPU @ 2.30GHz",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "rubyversion": "1.8.7",
   "swapsize_mb": "0.00",
   "init_systems": [

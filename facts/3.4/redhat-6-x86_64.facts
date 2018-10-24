@@ -436,6 +436,10 @@
   },
   "openldap_arch": "i386",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "operatingsystem": "RedHat",
   "operatingsystemmajrelease": "6",
   "operatingsystemrelease": "6.9",

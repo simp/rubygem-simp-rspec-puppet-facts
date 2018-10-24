@@ -585,5 +585,9 @@
   "memorysize": "490.16 MB",
   "radius_version": "unknown",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "hardwareisa": "x86_64"
 }

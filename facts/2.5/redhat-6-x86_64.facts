@@ -127,6 +127,10 @@
   "netmask_eth0": "255.255.255.0",
   "rubyversion": "1.8.7",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "netmask_lo": "255.0.0.0",
   "shmall": "4294967296",
   "netmask": "255.255.255.0",

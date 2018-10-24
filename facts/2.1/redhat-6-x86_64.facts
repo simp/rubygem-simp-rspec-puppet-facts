@@ -333,6 +333,10 @@
   },
   "selinux_config_policy": "targeted",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "fips_ciphers": [
     "ECDHE-RSA-AES256-GCM-SHA384",
     "ECDHE-ECDSA-AES256-GCM-SHA384",

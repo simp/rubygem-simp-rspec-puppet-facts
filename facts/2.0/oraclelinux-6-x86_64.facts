@@ -566,6 +566,10 @@
     "sysv"
   ],
   "openldap_arch": "i386",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "openssh_version": "5.3",
   "root_home": "/root",
   "is_pe": false,

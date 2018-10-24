@@ -425,6 +425,10 @@
   "netmask_eth0": "255.255.255.0",
   "uniqueid": "8e0a0300",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "puppet_environmentpath": "",
   "defaultgateway": "10.0.2.2",
   "os": {

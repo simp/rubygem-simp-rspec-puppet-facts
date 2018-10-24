@@ -135,6 +135,10 @@
   "operatingsystemrelease": "6.9",
   "swapfree": "1.50 GB",
   "id": "root",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "defaultgateway": "10.0.2.2",
   "hostname": "foo",
   "ipaddress": "10.0.2.15",

@@ -625,6 +625,10 @@
   },
   "reboot_required": false,
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "blockdevices": "sda",
   "mtu_eth0": 1460,
   "operatingsystemmajrelease": "6",

@@ -137,6 +137,10 @@
   "manufacturer": "innotek GmbH",
   "kernel": "Linux",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "ipaddress": "10.0.2.15",
   "rubysitedir": "/usr/lib/ruby/site_ruby/1.8",
   "mysql_server_id": 180684,

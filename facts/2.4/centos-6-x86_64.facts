@@ -227,6 +227,10 @@
   "id": "root",
   "netmask_lo": "255.0.0.0",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "macaddress_eth0": "52:54:00:2A:86:4C",
   "uptime_days": 0,
   "haveged_startup_provider": "init",
