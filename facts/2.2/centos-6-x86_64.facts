@@ -556,6 +556,10 @@
   "is_virtual": "true",
   "runlevel": "3",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "architecture": "x86_64",
   "osfamily": "RedHat",
   "package_provider": "yum",

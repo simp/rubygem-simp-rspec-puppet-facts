@@ -650,6 +650,11 @@
   "uid_min": "1000",
   "openldap_arch": "i386",
   "openssh_version": "6.6.1",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_ecdsa_key",
+    "/etc/ssh/ssh_host_ed25519_key"
+  ],
   "package_provider": "yum",
   "is_pe": false,
   "puppet_vardir": "/var/lib/puppet",

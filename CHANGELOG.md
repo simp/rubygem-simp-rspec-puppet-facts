@@ -1,3 +1,7 @@
+## 2018-10-25 - Add ssh_host_keys custom fact - 2.2.0
+- Added a 'ssh_host_keys' custom fact to support the new fact that ships with
+  the SIMP ssh module.
+
 ## 2018-03-08 - Add OracleLinux 6 and 7 factssets - 2.1.0
 - Added factsets for OracleLinux 6 and 7
 - Updated the fact collection Vagrantfile and scripts to handle non-GCE

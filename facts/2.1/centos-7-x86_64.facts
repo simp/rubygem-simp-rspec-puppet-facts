@@ -555,6 +555,11 @@
   },
   "openldap_arch": "i386",
   "openssh_version": "6.6.1",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_ecdsa_key",
+    "/etc/ssh/ssh_host_ed25519_key"
+  ],
   "puppet_vardir": "/var/lib/puppet",
   "puppet_environmentpath": "",
   "root_home": "/root",

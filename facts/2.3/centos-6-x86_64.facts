@@ -422,6 +422,10 @@
   "ipaddress_lo": "127.0.0.1",
   "kernelmajversion": "2.6",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "runlevel": "3",
   "netmask_eth0": "255.255.255.0",
   "uuid": "4D1C8D9A-6F13-45FD-AE95-D01D1E1DA675",

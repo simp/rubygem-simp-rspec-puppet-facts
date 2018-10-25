@@ -81,6 +81,10 @@
   "kernelmajversion": "2.6",
   "sshfp_rsa": "SSHFP 1 1 0b92f7d2f350d96251f0a0c4499f4ac4b79916dc\nSSHFP 1 2 ab11db5c12cc4c5498c3b00b5aff87c89ce0dea9f03674d5392b345be8273074",
   "openssh_version": "5.3",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key",
+    "/etc/ssh/ssh_host_dsa_key"
+  ],
   "puppetversion": "3.8.7",
   "tmp_mount_fstype_dev_shm": "tmpfs",
   "swapsize": "0.00 MB",
