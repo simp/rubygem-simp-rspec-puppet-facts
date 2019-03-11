@@ -565,5 +565,6 @@
   "selinux_current_mode": "enforcing",
   "ipaddress_lo": "127.0.0.1",
   "defaultgateway": "10.0.2.2",
-  "blockdevice_sda_size": 42949672960
+  "blockdevice_sda_size": 42949672960,
+  "augeasversion": "1.4.0"
 }

@@ -382,5 +382,6 @@
   "root_home": "/root",
   "service_provider": "redhat",
   "systemd": false,
-  "has_tpm": false
+  "has_tpm": false,
+  "augeasversion": "1.4.0"
 }

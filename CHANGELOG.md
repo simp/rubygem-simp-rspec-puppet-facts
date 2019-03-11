@@ -1,3 +1,7 @@
+## 2019-03-11 - Add 'augeasversion' fact to all fact sets
+- More modules are starting to need the 'augeasversion' fact so it was added to
+  all fact sets for reference.
+
 ## 2018-10-25 - Add ssh_host_keys custom fact - 2.2.0
 - Added a 'ssh_host_keys' custom fact to support the new fact that ships with
   the SIMP ssh module.

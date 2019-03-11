@@ -588,5 +588,6 @@
   "root_home": "/root",
   "ipaddress": "10.0.2.15",
   "ps": "ps -ef",
-  "hostname": "foo"
+  "hostname": "foo",
+  "augeasversion": "1.4.0"
 }

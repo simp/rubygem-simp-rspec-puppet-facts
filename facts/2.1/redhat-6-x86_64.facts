@@ -635,5 +635,6 @@
   "ipaddress_eth0": "10.0.2.15",
   "tmp_mount_path_dev_shm": "tmpfs",
   "swapsize_mb": "0.00",
-  "architecture": "x86_64"
+  "architecture": "x86_64",
+  "augeasversion": "1.4.0"
 }

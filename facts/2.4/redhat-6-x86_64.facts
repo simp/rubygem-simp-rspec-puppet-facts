@@ -660,5 +660,6 @@
   "java_default_home": ".",
   "selinux_config_mode": "enforcing",
   "gem_version": "~> 2.4.0",
-  "tmp_mount_fstype_dev_shm": "tmpfs"
+  "tmp_mount_fstype_dev_shm": "tmpfs",
+  "augeasversion": "1.4.0"
 }

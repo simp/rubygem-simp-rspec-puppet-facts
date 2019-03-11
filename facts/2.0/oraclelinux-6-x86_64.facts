@@ -579,5 +579,6 @@
   "puppet_environmentpath": "",
   "puppet_server": "puppet",
   "systemd": false,
-  "has_tpm": false
+  "has_tpm": false,
+  "augeasversion": "1.4.0"
 }

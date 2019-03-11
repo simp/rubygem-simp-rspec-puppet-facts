@@ -381,5 +381,6 @@
   "swapfree_mb": "1535.85",
   "uid_min": "500",
   "package_provider": "yum",
-  "service_provider": "redhat"
+  "service_provider": "redhat",
+  "augeasversion": "1.4.0"
 }

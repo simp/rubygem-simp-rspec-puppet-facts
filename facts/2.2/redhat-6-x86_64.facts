@@ -658,5 +658,6 @@
   },
   "architecture": "x86_64",
   "fullrun": "false",
-  "network_eth0": "10.0.2.0"
+  "network_eth0": "10.0.2.0",
+  "augeasversion": "1.4.0"
 }

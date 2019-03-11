@@ -589,5 +589,6 @@
   "operatingsystemmajrelease": "6",
   "architecture": "x86_64",
   "gid": "root",
-  "bios_version": "VirtualBox"
+  "bios_version": "VirtualBox",
+  "augeasversion": "1.4.0"
 }

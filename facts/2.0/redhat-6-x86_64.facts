@@ -555,5 +555,6 @@
   "acpid_enabled": true,
   "kernelrelease": "2.6.32-696.6.3.el6.x86_64",
   "bios_vendor": "Google",
-  "hardwaremodel": "x86_64"
+  "hardwaremodel": "x86_64",
+  "augeasversion": "1.4.0"
 }
