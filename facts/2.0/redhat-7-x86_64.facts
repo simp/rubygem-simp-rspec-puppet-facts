@@ -551,5 +551,6 @@
   "puppet_environmentpath": "",
   "root_home": "/root",
   "service_provider": "systemd",
-  "has_tpm": false
+  "has_tpm": false,
+  "augeasversion": "1.4.0"
 }

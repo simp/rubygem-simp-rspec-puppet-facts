@@ -589,5 +589,6 @@
   "sshrsakey": "AAAAB3NzaC1yc2EAAAABIwAAAQEA5uiRiOlpJZzUecjf78vtmHgtegd/bPRavU9VeMpNZw51frN0STPfPKnN6bpe2Tv8pWJ21B2Y4iKXpgphhDCa5bpLrq3xvqfG7BZx/F0bkvgT0kSW3IkDf3fOd5Dp9Nl3Jxd7PpIDCGrCdHV3JAMGtLr11/0hGBk/R519OPScah51HVms5BZMxfgzCAcPeMI21I5XIwWFYCXlbBT16jGPzWXjXGI2o2CxuTcoVD38Aravho61dDgOmMKgGhEcaXSWACyzn5sK1wm070KDAVhj79g271sKmoe2FQraRC2NByTqIpaBl6Hk8FJPTr+gvQjZNqa51E7D0RdjwtWWEULHsQ==",
   "tmp_mount_dev_shm": "rw,seclabel,relatime",
   "uuid": "4D1C8D9A-6F13-45FD-AE95-D01D1E1DA675",
-  "blockdevices": "sda"
+  "blockdevices": "sda",
+  "augeasversion": "1.4.0"
 }

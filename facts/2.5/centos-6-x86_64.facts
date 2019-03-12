@@ -589,5 +589,6 @@
     "/etc/ssh/ssh_host_rsa_key",
     "/etc/ssh/ssh_host_dsa_key"
   ],
-  "hardwareisa": "x86_64"
+  "hardwareisa": "x86_64",
+  "augeasversion": "1.4.0"
 }

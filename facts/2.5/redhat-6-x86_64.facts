@@ -660,5 +660,6 @@
   "facterversion": "2.5.0",
   "boardmanufacturer": "Google",
   "swapsize": "0.00 MB",
-  "fqdn": "foo.example.com"
+  "fqdn": "foo.example.com",
+  "augeasversion": "1.4.0"
 }

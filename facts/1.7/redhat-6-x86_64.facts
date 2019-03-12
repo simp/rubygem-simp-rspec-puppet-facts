@@ -381,5 +381,6 @@
   "network_eth0": "10.0.2.0",
   "haveged_startup_provider": "init",
   "memorytotal": "1.66 GB",
-  "network_lo": "127.0.0.0"
+  "network_lo": "127.0.0.0",
+  "augeasversion": "1.4.0"
 }

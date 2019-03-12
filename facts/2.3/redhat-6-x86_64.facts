@@ -659,5 +659,6 @@
   "kernelmajversion": "2.6",
   "timezone": "UTC",
   "hardwaremodel": "x86_64",
-  "java_default_home": "."
+  "java_default_home": ".",
+  "augeasversion": "1.4.0"
 }

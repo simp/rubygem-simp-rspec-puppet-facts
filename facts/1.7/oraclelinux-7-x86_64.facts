@@ -381,5 +381,6 @@
   "service_provider": "systemd",
   "systemd": true,
   "systemd_version": "219",
-  "has_tpm": false
+  "has_tpm": false,
+  "augeasversion": "1.4.0"
 }

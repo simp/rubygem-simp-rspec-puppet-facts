@@ -550,5 +550,6 @@
   "domain": "example.com",
   "kernelversion": "2.6.32",
   "package_provider": "yum",
-  "acpid_enabled": true
+  "acpid_enabled": true,
+  "augeasversion": "1.4.0"
 }

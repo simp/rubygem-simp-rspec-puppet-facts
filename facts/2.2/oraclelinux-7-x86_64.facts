@@ -646,5 +646,6 @@
   "systemd": true,
   "systemd_version": "219",
   "has_tpm": false,
-  "ima_log_size": 104
+  "ima_log_size": 104,
+  "augeasversion": "1.4.0"
 }

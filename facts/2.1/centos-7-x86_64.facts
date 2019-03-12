@@ -566,5 +566,6 @@
   "is_pe": false,
   "service_provider": "systemd",
   "package_provider": "yum",
-  "has_tpm": false
+  "has_tpm": false,
+  "augeasversion": "1.4.0"
 }
