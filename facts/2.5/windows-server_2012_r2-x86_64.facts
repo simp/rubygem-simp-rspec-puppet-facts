@@ -1,0 +1,383 @@
+{
+  "aio_agent_version": "5.5.16",
+  "dmi": {
+    "manufacturer": "innotek GmbH",
+    "product": {
+      "name": "VirtualBox",
+      "serial_number": "0",
+      "uuid": "0B583E48-1882-504E-BB7B-6B822ECA03CB"
+    }
+  },
+  "env_windows_installdir": "C:\\Program Files\\Puppet Labs\\Puppet",
+  "facterversion": "3.11.9",
+  "hypervisors": {
+    "virtualbox": {
+      "revision": "132072",
+      "version": "6.0.10"
+    }
+  },
+  "identity": {
+    "privileged": true,
+    "user": "WIN\\vagrant"
+  },
+  "is_pe": false,
+  "is_virtual": true,
+  "kernel": "windows",
+  "kernelmajversion": "6.3",
+  "kernelrelease": "6.3.9600",
+  "kernelversion": "6.3.9600",
+  "memory": {
+    "system": {
+      "available": "501.13 MiB",
+      "available_bytes": 525475840,
+      "capacity": "75.53%",
+      "total": "2.00 GiB",
+      "total_bytes": 2147012608,
+      "used": "1.51 GiB",
+      "used_bytes": 1621536768
+    }
+  },
+  "networking": {
+    "domain": "example.com",
+    "fqdn": "foo.example.com",
+    "hostname": "foo",
+    "interfaces": {
+      "Ethernet": {
+        "bindings": [
+          {
+            "address": "10.0.2.15",
+            "netmask": "255.255.255.0",
+            "network": "10.0.2.0"
+          }
+        ],
+        "bindings6": [
+          {
+            "address": "fe80::e488:b85c:5262:ff86%12",
+            "netmask": "ffff:ffff:ffff:ffff::",
+            "network": "fe80::%12"
+          }
+        ],
+        "dhcp": "10.0.2.2",
+        "ip": "10.0.2.15",
+        "ip6": "fe80::e488:b85c:5262:ff86%12",
+        "mac": "08:00:27:D5:9D:5A",
+        "mtu": 1500,
+        "netmask": "255.255.255.0",
+        "netmask6": "ffff:ffff:ffff:ffff::",
+        "network": "10.0.2.0",
+        "network6": "fe80::%12"
+      },
+      "Ethernet 2": {
+        "bindings": [
+          {
+            "address": "10.0.2.15",
+            "netmask": "255.255.0.0",
+            "network": "10.0.2.0"
+          }
+        ],
+        "bindings6": [
+          {
+            "address": "fe80::b1b7:992f:a695:b948%14",
+            "netmask": "ffff:ffff:ffff:ffff::",
+            "network": "fe80::%14"
+          }
+        ],
+        "ip": "10.0.2.15",
+        "ip6": "fe80::b1b7:992f:a695:b948%14",
+        "mac": "08:00:27:16:F4:6E",
+        "mtu": 1500,
+        "netmask": "255.255.0.0",
+        "netmask6": "ffff:ffff:ffff:ffff::",
+        "network": "10.0.2.0",
+        "network6": "fe80::%14"
+      }
+    },
+    "ip": "10.0.2.15",
+    "ip6": "fe80::b1b7:992f:a695:b948%14",
+    "mac": "08:00:27:16:F4:6E",
+    "mtu": 1500,
+    "netmask": "255.255.0.0",
+    "netmask6": "ffff:ffff:ffff:ffff::",
+    "network": "10.0.2.0",
+    "network6": "fe80::%14",
+    "primary": "Ethernet 2"
+  },
+  "os": {
+    "architecture": "x64",
+    "family": "windows",
+    "hardware": "x86_64",
+    "name": "windows",
+    "release": {
+      "full": "2012 R2",
+      "major": "2012 R2"
+    },
+    "windows": {
+      "edition_id": "ServerStandard",
+      "installation_type": "Server",
+      "product_name": "Windows Server 2012 R2 Standard",
+      "system32": "C:\\Windows\\system32"
+    }
+  },
+  "package_provider": "windows",
+  "path": "C:\\Program Files\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\facter\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\hiera\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\mcollective\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\tools\\bin;PATH;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Puppet Labs\\Puppet\\bin",
+  "processors": {
+    "count": 2,
+    "isa": "x64",
+    "models": [
+      "Intel(R) Core(TM) i7-4930K CPU @ 3.40GHz"
+    ],
+    "physicalcount": 1
+  },
+  "puppet_environmentpath": "C:/ProgramData/PuppetLabs/code/environments",
+  "puppet_server": "puppet",
+  "puppet_settings": {
+    "main": {
+      "confdir": "C:/ProgramData/PuppetLabs/puppet/etc",
+      "codedir": "C:/ProgramData/PuppetLabs/code",
+      "vardir": "C:/ProgramData/PuppetLabs/puppet/cache",
+      "name": "#<Puppet::Util::WindowsRunMode:0x0000000004370538>",
+      "logdir": "C:/ProgramData/PuppetLabs/puppet/var/log",
+      "log_level": "notice",
+      "disable_warnings": "[]",
+      "strict": "warning",
+      "disable_i18n": "false",
+      "priority": "",
+      "trace": "false",
+      "profile": "false",
+      "future_features": "false",
+      "static_catalogs": "true",
+      "strict_environment_mode": "false",
+      "autoflush": "true",
+      "syslogfacility": "daemon",
+      "statedir": "C:/ProgramData/PuppetLabs/puppet/cache/state",
+      "rundir": "C:/ProgramData/PuppetLabs/puppet/var/run",
+      "genconfig": "false",
+      "genmanifest": "false",
+      "color": "ansi",
+      "mkusers": "false",
+      "manage_internal_file_permissions": "false",
+      "onetime": "false",
+      "path": "none",
+      "libdir": "C:/ProgramData/PuppetLabs/puppet/cache/lib",
+      "environment": "production",
+      "environmentpath": "C:/ProgramData/PuppetLabs/code/environments",
+      "always_retry_plugins": "true",
+      "diff_args": "-u",
+      "diff": "",
+      "show_diff": "false",
+      "daemonize": "false",
+      "maximum_uid": "4294967290",
+      "route_file": "C:/ProgramData/PuppetLabs/puppet/etc/routes.yaml",
+      "node_terminus": "plain",
+      "node_cache_terminus": "",
+      "data_binding_terminus": "hiera",
+      "hiera_config": "C:/ProgramData/PuppetLabs/puppet/etc/hiera.yaml",
+      "binder_config": "",
+      "catalog_terminus": "compiler",
+      "catalog_cache_terminus": "",
+      "facts_terminus": "facter",
+      "default_file_terminus": "rest",
+      "http_proxy_host": "none",
+      "http_proxy_port": "3128",
+      "http_proxy_user": "none",
+      "http_proxy_password": "none",
+      "http_keepalive_timeout": "4",
+      "http_debug": "false",
+      "http_connect_timeout": "120",
+      "http_read_timeout": "",
+      "http_user_agent": "Puppet/5.5.16 Ruby/2.4.5-p335 (x64-mingw32)",
+      "filetimeout": "15",
+      "environment_timeout": "0",
+      "environment_data_provider": "",
+      "prerun_command": "",
+      "postrun_command": "",
+      "freeze_main": "false",
+      "preview_outputdir": "C:/ProgramData/PuppetLabs/puppet/cache/preview",
+      "certname": "foo.example.com",
+      "dns_alt_names": "",
+      "csr_attributes": "C:/ProgramData/PuppetLabs/puppet/etc/csr_attributes.yaml",
+      "certdir": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/certs",
+      "ssldir": "C:/ProgramData/PuppetLabs/puppet/etc/ssl",
+      "publickeydir": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/public_keys",
+      "requestdir": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/certificate_requests",
+      "privatekeydir": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/private_keys",
+      "privatedir": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/private",
+      "passfile": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/private/password",
+      "hostcsr": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/csr_foo.example.com.pem",
+      "hostcert": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/certs/foo.example.com.pem",
+      "hostprivkey": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/private_keys/foo.example.com.pem",
+      "hostpubkey": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/public_keys/foo.example.com.pem",
+      "localcacert": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/certs/ca.pem",
+      "ssl_client_ca_auth": "",
+      "ssl_server_ca_auth": "",
+      "hostcrl": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/crl.pem",
+      "certificate_revocation": "chain",
+      "digest_algorithm": "md5",
+      "supported_checksum_types": "[\"md5\", \"sha256\", \"sha384\", \"sha512\", \"sha224\"]",
+      "logdest": "",
+      "plugindest": "C:/ProgramData/PuppetLabs/puppet/cache/lib",
+      "pluginsource": "puppet:///plugins",
+      "pluginfactdest": "C:/ProgramData/PuppetLabs/puppet/cache/facts.d",
+      "pluginfactsource": "puppet:///pluginfacts",
+      "localedest": "C:/ProgramData/PuppetLabs/puppet/cache/locales",
+      "localesource": "puppet:///locales",
+      "pluginsync": "true",
+      "pluginsignore": ".svn CVS .git .hg",
+      "factpath": "C:/ProgramData/PuppetLabs/puppet/cache/lib/facter;C:/ProgramData/PuppetLabs/puppet/cache/facts",
+      "external_nodes": "none",
+      "rich_data": "false"
+    },
+    "module_tool": {
+      "module_repository": "https://forgeapi.puppet.com",
+      "module_working_dir": "C:/Users/vagrant/AppData/Local/Temp",
+      "module_skeleton_dir": "C:/Users/vagrant/AppData/Local/Temp/skeleton",
+      "forge_authorization": "",
+      "module_groups": ""
+    },
+    "ca": {
+      "ca_name": "Puppet CA: foo.example.com",
+      "cadir": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca",
+      "cacert": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca/ca_crt.pem",
+      "cakey": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca/ca_key.pem",
+      "capub": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca/ca_pub.pem",
+      "cacrl": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca/ca_crl.pem",
+      "caprivatedir": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca/private",
+      "csrdir": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca/requests",
+      "signeddir": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca/signed",
+      "capass": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca/private/ca.pass",
+      "serial": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca/serial",
+      "autosign": "C:/ProgramData/PuppetLabs/puppet/etc/autosign.conf",
+      "allow_duplicate_certs": "false",
+      "ca_ttl": "157680000",
+      "keylength": "4096",
+      "cert_inventory": "C:/ProgramData/PuppetLabs/puppet/etc/ssl/ca/inventory.txt"
+    },
+    "application": {
+      "config_file_name": "puppet.conf",
+      "config": "C:/ProgramData/PuppetLabs/puppet/etc/puppet.conf",
+      "pidfile": "C:/ProgramData/PuppetLabs/puppet/var/run/application.pid",
+      "sourceaddress": ""
+    },
+    "environment": {
+      "manifest": "C:/ProgramData/PuppetLabs/code/environments/production/manifests",
+      "modulepath": "C:/ProgramData/PuppetLabs/code/environments/production/modules;C:/ProgramData/PuppetLabs/code/modules",
+      "config_version": ""
+    },
+    "master": {
+      "user": "puppet",
+      "group": "puppet",
+      "default_manifest": "./manifests",
+      "disable_per_environment_manifest": "false",
+      "code": "",
+      "masterport": "8140",
+      "node_name": "cert",
+      "bucketdir": "C:/ProgramData/PuppetLabs/puppet/cache/bucket",
+      "ca": "true",
+      "trusted_oid_mapping_file": "C:/ProgramData/PuppetLabs/puppet/etc/custom_trusted_oid_mapping.yaml",
+      "basemodulepath": "C:/ProgramData/PuppetLabs/code/modules",
+      "ssl_client_header": "HTTP_X_CLIENT_DN",
+      "ssl_client_verify_header": "HTTP_X_CLIENT_VERIFY",
+      "yamldir": "C:/ProgramData/PuppetLabs/puppet/cache/yaml",
+      "server_datadir": "C:/ProgramData/PuppetLabs/puppet/cache/server_data",
+      "reports": "store",
+      "reportdir": "C:/ProgramData/PuppetLabs/puppet/cache/reports",
+      "reporturl": "http://localhost:3000/reports/upload",
+      "fileserverconfig": "C:/ProgramData/PuppetLabs/puppet/etc/fileserver.conf",
+      "strict_hostname_checking": "false",
+      "storeconfigs": "false",
+      "storeconfigs_backend": "puppetdb"
+    },
+    "device": {
+      "devicedir": "C:/ProgramData/PuppetLabs/puppet/cache/devices",
+      "deviceconfig": "C:/ProgramData/PuppetLabs/puppet/etc/device.conf"
+    },
+    "agent": {
+      "node_name_value": "foo.example.com",
+      "node_name_fact": "",
+      "statefile": "C:/ProgramData/PuppetLabs/puppet/cache/state/state.yaml",
+      "statettl": "2764800",
+      "transactionstorefile": "C:/ProgramData/PuppetLabs/puppet/cache/state/transactionstore.yaml",
+      "clientyamldir": "C:/ProgramData/PuppetLabs/puppet/cache/client_yaml",
+      "client_datadir": "C:/ProgramData/PuppetLabs/puppet/cache/client_data",
+      "classfile": "C:/ProgramData/PuppetLabs/puppet/cache/state/classes.txt",
+      "resourcefile": "C:/ProgramData/PuppetLabs/puppet/cache/state/resources.txt",
+      "puppetdlog": "C:/ProgramData/PuppetLabs/puppet/var/log/puppetd.log",
+      "server": "puppet",
+      "server_list": "[]",
+      "use_srv_records": "false",
+      "srv_domain": "example.com",
+      "ignoreschedules": "false",
+      "default_schedules": "true",
+      "noop": "false",
+      "runinterval": "1800",
+      "runtimeout": "0",
+      "ca_server": "puppet",
+      "ca_port": "8140",
+      "preferred_serialization_format": "json",
+      "agent_catalog_run_lockfile": "C:/ProgramData/PuppetLabs/puppet/cache/state/agent_catalog_run.lock",
+      "agent_disabled_lockfile": "C:/ProgramData/PuppetLabs/puppet/cache/state/agent_disabled.lock",
+      "usecacheonfailure": "true",
+      "use_cached_catalog": "false",
+      "ignoremissingtypes": "false",
+      "splaylimit": "1800",
+      "splay": "false",
+      "clientbucketdir": "C:/ProgramData/PuppetLabs/puppet/cache/clientbucket",
+      "report_server": "puppet",
+      "report_port": "8140",
+      "report": "true",
+      "lastrunfile": "C:/ProgramData/PuppetLabs/puppet/cache/state/last_run_summary.yaml",
+      "lastrunreport": "C:/ProgramData/PuppetLabs/puppet/cache/state/last_run_report.yaml",
+      "graph": "false",
+      "graphdir": "C:/ProgramData/PuppetLabs/puppet/cache/state/graphs",
+      "waitforcert": "120",
+      "ordering": "manifest"
+    },
+    "transaction": {
+      "tags": "",
+      "skip_tags": "",
+      "evaltrace": "false",
+      "summarize": "false"
+    },
+    "ldap": {
+      "ldapssl": "false",
+      "ldaptls": "false",
+      "ldapserver": "ldap",
+      "ldapport": "389",
+      "ldapstring": "(&(objectclass=puppetClient)(cn=%s))",
+      "ldapclassattrs": "puppetclass",
+      "ldapstackedattrs": "puppetvar",
+      "ldapattrs": "all",
+      "ldapparentattr": "parentnode",
+      "ldapuser": "",
+      "ldappassword": "",
+      "ldapbase": ""
+    },
+    "parser": {
+      "max_errors": "10",
+      "max_warnings": "10",
+      "max_deprecations": "10",
+      "strict_variables": "false",
+      "tasks": "false"
+    },
+    "puppetdoc": {
+      "document_all": "false"
+    }
+  },
+  "puppet_vardir": "C:/ProgramData/PuppetLabs/puppet/cache",
+  "puppetversion": "5.5.16",
+  "reboot_required": false,
+  "ruby": {
+    "platform": "x64-mingw32",
+    "sitedir": "C:/Program Files/Puppet Labs/Puppet/sys/ruby/lib/ruby/site_ruby/2.4.0",
+    "version": "2.4.5"
+  },
+  "service_provider": "windows",
+  "system_uptime": {
+    "days": 0,
+    "hours": 0,
+    "seconds": 93,
+    "uptime": "0:01 hours"
+  },
+  "timezone": "Pacific Daylight Time",
+  "virtual": "virtualbox"
+}

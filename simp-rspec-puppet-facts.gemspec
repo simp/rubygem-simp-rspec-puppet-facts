@@ -20,14 +20,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake',               '~> 10'
   s.add_development_dependency 'rspec',              '~> 3.2'
 
-  #s.add_development_dependency 'mime-types',         '~> 2'
-  #s.add_development_dependency 'coveralls',          '~> 0'
-  #s.add_development_dependency 'mocha',              '~> 1'
   s.add_runtime_dependency     'json',               '~> 1'
   s.add_runtime_dependency     'facter',             '>= 1.5.0', '< 3.0'
 
   s.add_development_dependency 'pry',                '~> 0'
-  #s.add_development_dependency 'pry-doc',            '~> 0'
   s.add_development_dependency 'tins',               '< 1.7' # 1.7+ breaks ruby 1.9
 
   s.requirements << 'rspec-puppet-facts'

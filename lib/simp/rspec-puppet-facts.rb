@@ -14,7 +14,7 @@ module Simp::RspecPuppetFacts
     supported_os.each do |os|
       os['operatingsystemrelease'].each do |rel|
         hardwaremodels.each do |hw|
-          os_strings << [os['operatingsystem'],rel,hw].map{|x| x.downcase }.join('-')
+          os_strings << [os['operatingsystem'],rel,hw].map{|x| x.downcase.gsub(/\s/,'_') }.join('-')
         end
       end
     end
@@ -30,7 +30,7 @@ module Simp::RspecPuppetFacts
       _name = os['operatingsystem']
       _rels = os['operatingsystemrelease'].send(filter_type) do |rel|
         _hw = rfh_hw.send(filter_type) do |hw|
-          simp_h.key? [_name,rel,hw].map{|x| x.downcase }.join('-')
+          simp_h.key? [_name,rel,hw].map{|x| x.downcase.gsub(/\s/,'_') }.join('-')
         end
         !_hw.empty?
       end
@@ -53,6 +53,7 @@ module Simp::RspecPuppetFacts
     rfh_h  = Simp::RspecPuppetFacts::Shim.on_supported_os(masked_opts)
 
     h = rfh_h.merge(simp_h).select{|k,v| supported_os_strings(opts).include? k}
+
     h.each do | os, facts |
       facter_ver=Facter.version[0..2]
       facts_file = File.expand_path("../../facts/#{facter_ver}/#{os}.facts",
@@ -87,6 +88,8 @@ module Simp::RspecPuppetFacts
 
 
   def lsb_facts( facts )
+    return facts if facts[:kernel].casecmp('windows')
+
     lsb_facts = {}
     # attempt to massage a major release version if missing (for facter 1.6)
     unless ENV['SIMP_FACTS_lsb'] == 'no'

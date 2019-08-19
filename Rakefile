@@ -1,8 +1,6 @@
-begin
-    require 'rspec/core/rake_task'
-      RSpec::Core::RakeTask.new(:spec)
-rescue LoadError
-end
+require 'simp/rake/beaker'
+
+Simp::Rake::Beaker.new(__dir__)
 
 namespace :syntax do
   def syntax_check(task, glob)

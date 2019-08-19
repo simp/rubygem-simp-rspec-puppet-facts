@@ -1,3 +1,7 @@
+## 2019-08-19 - Add basic Windows support
+- Added a set of Server 2012 R2 facts
+- Added a fact collector beaker job so that we don't have to wait for GCE
+-
 ## 2019-03-11 - Add 'augeasversion' fact to all fact sets
 - More modules are starting to need the 'augeasversion' fact so it was added to
   all fact sets for reference.
