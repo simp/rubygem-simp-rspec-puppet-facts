@@ -14,7 +14,6 @@ env:
   # Note: Facter 3.x is CFacter, and not a gem
   matrix:
   - FACTER_GEM_VERSION="~> 2.5.0" GEM_PUBLISH=true
-  - FACTER_GEM_VERSION="~> 1.7.0"
   - FACTER_GEM_VERSION="~> 2.0.0"
   - FACTER_GEM_VERSION="~> 2.1.0"
   - FACTER_GEM_VERSION="~> 2.2.0"
@@ -25,15 +24,11 @@ matrix:
   fast_finish: true
   allow_failures:
     - rvm: 2.4.4
-    - env: FACTER_GEM_VERSION="~> 1.7.0"
     - env: FACTER_GEM_VERSION="~> 2.0.0"
     - env: FACTER_GEM_VERSION="~> 2.1.0"
     - env: FACTER_GEM_VERSION="~> 2.2.0"
     - env: FACTER_GEM_VERSION="~> 2.3.0"
     - env: FACTER_GEM_VERSION="~> 2.4.0"
-  exclude:
-    - rvm: 2.4.4
-      env: FACTER_GEM_VERSION="~> 1.7.0"
 before_deploy:
   - "export GEM_VERSION=`ruby -r ./lib/simp/version.rb -e 'puts Simp::RspecPuppetFacts::VERSION'`"
   - '[[ $TRAVIS_TAG =~ ^${GEM_VERSION}$ ]]'
