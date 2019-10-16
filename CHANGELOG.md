@@ -1,3 +1,9 @@
+## 2019-10-15 - Add RHEL8 facts
+- Added collected facts for:
+  - RHEL 8
+  - RHEL 7 (updated)
+  - CentOS 8
+
 ## 2019-08-19 - Add basic Windows support
 - Added a set of Server 2012 R2 facts
 - Added a fact collector beaker job so that we don't have to wait for GCE
