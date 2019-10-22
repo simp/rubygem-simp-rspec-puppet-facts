@@ -18,11 +18,15 @@ describe 'look out muppets' do
         @output = []
       end
 
+      it 'should install the simp_core module' do
+        on(host, 'puppet module install simp/simp_core')
+      end
+
       it 'should collect valid fact data' do
         # Stupid RSpec tricks
-        output = on(host, 'facter -p --json').stdout
+        output = on(host, 'puppet facts --render-as json').stdout
 
-        expect{@output << JSON.parse(output)}.to_not raise_error
+        expect{@output << JSON.parse(output)['values']}.to_not raise_error
       end
 
       # This should work regardless of OS

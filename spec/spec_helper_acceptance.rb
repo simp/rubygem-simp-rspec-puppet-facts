@@ -2,7 +2,6 @@ require 'beaker-rspec'
 require 'tmpdir'
 require 'yaml'
 require 'simp/beaker_helpers'
-
 include Simp::BeakerHelpers
 
 require 'beaker/puppet_install_helper'
@@ -24,7 +23,7 @@ unless ENV['BEAKER_provision'] == 'no'
 end
 
 hosts.each do |host|
-  # https://petersouter.co.uk/testing-windows-puppet-with-beaker/
+  # https://petersouter.xyz/testing-windows-with-beaker-without-cygwin/
   case host['platform']
   when /windows/
     GEOTRUST_GLOBAL_CA = <<-EOM.freeze
@@ -66,25 +65,6 @@ RSpec.configure do |c|
     begin
       # Install modules and dependencies from spec/fixtures/modules
       copy_fixture_modules_to( hosts )
-
-      nonwin = hosts.dup
-      nonwin.delete_if {|h| h[:platform] =~ /windows/ }
-
-      unless nonwin.empty?
-        begin
-          server = only_host_with_role(nonwin, 'server')
-        rescue ArgumentError => e
-          server = hosts_with_role(nonwin, 'default').first
-        end
-        # Generate and install PKI certificates on each SUT
-        Dir.mktmpdir do |cert_dir|
-          run_fake_pki_ca_on(server, nonwin, cert_dir )
-          nonwin.each{ |sut| copy_pki_to( sut, cert_dir, '/etc/pki/simp-testing' )}
-        end
-
-        # add PKI keys
-        copy_keydist_to(server)
-      end
     rescue StandardError, ScriptError => e
       if ENV['PRY']
         require 'pry'; binding.pry
