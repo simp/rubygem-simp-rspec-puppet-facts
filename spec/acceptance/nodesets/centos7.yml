@@ -6,7 +6,7 @@
   end
 -%>
 HOSTS:
-  el8:
+  el7:
     roles:
       - linux
       - default
