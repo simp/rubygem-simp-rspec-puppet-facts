@@ -1,3 +1,6 @@
+## 2019-12-10 - Add OEL8 facts
+- Added collected facts for OEL8
+
 ## 2019-10-15 - Add RHEL8 facts
 - Added collected facts for:
   - RHEL 8
