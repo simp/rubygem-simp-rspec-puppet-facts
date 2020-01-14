@@ -1,5 +1,6 @@
-## 2020-01-13 - Exclude NAT interface from facts
+## 2020-01-14 - Exclude NAT interface from facts
 - Updated acceptance test to disable NAT interface
+- Broke out nodesets for OEL7 and OEL8
 - Updated collected facts for:
   - RHEL 8
   - RHEL 7
