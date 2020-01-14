@@ -1,3 +1,11 @@
+## 2020-01-13 - Exclude NAT interface from facts
+- Updated acceptance test to disable NAT interface
+- Updated collected facts for:
+  - RHEL 8
+  - RHEL 7
+  - CentOS 8
+  - OEL8
+
 ## 2019-12-10 - Add OEL8 facts
 - Added collected facts for OEL8
 

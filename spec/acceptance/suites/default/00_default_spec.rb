@@ -23,6 +23,13 @@ describe 'look out muppets' do
       end
 
       it 'should collect valid fact data' do
+        # Delete NAT interface so facter does not report randomly generated ip addresses
+        if fact_on(host, 'ipaddress_eth1') != '' and fact_on(host, 'operatingsystemmajrelease') != '6'
+          on host, 'nmcli connection delete id System\ eth1'
+        end
+        if fact_on(host, 'ipaddress_enp0s8') != '' and fact_on(host, 'operatingsystemmajrelease') != '6'
+          on host, 'nmcli connection delete id System\ enp0s8'
+        end
         # Stupid RSpec tricks
         output = on(host, 'puppet facts --render-as json').stdout
 
