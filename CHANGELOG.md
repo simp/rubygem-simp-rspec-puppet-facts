@@ -1,3 +1,7 @@
+## 2020-02-10 - Fix gemspec versions
+- Drop Ruby 1.9 support
+- Fix '~> 0' notation
+
 ## 2020-01-14 - Exclude NAT interface from facts
 - Updated acceptance test to disable NAT interface
 - Broke out nodesets for OEL7 and OEL8
