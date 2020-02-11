@@ -1,6 +1,7 @@
 ## 2020-02-10 / 3.0.0 - Fix gemspec versions
 - Drop Ruby 1.9 support
 - Fix '~> 0' notation
+- Bumped minimum facter version to 2.5
 
 ## 2020-01-14 - Exclude NAT interface from facts
 - Updated acceptance test to disable NAT interface
