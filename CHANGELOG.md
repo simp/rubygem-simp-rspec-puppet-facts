@@ -2,6 +2,9 @@
 - Drop Ruby 1.9 support
 - Fix '~> 0' notation
 - Bumped minimum facter version to 2.5
+- Fix Facter x.y version bug
+- Updated supported/sampled Facter versions
+- Dropped deprecated factsets
 
 ## 2020-01-14 - Exclude NAT interface from facts
 - Updated acceptance test to disable NAT interface
