@@ -52,11 +52,13 @@ to_scrub='.to_scrub'
 echo '' > $to_scrub
 
 # Capture data for (c)facter 3.X
-#                                           *LTS*           +2016.4
-# PE                        2015.2.0 2016.2 2016.4.3 2016.5 2017.2   -----
-# Puppet                    4.2.1    4.5.2  4.7.1    4.8.2  4.10.4   5.0.1
-# Facter                    3.0      3.1    3.4.2    3.5.1  3.6.5    3.7.1
-for puppet_agent_version in 1.2.2    1.5.3  1.7.2    1.8.3  1.10.4   5.0.1 ; do
+#                           oldLTS                   *LTS*
+# PE                        2016.4  2016.5  2017.2   2018.1   2019.3
+# SIMP                              6.0     6.1,6.2  6.3,6.4
+# ------                    ------  ------  ------   ------   ------
+# Puppet                    4.7.1   4.8.2   4.10.4   5.5.18   6.12.0
+# Facter                    3.4.2   3.5.1   3.6.5    3.11.10  3.14.0
+for puppet_agent_version in 1.7.2   1.8.3   1.10.4   5.5.18   6.12.0; do
   rpm -qi puppet-agent > /dev/null && $rpm_cmd remove -y puppet-agent
   $rpm_cmd install -y puppet-agent-$puppet_agent_version
   facter_version=$( facter --version | cut -c1-3 )
@@ -82,22 +84,22 @@ hardwaremodel=$( facter hardwaremodel )
 
 $rpm_cmd remove -y puppet-agent ||:
 
-export PUPPET_VERSION="~> 3.7"
+export PUPPET_VERSION="~> 5.5"
 
 # RVM Install for isolation
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 \curl -sSL https://get.rvm.io | bash -s stable
 source /usr/local/rvm/scripts/rvm
-rvm install 2.1.9
-rvm use 2.1.9 --default
+rvm install 2.4.5
+rvm use 2.4.5 --default
 
 gem install bundler --no-ri --no-rdoc --no-format-executable
 bundle install --path vendor/bundler
 
-# Capture data for ruby-based facters
-for version in 1.7.0 2.0.0 2.1.0 2.2.0 2.3.0 2.4.0 2.5.0 ; do
-  FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 3.7" bundle update
-  os_string="$(FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 3.7" bundle exec facter --version | cut -c1-3)/${operatingsystem}-${operatingsystemmajrelease}-${hardwaremodel}"
+# Capture data for ruby-based facters (2.5 only for now)
+for version in 2.5.7 ; do
+  FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 5.5" bundle update
+  os_string="$(FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 5.5" bundle exec facter --version | cut -c1-3)/${operatingsystem}-${operatingsystemmajrelease}-${hardwaremodel}"
   echo
   echo
   echo  ============== ${os_string} ================
@@ -105,7 +107,7 @@ for version in 1.7.0 2.0.0 2.1.0 2.2.0 2.3.0 2.4.0 2.5.0 ; do
   echo
   output_file="/vagrant/${os_string}.facts"
   mkdir -p $( dirname $output_file )
-  FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 3.7" bundle exec ruby /vagrant/scripts/get_facts.rb | tee $output_file
+  FACTER_GEM_VERSION="~> ${version}" PUPPET_VERSION="~> 5.5" bundle exec ruby /vagrant/scripts/get_facts.rb | tee $output_file
 done
 
 for file in `cat $to_scrub`; do

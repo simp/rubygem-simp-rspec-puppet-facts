@@ -55,7 +55,7 @@ module Simp::RspecPuppetFacts
     h = rfh_h.merge(simp_h).select{|k,v| supported_os_strings(opts).include? k}
 
     h.each do | os, facts |
-      facter_ver=Facter.version[0..2]
+      facter_ver=Facter.version.split('.')[0..1].join('.')
       facts_file = File.expand_path("../../facts/#{facter_ver}/#{os}.facts",
                                     File.dirname(__FILE__))
       if File.file? facts_file
@@ -163,11 +163,11 @@ module Simp::RspecPuppetFacts
 
 
   def load_facts( fact_dir_path )
-    facter_zy_version = Facter.version.split('.')[0..1].join('.')
-    fact_dir          = File.join(fact_dir_path,facter_zy_version)
+    facter_xy_version = Facter.version.split('.')[0..1].join('.')
+    fact_dir          = File.join(fact_dir_path,facter_xy_version)
 
     unless File.exists? fact_dir
-      _msg = "Can't find SIMP facts for Facter #{facter_zy_version}, skipping...
+      _msg = "Can't find SIMP facts for Facter #{facter_xy_version}, skipping...
 
 HINT: If this version of Facter has been released recently, try running
 
