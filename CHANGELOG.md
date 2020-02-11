@@ -1,4 +1,4 @@
-## 2020-02-10 - Fix gemspec versions
+## 2020-02-10 / 3.0.0 - Fix gemspec versions
 - Drop Ruby 1.9 support
 - Fix '~> 0' notation
 
