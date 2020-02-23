@@ -20,5 +20,5 @@ group :test do
   gem 'beaker'
   gem 'beaker-rspec'
   gem 'beaker-windows'
-  gem 'simp-beaker-helpers', ['>= 1.14.6', '< 2.0']
+  gem 'simp-beaker-helpers', ['>= 1.18.2', '< 2.0']
 end

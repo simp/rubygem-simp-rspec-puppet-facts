@@ -1,73 +1,83 @@
 {
-  "aio_agent_version": "5.5.16",
+  "aio_agent_version": "5.5.18",
+  "architecture": "x64",
+  "archive_windir": "C:\\ProgramData\\staging",
+  "dhcp_servers": {
+    "Ethernet": "10.0.2.2",
+    "system": "10.0.2.2"
+  },
   "dmi": {
     "manufacturer": "innotek GmbH",
     "product": {
       "name": "VirtualBox",
       "serial_number": "0",
-      "uuid": "0B583E48-1882-504E-BB7B-6B822ECA03CB"
+      "uuid": "170D38CC-D711-2B49-9023-17DC8C9287AF"
     }
   },
+  "domain": "example.com",
   "env_windows_installdir": "C:\\Program Files\\Puppet Labs\\Puppet",
-  "facterversion": "3.11.9",
+  "facterversion": "3.11.11",
+  "fips_enabled": false,
+  "fqdn": "foo.example.com",
+  "hardwareisa": "x64",
+  "hardwaremodel": "x86_64",
+  "hostname": "foo",
   "hypervisors": {
     "virtualbox": {
-      "revision": "132072",
-      "version": "6.0.10"
+      "revision": "135406",
+      "version": "6.1.0"
     }
   },
+  "id": "WIN\\vagrant",
   "identity": {
     "privileged": true,
     "user": "WIN\\vagrant"
   },
+  "interfaces": "Ethernet",
+  "ipaddress": "10.0.2.15",
+  "ipaddress6": "fe80::e488:b85c:5262:ff86",
+  "ipaddress6_Ethernet": "fe80::e488:b85c:5262:ff86",
+  "ipaddress_Ethernet": "10.0.2.15",
   "is_pe": false,
   "is_virtual": true,
   "kernel": "windows",
   "kernelmajversion": "6.3",
   "kernelrelease": "6.3.9600",
   "kernelversion": "6.3.9600",
+  "macaddress": "08:00:27:D5:9D:5A",
+  "macaddress_Ethernet": "08:00:27:D5:9D:5A",
+  "manufacturer": "innotek GmbH",
   "memory": {
     "system": {
-      "available": "501.13 MiB",
-      "available_bytes": 525475840,
-      "capacity": "75.53%",
+      "available": "118.73 MiB",
+      "available_bytes": 124497920,
+      "capacity": "94.20%",
       "total": "2.00 GiB",
       "total_bytes": 2147012608,
-      "used": "1.51 GiB",
-      "used_bytes": 1621536768
+      "used": "1.88 GiB",
+      "used_bytes": 2022514688
     }
   },
+  "memoryfree": "118.73 MiB",
+  "memoryfree_mb": 118.73046875,
+  "memorysize": "2.00 GiB",
+  "memorysize_mb": 2047.55078125,
+  "mtu_Ethernet": 1500,
+  "netmask": "255.255.0.0",
+  "netmask6": "ffff:ffff:ffff:ffff::",
+  "netmask6_Ethernet": "ffff:ffff:ffff:ffff::",
+  "netmask_Ethernet": "255.255.0.0",
+  "network": "10.0.2.0",
+  "network6": "fe80::",
+  "network6_Ethernet": "fe80::",
+  "network_Ethernet": "10.0.2.0",
   "networking": {
+    "dhcp": "10.0.2.2",
     "domain": "example.com",
     "fqdn": "foo.example.com",
     "hostname": "foo",
     "interfaces": {
       "Ethernet": {
-        "bindings": [
-          {
-            "address": "10.0.2.15",
-            "netmask": "255.255.255.0",
-            "network": "10.0.2.0"
-          }
-        ],
-        "bindings6": [
-          {
-            "address": "fe80::e488:b85c:5262:ff86%12",
-            "netmask": "ffff:ffff:ffff:ffff::",
-            "network": "fe80::%12"
-          }
-        ],
-        "dhcp": "10.0.2.2",
-        "ip": "10.0.2.15",
-        "ip6": "fe80::e488:b85c:5262:ff86%12",
-        "mac": "08:00:27:D5:9D:5A",
-        "mtu": 1500,
-        "netmask": "255.255.255.0",
-        "netmask6": "ffff:ffff:ffff:ffff::",
-        "network": "10.0.2.0",
-        "network6": "fe80::%12"
-      },
-      "Ethernet 2": {
         "bindings": [
           {
             "address": "10.0.2.15",
@@ -77,31 +87,38 @@
         ],
         "bindings6": [
           {
-            "address": "fe80::b1b7:992f:a695:b948%14",
+            "address": "fe80::e488:b85c:5262:ff86",
             "netmask": "ffff:ffff:ffff:ffff::",
-            "network": "fe80::%14"
+            "network": "fe80::"
           }
         ],
+        "dhcp": "10.0.2.2",
         "ip": "10.0.2.15",
-        "ip6": "fe80::b1b7:992f:a695:b948%14",
-        "mac": "08:00:27:16:F4:6E",
+        "ip6": "fe80::e488:b85c:5262:ff86",
+        "mac": "08:00:27:D5:9D:5A",
         "mtu": 1500,
         "netmask": "255.255.0.0",
         "netmask6": "ffff:ffff:ffff:ffff::",
         "network": "10.0.2.0",
-        "network6": "fe80::%14"
+        "network6": "fe80::",
+        "scope6": "link"
       }
     },
     "ip": "10.0.2.15",
-    "ip6": "fe80::b1b7:992f:a695:b948%14",
-    "mac": "08:00:27:16:F4:6E",
+    "ip6": "fe80::e488:b85c:5262:ff86",
+    "mac": "08:00:27:D5:9D:5A",
     "mtu": 1500,
     "netmask": "255.255.0.0",
     "netmask6": "ffff:ffff:ffff:ffff::",
     "network": "10.0.2.0",
-    "network6": "fe80::%14",
-    "primary": "Ethernet 2"
+    "network6": "fe80::",
+    "primary": "Ethernet",
+    "scope6": "link"
   },
+  "openldap_arch": "i386",
+  "operatingsystem": "windows",
+  "operatingsystemmajrelease": "2012 R2",
+  "operatingsystemrelease": "2012 R2",
   "os": {
     "architecture": "x64",
     "family": "windows",
@@ -118,8 +135,12 @@
       "system32": "C:\\Windows\\system32"
     }
   },
+  "osfamily": "windows",
   "package_provider": "windows",
-  "path": "C:\\Program Files\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\facter\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\hiera\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\mcollective\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\tools\\bin;PATH;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Puppet Labs\\Puppet\\bin",
+  "path": "C:\\Program Files\\Puppet Labs\\Puppet\\facter/bin;C:\\Program Files\\Puppet Labs\\Puppet\\facter/../puppet/bin;C:\\Program Files\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\facter\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\hiera\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\mcollective\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\tools\\bin;PATH;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Puppet Labs\\Puppet\\bin",
+  "physicalprocessorcount": 1,
+  "processor0": "Intel(R) Core(TM) i7-4930K CPU @ 3.40GHz",
+  "processorcount": 2,
   "processors": {
     "count": 2,
     "isa": "x64",
@@ -128,14 +149,16 @@
     ],
     "physicalcount": 1
   },
+  "productname": "VirtualBox",
   "puppet_environmentpath": "C:/ProgramData/PuppetLabs/code/environments",
+  "puppet_ruby_dir": "C:/Program Files/Puppet Labs/Puppet/sys/ruby/lib/ruby/vendor_ruby/puppet",
   "puppet_server": "puppet",
   "puppet_settings": {
     "main": {
       "confdir": "C:/ProgramData/PuppetLabs/puppet/etc",
       "codedir": "C:/ProgramData/PuppetLabs/code",
       "vardir": "C:/ProgramData/PuppetLabs/puppet/cache",
-      "name": "#<Puppet::Util::WindowsRunMode:0x0000000004370538>",
+      "name": "facts",
       "logdir": "C:/ProgramData/PuppetLabs/puppet/var/log",
       "log_level": "notice",
       "disable_warnings": "[]",
@@ -143,6 +166,7 @@
       "disable_i18n": "false",
       "priority": "",
       "trace": "false",
+      "puppet_trace": "false",
       "profile": "false",
       "future_features": "false",
       "static_catalogs": "true",
@@ -181,11 +205,12 @@
       "http_proxy_port": "3128",
       "http_proxy_user": "none",
       "http_proxy_password": "none",
+      "no_proxy": "localhost, 127.0.0.1",
       "http_keepalive_timeout": "4",
       "http_debug": "false",
       "http_connect_timeout": "120",
       "http_read_timeout": "",
-      "http_user_agent": "Puppet/5.5.16 Ruby/2.4.5-p335 (x64-mingw32)",
+      "http_user_agent": "Puppet/5.5.18 Ruby/2.4.9-p362 (x64-mingw32)",
       "filetimeout": "15",
       "environment_timeout": "0",
       "environment_data_provider": "",
@@ -325,6 +350,7 @@
       "report_server": "puppet",
       "report_port": "8140",
       "report": "true",
+      "resubmit_facts": "false",
       "lastrunfile": "C:/ProgramData/PuppetLabs/puppet/cache/state/last_run_summary.yaml",
       "lastrunreport": "C:/ProgramData/PuppetLabs/puppet/cache/state/last_run_report.yaml",
       "graph": "false",
@@ -364,20 +390,38 @@
     }
   },
   "puppet_vardir": "C:/ProgramData/PuppetLabs/puppet/cache",
-  "puppetversion": "5.5.16",
+  "puppetversion": "5.5.18",
   "reboot_required": false,
   "ruby": {
     "platform": "x64-mingw32",
     "sitedir": "C:/Program Files/Puppet Labs/Puppet/sys/ruby/lib/ruby/site_ruby/2.4.0",
-    "version": "2.4.5"
+    "version": "2.4.9"
   },
+  "rubyplatform": "x64-mingw32",
+  "rubysitedir": "C:/Program Files/Puppet Labs/Puppet/sys/ruby/lib/ruby/site_ruby/2.4.0",
+  "rubyversion": "2.4.9",
+  "scope6": "link",
+  "scope6_Ethernet": "link",
+  "serialnumber": "0",
   "service_provider": "windows",
+  "system32": "C:\\Windows\\system32",
   "system_uptime": {
     "days": 0,
     "hours": 0,
-    "seconds": 93,
-    "uptime": "0:01 hours"
+    "seconds": 301,
+    "uptime": "0:05 hours"
   },
-  "timezone": "Pacific Daylight Time",
-  "virtual": "virtualbox"
+  "timezone": "Pacific Standard Time",
+  "uptime": "0:05 hours",
+  "uptime_days": 0,
+  "uptime_hours": 0,
+  "uptime_seconds": 301,
+  "uuid": "170D38CC-D711-2B49-9023-17DC8C9287AF",
+  "virtual": "virtualbox",
+  "windows_edition_id": "ServerStandard",
+  "windows_installation_type": "Server",
+  "windows_product_name": "Windows Server 2012 R2 Standard",
+  "clientcert": "foo.example.com",
+  "clientversion": "5.5.18",
+  "clientnoop": false
 }
