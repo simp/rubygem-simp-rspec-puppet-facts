@@ -42,15 +42,14 @@ module Simp::RspecPuppetFacts
   end
 
   def on_supported_os( opts = {} )
-    opts[:selinux_mode]       ||= :enforcing
-    opts[:simp_fact_dir_path] ||= File.expand_path("../../facts/",
-                                                   File.dirname(__FILE__))
+    opts[:simp_fact_dir_path] ||= File.expand_path("../../facts/", File.dirname(__FILE__))
 
-    simp_h         = load_facts(opts[:simp_fact_dir_path])
-    strings        = supported_os_strings(opts)
-    masked_opts    = filter_opts(opts, simp_h, :reject)
-    selected_opts  = filter_opts(opts, simp_h, :select)
-    rfh_h  = Simp::RspecPuppetFacts::Shim.on_supported_os(masked_opts)
+    simp_h = load_facts(opts[:simp_fact_dir_path])
+
+    masked_opts = filter_opts(opts, simp_h, :reject)
+
+    rfh_h = {}
+    rfh_h = Simp::RspecPuppetFacts::Shim.on_supported_os(masked_opts) unless masked_opts[:supported_os]&.empty?
 
     h = rfh_h.merge(simp_h).select{|k,v| supported_os_strings(opts).include? k}
 
@@ -86,9 +85,8 @@ module Simp::RspecPuppetFacts
     h
   end
 
-
   def lsb_facts( facts )
-    return facts if facts[:kernel].casecmp('windows')
+    return facts unless facts[:kernel].casecmp('linux')
 
     lsb_facts = {}
     # attempt to massage a major release version if missing (for facter 1.6)
@@ -101,7 +99,9 @@ module Simp::RspecPuppetFacts
     lsb_facts
   end
 
-  def selinux_facts( mode, facts )
+  def selinux_facts( mode=:enforcing, facts )
+    return facts if facts[:kernel]&.casecmp('windows')
+
     unless SELINUX_MODES.include?( mode )
       fail "FATAL: `mode` must be one of: #{SELINUX_MODES.map{|x| x.to_s.sub(/^/,':')}.join(', ')}"
     end

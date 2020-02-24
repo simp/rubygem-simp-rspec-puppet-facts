@@ -1,3 +1,12 @@
+## 2020-02-23 / 3.1.0 - Windows facts and fixes
+- Add Windows 2016 Facts
+- Add Windows 2019 Facts
+- Update Windows 2012 Facts
+- Ensure that SELinux facts are not added to Windows nodes
+- Work around a strange issue where the supported OSs would be empty and cause
+  issues in jgrep. The workaround doesn't show any adverse effects during
+  testing.
+
 ## 2020-02-10 / 3.0.0 - Fix gemspec versions
 - Drop Ruby 1.9 support
 - Fix '~> 0' notation
