@@ -1,3 +1,6 @@
+## 2020-02-25 / 3.1.1 - Update OEL facts
+- The OEL fact sets were old to the point of breaking newer code
+
 ## 2020-02-23 / 3.1.0 - Windows facts and fixes
 - Add Windows 2016 Facts
 - Add Windows 2019 Facts
