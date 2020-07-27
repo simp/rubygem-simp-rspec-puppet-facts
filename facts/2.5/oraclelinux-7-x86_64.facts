@@ -252,11 +252,10 @@
     "systemd",
     "sysv"
   ],
-  "interfaces": "eth0,eth1,lo",
+  "interfaces": "eth0,lo",
   "ip6tables_version": "1.4.21",
   "ipaddress": "10.0.2.15",
   "ipaddress_eth0": "10.0.2.15",
-  "ipaddress_eth1": "10.255.198.67",
   "ipaddress_lo": "127.0.0.1",
   "iptables_version": "1.4.21",
   "ipv6_enabled": false,
@@ -292,7 +291,6 @@
   },
   "macaddress": "08:00:27:98:18:f0",
   "macaddress_eth0": "08:00:27:98:18:f0",
-  "macaddress_eth1": "08:00:27:12:79:36",
   "manufacturer": "innotek GmbH",
   "memory": {
     "swap": {
@@ -506,15 +504,12 @@
     }
   },
   "mtu_eth0": 1500,
-  "mtu_eth1": 1500,
   "mtu_lo": 65536,
   "netmask": "255.255.0.0",
   "netmask_eth0": "255.255.0.0",
-  "netmask_eth1": "255.255.0.0",
   "netmask_lo": "255.0.0.0",
   "network": "10.0.2.0",
   "network_eth0": "10.0.2.0",
-  "network_eth1": "10.255.0.0",
   "network_lo": "127.0.0.0",
   "networking": {
     "dhcp": "10.0.2.2",
@@ -536,20 +531,6 @@
         "mtu": 1500,
         "netmask": "255.255.0.0",
         "network": "10.0.2.0"
-      },
-      "eth1": {
-        "bindings": [
-          {
-            "address": "10.255.198.67",
-            "netmask": "255.255.0.0",
-            "network": "10.255.0.0"
-          }
-        ],
-        "ip": "10.255.198.67",
-        "mac": "08:00:27:12:79:36",
-        "mtu": 1500,
-        "netmask": "255.255.0.0",
-        "network": "10.255.0.0"
       },
       "lo": {
         "bindings": [
@@ -938,11 +919,6 @@
         "uuid": "5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03",
         "type": "802-3-ethernet",
         "name": "System eth0"
-      },
-      "eth1": {
-        "uuid": "9c92fad9-6ecb-3e6c-eb4d-8a47c6f50c04",
-        "type": "802-3-ethernet",
-        "name": "System eth1"
       }
     }
   },

@@ -1,3 +1,7 @@
+## 2020-07-27 / 3.1.2 - Clean up OEL facts
+- OEL facts contained `eth1` references with additional user IPs that
+  should not be present; removed these facts
+
 ## 2020-02-25 / 3.1.1 - Update OEL facts
 - The OEL fact sets were old to the point of breaking newer code
 
