@@ -932,6 +932,7 @@
   "tmp_mount_dev_shm": "rw,seclabel,relatime",
   "tmp_mount_fstype_dev_shm": "tmpfs",
   "tmp_mount_path_dev_shm": "tmpfs",
+  "uniqueid": "007f0100",
   "uid_min": "500",
   "uptime": "0:07 hours",
   "uptime_days": 0,

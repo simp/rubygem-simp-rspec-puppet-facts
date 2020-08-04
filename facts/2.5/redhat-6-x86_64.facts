@@ -658,6 +658,7 @@
   },
   "gid": "root",
   "facterversion": "2.5.0",
+  "uniqueid": "007f0100",
   "boardmanufacturer": "Google",
   "swapsize": "0.00 MB",
   "fqdn": "foo.example.com",

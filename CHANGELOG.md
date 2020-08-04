@@ -1,3 +1,6 @@
+## 2020-08-04 / 3.1.2 - Update OEL facts
+- Added uniqueid facts to linux systems.  It is used in simp_grub tests.
+
 ## 2020-02-25 / 3.1.1 - Update OEL facts
 - The OEL fact sets were old to the point of breaking newer code
 
