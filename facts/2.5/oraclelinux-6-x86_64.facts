@@ -253,14 +253,13 @@
     "upstart",
     "sysv"
   ],
-  "interfaces": "eth0,eth1,lo",
+  "interfaces": "eth0,lo",
   "ip6tables_version": "1.4.7",
   "ipaddress": "10.0.2.15",
   "ipaddress6": "fe80::a00:27ff:fee3:3cfc",
   "ipaddress6_eth0": "fe80::a00:27ff:fee3:3cfc",
   "ipaddress6_lo": "::1",
   "ipaddress_eth0": "10.0.2.15",
-  "ipaddress_eth1": "10.255.119.191",
   "ipaddress_lo": "127.0.0.1",
   "iptables_version": "1.4.7",
   "ipv6_enabled": true,
@@ -300,7 +299,6 @@
   "lsbrelease": ":base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch",
   "macaddress": "08:00:27:e3:3c:fc",
   "macaddress_eth0": "08:00:27:e3:3c:fc",
-  "macaddress_eth1": "08:00:27:8f:e5:b9",
   "manufacturer": "innotek GmbH",
   "memory": {
     "swap": {
@@ -418,21 +416,18 @@
     }
   },
   "mtu_eth0": 1500,
-  "mtu_eth1": 1500,
   "mtu_lo": 65536,
   "netmask": "255.255.0.0",
   "netmask6": "ffff:ffff:ffff:ffff::",
   "netmask6_eth0": "ffff:ffff:ffff:ffff::",
   "netmask6_lo": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
   "netmask_eth0": "255.255.0.0",
-  "netmask_eth1": "255.255.0.0",
   "netmask_lo": "255.0.0.0",
   "network": "10.0.2.0",
   "network6": "fe80::",
   "network6_eth0": "fe80::",
   "network6_lo": "::1",
   "network_eth0": "10.0.2.0",
-  "network_eth1": "10.255.0.0",
   "network_lo": "127.0.0.0",
   "networking": {
     "dhcp": "10.0.2.2",
@@ -465,20 +460,6 @@
         "network": "10.0.2.0",
         "network6": "fe80::",
         "scope6": "link"
-      },
-      "eth1": {
-        "bindings": [
-          {
-            "address": "10.255.119.191",
-            "netmask": "255.255.0.0",
-            "network": "10.255.0.0"
-          }
-        ],
-        "ip": "10.255.119.191",
-        "mac": "08:00:27:8f:e5:b9",
-        "mtu": 1500,
-        "netmask": "255.255.0.0",
-        "network": "10.255.0.0"
       },
       "lo": {
         "bindings": [

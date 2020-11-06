@@ -270,10 +270,9 @@
     "systemd",
     "sysv"
   ],
-  "interfaces": "eth0,eth1,lo",
+  "interfaces": "eth0,lo",
   "ip6tables_version": "1.8.2",
   "ipaddress": "10.0.2.15",
-  "ipaddress6_eth1": "fe80::2610:8086:ad92:af7c",
   "ipaddress_eth0": "10.0.2.15",
   "ipaddress_lo": "127.0.0.1",
   "iptables_version": "1.8.2",
@@ -310,7 +309,6 @@
   },
   "macaddress": "08:00:27:ef:09:96",
   "macaddress_eth0": "08:00:27:ef:09:96",
-  "macaddress_eth1": "08:00:27:13:06:96",
   "manufacturer": "innotek GmbH",
   "memory": {
     "swap": {
@@ -524,14 +522,11 @@
     }
   },
   "mtu_eth0": 1500,
-  "mtu_eth1": 1500,
   "mtu_lo": 65536,
   "netmask": "255.255.0.0",
-  "netmask6_eth1": "ffff:ffff:ffff:ffff::",
   "netmask_eth0": "255.255.0.0",
   "netmask_lo": "255.0.0.0",
   "network": "10.0.2.0",
-  "network6_eth1": "fe80::",
   "network_eth0": "10.0.2.0",
   "network_lo": "127.0.0.0",
   "networking": {
@@ -554,20 +549,6 @@
         "mtu": 1500,
         "netmask": "255.255.0.0",
         "network": "10.0.2.0"
-      },
-      "eth1": {
-        "bindings6": [
-          {
-            "address": "fe80::2610:8086:ad92:af7c",
-            "netmask": "ffff:ffff:ffff:ffff::",
-            "network": "fe80::"
-          }
-        ],
-        "ip6": "fe80::2610:8086:ad92:af7c",
-        "mac": "08:00:27:13:06:96",
-        "mtu": 1500,
-        "netmask6": "ffff:ffff:ffff:ffff::",
-        "network6": "fe80::"
       },
       "lo": {
         "bindings": [
@@ -953,11 +934,6 @@
     },
     "enabled": true,
     "connection": {
-      "eth1": {
-        "uuid": "cdcf09f5-2ea0-301f-9201-1fe61c528c85",
-        "type": "802-3-ethernet",
-        "name": "Wired connection 1"
-      },
       "eth0": {
         "uuid": "5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03",
         "type": "802-3-ethernet",

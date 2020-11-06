@@ -1,3 +1,7 @@
+## 2020-11-06 / 3.2.1 - Remove eth1 from OEL 2.5 facts
+- Removed eth1 from the OEL 2.5 facts, as the extra enabled interface
+  broke unit tests that assumed only eth0 was available.
+
 ## 2020-11-05 / 3.2.0 - Add Amazon Linux 2 facts
 - Added Amazon Linux 2 facts
 
