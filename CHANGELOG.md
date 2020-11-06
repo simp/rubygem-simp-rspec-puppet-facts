@@ -1,3 +1,6 @@
+## 2020-11-05 / 3.2.0 - Add Amazon Linux 2 facts
+- Added Amazon Linux 2 facts
+
 ## 2020-02-25 / 3.1.1 - Update OEL facts
 - The OEL fact sets were old to the point of breaking newer code
 
