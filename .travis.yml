@@ -1,8 +1,3 @@
----
-language: ruby
-sudo: false
-cache: bundler
-before_install: rm Gemfile.lock || true
 ###  Testing on Travis CI is indefinitely disabled
 ###
 ###  See:
@@ -10,26 +5,25 @@ before_install: rm Gemfile.lock || true
 ###    * https://simp-project.atlassian.net/browse/SIMP-8809
 ###
 ###
+###    ---
+###    language: ruby
+###    sudo: false
+###    cache: bundler
+###    before_install: rm Gemfile.lock || true
 ###    script:
 ###      - bundle exec rake spec
-notifications:
-  email: false
-rvm:
-  - 2.4.5
-
-env:
-  # Note: Facter 3.x is CFacter, and not a gem
-  matrix:
-  - FACTER_GEM_VERSION="~> 2.5.0" GEM_PUBLISH=true
-###  Testing on Travis CI is indefinitely disabled
+###    notifications:
+###      email: false
+###    rvm:
+###      - 2.4.5
 ###
-###  See:
-###    * https://blog.travis-ci.com/2020-11-02-travis-ci-new-billing
-###    * https://simp-project.atlassian.net/browse/SIMP-8809
-###
-###
+###    env:
+###      # Note: Facter 3.x is CFacter, and not a gem
+###      matrix:
+###      - FACTER_GEM_VERSION="~> 2.5.0" GEM_PUBLISH=true
 ###    script:
 ###      - "bundle exec rake syntax:facts"
+---
 matrix:
   fast_finish: true
 before_deploy:
