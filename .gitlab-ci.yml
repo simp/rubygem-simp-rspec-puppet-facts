@@ -62,14 +62,14 @@ variables:
     - 'bundle show sync || :'
     - 'bundle exec gem list sync || :'
 
-.spec_test: &spec_test
+spec_test:
   stage: 'validation'
   tags: ['docker']
   <<: *bundle_env_setup
   script:
     - 'bundle exec rake spec'
 
-.syntax_test: &syntax_test
+syntax_test:
   stage: 'validation'
   tags: ['docker']
   <<: *bundle_env_setup
