@@ -16,11 +16,8 @@ variables:
   SIMP_SKIP_NON_SIMPOS_TESTS: 1
 
 # bundler dependencies and caching
-#
-# TODO: Add in Matrix support for multiple Ruby Versions.
 # --------------------------------------
 .setup_bundler_env: &setup_bundler_env
-  image: 'ruby:2.5'
   before_script:
     - 'ruby -e "puts %(\n\n), %q(=)*80, %(\nSIMP-relevant Environment Variables:\n\n#{e=ENV.keys.grep(/^PUPPET|^SIMP|^BEAKER|MATRIX/); pad=e.map{|x| x.size}.max+1; e.map{|v| %(    * #{%(#{v}:).ljust(pad)} #{39.chr + ENV[v] + 39.chr}\n)}.join}\n),  %q(=)*80, %(\n\n)"'
     # Diagnostic ruby & gem information
@@ -51,16 +48,50 @@ variables:
     - 'bundle show sync || :'
     - 'bundle exec gem list sync || :'
 
-spec_test:
+
+.pup_6_x: &pup_6_x
+  image: 'ruby:2.5'
+  variables:
+    PUPPET_VERSION: '~> 6.0'
+    BEAKER_PUPPET_COLLECTION: 'puppet6'
+    MATRIX_RUBY_VERSION: '2.5'
+
+.pup_7_x: &pup_7_x
+  image: 'ruby:2.7'
+  variables:
+    PUPPET_VERSION: '~> 7.0'
+    BEAKER_PUPPET_COLLECTION: 'puppet7'
+    MATRIX_RUBY_VERSION: '2.7'
+
+.spec_test: &spec_test
   stage: 'validation'
   tags: ['docker']
   <<: *setup_bundler_env
   script:
     - 'bundle exec rake spec'
 
-syntax_test:
+.syntax_test: &syntax_test
   stage: 'validation'
   tags: ['docker']
   <<: *setup_bundler_env
   script:
     - 'bundle exec rake syntax:facts'
+
+# Pipeline / testing matrix
+#=======================================================================
+
+pup6x_spec_test:
+  <<: *pup_6_x
+  <<: *spec_test
+
+pup6x_syntax_test:
+  <<: *pup_6_x
+  <<: *syntax_test
+
+pup7x_spec_test:
+  <<: *pup_7_x
+  <<: *spec_test
+
+pup7x_syntax_test:
+  <<: *pup_7_x
+  <<: *syntax_test
