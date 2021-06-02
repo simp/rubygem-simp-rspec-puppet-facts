@@ -1,4 +1,4 @@
-## 2021-06-02 / 3.3.0 - Amazon 2, Rocky 8, and Updates
+## 2021-06-02 / 3.2.0 - Amazon 2, Rocky 8, and Updates
 - Added Amazon Linux 2 facts
 - Added Rocky 8 facts
 - Updated all facts so that the 'modern' facts are in play
