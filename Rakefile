@@ -1,4 +1,5 @@
 require 'simp/rake/beaker'
+require 'bundler/gem_tasks'
 
 Simp::Rake::Beaker.new(__dir__)
 
