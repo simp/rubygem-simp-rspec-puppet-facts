@@ -6,7 +6,7 @@
   end
 -%>
 HOSTS:
-  el8:
+  el8.beaker.test:
     roles:
       - linux
       - default

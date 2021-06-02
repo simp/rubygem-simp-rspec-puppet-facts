@@ -6,15 +6,18 @@
   end
 -%>
 HOSTS:
-  oel6:
+  el8:
     roles:
       - linux
       - default
-    platform:   el-6-x86_64
-    box:        onyxpoint/oel-6-x86_64
+    platform:   el-8-x86_64
+    box:        CrunchyData/rocky8
     hypervisor: <%= hypervisor %>
+    # NFS installation is broken
+    synced_folder: disabled
 
 CONFIG:
+  validate: false
   log_level: verbose
   type: aio
 <% if ENV['BEAKER_PUPPET_COLLECTION'] -%>

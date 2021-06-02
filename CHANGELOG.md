@@ -1,5 +1,7 @@
-## 2020-11-05 / 3.2.0 - Add Amazon Linux 2 facts
+## 2021-06-02 / 3.3.0 - Amazon 2, Rocky 8, and Updates
 - Added Amazon Linux 2 facts
+- Added Rocky 8 facts
+- Updated all facts so that the 'modern' facts are in play
 
 ## 2020-02-25 / 3.1.1 - Update OEL facts
 - The OEL fact sets were old to the point of breaking newer code
