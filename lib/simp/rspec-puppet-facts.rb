@@ -73,10 +73,10 @@ module Simp::RspecPuppetFacts
         facts.merge! opts.fetch( :extra_facts_immutable, {} )
       end
 
-      if ( ENV.fetch('SIMP_FACTS_OS',nil) &&
-           !ENV['SIMP_FACTS_OS'].strip.empty? &&
+      if ( ENV['SIMP_FACTS_OS'] &&
+           !ENV['SIMP_FACTS_OS'].to_s.strip.empty? &&
            ENV['SIMP_FACTS_OS'] !~ /all/i )
-        unless ENV['SIMP_FACTS_OS'].strip.split(/[ ,]+/).include? os
+        unless ENV['SIMP_FACTS_OS'].strip.split(/[ ,]+/).any?{|str| os == str || os.match?(%r[#{str}]) }
           h.delete(os)
         end
       end
