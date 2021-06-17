@@ -1,3 +1,6 @@
+## 2021-06-16 / 3.3.0 - Add partial matching to SIMP_FACTS_OS
+- `SIMP_FACTS_OS` can now match factsets' full name, partial name, or regexp
+
 ## 2021-06-02 / 3.2.0 - Amazon 2, Rocky 8, and Updates
 - Added Amazon Linux 2 facts
 - Added Rocky 8 facts

@@ -111,13 +111,17 @@ facts_hash.values_at(:selinux,:selinux_current_mode,:selinux_state,:tmp_mount_de
 
 ### `SIMP_FACTS_OS`
 
-Restricts test matrix to the OS strings provided in a comma-delimited list.
-- **Example:** `SIMP_FACTS_OS=redhat-6-x86_64,redhat-7-x86_64`
+Restricts test matrix to OS strings/partial strings/regexps provided in a
+comma-delimited list.
+
+- **Example:** `SIMP_FACTS_OS=redhat-7-x86_64,centos`
 
 
 ### `SIMP_FACTS_lsb`
 
-- `no`
+Mock the output of historical lsb facts
+
+- Disable by setting to `no`
 
 
 ## How to capture new facts
