@@ -21,4 +21,5 @@ group :test do
   gem 'beaker-rspec'
   gem 'beaker-windows'
   gem 'simp-beaker-helpers', ['>= 1.18.2', '< 2.0']
+  gem 'puppetlabs_spec_helper', '~> 3.0'
 end
