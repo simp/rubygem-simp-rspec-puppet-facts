@@ -1,3 +1,5 @@
+## 2022-02-27 / 3.3.1 - Pin puppetlabs_spec_helper to ~> 3.0
+
 ## 2021-06-16 / 3.3.0 - Add partial matching to SIMP_FACTS_OS
 - `SIMP_FACTS_OS` can now match factsets' full name, partial name, or regexp
 
