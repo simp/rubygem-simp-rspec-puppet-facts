@@ -1,3 +1,9 @@
+## 2022-06-20 / 3.4.0 - Allow versionless metadata
+- Allow lists of supported OSs that are not pinned to specific versions
+- Install puppet from gem if the facter version is explicitly set
+  - Prep for facter 4.X support
+  - Skip hosts where the gem install fails
+
 ## 2022-02-27 / 3.3.1 - Pin puppetlabs_spec_helper to ~> 3.0
 
 ## 2021-06-16 / 3.3.0 - Add partial matching to SIMP_FACTS_OS
