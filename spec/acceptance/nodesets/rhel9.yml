@@ -6,15 +6,13 @@
   end
 -%>
 HOSTS:
-  el8:
+  rhel9:
     roles:
       - linux
       - default
-    platform:   el-8-x86_64
-    box:        rockylinux/8
+    platform:   el-9-x86_64
+    box:        generic/rhel9
     hypervisor: <%= hypervisor %>
-    # NFS installation is broken
-    synced_folder: disabled
 
 CONFIG:
   validate: false

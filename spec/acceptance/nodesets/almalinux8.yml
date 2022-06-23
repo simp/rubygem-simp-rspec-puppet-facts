@@ -6,15 +6,13 @@
   end
 -%>
 HOSTS:
-  el8:
+  el8.beaker.test:
     roles:
       - linux
       - default
     platform:   el-8-x86_64
-    box:        rockylinux/8
+    box:        almalinux/8
     hypervisor: <%= hypervisor %>
-    # NFS installation is broken
-    synced_folder: disabled
 
 CONFIG:
   validate: false

@@ -37,10 +37,14 @@ describe 'look out muppets' do
       end
 
       it 'should collect valid fact data' do
-        # Stupid RSpec tricks
         output = on(host, 'puppet facts --render-as json').stdout
 
-        expect{@output << JSON.parse(output)['values']}.to_not raise_error
+        expect do
+          parsed_output = JSON.parse(output)
+
+          # Something changed in the puppet facts output so handle both cases
+          @output.push(parsed_output['values'] || parsed_output)
+        end.to_not raise_error
       end
 
       # This should work regardless of OS

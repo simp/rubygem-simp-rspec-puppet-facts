@@ -7,38 +7,63 @@ module Simp::RspecPuppetFacts
 
   SELINUX_MODES = [:enforcing, :disabled, :permissive]
 
-  def supported_os_strings( opts )
+  def supported_os_strings( opts, known_os_list=[] )
     supported_os = opts.fetch(:supported_os, RspecPuppetFacts.meta_supported_os)
     hardwaremodels = opts.fetch(:hardwaremodels, ['x86_64'])
     os_strings = []
     supported_os.each do |os|
-      os['operatingsystemrelease'].each do |rel|
-        hardwaremodels.each do |hw|
-          os_strings << [os['operatingsystem'],rel,hw].map{|x| x.downcase.gsub(/\s/,'_') }.join('-')
+      os_name = os['operatingsystem'].downcase.gsub(/\s/,'_')
+
+      os['operatingsystemrelease'] ||= []
+      if os['operatingsystemrelease'].empty?
+        # Just pick the latest one
+        os_strings.push(
+          known_os_list
+            .select{|x| x.start_with?(os_name)}
+            .sort.last
+        )
+      else
+        os['operatingsystemrelease'].each do |rel|
+          hardwaremodels.each do |hw|
+            os_strings.push([os_name, rel, hw].join('-'))
+          end
         end
       end
     end
-    os_strings
+
+    os_strings.compact
   end
 
   # Don't ask rspec-puppet-facts for operatingsystems we've already recorded
   # because if it doesn't have them it will crash
-  def filter_opts( opts, simp_h, filter_type = :reject )
+  def filter_opts( opts, simp_h )
     rfh_hw = opts.fetch(:hardwaremodels, ['x86_64'])
     rfh_os = opts.fetch(:supported_os, RspecPuppetFacts.meta_supported_os).dup
-    _os = rfh_os.send(filter_type) do |os|
-      _name = os['operatingsystem']
-      _rels = os['operatingsystemrelease'].send(filter_type) do |rel|
-        _hw = rfh_hw.send(filter_type) do |hw|
-          simp_h.key? [_name,rel,hw].map{|x| x.downcase.gsub(/\s/,'_') }.join('-')
-        end
-        !_hw.empty?
+
+    filtered_opts = []
+    rfh_os.each do |os|
+      os['operatingsystemrelease'] ||= []
+      if os['operatingsystemrelease'].empty?
+        os_release = simp_h.keys
+          .select{|x| x.start_with?(os['operatingsystem'].downcase) }
+          .sort
+          .last
+
+        os['operatingsystemrelease'] = [os_release.split('-')[1]] if os_release
       end
-      !_rels.empty?
+
+      next if os['operatingsystemrelease'].empty?
+
+      rfh_hw.each do |hw|
+        os['operatingsystemrelease'].each do |rel|
+          filtered_opts.push(os) unless simp_h.key?([os['operatingsystem'].downcase, rel, hw].join('-'))
+        end
+      end
     end
-    _opts = opts.dup
-    _opts[:supported_os] = _os
-    _opts
+
+    ret_opts = opts.dup
+    ret_opts[:supported_os] = filtered_opts
+    ret_opts
   end
 
   def on_supported_os( opts = {} )
@@ -46,12 +71,13 @@ module Simp::RspecPuppetFacts
 
     simp_h = load_facts(opts[:simp_fact_dir_path])
 
-    masked_opts = filter_opts(opts, simp_h, :reject)
+    masked_opts = filter_opts(opts, simp_h)
 
     rfh_h = {}
     rfh_h = Simp::RspecPuppetFacts::Shim.on_supported_os(masked_opts) unless masked_opts[:supported_os]&.empty?
 
-    h = rfh_h.merge(simp_h).select{|k,v| supported_os_strings(opts).include? k}
+    merged_os_hash = rfh_h.merge(simp_h)
+    h = merged_os_hash.select{|k,v| supported_os_strings(opts, merged_os_hash.keys).include? k}
 
     h.each do | os, facts |
       facter_ver=Facter.version.split('.')[0..1].join('.')
@@ -92,9 +118,7 @@ module Simp::RspecPuppetFacts
     # attempt to massage a major release version if missing (for facter 1.6)
     unless ENV['SIMP_FACTS_lsb'] == 'no'
       puts "==== mocking lsb facts [disable with SIMP_FACTS_lsb=no]" if ENV['VERBOSE']
-      rel = facts.fetch(:operatingsystemmajrelease,
-                        facts.fetch(:operatingsystemrelease).split('.').first)
-      lsb_facts[:lsbmajdistrelease] = rel
+      lsb_facts[:lsbmajdistrelease] = facts[:os][:release][:major]
     end
     lsb_facts
   end
