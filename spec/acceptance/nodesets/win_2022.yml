@@ -10,7 +10,8 @@ HOSTS:
     roles:
       - windows
     platform: windows-server-amd64
-    box: ferventcoder/win2012r2-x64-nocm
+    box: gusztavvargadr/windows-server
+    box_version: 2102.0.2205
     hypervisor: <%= hypervisor %>
     vagrant_memsize: 2048
     vagrant_cpus: 2
