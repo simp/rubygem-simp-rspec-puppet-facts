@@ -22,4 +22,7 @@ group :test do
   gem 'beaker-windows'
   gem 'simp-beaker-helpers', ['>= 1.25.0', '< 2.0']
   gem 'puppetlabs_spec_helper', '~> 4.0'
+  # For EL9
+  gem 'net-ssh', :git => "https://github.com/net-ssh/net-ssh", :ref => 'v7.0.0.beta1'
+  gem 'bcrypt_pbkdf' unless RUBY_PLATFORM == 'java'
 end
