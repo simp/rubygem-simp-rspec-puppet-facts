@@ -1,3 +1,8 @@
+## 2022-06-24 / 3.5.0 - Add facter 4 facts
+- Added facter 4 fact sets
+  - Added Alma, Rocky, and new Windows facts
+  - Added EL9 facts
+
 ## 2022-06-20 / 3.4.0 - Allow versionless metadata
 - Allow lists of supported OSs that are not pinned to specific versions
 - Install puppet from gem if the facter version is explicitly set

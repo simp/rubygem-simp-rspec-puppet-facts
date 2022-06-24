@@ -37,7 +37,7 @@ describe 'look out muppets' do
       end
 
       it 'should collect valid fact data' do
-        output = on(host, 'puppet facts --render-as json').stdout
+        output = on(host, 'puppet facts --render-as json').stdout.lines.last
 
         expect do
           parsed_output = JSON.parse(output)

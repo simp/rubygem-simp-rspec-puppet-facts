@@ -13,6 +13,8 @@ include BeakerWindows::WindowsFeature
 unless ENV['BEAKER_provision'] == 'no'
   to_skip = []
 
+  facter_ng = ( ENV['BEAKER_facter_ng'] == 'yes' ? true : false )
+
   hosts.each do |host|
     # Install Puppet
     if host.is_pe?
@@ -39,6 +41,10 @@ unless ENV['BEAKER_provision'] == 'no'
       end
     else
       install_puppet
+
+      if facter_ng
+        on(host, 'puppet config set facterng true')
+      end
     end
   end
 

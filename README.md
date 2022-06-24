@@ -109,6 +109,17 @@ facts_hash.values_at(:selinux,:selinux_current_mode,:selinux_state,:tmp_mount_de
 
 ## Environment Variables
 
+### `FACTER_GEM_VERSION`
+
+Set to install a specific version of `facter`. Only works on systems where
+`puppet` can be installed natively via `gem`.
+
+### `BEAKER_facter_ng`
+
+Set to `yes` to switch over to using `facter-ng` (Facter 4) for collection.
+
+Requires using `beaker` to collect facts.
+
 ### `SIMP_FACTS_OS`
 
 Restricts test matrix to OS strings/partial strings/regexps provided in a
@@ -126,6 +137,19 @@ Mock the output of historical lsb facts
 
 ## How to capture new facts
 
+### Beaker (preferred)
+
+- Add nodesets to `spec/acceptance/nodesets`
+- Run `bundle exec rake beaker:suites[default,ALL]`
+  - Replace `ALL` with the name of a specific nodeset if you only want to
+    collect on a single OS.
+- Review the facts in the `collected_facts` directory.
+- Update the facts in the associated `facts` directory.
+  - Make sure to rename the file as `<lowercase_os>-<major_version>-<arch>`
+
+### Vagrant
+
 - Place any modules containing facts you want to capture under `modules/`
 - Run `vagrant up`
 **NOTE:** This replaces any older fact data
+
