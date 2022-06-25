@@ -1,3 +1,8 @@
+## 2022-06-24 / 3.5.1 - Update facter 3 facts
+- Updated all facter 3 fact sets (2.X directory)
+  - Added Alma, Rocky, and new Windows facts
+  - Added EL9 facts
+
 ## 2022-06-24 / 3.5.0 - Add facter 4 facts
 - Added facter 4 fact sets
   - Added Alma, Rocky, and new Windows facts

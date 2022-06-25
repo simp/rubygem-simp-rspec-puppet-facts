@@ -50,11 +50,11 @@ variables:
 
 
 .pup_6_x: &pup_6_x
-  image: 'ruby:2.5'
+  image: 'ruby:2.6'
   variables:
     PUPPET_VERSION: '~> 6.0'
     BEAKER_PUPPET_COLLECTION: 'puppet6'
-    MATRIX_RUBY_VERSION: '2.5'
+    MATRIX_RUBY_VERSION: '2.6'
 
 .pup_7_x: &pup_7_x
   image: 'ruby:2.7'
