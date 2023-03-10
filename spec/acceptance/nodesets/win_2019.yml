@@ -5,7 +5,7 @@ HOSTS:
     - windows
     platform: windows-server-amd64
     box: gusztavvargadr/windows-server
-    box_version: 1809.0.2205
+    box_version: '~> 1809'
     hypervisor: "<%= ENV.fetch('BEAKER_HYPERVISOR', 'vagrant') %>"
     vagrant_memsize: 2048
     vagrant_cpus: 2
