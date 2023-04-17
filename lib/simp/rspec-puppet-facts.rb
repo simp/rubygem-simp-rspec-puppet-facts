@@ -76,7 +76,8 @@ module Simp::RspecPuppetFacts
     rfh_h = {}
     rfh_h = Simp::RspecPuppetFacts::Shim.on_supported_os(masked_opts) unless masked_opts[:supported_os]&.empty?
 
-    merged_os_hash = rfh_h.merge(simp_h)
+    #merged_os_hash = rfh_h.merge(simp_h)  # we should NOT merge default facterdb factsets
+    merged_os_hash = simp_h
     h = merged_os_hash.select{|k,v| supported_os_strings(opts, merged_os_hash.keys).include? k}
 
     h.each do | os, facts |

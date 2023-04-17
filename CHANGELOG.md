@@ -1,3 +1,11 @@
+## 2023-04-17 / 3.6.1 - Ignore upstream facterdb factsets
+- Simply ignores non-simp factsets by not merging results
+- This is quick measure to get simp/simp spec tests working with missing
+  factsets from 3.6.0
+- Follow-on issue should remove all logic to to with lookups from default
+  facterdb data sources
+
+
 ## 2023-02-16 / 3.6.0 - Add initial facter 4.3 factsets
 - Added initial facter 4.3 factsets
 
