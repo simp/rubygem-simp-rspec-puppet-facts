@@ -1,5 +1,6 @@
 {
   "path": "C:\\Program Files\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\puppet\\bin;C:\\Program Files (x86)\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Git\\cmd;C:\\Program Files (x86)\\Git\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\bin",
+  "network_Ethernet": "10.0.2.0",
   "os": {
     "name": "windows",
     "release": {
@@ -16,6 +17,16 @@
     "family": "windows",
     "hardware": "x86_64"
   },
+  "operatingsystem": "windows",
+  "operatingsystemmajrelease": "2012 R2",
+  "operatingsystemrelease": "2012 R2",
+  "architecture": "x64",
+  "system32": "C:\\Windows\\system32",
+  "windows_edition_id": "ServerDatacenter",
+  "windows_installation_type": "Server",
+  "windows_product_name": "Windows Server 2012 R2 Datacenter",
+  "osfamily": "windows",
+  "hardwaremodel": "x86_64",
   "hypervisors": {
     "virtualbox": {
       "version": "7.0.4",
@@ -24,38 +35,60 @@
   },
   "memory": {
     "system": {
-      "available": "1.39 GiB",
-      "available_bytes": 1497456640,
-      "capacity": "30.25%",
+      "available": "1.41 GiB",
+      "available_bytes": 1510866944,
+      "capacity": "29.63%",
       "total": "2.00 GiB",
       "total_bytes": 2147012608,
-      "used": "619.46 MiB",
-      "used_bytes": 649555968
+      "used": "606.68 MiB",
+      "used_bytes": 636145664
     }
   },
+  "memoryfree": "1.41 GiB",
+  "memoryfree_mb": 1440.875,
+  "memorysize": "2.00 GiB",
+  "memorysize_mb": 2047.55078125,
   "ruby": {
     "version": "2.7.7",
     "platform": "x64-mingw32",
     "sitedir": "C:/Program Files/Puppet Labs/Puppet/puppet/lib/ruby/site_ruby/2.7.0"
   },
+  "rubyversion": "2.7.7",
+  "rubyplatform": "x64-mingw32",
+  "rubysitedir": "C:/Program Files/Puppet Labs/Puppet/puppet/lib/ruby/site_ruby/2.7.0",
   "aio_agent_version": "7.24.0",
   "facterversion": "4.3.1",
   "identity": {
     "user": "WIN\\vagrant",
     "privileged": true
   },
+  "id": "WIN\\vagrant",
+  "processor0": "Intel(R) Core(TM) i7-1068NG7 CPU @ 2.30GHz",
+  "interfaces": "Ethernet",
+  "ipaddress6_Ethernet": "fe80::a180:36e0:3a6e:1005",
   "fips_enabled": false,
+  "ipaddress_Ethernet": "10.0.2.15",
   "is_virtual": true,
   "kernelmajversion": "6.3",
   "kernelrelease": "6.3.9600",
   "kernelversion": "6.3.9600",
+  "macaddress_Ethernet": "08:00:27:81:38:FA",
+  "scope6_Ethernet": "link",
   "timezone": "Coordinated Universal Time",
   "system_uptime": {
     "days": 0,
     "hours": 0,
-    "seconds": 264,
+    "seconds": 246,
     "uptime": "0:04 hours"
   },
+  "uptime_days": 0,
+  "uptime_hours": 0,
+  "uptime_seconds": 246,
+  "uptime": "0:04 hours",
+  "mtu_Ethernet": 1500,
+  "netmask6_Ethernet": "ffff:ffff:ffff:ffff::",
+  "netmask_Ethernet": "255.255.0.0",
+  "network6_Ethernet": "fe80::",
   "kernel": "windows",
   "networking": {
     "primary": "Ethernet",
@@ -102,7 +135,22 @@
       }
     }
   },
+  "scope6": "link",
+  "network": "10.0.2.0",
+  "hostname": "foo",
+  "domain": "example.com",
+  "fqdn": "foo.example.com",
+  "ipaddress": "10.0.2.15",
+  "ipaddress6": "fe80::a180:36e0:3a6e:1005",
+  "macaddress": "08:00:27:81:38:FA",
+  "netmask": "255.255.0.0",
+  "netmask6": "ffff:ffff:ffff:ffff::",
+  "network6": "fe80::",
   "virtual": "virtualbox",
+  "dhcp_servers": {
+    "system": "10.0.2.2",
+    "Ethernet": "10.0.2.2"
+  },
   "processors": {
     "threads": 1,
     "cores": 2,
@@ -113,14 +161,21 @@
     ],
     "physicalcount": 1
   },
+  "processorcount": 2,
+  "hardwareisa": "x64",
+  "physicalprocessorcount": 1,
   "dmi": {
     "product": {
       "name": "VirtualBox",
       "serial_number": "0",
-      "uuid": "3E8C3329-49D3-7546-B5B9-3F02026C0E33"
+      "uuid": "BD4B78E4-A39B-654F-A4FE-915A719431AF"
     },
     "manufacturer": "innotek GmbH"
   },
+  "productname": "VirtualBox",
+  "serialnumber": "0",
+  "uuid": "BD4B78E4-A39B-654F-A4FE-915A719431AF",
+  "manufacturer": "innotek GmbH",
   "env_windows_installdir": "C:\\Program Files\\Puppet Labs\\Puppet",
   "puppetversion": "7.24.0",
   "puppet_ruby_dir": "C:/Program Files/Puppet Labs/Puppet/puppet/lib/ruby/vendor_ruby/puppet",
