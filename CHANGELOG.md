@@ -1,3 +1,7 @@
+## 2023-05-15 / 3.6.2 - Add initial facter 4.4 factsets
+- added initial 4.4 factsets, sans win2016
+- updated Rocky box
+
 ## 2023-04-17 / 3.6.1 - Ignore upstream facterdb factsets
 - Simply ignores non-simp factsets by not merging results
 - This is quick measure to get simp/simp spec tests working with missing
