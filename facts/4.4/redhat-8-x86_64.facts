@@ -1,0 +1,1235 @@
+{
+  "os": {
+    "family": "RedHat",
+    "name": "RedHat",
+    "release": {
+      "full": "8.6",
+      "major": "8",
+      "minor": "6"
+    },
+    "distro": {
+      "codename": "Ootpa",
+      "description": "Red Hat Enterprise Linux release 8.6 (Ootpa)",
+      "release": {
+        "full": "8.6",
+        "major": "8",
+        "minor": "6"
+      },
+      "id": "RedHatEnterprise"
+    },
+    "hardware": "x86_64",
+    "selinux": {
+      "config_policy": "targeted",
+      "current_mode": "enforcing",
+      "enabled": true,
+      "enforced": true,
+      "policy_version": "33",
+      "config_mode": "enforcing"
+    },
+    "architecture": "x86_64"
+  },
+  "path": "/opt/puppetlabs/bin:/opt/puppetlabs/puppet/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin",
+  "memory": {
+    "system": {
+      "available": "493.97 MiB",
+      "available_bytes": 517963776,
+      "capacity": "38.62%",
+      "total": "804.79 MiB",
+      "total_bytes": 843882496,
+      "used": "310.82 MiB",
+      "used_bytes": 325918720
+    },
+    "swap": {
+      "available": "2.00 GiB",
+      "available_bytes": 2152185856,
+      "capacity": "2.45%",
+      "total": "2.05 GiB",
+      "total_bytes": 2206199808,
+      "used": "51.51 MiB",
+      "used_bytes": 54013952
+    }
+  },
+  "ssh": {
+    "rsa": {
+      "fingerprints": {
+        "sha1": "SSHFP 1 1 caa61ae5048b155ee1836bd9e44451b1dd188445",
+        "sha256": "SSHFP 1 2 be1222986ad257520422fc17bfd72d26e96486719e6ebb2e1e470dee1cb8d5c7"
+      },
+      "key": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDKFQCoZsuAydRepAzuxlEU2+W1iDoIj2vAhWKNVuPf3ezqPMVqnXWW0qv/wDaRQ1HcYjoxeBBFa6pv47qyjazicoXUZLzwpcCdt/DB0ayve86CJVHDeSTmrg9JBE0a54xPH2PjAIapmBIcUK7XYZxz/pdOjF7LwjXz8E2uglExdVcm0Kgcb24IFoHo9nxEQNW8t39PuQFnTr965K/tyuk114ROdlCMXeChkBsztG2vufUlRCi+yrkYAbxWJujVwRE/HytjeGdZx9kQgtuCMtvEXn2ksOuoygM5c1gxg/AWk6MjxwIhzG1dvBzRFZmbvYLVuxmAt3oVQ9y/oAMGU2AQLYSkxIE1K3rXW1ZEawUli8W9DVv4extmmBOJUXnn/mPHlm8caITWSoGgizMU+KmXTkrnz6NGjV7Z+HMYCN1TToEYEXILx3xI/N+sZwRIu60M2QCrX/2B6SLYD1yqsan2QwVrevfXLvv28xwvuuVqxAv24ZKIg3fl2twwVIFKEUM=",
+      "type": "ssh-rsa"
+    },
+    "ecdsa": {
+      "fingerprints": {
+        "sha1": "SSHFP 3 1 b7c5e3fd725dcc4dba987a5b8223624e9a9928cb",
+        "sha256": "SSHFP 3 2 2787a2c04d864cb4d8d6494d3117f5de7873c5af63bb50bb62038e2734fe9db3"
+      },
+      "key": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLcBCuYqUPCPhdWd7KeVO0L171C9Vj9s+OFmT1sLb5TbL9/nY7Lzyk/gBY98GyZOlJzKtBeEzDwxLLN7dtBFkD0=",
+      "type": "ecdsa-sha2-nistp256"
+    },
+    "ed25519": {
+      "fingerprints": {
+        "sha1": "SSHFP 4 1 75c17d6a18091c5a757667cc54ed826f0b1d62dd",
+        "sha256": "SSHFP 4 2 341be82987cefd3da237af89963783b4aea585e24f8a41d3becd90a10c93bc26"
+      },
+      "key": "AAAAC3NzaC1lZDI1NTE5AAAAIM1hzl/fykViKrTwWaWl8WxuWVNTeX84trPoJvPeFAu7",
+      "type": "ssh-ed25519"
+    }
+  },
+  "ruby": {
+    "sitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.7.0",
+    "version": "2.7.7",
+    "platform": "x86_64-linux"
+  },
+  "aio_agent_version": "7.24.0",
+  "augeas": {
+    "version": "1.13.0"
+  },
+  "mountpoints": {
+    "/dev": {
+      "device": "devtmpfs",
+      "filesystem": "devtmpfs",
+      "options": [
+        "rw",
+        "seclabel",
+        "nosuid",
+        "size=393228k",
+        "nr_inodes=98307",
+        "mode=755"
+      ],
+      "size_bytes": 402665472,
+      "available_bytes": 402665472,
+      "used_bytes": 0,
+      "capacity": "0%",
+      "size": "384.01 MiB",
+      "available": "384.01 MiB",
+      "used": "0 bytes"
+    },
+    "/dev/shm": {
+      "device": "tmpfs",
+      "filesystem": "tmpfs",
+      "options": [
+        "rw",
+        "seclabel",
+        "nosuid",
+        "nodev"
+      ],
+      "size_bytes": 421941248,
+      "available_bytes": 421941248,
+      "used_bytes": 0,
+      "capacity": "0%",
+      "size": "402.39 MiB",
+      "available": "402.39 MiB",
+      "used": "0 bytes"
+    },
+    "/dev/pts": {
+      "device": "devpts",
+      "filesystem": "devpts",
+      "options": [
+        "rw",
+        "seclabel",
+        "nosuid",
+        "noexec",
+        "relatime",
+        "gid=5",
+        "mode=620",
+        "ptmxmode=000"
+      ],
+      "size_bytes": 0,
+      "available_bytes": 0,
+      "used_bytes": 0,
+      "capacity": "100%",
+      "size": "0 bytes",
+      "available": "0 bytes",
+      "used": "0 bytes"
+    },
+    "/run": {
+      "device": "tmpfs",
+      "filesystem": "tmpfs",
+      "options": [
+        "rw",
+        "seclabel",
+        "nosuid",
+        "nodev",
+        "mode=755"
+      ],
+      "size_bytes": 421941248,
+      "available_bytes": 410963968,
+      "used_bytes": 10977280,
+      "capacity": "2.60%",
+      "size": "402.39 MiB",
+      "available": "391.93 MiB",
+      "used": "10.47 MiB"
+    },
+    "/sys/fs/cgroup": {
+      "device": "tmpfs",
+      "filesystem": "tmpfs",
+      "options": [
+        "ro",
+        "seclabel",
+        "nosuid",
+        "nodev",
+        "noexec",
+        "mode=755"
+      ],
+      "size_bytes": 421941248,
+      "available_bytes": 421941248,
+      "used_bytes": 0,
+      "capacity": "0%",
+      "size": "402.39 MiB",
+      "available": "402.39 MiB",
+      "used": "0 bytes"
+    },
+    "/": {
+      "device": "/dev/mapper/rhel_rhel8-root",
+      "filesystem": "xfs",
+      "options": [
+        "rw",
+        "seclabel",
+        "relatime",
+        "attr2",
+        "inode64",
+        "logbufs=8",
+        "logbsize=32k",
+        "noquota"
+      ],
+      "size_bytes": 75125227520,
+      "available_bytes": 72389914624,
+      "used_bytes": 2735312896,
+      "capacity": "3.64%",
+      "size": "69.97 GiB",
+      "available": "67.42 GiB",
+      "used": "2.55 GiB"
+    },
+    "/dev/mqueue": {
+      "device": "mqueue",
+      "filesystem": "mqueue",
+      "options": [
+        "rw",
+        "seclabel",
+        "relatime"
+      ],
+      "size_bytes": 0,
+      "available_bytes": 0,
+      "used_bytes": 0,
+      "capacity": "100%",
+      "size": "0 bytes",
+      "available": "0 bytes",
+      "used": "0 bytes"
+    },
+    "/dev/hugepages": {
+      "device": "hugetlbfs",
+      "filesystem": "hugetlbfs",
+      "options": [
+        "rw",
+        "seclabel",
+        "relatime",
+        "pagesize=2M"
+      ],
+      "size_bytes": 0,
+      "available_bytes": 0,
+      "used_bytes": 0,
+      "capacity": "100%",
+      "size": "0 bytes",
+      "available": "0 bytes",
+      "used": "0 bytes"
+    },
+    "/boot": {
+      "device": "/dev/sda1",
+      "filesystem": "xfs",
+      "options": [
+        "rw",
+        "seclabel",
+        "relatime",
+        "attr2",
+        "inode64",
+        "logbufs=8",
+        "logbsize=32k",
+        "noquota"
+      ],
+      "size_bytes": 1063256064,
+      "available_bytes": 852115456,
+      "used_bytes": 211140608,
+      "capacity": "19.86%",
+      "size": "1014.00 MiB",
+      "available": "812.64 MiB",
+      "used": "201.36 MiB"
+    },
+    "/run/user/0": {
+      "device": "tmpfs",
+      "filesystem": "tmpfs",
+      "options": [
+        "rw",
+        "seclabel",
+        "nosuid",
+        "nodev",
+        "relatime",
+        "size=82408k",
+        "mode=700"
+      ],
+      "size_bytes": 84385792,
+      "available_bytes": 84385792,
+      "used_bytes": 0,
+      "capacity": "0%",
+      "size": "80.48 MiB",
+      "available": "80.48 MiB",
+      "used": "0 bytes"
+    }
+  },
+  "dmi": {
+    "board": {
+      "manufacturer": "Oracle Corporation",
+      "product": "VirtualBox",
+      "serial_number": "0"
+    },
+    "chassis": {
+      "type": "Other"
+    },
+    "manufacturer": "innotek GmbH",
+    "bios": {
+      "version": "VirtualBox",
+      "release_date": "12/01/2006",
+      "vendor": "innotek GmbH"
+    },
+    "product": {
+      "name": "VirtualBox",
+      "uuid": "3428cc69-9f47-4157-a6ff-4a2c037362c9",
+      "serial_number": "0"
+    }
+  },
+  "timezone": "UTC",
+  "system_uptime": {
+    "days": 0,
+    "hours": 0,
+    "seconds": 404,
+    "uptime": "0:06 hours"
+  },
+  "disks": {
+    "sda": {
+      "model": "VBOX HARDDISK",
+      "size_bytes": 137438953472,
+      "size": "128.00 GiB",
+      "vendor": "ATA",
+      "type": "hdd",
+      "serial": "VBd3b5542d-d2b645fb"
+    }
+  },
+  "hypervisors": {
+    "virtualbox": {
+      "version": "7.0.4",
+      "revision": "154605"
+    }
+  },
+  "partitions": {
+    "/dev/mapper/rhel_rhel8-swap": {
+      "size_bytes": 2206203904,
+      "size": "2.05 GiB",
+      "filesystem": "swap",
+      "uuid": "27fb0878-19b5-427b-be65-992ea0263543"
+    },
+    "/dev/mapper/rhel_rhel8-root": {
+      "size_bytes": 75161927680,
+      "size": "70.00 GiB",
+      "filesystem": "xfs",
+      "uuid": "579a464b-8faf-43ea-9970-a94d9f472f41",
+      "mount": "/"
+    },
+    "/dev/sda2": {
+      "size_bytes": 136364163072,
+      "size": "127.00 GiB",
+      "filesystem": "LVM2_member",
+      "uuid": "Su1PN1-Wf2s-3OhF-Runk-lKPN-6sCg-hdqKcG",
+      "partuuid": "9ad7b12d-02"
+    },
+    "/dev/sda1": {
+      "size_bytes": 1073741824,
+      "size": "1.00 GiB",
+      "filesystem": "xfs",
+      "uuid": "87b8bd69-58b0-453e-b3f7-d458397c0014",
+      "partuuid": "9ad7b12d-01",
+      "mount": "/boot"
+    }
+  },
+  "facterversion": "4.3.1",
+  "filesystems": "xfs",
+  "fips_enabled": false,
+  "identity": {
+    "gid": 0,
+    "group": "root",
+    "privileged": true,
+    "uid": 0,
+    "user": "root"
+  },
+  "is_virtual": true,
+  "kernelmajversion": "4.18",
+  "kernelrelease": "4.18.0-372.9.1.el8.x86_64",
+  "kernelversion": "4.18.0",
+  "networking": {
+    "domain": "example.com",
+    "fqdn": "foo.example.com",
+    "interfaces": {
+      "lo": {
+        "bindings": [
+          {
+            "address": "127.0.0.1",
+            "netmask": "255.0.0.0",
+            "network": "127.0.0.0"
+          }
+        ],
+        "mtu": 65536,
+        "ip": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "network": "127.0.0.0"
+      },
+      "eth0": {
+        "mac": "08:00:27:85:2b:1d",
+        "bindings": [
+          {
+            "address": "10.0.2.15",
+            "netmask": "255.255.0.0",
+            "network": "10.0.2.0"
+          }
+        ],
+        "mtu": 1500,
+        "ip": "10.0.2.15",
+        "netmask": "255.255.0.0",
+        "network": "10.0.2.0"
+      },
+      "eth1": {
+        "mac": "08:00:27:58:b5:00",
+        "bindings": [
+          {
+            "address": "10.255.53.133",
+            "netmask": "255.255.0.0",
+            "network": "10.255.0.0"
+          }
+        ],
+        "mtu": 1500,
+        "ip": "10.255.53.133",
+        "netmask": "255.255.0.0",
+        "network": "10.255.0.0"
+      }
+    },
+    "mac": "08:00:27:85:2b:1d",
+    "ip": "10.0.2.15",
+    "mtu": 1500,
+    "hostname": "foo",
+    "primary": "eth0",
+    "netmask": "255.255.0.0",
+    "network": "10.0.2.0"
+  },
+  "processors": {
+    "isa": "x86_64",
+    "models": [
+      "Intel(R) Core(TM) i7-1068NG7 CPU @ 2.30GHz"
+    ],
+    "physicalcount": 1,
+    "speed": "2.32 GHz",
+    "threads": 1,
+    "cores": 1,
+    "count": 1
+  },
+  "virtual": "virtualbox",
+  "kernel": "Linux",
+  "load_averages": {
+    "1m": 0.46,
+    "5m": 0.6,
+    "15m": 0.32
+  },
+  "puppetversion": "7.24.0",
+  "systemd": true,
+  "systemd_version": "239",
+  "systemd_internal_services": {
+    "systemd-resolved.service": "disabled"
+  },
+  "augeasprovider_grub_version": 2,
+  "yum_package_updates": [
+
+  ],
+  "yum_has_updates": false,
+  "yum_updates": 0,
+  "yum_reboot_required": false,
+  "ip6tables_version": "1.8.4",
+  "iptables_version": "1.8.4",
+  "package_provider": "dnf",
+  "is_pe": false,
+  "puppet_vardir": "/opt/puppetlabs/puppet/cache",
+  "puppet_environmentpath": "/etc/puppetlabs/code/environments",
+  "puppet_server": "puppet",
+  "root_home": "/root",
+  "service_provider": "systemd",
+  "auditd_sample_ruleset_location": "/usr/share/audit/sample-rules",
+  "auditd_sample_rulesets": {
+    "base-config": {
+      "order": "10"
+    },
+    "no-audit": {
+      "order": "10"
+    },
+    "loginuid": {
+      "order": "11"
+    },
+    "cont-fail": {
+      "order": "12"
+    },
+    "ignore-error": {
+      "order": "12"
+    },
+    "dont-audit": {
+      "order": "20"
+    },
+    "no32bit": {
+      "order": "21"
+    },
+    "ignore-chrony": {
+      "order": "22"
+    },
+    "ignore-filesystems": {
+      "order": "23"
+    },
+    "nispom": {
+      "order": "30"
+    },
+    "ospp-v42-1-create-failed": {
+      "order": "30"
+    },
+    "ospp-v42-1-create-success": {
+      "order": "30"
+    },
+    "ospp-v42-2-modify-failed": {
+      "order": "30"
+    },
+    "ospp-v42-2-modify-success": {
+      "order": "30"
+    },
+    "ospp-v42-3-access-failed": {
+      "order": "30"
+    },
+    "ospp-v42-3-access-success": {
+      "order": "30"
+    },
+    "ospp-v42-4-delete-failed": {
+      "order": "30"
+    },
+    "ospp-v42-4-delete-success": {
+      "order": "30"
+    },
+    "ospp-v42-5-perm-change-failed": {
+      "order": "30"
+    },
+    "ospp-v42-5-perm-change-success": {
+      "order": "30"
+    },
+    "ospp-v42-6-owner-change-failed": {
+      "order": "30"
+    },
+    "ospp-v42-6-owner-change-success": {
+      "order": "30"
+    },
+    "ospp-v42": {
+      "order": "30"
+    },
+    "pci-dss-v31": {
+      "order": "30"
+    },
+    "stig": {
+      "order": "30"
+    },
+    "privileged": {
+      "order": "31"
+    },
+    "power-abuse": {
+      "order": "32"
+    },
+    "local": {
+      "order": "40"
+    },
+    "containers": {
+      "order": "41"
+    },
+    "injection": {
+      "order": "42"
+    },
+    "module-load": {
+      "order": "43"
+    },
+    "installers": {
+      "order": "44"
+    },
+    "einval": {
+      "order": "70"
+    },
+    "networking": {
+      "order": "71"
+    },
+    "finalize": {
+      "order": "99"
+    }
+  },
+  "auditd_version": "3.0.7",
+  "auditd_major_version": "3",
+  "haveged__rngd_enabled": false,
+  "haveged_startup_provider": "systemd",
+  "puppet_ruby_dir": "/opt/puppetlabs/puppet/lib/ruby/vendor_ruby/puppet",
+  "puppet_service_enabled": false,
+  "puppet_service_started": false,
+  "rsyslogd": {
+    "version": "8.2102.0",
+    "features": {
+      "PLATFORM": false,
+      "PLATFORM (lsb_release -d)": false,
+      "FEATURE_REGEXP": true,
+      "GSSAPI Kerberos 5 support": true,
+      "FEATURE_DEBUG (debug build, slow code)": false,
+      "32bit Atomic operations supported": true,
+      "64bit Atomic operations supported": true,
+      "memory allocator": false,
+      "Runtime Instrumentation (slow code)": false,
+      "uuid support": true,
+      "systemd support": true,
+      "Config file": false,
+      "PID file": false,
+      "Number of Bits in RainerScript integers": false
+    }
+  },
+  "firewalld_version": "0.9.3",
+  "openldap_arch": "i386",
+  "acpid_enabled": false,
+  "boot_dir_uuid": "87b8bd69-58b0-453e-b3f7-d458397c0014",
+  "cmdline": {
+    "BOOT_IMAGE": "(hd0,msdos1)/vmlinuz-4.18.0-372.9.1.el8.x86_64",
+    "root": "/dev/mapper/rhel_rhel8-root",
+    "ro": "",
+    "no_timer_check": "",
+    "crashkernel": "auto",
+    "resume": "/dev/mapper/rhel_rhel8-swap",
+    "rd.lvm.lv": [
+      "rhel_rhel8/root",
+      "rhel_rhel8/swap"
+    ],
+    "biosdevname": "0",
+    "net.ifnames": "0",
+    "rhgb": "",
+    "quiet": ""
+  },
+  "cpuinfo": {
+    "processor0": {
+      "vendor_id": "GenuineIntel",
+      "cpu_family": "6",
+      "model": "126",
+      "model_name": "Intel(R) Core(TM) i7-1068NG7 CPU @ 2.30GHz",
+      "stepping": "5",
+      "cpu_MHz": "2324.888",
+      "cache_size": "8192 KB",
+      "physical_id": "0",
+      "siblings": "1",
+      "core_id": "0",
+      "cpu_cores": "1",
+      "apicid": "0",
+      "initial_apicid": "0",
+      "fpu": "yes",
+      "fpu_exception": "yes",
+      "cpuid_level": "22",
+      "wp": "yes",
+      "flags": [
+        "fpu",
+        "vme",
+        "de",
+        "pse",
+        "tsc",
+        "msr",
+        "pae",
+        "mce",
+        "cx8",
+        "apic",
+        "sep",
+        "mtrr",
+        "pge",
+        "mca",
+        "cmov",
+        "pat",
+        "pse36",
+        "clflush",
+        "mmx",
+        "fxsr",
+        "sse",
+        "sse2",
+        "ht",
+        "syscall",
+        "nx",
+        "rdtscp",
+        "lm",
+        "constant_tsc",
+        "rep_good",
+        "nopl",
+        "xtopology",
+        "nonstop_tsc",
+        "cpuid",
+        "tsc_known_freq",
+        "pni",
+        "pclmulqdq",
+        "monitor",
+        "ssse3",
+        "cx16",
+        "pcid",
+        "sse4_1",
+        "sse4_2",
+        "x2apic",
+        "movbe",
+        "popcnt",
+        "aes",
+        "xsave",
+        "avx",
+        "rdrand",
+        "hypervisor",
+        "lahf_lm",
+        "abm",
+        "3dnowprefetch",
+        "invpcid_single",
+        "pti",
+        "fsgsbase",
+        "bmi1",
+        "avx2",
+        "bmi2",
+        "invpcid",
+        "rdseed",
+        "clflushopt",
+        "md_clear",
+        "flush_l1d",
+        "arch_capabilities"
+      ],
+      "bugs": "cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit",
+      "bogomips": "4649.77",
+      "clflush_size": "64",
+      "cache_alignment": "64",
+      "address_sizes": "39 bits physical, 48 bits virtual",
+      "power_management": "power management"
+    }
+  },
+  "defaultgateway": "10.0.2.2",
+  "defaultgatewayiface": "eth0",
+  "fips_ciphers": [
+    "TLS_AES_256_GCM_SHA384",
+    "TLS_CHACHA20_POLY1305_SHA256",
+    "TLS_AES_128_GCM_SHA256",
+    "ECDHE-ECDSA-AES256-GCM-SHA384",
+    "ECDHE-RSA-AES256-GCM-SHA384",
+    "DHE-DSS-AES256-GCM-SHA384",
+    "DHE-RSA-AES256-GCM-SHA384",
+    "ADH-AES256-GCM-SHA384",
+    "ECDHE-ECDSA-AES128-GCM-SHA256",
+    "ECDHE-RSA-AES128-GCM-SHA256",
+    "DHE-DSS-AES128-GCM-SHA256",
+    "DHE-RSA-AES128-GCM-SHA256",
+    "ADH-AES128-GCM-SHA256",
+    "ECDHE-ECDSA-AES256-SHA384",
+    "ECDHE-RSA-AES256-SHA384",
+    "DHE-RSA-AES256-SHA256",
+    "DHE-DSS-AES256-SHA256",
+    "ADH-AES256-SHA256",
+    "ECDHE-ECDSA-AES128-SHA256",
+    "ECDHE-RSA-AES128-SHA256",
+    "DHE-RSA-AES128-SHA256",
+    "DHE-DSS-AES128-SHA256",
+    "ADH-AES128-SHA256",
+    "ECDHE-ECDSA-AES256-SHA",
+    "ECDHE-RSA-AES256-SHA",
+    "DHE-RSA-AES256-SHA",
+    "DHE-DSS-AES256-SHA",
+    "AECDH-AES256-SHA",
+    "ADH-AES256-SHA",
+    "ECDHE-ECDSA-AES128-SHA",
+    "ECDHE-RSA-AES128-SHA",
+    "DHE-RSA-AES128-SHA",
+    "DHE-DSS-AES128-SHA",
+    "AECDH-AES128-SHA",
+    "ADH-AES128-SHA",
+    "RSA-PSK-AES256-GCM-SHA384",
+    "DHE-PSK-AES256-GCM-SHA384",
+    "AES256-GCM-SHA384",
+    "PSK-AES256-GCM-SHA384",
+    "RSA-PSK-AES128-GCM-SHA256",
+    "DHE-PSK-AES128-GCM-SHA256",
+    "AES128-GCM-SHA256",
+    "PSK-AES128-GCM-SHA256",
+    "AES256-SHA256",
+    "AES128-SHA256",
+    "ECDHE-PSK-AES256-CBC-SHA384",
+    "ECDHE-PSK-AES256-CBC-SHA",
+    "RSA-PSK-AES256-CBC-SHA384",
+    "DHE-PSK-AES256-CBC-SHA384",
+    "RSA-PSK-AES256-CBC-SHA",
+    "DHE-PSK-AES256-CBC-SHA",
+    "AES256-SHA",
+    "PSK-AES256-CBC-SHA384",
+    "PSK-AES256-CBC-SHA",
+    "ECDHE-PSK-AES128-CBC-SHA256",
+    "ECDHE-PSK-AES128-CBC-SHA",
+    "RSA-PSK-AES128-CBC-SHA256",
+    "DHE-PSK-AES128-CBC-SHA256",
+    "RSA-PSK-AES128-CBC-SHA",
+    "DHE-PSK-AES128-CBC-SHA",
+    "AES128-SHA",
+    "PSK-AES128-CBC-SHA256",
+    "PSK-AES128-CBC-SHA"
+  ],
+  "fullrun": "false",
+  "grub_version": "2.03",
+  "init_systems": [
+    "rc",
+    "systemd",
+    "sysv"
+  ],
+  "ipv6_enabled": false,
+  "login_defs": {
+    "mail_dir": "/var/spool/mail",
+    "umask": "022",
+    "home_mode": 700,
+    "pass_max_days": 99999,
+    "pass_min_days": 0,
+    "pass_min_len": 5,
+    "pass_warn_age": 7,
+    "uid_min": 1000,
+    "uid_max": 60000,
+    "sys_uid_min": 201,
+    "sys_uid_max": 999,
+    "gid_min": 1000,
+    "gid_max": 60000,
+    "sys_gid_min": 201,
+    "sys_gid_max": 999,
+    "create_home": true,
+    "usergroups_enab": true,
+    "encrypt_method": "SHA512"
+  },
+  "reboot_required": false,
+  "root_dir_uuid": "579a464b-8faf-43ea-9970-a94d9f472f41",
+  "runlevel": "3",
+  "shmall": "18446744073692774399",
+  "puppet_settings": {
+    "main": {
+      "confdir": "/etc/puppetlabs/puppet",
+      "codedir": "/etc/puppetlabs/code",
+      "vardir": "/opt/puppetlabs/puppet/cache",
+      "name": "facts",
+      "logdir": "/var/log/puppetlabs/puppet",
+      "log_level": "notice",
+      "disable_warnings": "[]",
+      "merge_dependency_warnings": "false",
+      "strict": "warning",
+      "disable_i18n": "true",
+      "priority": "",
+      "trace": "false",
+      "puppet_trace": "false",
+      "profile": "false",
+      "versioned_environment_dirs": "false",
+      "static_catalogs": "true",
+      "settings_catalog": "true",
+      "strict_environment_mode": "false",
+      "autoflush": "true",
+      "syslogfacility": "daemon",
+      "statedir": "/opt/puppetlabs/puppet/cache/state",
+      "rundir": "/var/run/puppetlabs",
+      "genconfig": "false",
+      "genmanifest": "false",
+      "color": "ansi",
+      "mkusers": "false",
+      "manage_internal_file_permissions": "true",
+      "onetime": "false",
+      "path": "none",
+      "libdir": "/opt/puppetlabs/puppet/cache/lib",
+      "environment": "production",
+      "environmentpath": "/etc/puppetlabs/code/environments",
+      "report_configured_environmentpath": "true",
+      "use_last_environment": "true",
+      "always_retry_plugins": "true",
+      "diff_args": "-u",
+      "diff": "diff",
+      "show_diff": "false",
+      "daemonize": "true",
+      "maximum_uid": "4294967290",
+      "route_file": "/etc/puppetlabs/puppet/routes.yaml",
+      "node_terminus": "plain",
+      "node_cache_terminus": "",
+      "data_binding_terminus": "hiera",
+      "hiera_config": "/etc/puppetlabs/puppet/hiera.yaml",
+      "binder_config": "",
+      "catalog_terminus": "compiler",
+      "catalog_cache_terminus": "",
+      "facts_terminus": "facter",
+      "trusted_external_command": "",
+      "default_file_terminus": "rest",
+      "http_proxy_host": "none",
+      "http_proxy_port": "3128",
+      "http_proxy_user": "none",
+      "http_proxy_password": "none",
+      "no_proxy": "localhost, 127.0.0.1",
+      "http_keepalive_timeout": "4",
+      "http_debug": "false",
+      "http_connect_timeout": "120",
+      "http_read_timeout": "600",
+      "http_user_agent": "Puppet/7.24.0 Ruby/2.7.7-p221 (x86_64-linux)",
+      "filetimeout": "15",
+      "environment_timeout": "0",
+      "environment_data_provider": "",
+      "prerun_command": "",
+      "postrun_command": "",
+      "freeze_main": "false",
+      "preview_outputdir": "/opt/puppetlabs/puppet/cache/preview",
+      "location_trusted": "false",
+      "certname": "foo.example.com",
+      "dns_alt_names": "",
+      "csr_attributes": "/etc/puppetlabs/puppet/csr_attributes.yaml",
+      "certdir": "/etc/puppetlabs/puppet/ssl/certs",
+      "ssldir": "/etc/puppetlabs/puppet/ssl",
+      "ssl_lockfile": "/etc/puppetlabs/puppet/ssl/ssl.lock",
+      "publickeydir": "/etc/puppetlabs/puppet/ssl/public_keys",
+      "requestdir": "/etc/puppetlabs/puppet/ssl/certificate_requests",
+      "privatekeydir": "/etc/puppetlabs/puppet/ssl/private_keys",
+      "privatedir": "/etc/puppetlabs/puppet/ssl/private",
+      "passfile": "/etc/puppetlabs/puppet/ssl/private/password",
+      "hostcsr": "/etc/puppetlabs/puppet/ssl/certificate_requests/foo.example.com.pem",
+      "hostcert": "/etc/puppetlabs/puppet/ssl/certs/foo.example.com.pem",
+      "hostprivkey": "/etc/puppetlabs/puppet/ssl/private_keys/foo.example.com.pem",
+      "hostpubkey": "/etc/puppetlabs/puppet/ssl/public_keys/foo.example.com.pem",
+      "localcacert": "/etc/puppetlabs/puppet/ssl/certs/ca.pem",
+      "ca_fingerprint": "",
+      "ssl_trust_store": "",
+      "hostcrl": "/etc/puppetlabs/puppet/ssl/crl.pem",
+      "certificate_revocation": "chain",
+      "ciphers": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256",
+      "key_type": "rsa",
+      "named_curve": "prime256v1",
+      "digest_algorithm": "sha256",
+      "supported_checksum_types": "[\"sha256\", \"sha384\", \"sha512\", \"sha224\", \"md5\"]",
+      "logdest": "",
+      "plugindest": "/opt/puppetlabs/puppet/cache/lib",
+      "pluginsource": "puppet:///plugins",
+      "pluginfactdest": "/opt/puppetlabs/puppet/cache/facts.d",
+      "pluginfactsource": "puppet:///pluginfacts",
+      "localedest": "/opt/puppetlabs/puppet/cache/locales",
+      "localesource": "puppet:///locales",
+      "pluginsync": "true",
+      "pluginsignore": ".svn CVS .git .hg",
+      "ignore_plugin_errors": "false",
+      "factpath": "/opt/puppetlabs/puppet/cache/lib/facter:/opt/puppetlabs/puppet/cache/facts",
+      "external_nodes": "none",
+      "rich_data": "true"
+    },
+    "module_tool": {
+      "module_repository": "https://forgeapi.puppet.com",
+      "module_working_dir": "/opt/puppetlabs/puppet/cache/puppet-module",
+      "forge_authorization": "",
+      "module_groups": ""
+    },
+    "ca": {
+      "ca_name": "Puppet CA: foo.example.com",
+      "cadir": "/etc/puppetlabs/puppetserver/ca",
+      "cacert": "/etc/puppetlabs/puppetserver/ca/ca_crt.pem",
+      "cakey": "/etc/puppetlabs/puppetserver/ca/ca_key.pem",
+      "capub": "/etc/puppetlabs/puppetserver/ca/ca_pub.pem",
+      "cacrl": "/etc/puppetlabs/puppetserver/ca/ca_crl.pem",
+      "csrdir": "/etc/puppetlabs/puppetserver/ca/requests",
+      "signeddir": "/etc/puppetlabs/puppetserver/ca/signed",
+      "serial": "/etc/puppetlabs/puppetserver/ca/serial",
+      "autosign": "/etc/puppetlabs/puppet/autosign.conf",
+      "allow_duplicate_certs": "false",
+      "ca_ttl": "157680000",
+      "crl_refresh_interval": "",
+      "keylength": "4096",
+      "cert_inventory": "/etc/puppetlabs/puppetserver/ca/inventory.txt"
+    },
+    "application": {
+      "config_file_name": "puppet.conf",
+      "config": "/etc/puppetlabs/puppet/puppet.conf",
+      "pidfile": "/var/run/puppetlabs/application.pid",
+      "sourceaddress": ""
+    },
+    "environment": {
+      "manifest": "/etc/puppetlabs/code/environments/production/manifests",
+      "modulepath": "/etc/puppetlabs/code/environments/production/modules:/etc/puppetlabs/code/modules:/opt/puppetlabs/puppet/modules",
+      "config_version": ""
+    },
+    "server": {
+      "user": "puppet",
+      "group": "puppet",
+      "default_manifest": "./manifests",
+      "disable_per_environment_manifest": "false",
+      "code": "",
+      "masterport": "8140",
+      "serverport": "8140",
+      "bucketdir": "/opt/puppetlabs/puppet/cache/bucket",
+      "trusted_oid_mapping_file": "/etc/puppetlabs/puppet/custom_trusted_oid_mapping.yaml",
+      "basemodulepath": "/etc/puppetlabs/code/modules:/opt/puppetlabs/puppet/modules",
+      "vendormoduledir": "/opt/puppetlabs/puppet/vendor_modules",
+      "ssl_client_header": "HTTP_X_CLIENT_DN",
+      "ssl_client_verify_header": "HTTP_X_CLIENT_VERIFY",
+      "yamldir": "/opt/puppetlabs/puppet/cache/yaml",
+      "server_datadir": "/opt/puppetlabs/puppet/cache/server_data",
+      "reports": "store",
+      "exclude_unchanged_resources": "false",
+      "reportdir": "/opt/puppetlabs/puppet/cache/reports",
+      "reporturl": "http://localhost:3000/reports/upload",
+      "fileserverconfig": "/etc/puppetlabs/puppet/fileserver.conf",
+      "storeconfigs": "false",
+      "storeconfigs_backend": "puppetdb"
+    },
+    "device": {
+      "devicedir": "/opt/puppetlabs/puppet/cache/devices",
+      "deviceconfig": "/etc/puppetlabs/puppet/device.conf"
+    },
+    "agent": {
+      "node_name_value": "foo.example.com",
+      "node_name_fact": "",
+      "statefile": "/opt/puppetlabs/puppet/cache/state/state.yaml",
+      "statettl": "2764800",
+      "transactionstorefile": "/opt/puppetlabs/puppet/cache/state/transactionstore.yaml",
+      "clientyamldir": "/opt/puppetlabs/puppet/cache/client_yaml",
+      "client_datadir": "/opt/puppetlabs/puppet/cache/client_data",
+      "write_catalog_summary": "true",
+      "classfile": "/opt/puppetlabs/puppet/cache/state/classes.txt",
+      "resourcefile": "/opt/puppetlabs/puppet/cache/state/resources.txt",
+      "puppetdlog": "/var/log/puppetlabs/puppet/puppetd.log",
+      "deviceconfdir": "/etc/puppetlabs/puppet/devices",
+      "server": "puppet",
+      "server_list": "[]",
+      "use_srv_records": "false",
+      "srv_domain": "example.com",
+      "http_extra_headers": "[]",
+      "ignoreschedules": "false",
+      "default_schedules": "true",
+      "noop": "false",
+      "runinterval": "1800",
+      "runtimeout": "3600",
+      "ca_server": "puppet",
+      "ca_port": "8140",
+      "preferred_serialization_format": "json",
+      "agent_catalog_run_lockfile": "/opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock",
+      "agent_disabled_lockfile": "/opt/puppetlabs/puppet/cache/state/agent_disabled.lock",
+      "usecacheonfailure": "true",
+      "include_legacy_facts": "true",
+      "fact_name_length_soft_limit": "2560",
+      "fact_value_length_soft_limit": "4096",
+      "top_level_facts_soft_limit": "512",
+      "number_of_facts_soft_limit": "2048",
+      "payload_soft_limit": "16777216",
+      "use_cached_catalog": "false",
+      "ignoremissingtypes": "false",
+      "splaylimit": "1800",
+      "splay": "false",
+      "clientbucketdir": "/opt/puppetlabs/puppet/cache/clientbucket",
+      "report_server": "puppet",
+      "report_port": "8140",
+      "report": "true",
+      "report_include_system_store": "false",
+      "resubmit_facts": "false",
+      "publicdir": "/opt/puppetlabs/puppet/public",
+      "lastrunfile": "/opt/puppetlabs/puppet/public/last_run_summary.yaml",
+      "lastrunreport": "/opt/puppetlabs/puppet/cache/state/last_run_report.yaml",
+      "graph": "false",
+      "graphdir": "/opt/puppetlabs/puppet/cache/state/graphs",
+      "waitforcert": "120",
+      "maxwaitforcert": "Infinity",
+      "waitforlock": "0",
+      "maxwaitforlock": "60"
+    },
+    "transaction": {
+      "tags": "",
+      "skip_tags": "",
+      "evaltrace": "false",
+      "preprocess_deferred": "true",
+      "summarize": "false"
+    },
+    "ldap": {
+      "ldapssl": "false",
+      "ldaptls": "false",
+      "ldapserver": "ldap",
+      "ldapport": "389",
+      "ldapstring": "(&(objectclass=puppetClient)(cn=%s))",
+      "ldapclassattrs": "puppetclass",
+      "ldapstackedattrs": "puppetvar",
+      "ldapattrs": "all",
+      "ldapparentattr": "parentnode",
+      "ldapuser": "",
+      "ldappassword": "",
+      "ldapbase": ""
+    },
+    "parser": {
+      "max_errors": "10",
+      "max_warnings": "10",
+      "max_deprecations": "10",
+      "strict_variables": "false",
+      "tasks": "false"
+    },
+    "puppetdoc": {
+      "document_all": "false"
+    },
+    "master": {
+      "user": "puppet",
+      "group": "puppet",
+      "default_manifest": "./manifests",
+      "disable_per_environment_manifest": "false",
+      "code": "",
+      "masterport": "8140",
+      "serverport": "8140",
+      "bucketdir": "/opt/puppetlabs/puppet/cache/bucket",
+      "trusted_oid_mapping_file": "/etc/puppetlabs/puppet/custom_trusted_oid_mapping.yaml",
+      "basemodulepath": "/etc/puppetlabs/code/modules:/opt/puppetlabs/puppet/modules",
+      "vendormoduledir": "/opt/puppetlabs/puppet/vendor_modules",
+      "ssl_client_header": "HTTP_X_CLIENT_DN",
+      "ssl_client_verify_header": "HTTP_X_CLIENT_VERIFY",
+      "yamldir": "/opt/puppetlabs/puppet/cache/yaml",
+      "server_datadir": "/opt/puppetlabs/puppet/cache/server_data",
+      "reports": "store",
+      "exclude_unchanged_resources": "false",
+      "reportdir": "/opt/puppetlabs/puppet/cache/reports",
+      "reporturl": "http://localhost:3000/reports/upload",
+      "fileserverconfig": "/etc/puppetlabs/puppet/fileserver.conf",
+      "storeconfigs": "false",
+      "storeconfigs_backend": "puppetdb"
+    }
+  },
+  "simplib__auditd": {
+    "enforcing": true,
+    "kernel_enforcing": true,
+    "enabled": true,
+    "version": "3.0.7",
+    "failure": 1,
+    "pid": 763,
+    "rate_limit": 0,
+    "backlog_limit": 8192,
+    "lost": 0,
+    "backlog": 0,
+    "backlog_wait_time": 60000,
+    "backlog_wait_time_actual": 0,
+    "loginuid_immutable": "0 unlocked"
+  },
+  "simplib__crypto_policy_state": {
+    "global_policy": "DEFAULT",
+    "global_policy_applied": true,
+    "global_policies_available": [
+      "DEFAULT",
+      "EMPTY",
+      "FIPS",
+      "FUTURE",
+      "LEGACY"
+    ]
+  },
+  "simplib__efi_enabled": false,
+  "simplib__firewalls": [
+    "firewalld",
+    "iptables",
+    "nft"
+  ],
+  "simplib__mountpoints": {
+    "/proc": {
+      "device": "proc",
+      "filesystem": "proc",
+      "options": [
+        "rw",
+        "nosuid",
+        "nodev",
+        "noexec",
+        "relatime"
+      ],
+      "options_hash": {
+        "rw": "",
+        "nosuid": "",
+        "nodev": "",
+        "noexec": "",
+        "relatime": ""
+      }
+    },
+    "/dev/shm": {
+      "device": "tmpfs",
+      "filesystem": "tmpfs",
+      "options": [
+        "rw",
+        "seclabel",
+        "nosuid",
+        "nodev"
+      ],
+      "size_bytes": 421941248,
+      "available_bytes": 421941248,
+      "used_bytes": 0,
+      "capacity": "0%",
+      "size": "402.39 MiB",
+      "available": "402.39 MiB",
+      "used": "0 bytes",
+      "options_hash": {
+        "rw": "",
+        "seclabel": "",
+        "nosuid": "",
+        "nodev": ""
+      }
+    }
+  },
+  "simplib__networkmanager": {
+    "general": {
+      "status": {
+        "STATE": "connected",
+        "CONNECTIVITY": "full",
+        "WIFI-HW": "enabled",
+        "WIFI": "enabled",
+        "WWAN-HW": "enabled",
+        "WWAN": "enabled"
+      },
+      "hostname": "foo"
+    },
+    "enabled": true,
+    "connection": {
+      "eth0": {
+        "uuid": "5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03",
+        "type": "802-3-ethernet",
+        "name": "System eth0"
+      },
+      "eth1": {
+        "uuid": "9c92fad9-6ecb-3e6c-eb4d-8a47c6f50c04",
+        "type": "802-3-ethernet",
+        "name": "System eth1"
+      },
+      "": {
+        "uuid": "4fdad5b4-b9b0-3d35-9750-1b3811341a2a",
+        "type": "802-3-ethernet",
+        "name": "Wired connection 1"
+      }
+    }
+  },
+  "simplib__numa": {
+    "nodes": [
+      "node0"
+    ],
+    "possible": "0",
+    "online": "0",
+    "node0": {
+      "MemTotalBytes": 843882496
+    }
+  },
+  "simplib__secure_boot_enabled": false,
+  "simplib__sshd_config": {
+    "AuthorizedKeysFile": ".ssh/authorized_keys",
+    "version": "8.0p1",
+    "full_version": "OpenSSH_8.0p1, OpenSSL 1.1.1k  FIPS 25 Mar 2021\n"
+  },
+  "simplib_sysctl": {
+    "crypto.fips_enabled": 0,
+    "kernel.ctrl-alt-del": 0,
+    "kernel.modules_disabled": 0,
+    "kernel.shmall": "18446744073692774399",
+    "kernel.shmmax": "18446744073692774399",
+    "kernel.shmmni": "4096",
+    "kernel.tainted": 12288,
+    "kernel.threads-max": 6143,
+    "net.ipv6.conf.all.disable_ipv6": 1,
+    "vm.swappiness": 30
+  },
+  "tmp_mount_dev_shm": "rw,seclabel,nosuid,nodev",
+  "tmp_mount_path_dev_shm": "tmpfs",
+  "tmp_mount_fstype_dev_shm": "tmpfs",
+  "uid_min": "1000",
+  "openssh_version": "8.0",
+  "ssh_host_keys": [
+    "/etc/ssh/ssh_host_rsa_key"
+  ],
+  "sssd_version": "2.6.2",
+  "sudo_version": "1.8.29",
+  "selinux_python_command": "/usr/libexec/platform-python"
+}
