@@ -1,3 +1,7 @@
+## 2023-05-15 / 3.6.3 - Update facter 4.4 factsets with legacy facts
+- updated 4.4 factsets with legacy facts
+- modified beaker task to include legacy facts in the future
+
 ## 2023-05-15 / 3.6.2 - Add initial facter 4.4 factsets
 - added initial 4.4 factsets, sans win2016
 - updated Rocky box
