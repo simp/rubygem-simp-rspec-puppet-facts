@@ -1,3 +1,7 @@
+## 2023-08-28 / 3.7.0 - Fix Ruby 3 compatibility
+- Replace various calls to `File.exists?` with `File.exist?`
+- Update gem dependencies
+
 ## 2023-05-15 / 3.6.3 - Update facter 4.4 factsets with legacy facts
 - updated 4.4 factsets with legacy facts
 - modified beaker task to include legacy facts in the future

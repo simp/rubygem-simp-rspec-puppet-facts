@@ -191,7 +191,7 @@ module Simp::RspecPuppetFacts
     facter_xy_version = Facter.version.split('.')[0..1].join('.')
     fact_dir          = File.join(fact_dir_path,facter_xy_version)
 
-    unless File.exists? fact_dir
+    unless File.exist? fact_dir
       _msg = "Can't find SIMP facts for Facter #{facter_xy_version}, skipping...
 
 HINT: If this version of Facter has been released recently, try running
