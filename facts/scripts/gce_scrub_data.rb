@@ -36,7 +36,7 @@ def scrub_data(f)
   ff =  "#{f}.yaml"
   File.open(ff,'w'){|fd| fd.puts data.to_yaml }
   fb = f.sub(/.facts$/,'.facts.bak')
-  unless File.exists? fb
+  unless File.exist? fb
     File.open(fb,'w'){|fd| fd.puts data}
     warn "== wrote '#{fb}'"
   end
