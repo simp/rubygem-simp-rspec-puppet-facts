@@ -1,3 +1,6 @@
+## 2023-09-27 / 3.8.1 - Fix GHA release workflow
+- Fix GHA release workflow
+
 ## 2023-09-27 / 3.8.0 - Add facter 4.5 factsets
 - Add facter 4.5 factsets
 - Add Rocky 9 and OEL 9 facts
