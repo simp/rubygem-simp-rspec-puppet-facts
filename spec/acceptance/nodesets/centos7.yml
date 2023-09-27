@@ -5,8 +5,9 @@ HOSTS:
     - linux
     - default
     platform: el-7-x86_64
-    box: centos/7
+    box: generic/centos7
     hypervisor: "<%= ENV.fetch('BEAKER_HYPERVISOR', 'vagrant') %>"
+    vagrant_memsize: 2048
     family: centos-cloud/centos-7
     gce_machine_type: n1-standard-2
 CONFIG:

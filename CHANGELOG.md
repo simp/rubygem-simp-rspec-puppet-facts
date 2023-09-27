@@ -1,3 +1,9 @@
+## 2023-09-27 / 3.8.0 - Add facter 4.5 factsets
+- Add facter 4.5 factsets
+- Add Rocky 9 and OEL 9 facts
+- Update boxes for beaker nodesets
+- Bump `vagrant_memsize` to 2GB for all nodesets to improve performance
+
 ## 2023-08-28 / 3.7.0 - Fix Ruby 3 compatibility
 - Replace various calls to `File.exists?` with `File.exist?`
 - Update gem dependencies

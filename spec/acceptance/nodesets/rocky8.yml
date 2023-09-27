@@ -7,6 +7,7 @@ HOSTS:
     platform: el-8-x86_64
     box: generic/rocky8
     hypervisor: "<%= ENV.fetch('BEAKER_HYPERVISOR', 'vagrant') %>"
+    vagrant_memsize: 2048
     synced_folder: disabled
     family: rocky-linux-cloud/rocky-linux-8
     gce_machine_type: n1-standard-2
