@@ -13,6 +13,7 @@ HOSTS:
     platform:   el-7-x86_64
     box:        generic/oracle7
     hypervisor: <%= hypervisor %>
+    vagrant_memsize: 2048
 
 CONFIG:
   log_level: verbose

@@ -7,6 +7,7 @@ HOSTS:
     platform: el-9-x86_64
     box: generic/centos9s
     hypervisor: "<%= ENV.fetch('BEAKER_HYPERVISOR', 'vagrant') %>"
+    vagrant_memsize: 2048
     family: centos-cloud/centos-stream-9
     gce_machine_type: n1-standard-2
 CONFIG:

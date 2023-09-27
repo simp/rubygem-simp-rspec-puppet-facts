@@ -12,12 +12,12 @@ HOSTS:
     platform: el-7-x86_64
     box: gbailey/amzn2
     hypervisor: <%= hypervisor %>
+    vagrant_memsize: 2048
 
 CONFIG:
   log_level: verbose
   synced_folder : disabled
   type: aio
-  vagrant_memsize: 512
 <% if ENV['BEAKER_PUPPET_COLLECTION'] -%>
   puppet_collection: <%= ENV['BEAKER_PUPPET_COLLECTION'] %>
 <% end -%>
