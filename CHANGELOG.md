@@ -1,3 +1,7 @@
+## 2023-10-11 / 3.8.2 - Add missing augeasprovider_grub_version fact
+- Add missing `augeasprovider_grub_version` fact to amazon-2, oraclelinux-7,
+  and oraclelinux-8 fact sets
+
 ## 2023-09-27 / 3.8.1 - Fix GHA release workflow
 - Fix GHA release workflow
 

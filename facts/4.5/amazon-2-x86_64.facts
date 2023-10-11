@@ -73,6 +73,7 @@
   "augeas": {
     "version": "1.13.0"
   },
+  "augeasprovider_grub_version": 2,
   "augeasversion": "1.13.0",
   "bios_release_date": "12/01/2006",
   "bios_vendor": "innotek GmbH",
