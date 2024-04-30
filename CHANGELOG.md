@@ -1,4 +1,7 @@
-## 2024-02029 / 3.9.0 - Add facter 4.6 factsets
+## 2024-04-29 / 3.10.0 - Add facter 4.7 factsets
+- Add facter 4.7 factsets
+
+## 2024-02-29 / 3.9.0 - Add facter 4.6 factsets
 - Add facter 4.6 factsets
 
 ## 2023-10-11 / 3.8.3 - Fix GHA release workflow

@@ -9,7 +9,7 @@ describe 'look out muppets' do
     let(:os_info) { fact_on(host, 'os') }
     let(:os_arch) { fact_on(host, 'architecture') }
 
-    let(:fact_collection) { File.join(collection_dir, [os_info['name'], os_info['release']['full'].gsub(/\s/,'_'), os_arch].join('-').downcase + '.facts') }
+    let(:fact_collection) { File.join(collection_dir, [os_info['name'], os_info['release']['major'].gsub(/\s/,'_'), os_arch].join('-').downcase + '.facts') }
 
     let(:host_data) { JSON.load(File.read(fact_collection)) }
 
