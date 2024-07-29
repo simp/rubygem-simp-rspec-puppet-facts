@@ -1,3 +1,6 @@
+## 2024-07-29 / 3.11.0 - Add facter 4.7 factsets
+- Add facter 4.8 factsets
+
 ## 2024-04-29 / 3.10.0 - Add facter 4.7 factsets
 - Add facter 4.7 factsets
 
