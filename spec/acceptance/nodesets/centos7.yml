@@ -10,6 +10,8 @@ HOSTS:
     vagrant_memsize: 2048
     family: centos-cloud/centos-7
     gce_machine_type: n1-standard-2
+    shell_provisioner:
+      path: "<%= File.expand_path(__dir__) %>/spec/acceptance/nodesets/centos7-vault.sh"
 CONFIG:
   validate: false
   log_level: verbose
