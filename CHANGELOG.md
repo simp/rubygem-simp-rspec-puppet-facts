@@ -1,3 +1,6 @@
+## 2024-10-22 / 3.13.0 - Add facter 4.10 factsets
+- Add facter 4.10 factsets
+
 ## 2024-09-10 / 3.12.0 - Add facter 4.9 factsets
 - Add facter 4.9 factsets
 - Drop EOL Windows 2012R2 support
