@@ -1,26 +1,29 @@
+# Simp namespace
 module Simp; end
+
+# Simp::RspecPuppetFacts namespace
 module Simp::RspecPuppetFacts
   require 'json'
   require 'puppet'
 
   require File.expand_path('version', File.dirname(__FILE__))
 
-  SELINUX_MODES = [:enforcing, :disabled, :permissive]
+  SELINUX_MODES = [:enforcing, :disabled, :permissive].freeze
 
-  def supported_os_strings( opts, known_os_list=[] )
+  def supported_os_strings(opts, known_os_list = [])
     supported_os = opts.fetch(:supported_os, RspecPuppetFacts.meta_supported_os)
     hardwaremodels = opts.fetch(:hardwaremodels, ['x86_64'])
     os_strings = []
     supported_os.each do |os|
-      os_name = os['operatingsystem'].downcase.gsub(/\s/,'_')
+      os_name = os['operatingsystem'].downcase.gsub(%r{\s}, '_')
 
       os['operatingsystemrelease'] ||= []
       if os['operatingsystemrelease'].empty?
         # Just pick the latest one
         os_strings.push(
           known_os_list
-            .select{|x| x.start_with?(os_name)}
-            .sort.last
+            .select { |x| x.start_with?(os_name) }
+            .sort.last,
         )
       else
         os['operatingsystemrelease'].each do |rel|
@@ -36,7 +39,7 @@ module Simp::RspecPuppetFacts
 
   # Don't ask rspec-puppet-facts for operatingsystems we've already recorded
   # because if it doesn't have them it will crash
-  def filter_opts( opts, simp_h )
+  def filter_opts(opts, simp_h)
     rfh_hw = opts.fetch(:hardwaremodels, ['x86_64'])
     rfh_os = opts.fetch(:supported_os, RspecPuppetFacts.meta_supported_os).dup
 
@@ -45,9 +48,9 @@ module Simp::RspecPuppetFacts
       os['operatingsystemrelease'] ||= []
       if os['operatingsystemrelease'].empty?
         os_release = simp_h.keys
-          .select{|x| x.start_with?(os['operatingsystem'].downcase) }
-          .sort
-          .last
+                           .select { |x| x.start_with?(os['operatingsystem'].downcase) }
+                           .sort
+                           .last
 
         os['operatingsystemrelease'] = [os_release.split('-')[1]] if os_release
       end
@@ -66,88 +69,84 @@ module Simp::RspecPuppetFacts
     ret_opts
   end
 
-  def on_supported_os( opts = {} )
-    opts[:simp_fact_dir_path] ||= File.expand_path("../../facts/", File.dirname(__FILE__))
+  def on_supported_os(opts = {})
+    opts[:simp_fact_dir_path] ||= File.expand_path('../../facts/', File.dirname(__FILE__))
 
     simp_h = load_facts(opts[:simp_fact_dir_path])
 
     masked_opts = filter_opts(opts, simp_h)
+    Simp::RspecPuppetFacts::Shim.on_supported_os(masked_opts) unless masked_opts[:supported_os]&.empty?
 
-    rfh_h = {}
-    rfh_h = Simp::RspecPuppetFacts::Shim.on_supported_os(masked_opts) unless masked_opts[:supported_os]&.empty?
-
-    #merged_os_hash = rfh_h.merge(simp_h)  # we should NOT merge default facterdb factsets
+    # merged_os_hash = rfh_h.merge(simp_h)  # we should NOT merge default facterdb factsets
     merged_os_hash = simp_h
-    h = merged_os_hash.select{|k,v| supported_os_strings(opts, merged_os_hash.keys).include? k}
+    h = merged_os_hash.slice(*supported_os_strings(opts, merged_os_hash.keys))
 
-    h.each do | os, facts |
-      facter_ver=Facter.version.split('.')[0..1].join('.')
+    h.each do |os, facts|
+      facter_ver = Facter.version.split('.')[0..1].join('.')
       facts_file = File.expand_path("../../facts/#{facter_ver}/#{os}.facts",
                                     File.dirname(__FILE__))
       if File.file? facts_file
         captured_facts_raw = File.open(
           File.expand_path("../../facts/#{facter_ver}/#{os}.facts",
-                           File.dirname(__FILE__))
+                           File.dirname(__FILE__)),
         ).read
-        captured_facts = symbolize_keys JSON.parse( captured_facts_raw )
-        captured_facts.keep_if{ |k,v| (captured_facts.keys-facts.keys).include? k }
+        captured_facts = symbolize_keys JSON.parse(captured_facts_raw)
+        captured_facts.keep_if { |k, _v| (captured_facts.keys - facts.keys).include? k }
 
         facts.merge! captured_facts
-        facts.merge! opts.fetch( :extra_facts, {} )
-        facts.merge!({ :puppetversion => ::Puppet.version })
-        facts.merge! lsb_facts( facts )
-        facts.merge! selinux_facts( opts[:selinux_mode], facts )
-        facts.merge! opts.fetch( :extra_facts_immutable, {} )
+        facts.merge! opts.fetch(:extra_facts, {})
+        facts[:puppetversion] = ::Puppet.version
+        facts.merge! lsb_facts(facts)
+        facts.merge! selinux_facts(opts[:selinux_mode], facts)
+        facts.merge! opts.fetch(:extra_facts_immutable, {})
       end
 
-      if ( ENV['SIMP_FACTS_OS'] &&
-           !ENV['SIMP_FACTS_OS'].to_s.strip.empty? &&
-           ENV['SIMP_FACTS_OS'] !~ /all/i )
-        unless ENV['SIMP_FACTS_OS'].strip.split(/[ ,]+/).any?{|str| os == str || os.match?(%r[#{str}]) }
-          h.delete(os)
-        end
+      next unless ENV['SIMP_FACTS_OS'] &&
+                  !ENV['SIMP_FACTS_OS'].to_s.strip.empty? &&
+                  ENV['SIMP_FACTS_OS'] !~ %r{all}i
+      unless ENV['SIMP_FACTS_OS'].strip.split(%r{[ ,]+}).any? { |str| os == str || os.match?(%r{#{str}}) }
+        h.delete(os)
       end
     end
 
     h
   end
 
-  def lsb_facts( facts )
+  def lsb_facts(facts)
     return facts unless facts[:kernel].casecmp('linux')
 
     lsb_facts = {}
     # attempt to massage a major release version if missing (for facter 1.6)
     unless ENV['SIMP_FACTS_lsb'] == 'no'
-      puts "==== mocking lsb facts [disable with SIMP_FACTS_lsb=no]" if ENV['VERBOSE']
+      puts '==== mocking lsb facts [disable with SIMP_FACTS_lsb=no]' if ENV['VERBOSE']
       lsb_facts[:lsbmajdistrelease] = facts[:os][:release][:major]
     end
     lsb_facts
   end
 
-  def selinux_facts( mode=:enforcing, facts )
+  def selinux_facts(mode = :enforcing, facts) # rubocop:disable Style/OptionalArguments
     return facts if facts[:kernel]&.casecmp('windows')
 
-    unless SELINUX_MODES.include?( mode )
-      fail "FATAL: `mode` must be one of: #{SELINUX_MODES.map{|x| x.to_s.sub(/^/,':')}.join(', ')}"
+    unless SELINUX_MODES.include?(mode)
+      raise "FATAL: `mode` must be one of: #{SELINUX_MODES.map { |x| x.to_s.sub(%r{^}, ':') }.join(', ')}"
     end
-    sefacts = {}
     sefacts_enforcing = {
-      :selinux              => true,
-      :selinux_enforced     => true,
-      :selinux_current_mode => 'enforcing',
-      :selinux_state        => 'enforcing',
+      selinux: true,
+      selinux_enforced: true,
+      selinux_current_mode: 'enforcing',
+      selinux_state: 'enforcing',
     }
     sefacts_permissive = {
-      :selinux              => true,
-      :selinux_enforced     => false,
-      :selinux_current_mode => 'permissive',
-      :selinux_state        => 'permssive',
+      selinux: true,
+      selinux_enforced: false,
+      selinux_current_mode: 'permissive',
+      selinux_state: 'permssive',
     }
     sefacts_disabled = {
-      :selinux              => false,
-      :selinux_enforced     => false,
-      :selinux_current_mode => 'disabled',
-      :selinux_state        => 'disabled',
+      selinux: false,
+      selinux_enforced: false,
+      selinux_current_mode: 'disabled',
+      selinux_state: 'disabled',
     }
     sefacts = sefacts_enforcing
     sefacts = sefacts_enforcing  if mode == :enforcing
@@ -155,13 +154,13 @@ module Simp::RspecPuppetFacts
     sefacts = sefacts_disabled   if mode == :disabled
 
     # ensure mount options in :tmp_mount_* facts match
-    ['tmp','var_tmp','dev_shm'].each do |m|
+    ['tmp', 'var_tmp', 'dev_shm'].each do |m|
       k = "tmp_mount_#{m}".to_sym
-      if mount_opts = facts.fetch(k,false)
+      if (mount_opts = facts.fetch(k, false))
         if mode == :disabled
-          sefacts[k] = mount_opts.sub(/,seclabel$|seclabel,/, '')
+          sefacts[k] = mount_opts.sub(%r{,seclabel$|seclabel,}, '')
         else
-          unless mount_opts =~ /\bseclabel\b/
+          unless %r{\bseclabel\b}.match?(mount_opts)
             sefacts[k] = "#{mount_opts},seclabel"
           end
         end
@@ -172,7 +171,7 @@ module Simp::RspecPuppetFacts
 
   # recursively onvert all hash keys to symbols
   def symbolize_keys(hash)
-    hash.inject({}){|result, (key, value)|
+    hash.each_with_object({}) do |(key, value), result|
       new_key = case key
                 when String then key.to_sym
                 else key
@@ -182,36 +181,54 @@ module Simp::RspecPuppetFacts
                   else value
                   end
       result[new_key] = new_value
-      result
-    }
+    end
   end
 
-
-  def load_facts( fact_dir_path )
+  def load_facts(fact_dir_path)
     facter_xy_version = Facter.version.split('.')[0..1].join('.')
-    fact_dir          = File.join(fact_dir_path,facter_xy_version)
+    fact_dir          = File.join(fact_dir_path, facter_xy_version)
 
     unless File.exist? fact_dir
-      _msg = "Can't find SIMP facts for Facter #{facter_xy_version}, skipping...
+      # Try to fall back to the highest available older version
+      available_versions = Dir.glob(File.join(fact_dir_path, '*'))
+                              .select { |d| File.directory?(d) }
+                              .map { |d| File.basename(d) }
+                              .select { |v| v.match?(%r{^\d+\.\d+$}) }
+                              .sort_by { |v| Gem::Version.new(v) }
+                              .reverse
 
-HINT: If this version of Facter has been released recently, try running
+      fallback_version = available_versions.find do |v|
+        Gem::Version.new(v) < Gem::Version.new(facter_xy_version)
+      end
 
-    `FACTER_GEM_VERSION='~> X.Y.0' bundler update facter
+      if fallback_version
+        fact_dir = File.join(fact_dir_path, fallback_version)
+        warn "WARNING: Using fallback facts for Facter #{fallback_version} (requested #{facter_xy_version})"
+      else
+        msg = <<~END_MSG
+          Can't find SIMP facts for Facter #{facter_xy_version}, skipping...
 
-Where 'X.Y' is the version of the last facter that worked"
-      fail(_msg)
+          HINT: If this version of Facter has been released recently, try running
+
+              `FACTER_GEM_VERSION='~> X.Y.0' bundler update facter
+
+          Where 'X.Y' is the version of the last facter that worked
+        END_MSG
+        raise(msg)
+      end
     end
 
     simp_h     = {}
-    fact_files = Dir.glob( File.join(fact_dir, '*.facts') ).sort
+    fact_files = Dir.glob(File.join(fact_dir, '*.facts')).sort
     fact_files.each do |file|
-      key  = File.basename(file).sub(/\.facts$/,'')
+      key  = File.basename(file).sub(%r{\.facts$}, '')
       data = JSON.parse(File.read(file))
       simp_h[key] = symbolize_keys(data)
     end
     simp_h
   end
 
+  # Shim to rspec-puppet-facts methods
   class Shim
     require 'rspec-puppet-facts'
     extend ::RspecPuppetFacts
