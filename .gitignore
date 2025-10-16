@@ -9,4 +9,5 @@ facts/bun/
 vendor/
 collected_facts/
 log/
-spec/fixtures/
+spec/fixtures/*
+!spec/fixtures/metadata.json

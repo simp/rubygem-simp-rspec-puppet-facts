@@ -1,15 +1,15 @@
 ---
 HOSTS:
-  el9:
+  el10:
     roles:
       - linux
       - default
-    platform: el-9-x86_64
-    box: rockylinux/9
+    platform: el-10-x86_64
+    box: rockylinux/10
     hypervisor: "<%= ENV.fetch('BEAKER_HYPERVISOR', 'vagrant') %>"
     vagrant_memsize: 2048
     synced_folder: disabled
-    family: rocky-linux-cloud/rocky-linux-9
+    family: rocky-linux-cloud/rocky-linux-10
     gce_machine_type: n1-standard-2
 CONFIG:
   validate: false

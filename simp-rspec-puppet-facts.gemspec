@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
-require  File.expand_path('lib/simp/version.rb', File.dirname(__FILE__))
+
+require File.expand_path('lib/simp/version.rb', File.dirname(__FILE__))
 require 'date'
 
 Gem::Specification.new do |s|
@@ -15,16 +16,16 @@ Gem::Specification.new do |s|
   s.files       = Dir['Rakefile', '{bin,lib,facts,spec}/**/*', 'README*', 'LICENSE*'] & `git ls-files -z .`.split("\0")
   s.test_files  = Dir['Rakefile', '{spec,test,facts}/**/*'] & `git ls-files -z .`.split("\0")
 
-  s.add_runtime_dependency     'rspec-puppet-facts',      '>= 0'
-  s.add_development_dependency 'puppetlabs_spec_helper',  '>= 0'
-  s.add_development_dependency 'rake',                    '>= 10', '< 14'
-  s.add_development_dependency 'rspec',                   '~> 3.2'
+  s.add_dependency 'json',               '>= 1.0'
+  s.add_dependency 'openfact',           '>= 5.0'
+  s.add_dependency 'rspec-puppet-facts', '>= 0'
 
-  s.add_runtime_dependency     'json',                    '>= 1.0'
-  s.add_runtime_dependency     'facter',                  '>= 2.5.0', '< 5.0'
-
-  s.add_development_dependency 'pry',                     '>= 0'
-  s.add_development_dependency 'tins',                    '>= 1.6'
+  s.add_development_dependency 'pry',                    '>= 0'
+  s.add_development_dependency 'pry-byebug',             '>= 0'
+  s.add_development_dependency 'puppetlabs_spec_helper', '>= 0'
+  s.add_development_dependency 'rake',                   '>= 10', '< 14'
+  s.add_development_dependency 'rspec',                  '~> 3.13'
+  s.add_development_dependency 'tins',                   '>= 1.6'
 
   s.requirements << 'rspec-puppet-facts'
 end

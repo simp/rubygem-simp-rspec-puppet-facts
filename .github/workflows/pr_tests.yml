@@ -1,0 +1,62 @@
+# Run checks and test matrix on Pull Requests
+# ------------------------------------------------------------------------------
+# The testing matrix considers Ruby/OpenVox versions supported by SIMP:
+# ------------------------------------------------------------------------------
+# OpenVox  Ruby
+# 8.x      3.2
+#
+# ==============================================================================
+#
+# https://docs.github.com/en/actions/reference/events-that-trigger-workflows
+#
+---
+name: PR Tests
+'on':
+  push:
+    branches:
+      # A test branch for seeing if your tests will pass in your personal fork
+      - test_me_github
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+env:
+  PUPPET_VERSION: '~> 8'
+
+jobs:
+  ruby-style:
+    name: 'Ruby Style'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - name: "Install Ruby 3.2"
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          bundler-cache: true
+      - run: |
+          bundle show
+          bundle exec rubocop
+
+  spec-tests:
+    name: 'Spec'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        puppet:
+          - label: 'Puppet 8.x'
+            puppet_version: '~> 8.0'
+            ruby_version: '3.2'
+            experimental: false
+    env:
+      PUPPET_VERSION: ${{matrix.puppet.puppet_version}}
+    steps:
+      - uses: actions/checkout@v5
+      - name: 'Install Ruby ${{matrix.puppet.ruby_version}}'
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{matrix.puppet.ruby_version}}
+          bundler-cache: true
+      - run: 'command -v rpm || if command -v apt-get; then sudo apt-get update; sudo apt-get install -y rpm; fi ||:'
+      - run: 'bundle exec rake spec'
+        continue-on-error: ${{matrix.puppet.experimental}}

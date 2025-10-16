@@ -1,3 +1,7 @@
+## 2025-10-10 / 4.0.0 - Add openfact 5.1 factsets
+- Add support for openfact
+- Drop testing for EOL Puppet 7/Ruby 2.7
+
 ## 2024-10-22 / 3.13.0 - Add facter 4.10 factsets
 - Add facter 4.10 factsets
 

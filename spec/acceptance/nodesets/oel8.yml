@@ -1,23 +1,16 @@
-<%
-  if ENV['BEAKER_HYPERVISOR']
-    hypervisor = ENV['BEAKER_HYPERVISOR']
-  else
-    hypervisor = 'vagrant'
-  end
--%>
+---
 HOSTS:
   oel8:
     roles:
       - linux
       - default
-    platform:   el-8-x86_64
-    box:        generic/oracle8
-    hypervisor: <%= hypervisor %>
+    platform: el-8-x86_64
+    box: oraclelinux/8
+    box_url: https://oracle.github.io/vagrant-projects/boxes/oraclelinux/8.json
+    hypervisor: <%= ENV.fetch('BEAKER_HYPERVISOR', 'vagrant') %>
     vagrant_memsize: 2048
 
 CONFIG:
   log_level: verbose
   type: aio
-<% if ENV['BEAKER_PUPPET_COLLECTION'] -%>
-  puppet_collection: <%= ENV['BEAKER_PUPPET_COLLECTION'] %>
-<% end -%>
+  puppet_collection: <%= ENV.fetch('BEAKER_PUPPET_COLLECTION', 'openvox8') %>
