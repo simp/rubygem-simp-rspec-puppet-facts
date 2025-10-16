@@ -14,6 +14,10 @@ describe 'Simp::RspecPuppetFacts' do
           Dir.chdir(File.join(File.dirname(__FILE__), '../fixtures'))
         end
 
+        after(:each) do
+          Dir.chdir(File.join(File.dirname(__FILE__), '../..'))
+        end
+
         it 'returns a hash' do
           expect(on_supported_os.class).to eq Hash
         end
