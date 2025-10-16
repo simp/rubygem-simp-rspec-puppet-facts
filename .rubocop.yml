@@ -702,3 +702,8 @@ Style/SwapValues:
   Enabled: false
 Naming/PredicatePrefix:
   Enabled: false
+Naming/FileName:
+  Exclude:
+    - 'lib/simp-rspec-puppet-facts.rb'
+    - 'lib/simp/rspec-puppet-facts.rb'
+  Enabled: true
