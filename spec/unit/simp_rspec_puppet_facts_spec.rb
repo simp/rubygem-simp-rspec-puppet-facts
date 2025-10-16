@@ -11,7 +11,7 @@ describe 'Simp::RspecPuppetFacts' do
 
       context 'With a metadata.json file' do
         before(:each) do
-          Dir.chdir(File.join(File.dirname(__FILE__), 'fixtures'))
+          Dir.chdir(File.join(File.dirname(__FILE__), '../fixtures'))
         end
 
         it 'returns a hash' do
@@ -21,26 +21,26 @@ describe 'Simp::RspecPuppetFacts' do
           expect(subject_on_supported_os.size).to be >= 4
         end
         it 'returns supported OS' do
-          expect(subject_on_supported_os.keys.sort).to include 'centos-7-x86_64'
-          expect(subject_on_supported_os.keys.sort).to include 'centos-8-x86_64'
-          expect(subject_on_supported_os.keys.sort).to include 'redhat-7-x86_64'
-          expect(subject_on_supported_os.keys.sort).to include 'redhat-8-x86_64'
+          expect(subject_on_supported_os.keys.sort).to include 'centos-9-x86_64'
+          expect(subject_on_supported_os.keys.sort).to include 'centos-10-x86_64'
+          expect(subject_on_supported_os.keys.sort).to include 'redhat-9-x86_64'
+          expect(subject_on_supported_os.keys.sort).to include 'redhat-10-x86_64'
         end
         it 'returns SIMP-specific OS facts' do
           grub_version_facts = subject_on_supported_os.map do |os, data|
             { os => data.slice(:uid_min, :grub_version) }
           end
           expect(grub_version_facts).to include(
-            { 'centos-8-x86_64' => { uid_min: '1000', grub_version: '2.03' } },
+            { 'centos-10-x86_64' => { uid_min: '1000', grub_version: '2.12' } },
           )
           expect(grub_version_facts).to include(
-            { 'centos-7-x86_64' => { uid_min: '1000', grub_version: '2.02~beta2' } },
+            { 'centos-9-x86_64' => { uid_min: '1000', grub_version: '2.06' } },
           )
           expect(grub_version_facts).to include(
-            { 'redhat-8-x86_64' => { uid_min: '1000', grub_version: '2.03' } },
+            { 'redhat-10-x86_64' => { uid_min: '1000', grub_version: '2.12' } },
           )
           expect(grub_version_facts).to include(
-            { 'redhat-7-x86_64' => { uid_min: '1000', grub_version: '2.02~beta2' } },
+            { 'redhat-9-x86_64' => { uid_min: '1000', grub_version: '2.06' } },
           )
         end
       end
@@ -94,8 +94,8 @@ describe 'Simp::RspecPuppetFacts' do
       end
       it 'returns supported OS' do
         expect(subject_on_supported_os.keys.sort).to eq [
-          'centos-9-x86_64',
           'centos-10-x86_64',
+          'centos-9-x86_64',
           'redhat-9-x86_64',
         ]
       end

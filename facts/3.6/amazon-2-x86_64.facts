@@ -178,7 +178,7 @@
     "instance-life-cycle": "on-demand",
     "instance-type": "t2.micro",
     "local-hostname": "foo.example.com",
-    "local-ipv4": "10.0.2.254",
+    "local-ipv4": "10.0.2.15",
     "mac": "12:cd:9a:27:0f:2b",
     "metrics": {
       "vhostmd": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
@@ -190,10 +190,10 @@
             "device-number": "0",
             "interface-id": "eni-aaaaaaaaaaaaaaaaa",
             "ipv4-associations": {
-              "3.91.239.102": "10.0.2.254"
+              "3.91.239.102": "10.0.2.15"
             },
             "local-hostname": "foo.example.com",
-            "local-ipv4s": "10.0.2.254",
+            "local-ipv4s": "10.0.2.15",
             "mac": "12:cd:9a:27:0f:2b",
             "owner-id": "111111111111",
             "public-hostname": "",
@@ -617,7 +617,7 @@
       "eth0": {
         "bindings": [
           {
-            "address": "10.0.2.254",
+            "address": "10.0.2.15",
             "netmask": "255.255.255.0",
             "network": "10.0.2.0"
           }
@@ -630,7 +630,7 @@
           }
         ],
         "dhcp": "10.0.2.1",
-        "ip": "10.0.2.254",
+        "ip": "10.0.2.15",
         "ip6": "fe80::10cd:9aff:fe27:f2b",
         "mac": "12:cd:9a:27:0f:2b",
         "mtu": 9001,
@@ -665,7 +665,7 @@
         "scope6": "host"
       }
     },
-    "ip": "10.0.2.254",
+    "ip": "10.0.2.15",
     "ip6": "fe80::10cd:9aff:fe27:f2b",
     "mac": "12:cd:9a:27:0f:2b",
     "mtu": 9001,

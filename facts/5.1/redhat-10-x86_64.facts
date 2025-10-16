@@ -1426,7 +1426,7 @@
   "tmp_mount_dev_shm": "rw,seclabel,nosuid,nodev,inode64",
   "tmp_mount_fstype_dev_shm": "tmpfs",
   "tmp_mount_path_dev_shm": "tmpfs",
-  "uid_min": "500",
+  "uid_min": "1000",
   "uptime": "0:03 hours",
   "uptime_days": 0,
   "uptime_hours": 0,

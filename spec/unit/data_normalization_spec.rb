@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Simp::RspecPuppetFacts' do
-  facts_top_path = File.expand_path('../facts', File.dirname(__FILE__))
+  facts_top_path = File.expand_path('../../facts', File.dirname(__FILE__))
   facter_paths = Dir[File.join(facts_top_path, '?.?')].sort
 
   facter_paths.each do |facter_path|
@@ -22,7 +22,11 @@ describe 'Simp::RspecPuppetFacts' do
           end
 
           it 'has a grub_version' do
-            expect(facts['grub_version']).to match(%r{^(0\.9|2\.)})
+            if facts['kernel'] == 'windows'
+              expect(facts).not_to have_key('grub_version')
+            else
+              expect(facts['grub_version']).to match(%r{^(0\.9|2\.)})
+            end
           end
         end
       end
