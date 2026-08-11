@@ -22,9 +22,9 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'pry',                    '>= 0'
   s.add_development_dependency 'pry-byebug',             '>= 0'
-  s.add_development_dependency 'puppetlabs_spec_helper', '>= 0'
   s.add_development_dependency 'rake',                   '>= 10', '< 14'
   s.add_development_dependency 'rspec',                  '~> 3.13'
+  s.add_development_dependency 'rspec-puppet',           '>= 5'
   s.add_development_dependency 'tins',                   '>= 1.6'
 
   s.requirements << 'rspec-puppet-facts'

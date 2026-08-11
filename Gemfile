@@ -23,7 +23,12 @@ group :test do
   gem 'beaker_puppet_helpers', '~> 3.1.1'
   gem 'beaker-rspec', '~> 9.1.0'
   gem 'beaker-windows', '~> 0.6.2'
-  gem 'puppetlabs_spec_helper', '~> 8.0.0'
+  # puppetlabs_spec_helper drags in puppet-syntax ~> 4.1, which requires the
+  # legacy `puppet` gem, and that gem cannot even load on Ruby 4.  It is only
+  # needed here for the Simp::Rake::Beaker tasks (via simp-beaker-helpers),
+  # which the Rakefile skips when it isn't available.
+  gem 'puppetlabs_spec_helper', '~> 8.0.0' if Gem::Requirement.create('< 4').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
+  gem 'rspec-puppet', '~> 5.0'
   gem 'simp-beaker-helpers', '~> 2.0.4'
   # For EL9
   gem 'bcrypt_pbkdf', '~> 1.1.1' unless RUBY_PLATFORM == 'java'

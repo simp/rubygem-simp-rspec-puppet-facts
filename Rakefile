@@ -1,7 +1,14 @@
-require 'simp/rake/beaker'
 require 'bundler/gem_tasks'
+require 'rspec/core/rake_task'
 
-Simp::Rake::Beaker.new(__dir__)
+begin
+  require 'simp/rake/beaker'
+  Simp::Rake::Beaker.new(__dir__)
+rescue LoadError => e
+  # simp-beaker-helpers' rake tasks need puppetlabs_spec_helper, which isn't
+  # installable on Ruby 4 (it requires the legacy `puppet` gem)
+  warn "WARNING: skipping Simp::Rake::Beaker tasks (#{e.message})"
+end
 
 def syntax_check(task, glob)
   warn "---> #{task.name}"
