@@ -11,7 +11,9 @@ module Simp::RspecPuppetFacts
   SELINUX_MODES = [:enforcing, :disabled, :permissive].freeze
 
   def supported_os_strings(opts, known_os_list = [])
-    supported_os = opts.fetch(:supported_os, RspecPuppetFacts.meta_supported_os)
+    # The default has to be a block so that metadata.json is only consulted
+    # when :supported_os wasn't given
+    supported_os = opts.fetch(:supported_os) { RspecPuppetFacts.meta_supported_os }
     hardwaremodels = opts.fetch(:hardwaremodels, ['x86_64'])
     os_strings = []
     supported_os.each do |os|
@@ -41,7 +43,7 @@ module Simp::RspecPuppetFacts
   # because if it doesn't have them it will crash
   def filter_opts(opts, simp_h)
     rfh_hw = opts.fetch(:hardwaremodels, ['x86_64'])
-    rfh_os = opts.fetch(:supported_os, RspecPuppetFacts.meta_supported_os).dup
+    rfh_os = opts.fetch(:supported_os) { RspecPuppetFacts.meta_supported_os }.dup
 
     filtered_opts = []
     rfh_os.each do |os|
@@ -57,11 +59,13 @@ module Simp::RspecPuppetFacts
 
       next if os['operatingsystemrelease'].empty?
 
-      rfh_hw.each do |hw|
-        os['operatingsystemrelease'].each do |rel|
-          filtered_opts.push(os) unless simp_h.key?([os['operatingsystem'].downcase, rel, hw].join('-'))
-        end
+      # Only pass along the releases we don't have facts for, and only list
+      # each OS once, no matter how many of its releases are missing
+      missing_releases = os['operatingsystemrelease'].select do |rel|
+        rfh_hw.any? { |hw| !simp_h.key?([os['operatingsystem'].downcase, rel, hw].join('-')) }
       end
+
+      filtered_opts.push(os.merge('operatingsystemrelease' => missing_releases)) unless missing_releases.empty?
     end
 
     ret_opts = opts.dup
@@ -203,7 +207,8 @@ module Simp::RspecPuppetFacts
 
       if fallback_version
         fact_dir = File.join(fact_dir_path, fallback_version)
-        warn "WARNING: Using fallback facts for Facter #{fallback_version} (requested #{facter_xy_version})"
+        warn "WARNING: No SIMP factsets for Facter #{facter_xy_version}; " \
+             "falling back to the newest available factsets (Facter #{fallback_version})"
       else
         msg = <<~END_MSG
           Can't find SIMP facts for Facter #{facter_xy_version}, skipping...
@@ -232,5 +237,19 @@ module Simp::RspecPuppetFacts
   class Shim
     require 'rspec-puppet-facts'
     extend ::RspecPuppetFacts
+
+    # `extend ::RspecPuppetFacts` above is not enough to guarantee that
+    # `Shim.on_supported_os` reaches the upstream implementation: if a
+    # spec_helper has already done a top-level `include RspecPuppetFacts`
+    # (voxpupuli-test does this), the module is already in Object's ancestry
+    # and the `extend` is silently skipped.  A later top-level
+    # `include Simp::RspecPuppetFacts` then shadows the upstream method, so
+    # `Shim.on_supported_os` would dispatch back to
+    # Simp::RspecPuppetFacts#on_supported_os and recurse without bound,
+    # exhausting all memory during fact loading (issue #86).  Bind the
+    # upstream method explicitly so dispatch can never be shadowed.
+    def self.on_supported_os(opts = {})
+      ::RspecPuppetFacts.instance_method(:on_supported_os).bind_call(self, opts)
+    end
   end
 end

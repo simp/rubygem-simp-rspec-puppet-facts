@@ -1,3 +1,13 @@
+## 2026-08-11 / 4.0.1 - Fix unbounded recursion during fact loading
+- Fix unbounded recursion (and runaway memory growth) in `on_supported_os`
+  when a spec_helper does a top-level `include RspecPuppetFacts` before this
+  gem is loaded, as voxpupuli-test does (#86)
+- Only ask rspec-puppet-facts about OS releases missing from the SIMP
+  factsets, and only list each OS once
+- Don't consult `metadata.json` when `:supported_os` is given explicitly
+- Clarify the factset fallback warning to state that the newest available
+  SIMP factset is being used
+
 ## 2025-10-10 / 4.0.0 - Add openfact 5.1 factsets
 - Add support for openfact
 - Drop testing for EOL Puppet 7/Ruby 2.7
