@@ -21,7 +21,7 @@ end
 group :test do
   gem 'beaker', '~> 7.1.0'
   gem 'beaker_puppet_helpers', '~> 3.1.1'
-  gem 'beaker-rspec', '~> 9.0.0'
+  gem 'beaker-rspec', '~> 9.1.0'
   gem 'beaker-windows', '~> 0.6.2'
   gem 'puppetlabs_spec_helper', '~> 8.0.0'
   gem 'simp-beaker-helpers', '~> 2.0.4'
