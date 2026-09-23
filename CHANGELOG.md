@@ -1,3 +1,13 @@
+## 2026-09-23 / 4.0.2 - Require an openfact-based rspec-puppet-facts
+- Require `rspec-puppet-facts >= 6.0`, the first release that depends on
+  `openfact` instead of `facter`. With no floor, Bundler could satisfy a
+  conflicting `openfact` requirement (e.g. `openvox 9` requires
+  `openfact ~> 6.0` while `rspec-puppet-facts` 6.2.0 pins `openfact ~> 5.0`)
+  by falling back to `rspec-puppet-facts` 5.4.0, which depends on
+  `facter < 5`. On Ruby 4 that resolves to `facter` 2.5.7, whose legacy fact
+  files openfact then loads as custom facts, breaking the `os` fact. Bundler
+  now reports the conflict instead.
+
 ## 2026-08-11 / 4.0.1 - Fix unbounded recursion during fact loading
 - Fix unbounded recursion (and runaway memory growth) in `on_supported_os`
   when a spec_helper does a top-level `include RspecPuppetFacts` before this
