@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'json',               '>= 1.0'
   s.add_dependency 'openfact',           '>= 5.0'
-  s.add_dependency 'rspec-puppet-facts', '>= 0'
+  s.add_dependency 'rspec-puppet-facts', '>= 6.0'
 
   s.add_development_dependency 'pry',                    '>= 0'
   s.add_development_dependency 'pry-byebug',             '>= 0'
