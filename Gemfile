@@ -5,7 +5,7 @@
 # PUPPET_VERSION     | provided for backwards-compatibility
 # OPENFACT_VERSION   | specifies the version of the openfact gem to load
 # FACTER_GEM_VERSION | provided for backwards-compatibility
-openvoxversion = ENV.fetch('OPENVOX_VERSION', ENV.fetch('PUPPET_VERSION', '~> 8.0'))
+openvoxversion = ENV.fetch('OPENVOX_VERSION', ENV.fetch('PUPPET_VERSION', ['>= 8', '< 10']))
 gem_sources = ENV.key?('SIMP_GEM_SERVERS') ? ENV['SIMP_GEM_SERVERS'].split(%r{[, ]+}) : ['https://rubygems.org']
 
 gem_sources.each { |gem_source| source gem_source }
