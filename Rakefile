@@ -5,8 +5,7 @@ begin
   require 'simp/rake/beaker'
   Simp::Rake::Beaker.new(__dir__)
 rescue LoadError => e
-  # simp-beaker-helpers' rake tasks need puppetlabs_spec_helper, which isn't
-  # installable on Ruby 4 (it requires the legacy `puppet` gem)
+  # The beaker gems are in the :test group, which may not be installed
   warn "WARNING: skipping Simp::Rake::Beaker tasks (#{e.message})"
 end
 
