@@ -19,17 +19,15 @@ if (openfactversion = ENV.fetch('OPENFACT_VERSION', ENV.fetch('FACTER_GEM_VERSIO
 end
 
 group :test do
-  gem 'beaker', '~> 7.1.0'
-  gem 'beaker_puppet_helpers', '~> 3.1.1'
+  gem 'beaker', '~> 7.8'
+  gem 'beaker_puppet_helpers', '~> 3.3'
   gem 'beaker-rspec', '~> 9.1.0'
   gem 'beaker-windows', '~> 0.6.2'
-  # puppetlabs_spec_helper drags in puppet-syntax ~> 4.1, which requires the
-  # legacy `puppet` gem, and that gem cannot even load on Ruby 4.  It is only
-  # needed here for the Simp::Rake::Beaker tasks (via simp-beaker-helpers),
-  # which the Rakefile skips when it isn't available.
-  gem 'puppetlabs_spec_helper', '~> 8.0.0' if Gem::Requirement.create('< 4').satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
   gem 'rspec-puppet', '~> 5.0'
-  gem 'simp-beaker-helpers', '~> 2.0.4'
+  # TODO: replace with the released gem before merging:
+  #   gem 'simp-beaker-helpers', ENV.fetch('SIMP_BEAKER_HELPERS_VERSION', '~> 3.2')
+  # (needs BEAKER_OPENVOX_PACKAGE_VERSION, simp/rubygem-simp-beaker-helpers#292)
+  gem 'simp-beaker-helpers', git: 'https://github.com/silug/rubygem-simp-beaker-helpers.git', branch: 'install-pinned-agent-version'
   # For EL9
   gem 'bcrypt_pbkdf', '~> 1.1.1' unless RUBY_PLATFORM == 'java'
   gem 'net-ssh', '~> 7.3.0'

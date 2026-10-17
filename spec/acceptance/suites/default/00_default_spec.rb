@@ -18,6 +18,12 @@ describe 'look out muppets' do
         @output = []
       end
 
+      # SIMP facts such as firewalld_version and iptables_version only resolve
+      # when the software is installed, and minimal images leave it out
+      it 'installs the software that SIMP facts report on', unless: host.platform.start_with?('windows') do
+        ['firewalld', 'iptables'].each { |pkg| host.install_package(pkg) unless host.check_for_package(pkg) }
+      end
+
       it 'installs the simp_core module' do
         on(host, 'puppet module install simp/simp_core')
       end
