@@ -105,6 +105,61 @@ describe 'Simp::RspecPuppetFacts' do
       end
     end
 
+    context 'When a supported OS has no SIMP factset' do
+      subject(:subject_on_supported_os) do
+        on_supported_os(
+          {
+            supported_os: [
+              { 'operatingsystem' => 'RedHat', 'operatingsystemrelease' => ['9'] },
+              { 'operatingsystem' => 'Ubuntu', 'operatingsystemrelease' => ['24.04'] },
+            ],
+            extra_facts: { custom_fact: 'extra' },
+            extra_facts_immutable: { immutable_fact: 'immutable' },
+          },
+        )
+      end
+
+      before(:each) do
+        Simp::RspecPuppetFacts.warned_fallback_os.clear
+        allow(self).to receive(:warn)
+      end
+
+      it 'returns the SIMP factset and the FacterDB factset' do
+        expect(subject_on_supported_os.keys).to contain_exactly('redhat-9-x86_64', 'ubuntu-24.04-x86_64')
+      end
+
+      it 'deep-symbolizes the FacterDB facts like the SIMP factsets' do
+        facts = subject_on_supported_os['ubuntu-24.04-x86_64']
+        expect(facts.keys).to all(be_a(Symbol))
+        expect(facts[:os][:family]).to eq 'Debian'
+        expect(facts[:os][:release][:major]).to eq '24.04'
+      end
+
+      it 'applies extra_facts and extra_facts_immutable to the FacterDB facts' do
+        facts = subject_on_supported_os['ubuntu-24.04-x86_64']
+        expect(facts[:custom_fact]).to eq 'extra'
+        expect(facts[:immutable_fact]).to eq 'immutable'
+      end
+
+      it 'keeps using the SIMP factset for releases that have one' do
+        expect(subject_on_supported_os['redhat-9-x86_64']).to eq(
+          on_supported_os(
+            {
+              supported_os: [{ 'operatingsystem' => 'RedHat', 'operatingsystemrelease' => ['9'] }],
+              extra_facts: { custom_fact: 'extra' },
+              extra_facts_immutable: { immutable_fact: 'immutable' },
+            },
+          )['redhat-9-x86_64'],
+        )
+      end
+
+      it 'warns once per OS release that FacterDB facts are used' do
+        expect(self).to receive(:warn).with(%r{No SIMP factsets for ubuntu-24\.04-x86_64; using the rspec-puppet-facts}).once
+        subject_on_supported_os
+        subject_on_supported_os
+      end
+    end
+
     context 'When specifying wrong supported_os' do
       subject(:subject_on_supported_os) do
         on_supported_os(

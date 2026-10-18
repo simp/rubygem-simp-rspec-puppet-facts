@@ -79,13 +79,23 @@ module Simp::RspecPuppetFacts
     simp_h = load_facts(opts[:simp_fact_dir_path])
 
     masked_opts = filter_opts(opts, simp_h)
-    Simp::RspecPuppetFacts::Shim.on_supported_os(masked_opts) unless masked_opts[:supported_os]&.empty?
+    rfh_h = masked_opts[:supported_os]&.empty? ? {} : Simp::RspecPuppetFacts::Shim.on_supported_os(masked_opts)
 
-    # merged_os_hash = rfh_h.merge(simp_h)  # we should NOT merge default facterdb factsets
-    merged_os_hash = simp_h
+    # SIMP factsets always win. For a supported OS release with no SIMP
+    # factset, fall back to rspec-puppet-facts (FacterDB), with the keys
+    # deep-symbolized to match the SIMP factsets.
+    fallback_h = rfh_h.reject { |os, _| simp_h.key?(os) }.transform_values { |facts| symbolize_keys(facts) }
+    warn_fallback(fallback_h.keys)
+
+    merged_os_hash = simp_h.merge(fallback_h)
     h = merged_os_hash.slice(*supported_os_strings(opts, merged_os_hash.keys))
 
     h.each do |os, facts|
+      if fallback_h.key?(os)
+        facts.merge! opts.fetch(:extra_facts, {})
+        facts.merge! opts.fetch(:extra_facts_immutable, {})
+      end
+
       facter_ver = Facter.version.split('.')[0..1].join('.')
       facts_file = File.expand_path("../../facts/#{facter_ver}/#{os}.facts",
                                     File.dirname(__FILE__))
@@ -114,6 +124,23 @@ module Simp::RspecPuppetFacts
     end
 
     h
+  end
+
+  # The OS releases already warned about by #warn_fallback, so a test suite
+  # warns once per release rather than once per spec file.
+  def self.warned_fallback_os
+    @warned_fallback_os ||= []
+  end
+
+  # Warn once per OS release that its facts come from FacterDB, which lacks
+  # the custom facts the SIMP factsets capture.
+  def warn_fallback(os_list)
+    new_os = os_list - Simp::RspecPuppetFacts.warned_fallback_os
+    return if new_os.empty?
+
+    Simp::RspecPuppetFacts.warned_fallback_os.concat(new_os)
+    warn "WARNING: No SIMP factsets for #{new_os.sort.join(', ')}; " \
+         'using the rspec-puppet-facts (FacterDB) factsets, which lack the custom facts SIMP captures'
   end
 
   def lsb_facts(facts)
