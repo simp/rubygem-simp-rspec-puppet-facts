@@ -1,3 +1,10 @@
+## 2026-10-18 / 4.1.0 - Fall back to FacterDB factsets
+- For a supported OS release with no SIMP factset, `on_supported_os` now
+  returns the rspec-puppet-facts (FacterDB) factset, with the keys
+  deep-symbolized like the SIMP factsets and `:extra_facts`/`:extra_facts_immutable`
+  applied, and warns once per release. Before, such releases (for example
+  Ubuntu) were silently left out, so their specs never ran.
+
 ## 2026-09-23 / 4.0.2 - Require an openfact-based rspec-puppet-facts
 - Require `rspec-puppet-facts >= 6.0`, the first release that depends on
   `openfact` instead of `facter`. With no floor, Bundler could satisfy a

@@ -50,6 +50,16 @@ describe 'module_name::class_name' do
 end
 ```
 
+### Operating systems without SIMP factsets
+
+The facts come from the factsets this gem ships, which include custom facts
+SIMP captures from real systems. For a release in `metadata.json` with no SIMP
+factset (for example Ubuntu), `on_supported_os` falls back to the
+[rspec-puppet-facts](https://github.com/voxpupuli/rspec-puppet-facts) (FacterDB)
+factset, with the keys deep-symbolized to match the SIMP factsets, and prints a
+warning once per release. Those facts lack SIMP's custom facts, so specs may
+need to supply the ones they use (with `:extra_facts`).
+
 ### Providing options
 See the [options](#options) for details
 ```ruby
