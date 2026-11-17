@@ -1,0 +1,238 @@
+# Collect SIMP factsets with a specific openvox-agent release
+# ------------------------------------------------------------------------------
+# Runs the default acceptance suite (spec/acceptance/suites/default) on each
+# requested nodeset under beaker + vagrant-libvirt, with openvox-agent pinned to
+# the requested package version, and files the resulting factsets under
+# facts/<openfact major.minor>/.
+#
+# workflow_dispatch: commits the factsets to `facts/openfact-<X.Y>` and opens
+#   (or updates) a PR for it.  Re-running for more nodesets adds to the same
+#   branch and PR, so a factset directory can be filled in over several runs.
+# pull_request (changes to this workflow or the suite): collects
+#   PR_NODESETS with PR_AGENT_VERSION, and checks that the app token can push by
+#   pushing to a temporary branch and deleting it.  No PR is opened.
+#
+# Requires the SIMP Automation GitHub App (SIMP_APP_ID/SIMP_APP_PRIVATE_KEY).
+# ==============================================================================
+---
+name: Collect facts
+'on':
+  workflow_dispatch:
+    inputs:
+      openvox_agent_version:
+        description: 'Exact openvox-agent package version to collect with (e.g. 9.0.0~rc1, 8.29.0)'
+        required: true
+        type: string
+      nodesets:
+        description: 'Comma-separated nodesets from spec/acceptance/nodesets, or "all"'
+        required: true
+        default: 'all'
+        type: string
+  pull_request:
+    types: [opened, reopened, synchronize]
+    paths:
+      - '.github/workflows/collect_facts.yml'
+      - 'facts/scripts/stage_collected_facts.rb'
+      - 'spec/acceptance/**'
+      - 'spec/spec_helper_acceptance.rb'
+
+permissions:
+  contents: read
+
+env:
+  # The nodesets collected for "all"
+  ALL_NODESETS: 'almalinux8,almalinux9,almalinux10,centos9,centos10,oel8,oel9,oel10,rocky8,rocky9,rocky10'
+  # What a pull_request run collects, to test the workflow itself
+  PR_AGENT_VERSION: '9.0.0~rc1'
+  PR_NODESETS: 'almalinux9'
+
+jobs:
+  plan:
+    name: 'Plan'
+    runs-on: ubuntu-latest
+    outputs:
+      agent_version: ${{ steps.plan.outputs.agent_version }}
+      collection: ${{ steps.plan.outputs.collection }}
+      nodesets: ${{ steps.plan.outputs.nodesets }}
+    steps:
+      - uses: actions/checkout@v7
+      - id: plan
+        env:
+          INPUT_AGENT_VERSION: ${{ inputs.openvox_agent_version }}
+          INPUT_NODESETS: ${{ inputs.nodesets }}
+        run: |
+          version="${INPUT_AGENT_VERSION:-$PR_AGENT_VERSION}"
+          nodesets="${INPUT_NODESETS:-$PR_NODESETS}"
+          [ "$nodesets" = 'all' ] && nodesets="$ALL_NODESETS"
+
+          if ! [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+([~+-][0-9A-Za-z.~+-]+)?$ ]]; then
+            echo "::error::'$version' is not an openvox-agent package version (e.g. 9.0.0~rc1, 8.29.0)"
+            exit 1
+          fi
+
+          list=()
+          IFS=',' read -ra requested <<< "$nodesets"
+          for n in "${requested[@]}"; do
+            n="$(echo "$n" | tr -d '[:space:]')"
+            [ -z "$n" ] && continue
+            if ! [[ "$n" =~ ^[A-Za-z0-9_-]+$ ]] || [ ! -f "spec/acceptance/nodesets/${n}.yml" ]; then
+              echo "::error::Unknown nodeset '$n'"
+              exit 1
+            fi
+            list+=("$n")
+          done
+          [ "${#list[@]}" -gt 0 ] || { echo '::error::No nodesets requested'; exit 1; }
+
+          {
+            echo "agent_version=$version"
+            echo "collection=openvox${version%%.*}"
+            echo "nodesets=$(printf '%s\n' "${list[@]}" | jq -Rnc '[inputs]')"
+          } >> "$GITHUB_OUTPUT"
+          echo "Collecting with openvox-agent $version on: ${list[*]}" >> "$GITHUB_STEP_SUMMARY"
+
+  collect:
+    name: 'Collect (${{ matrix.nodeset }})'
+    needs: plan
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        nodeset: ${{ fromJSON(needs.plan.outputs.nodesets) }}
+    env:
+      BEAKER_HYPERVISOR: 'vagrant_libvirt'
+      VAGRANT_DEFAULT_PROVIDER: 'libvirt'
+      # The nodesets read BEAKER_PUPPET_COLLECTION; simp-beaker-helpers prefers the OpenVox name
+      BEAKER_OPENVOX_COLLECTION: ${{ needs.plan.outputs.collection }}
+      BEAKER_PUPPET_COLLECTION: ${{ needs.plan.outputs.collection }}
+      BEAKER_OPENVOX_PACKAGE_VERSION: ${{ needs.plan.outputs.agent_version }}
+      NODESET: ${{ matrix.nodeset }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: 'Install Ruby'
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '4.0.7'
+          bundler-cache: true
+      - name: 'Set up libvirt for Vagrant'
+        run: |
+          sudo add-apt-repository ppa:evgeni/vagrant
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends vagrant vagrant-libvirt libvirt-daemon-system libvirt-daemon qemu-system-x86 qemu-utils dnsmasq
+          sudo chmod 666 /var/run/libvirt/libvirt-sock
+      - name: 'Collect facts'
+        run: bundle exec rake "beaker:suites[default,${NODESET}]"
+      - name: 'Verify and stage the factset'
+        run: ruby facts/scripts/stage_collected_facts.rb "$BEAKER_OPENVOX_PACKAGE_VERSION" collected_facts staged
+      - uses: actions/upload-artifact@v7
+        with:
+          name: 'facts-${{ matrix.nodeset }}'
+          path: staged/
+          if-no-files-found: error
+
+  publish:
+    name: 'Publish'
+    needs: [plan, collect]
+    # Publish whatever was collected, even if some nodesets failed. Pull requests
+    # from forks get no secrets, so they stop after collecting.
+    if: >-
+      !cancelled() && needs.plan.result == 'success' &&
+      (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: ubuntu-latest
+    concurrency:
+      group: 'collect-facts-publish'
+      cancel-in-progress: false
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: 'facts-*'
+          path: staged
+          merge-multiple: true
+      - id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.SIMP_APP_ID }}
+          private-key: ${{ secrets.SIMP_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+      - uses: actions/checkout@v7
+        with:
+          path: repo
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+      - name: 'Commit the factsets and open or update the PR'
+        working-directory: repo
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
+          AGENT_VERSION: ${{ needs.plan.outputs.agent_version }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          shopt -s nullglob
+          dirs=(../staged/*/)
+          if [ "${#dirs[@]}" -eq 0 ]; then
+            echo '::error::No factsets were collected'
+            exit 1
+          elif [ "${#dirs[@]}" -ne 1 ]; then
+            echo "::error::Factsets span several OpenFact versions: ${dirs[*]}"
+            exit 1
+          fi
+          xy="$(basename "${dirs[0]}")"
+          files=("${dirs[0]}"*.facts)
+          names="$(for f in "${files[@]}"; do basename "$f" .facts; done | sort | paste -sd, - | sed 's/,/, /g')"
+
+          if [ "$EVENT_NAME" = 'pull_request' ]; then
+            branch="ci-test/collect-facts-${GITHUB_RUN_ID}"
+          else
+            branch="facts/openfact-${xy}"
+          fi
+
+          if git ls-remote --exit-code --heads origin "$branch" > /dev/null; then
+            git fetch origin "$branch"
+            git checkout -B "$branch" FETCH_HEAD
+          else
+            git checkout -B "$branch" "origin/${DEFAULT_BRANCH}"
+          fi
+
+          mkdir -p "facts/${xy}"
+          cp "${files[@]}" "facts/${xy}/"
+          git add "facts/${xy}"
+          if git diff --cached --quiet; then
+            echo "No factset changes for OpenFact ${xy}" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          bot_id="$(gh api "/users/${APP_SLUG}%5Bbot%5D" --jq .id)"
+          git -c user.name="${APP_SLUG}[bot]" -c user.email="${bot_id}+${APP_SLUG}[bot]@users.noreply.github.com" \
+            commit -q -m "Collect OpenFact ${xy} factsets with openvox-agent ${AGENT_VERSION}" -m "Nodes: ${names}"
+          git push -q origin "HEAD:refs/heads/${branch}"
+
+          if [ "$EVENT_NAME" = 'pull_request' ]; then
+            git push -q origin --delete "$branch"
+            echo "Pushed and deleted \`${branch}\` (OpenFact ${xy}: ${names}); no PR opened for a pull_request run" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # Coverage against the newest older factset directory
+          previous="$(find facts -mindepth 1 -maxdepth 1 -type d -name '[0-9]*.[0-9]*' -printf '%f\n' | grep -vx "$xy" | sort -V | tail -1)"
+          body="$(
+            echo "Factsets collected by the [Collect facts](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/workflows/collect_facts.yml) workflow."
+            echo
+            echo "| Factset | \`facts/${xy}\` | \`facts/${previous}\` |"
+            echo '|---|---|---|'
+            for f in $( (cd facts && ls "${xy}"/*.facts "${previous}"/*.facts 2>/dev/null) | xargs -n1 basename | sort -u); do
+              have="—"; [ -f "facts/${xy}/${f}" ] && have="$(jq -r .puppetversion "facts/${xy}/${f}")"
+              prev="—"; [ -f "facts/${previous}/${f}" ] && prev='✔'
+              echo "| \`${f%.facts}\` | ${have} | ${prev} |"
+            done
+            echo
+            echo 'Re-run the workflow with the missing nodesets to add them to this PR.'
+          )"
+
+          pr="$(gh pr list --head "$branch" --state open --json number --jq '.[0].number')"
+          if [ -n "$pr" ]; then
+            gh pr edit "$pr" --body "$body"
+          else
+            gh pr create --base "$DEFAULT_BRANCH" --head "$branch" --title "Add OpenFact ${xy} factsets" --body "$body"
+          fi
+          echo "$body" >> "$GITHUB_STEP_SUMMARY"

@@ -4,8 +4,6 @@ Gemfile.lock
 .vagrant/
 .bundle/
 coverage/
-facts/modules/
-facts/bun/
 vendor/
 collected_facts/
 log/

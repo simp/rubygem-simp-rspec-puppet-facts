@@ -137,19 +137,36 @@ Mock the output of historical lsb facts
 
 ## How to capture new facts
 
-### Beaker (preferred)
+Factsets are collected by running the `default` acceptance suite, which
+installs `simp/simp_core` (for SIMP's custom facts) and records
+`puppet facts show --show-legacy` on each node. Factsets are filed under
+`facts/<OpenFact major.minor>/`.
 
-- Add nodesets to `spec/acceptance/nodesets`
-- Run `bundle exec rake beaker:suites[default,ALL]`
-  - Replace `ALL` with the name of a specific nodeset if you only want to
-    collect on a single OS.
-- Review the facts in the `collected_facts` directory.
-- Update the facts in the associated `facts` directory.
-  - Make sure to rename the file as `<lowercase_os>-<major_version>-<arch>`
+### GitHub Actions (preferred)
 
-### Vagrant
+Run the [Collect facts](.github/workflows/collect_facts.yml) workflow with:
 
-- Place any modules containing facts you want to capture under `modules/`
-- Run `vagrant up`
-**NOTE:** This replaces any older fact data
+- `openvox_agent_version`: the exact `openvox-agent` package version to collect
+  with, e.g. `9.0.0~rc1` or `8.29.0`. The OpenFact version it ships determines
+  the target directory.
+- `nodesets`: a comma-separated list of nodesets from `spec/acceptance/nodesets`,
+  or `all`.
+
+The workflow commits the factsets to the `facts/openfact-<X.Y>` branch and opens
+(or updates) a PR. Re-run it for any nodesets that failed or are missing; each
+run adds to the same PR.
+
+### Locally with Beaker
+
+```sh
+BEAKER_HYPERVISOR=vagrant_libvirt \
+BEAKER_OPENVOX_COLLECTION=openvox9 BEAKER_PUPPET_COLLECTION=openvox9 \
+BEAKER_OPENVOX_PACKAGE_VERSION='9.0.0~rc1' \
+  bundle exec rake 'beaker:suites[default,almalinux9]'
+ruby facts/scripts/stage_collected_facts.rb '9.0.0~rc1' collected_facts facts
+```
+
+`stage_collected_facts.rb` refuses any factset that wasn't collected with the
+requested agent version, pins values that change on every run (uptime, load
+averages), and files each factset under its OpenFact version.
 
